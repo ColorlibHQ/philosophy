@@ -3266,7 +3266,10 @@ footer {
 footer a {
    color: #FFFFFF;
 }
-
+footer a:hover {
+   color: #ccc;
+   font-weight: bold;
+}
 footer h4 {
    font-family: "metropolis-bold", sans-serif;
    font-size: 1.4rem;
@@ -3408,6 +3411,9 @@ footer h4::after {
    display: none;
 }
 
+.s-footer__copyright a:focus {
+   color: #ccc;
+}
 
 /* ------------------------------------------------------------------- 
  * ## go to top

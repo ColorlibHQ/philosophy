@@ -17,6 +17,22 @@ function philosophy_customize_css()
              .s-footer {
              	background: <?php echo get_theme_mod('philosophy_footer_bgcolor_setting', '#19191b'); ?>
              }
+			 footer h4 {
+				 color: <?php echo get_theme_mod('philosophy_footer_titlecolor_setting', '#fff'); ?>
+			 }
+			 footer a,
+			 .footer-widget a {
+				color: <?php echo get_theme_mod('philosophy_footer_anchorcolor_setting', '#fff'); ?>
+			 }
+			 footer a:hover,
+			 .footer-widget a:hover {
+				color: <?php echo get_theme_mod('philosophy_footer_anchorhovcolor_setting', '#fff'); ?>
+			 }
+			 .footer-widget,
+			 .footer-widget p,
+			 .s-footer__bottom .s-footer__copyright span {
+				color: <?php echo get_theme_mod('philosophy_footer_textcolor_setting', '#fff'); ?>
+			 }
          </style>
     <?php
 }

@@ -1,10 +1,10 @@
 /*!
 Theme Name: Philosophy
-Theme URI: http://philosophy.spondan.com/
-Author: SpondonIT
-Author URI: http://spondonit.com/
+Theme URI: https://colorlib.com/wp/themes/philosophy/
+Author: Colorlib
+Author URI: https://colorlib.com/
 Description: PHILOSOPHY is a modern masonry blog website template. Its stylish design and beautiful  typography makes it an ideal template for your blog site. It features styles for the  following post formats: standard, video, audio, and gallery. It is fully responsive and retina ready  so It will always look great and crisp on any devices and screen sizes. It\'s built with clean  and organized code which makes it very easy to customize.
-Version: 1.0.0
+Version: 1.0.1
 License: GNU General Public License v2 or later
 License URI: LICENSE
 Text Domain: philosophy
@@ -635,6 +635,9 @@ table {
     margin: 0 0.2rem 0.2rem 0;
 }
 
+.calendar_wrap td a {
+	font-weight: bold;
+}
 
 /* widget lists */
 
@@ -656,10 +659,10 @@ table {
 .footer-top-widget ul, .footer-widget ul {
 	margin-left: 0;
 	list-style: none;
-} 
+}
 .footer-top-widget ul li li, .footer-widget ul li li {
 	padding-left: 1rem!important;
-} 
+}
 
 .footer-top-widget th, .footer-top-widget td ,.footer-widget th, .footer-widget td {
     padding: 0.5rem 0rem;
@@ -667,14 +670,30 @@ table {
 }
 
 .footer-widget select {
-	color: rgba(255, 255, 255, 0.4);
+	color: #999;
+	border-bottom: 2px solid #ccc;
+	border-radius: 0;
 }
 .footer-widget th {
 	color: #fff;
 }
 .footer-widget .tagcloud a {
-	background: #3c3a3a;
+	background: #e2e2e2;
+	color: #333333;
+}.footer-widget .tagcloud a:hover {
+	background-color: #b8b8b8;
+    border-color: #b8b8b8;
+    color: #000000;
 }
+.widget .search-submit ,.footer-widget  .search-submit {
+	height: 40px!important;
+	line-height: 0!important;
+}
+.footer-widget .searchform .search-field {
+	border-bottom: 2px solid #ccc;
+	color: #fff;
+}
+
 /* -------------------------------------------------------------------
  * ## footer link list
  * ------------------------------------------------------------------- */
@@ -698,6 +717,10 @@ table {
 
 .footer-widget a {
    color: rgba(255, 255, 255, 0.4);
+}
+.footer-widget a:hover {
+	color: #fff;
+	font-weight: bold;
 }
 .sidebar-widget ul {
 	margin-bottom: 0;

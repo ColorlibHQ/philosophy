@@ -32,7 +32,7 @@ $tag_count = get_theme_mod( 'footer_top_setting_tag_count' );
 
             <div class="col-eight md-six tab-full popular">
                 <h3 class="popular-post-title"><?php echo esc_html( get_theme_mod( 'footer_top_setting_title_one' )); ?></h3>
-                
+
                 <div class="block-1-2 block-m-full popular__posts">
                 <?php
 
@@ -56,7 +56,7 @@ $tag_count = get_theme_mod( 'footer_top_setting_tag_count' );
                                <img src="<?php  echo esc_url( get_template_directory_uri().'/assets/images/placeholder.png' ); ?>" alt="<?php the_title(); ?>">
                             </a>
                         <?php endif ?>
-                        
+
                         <h5><a href="<?php the_permalink(); ?>"><?php echo wp_trim_words( get_the_title(), 5,'...'); ?></a></h5>
                         <section class="popular__meta">
                                 <span class="popular__author"><span><?php esc_html_e( 'By', 'philosophy' ); ?></span> <a href="<?php echo esc_attr( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) ?>"> <?php echo esc_html( get_the_author() ) ?></a></span>
@@ -66,10 +66,10 @@ $tag_count = get_theme_mod( 'footer_top_setting_tag_count' );
 
                 <?php endwhile; ?>
 
-                   
+
                 </div> <!-- end popular_posts -->
             </div> <!-- end popular -->
-            
+
             <div class="col-four md-six tab-full about">
                 <h3 class="about-post-title"><?php echo esc_html( get_theme_mod( 'footer_top_setting_title_two' )); ?></h3>
 
@@ -112,12 +112,12 @@ $tag_count = get_theme_mod( 'footer_top_setting_tag_count' );
                 <h3 class="tags-widget-title"><?php echo esc_html( get_theme_mod( 'footer_top_setting_title_three' )); ?></h3>
 
                 <div class="tagcloud">
-                     <?php 
+                     <?php
                          wp_tag_cloud(
-                            array( 
+                            array(
                                 'number' => $tag_count,
                             )
-                        ); 
+                        );
                     ?>
                 </div> <!-- end tagcloud -->
             </div> <!-- end tags -->
@@ -127,16 +127,16 @@ $tag_count = get_theme_mod( 'footer_top_setting_tag_count' );
 
     <?php endif ?>
 
-    
+
     <!-- s-footer
     ================================================== -->
     <footer class="s-footer">
 
     <?php if (is_active_sidebar( 'footer' ) ) { ?>
-        
+
         <div class="s-footer__main">
             <div class="row">
-                
+
                 <?php if ( is_active_sidebar( 'footer' ) ) { ?>
                         <?php dynamic_sidebar( 'footer' ); ?>
                 <?php } ?>
@@ -146,13 +146,13 @@ $tag_count = get_theme_mod( 'footer_top_setting_tag_count' );
 
 
     <?php } ?>
-        
-        
+
+
     <div class="s-footer__bottom">
         <div class="row">
             <div class="col-full">
                 <div class="s-footer__copyright">
-                    <span><?php echo wp_kses_post(get_theme_mod( 'footer_copyright_text_setting', '&copy; Copyright Philosophy 2018 Theme by <a href="#">Colorlib</a>' )); ?></span>
+                    <span><?php echo wp_kses_post(get_theme_mod( 'footer_copyright_text_setting', '&copy; Copyrights. All Rights Reserved' )); ?> <?php printf( esc_html__( 'Theme by %1$s Powered by %2$s', 'philosophy' ), '<a href="http://colorlib.com/" target="_blank">Colorlib</a>', '<a href="http://wordpress.org/" target="_blank">WordPress</a>' );?></span>
                 </div>
 
                 <?php if( get_theme_mod('philosophy_gototop_setting') ): ?>
@@ -160,7 +160,7 @@ $tag_count = get_theme_mod( 'footer_top_setting_tag_count' );
                         <a class="smoothscroll" title="<?php echo esc_attr( 'Back to Top','philosophy' ); ?>" href="#top"></a>
                     </div>
                 <?php endif; ?>
-                
+
             </div>
         </div>
     </div> <!-- end s-footer__bottom -->

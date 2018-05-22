@@ -32,16 +32,17 @@ function philosophy_customize_register( $wp_customize ) {
 		'sanitize_callback' => 'vr_sanitize_html'
 	) );
 
-	$wp_customize->add_control(
+	$wp_customize->add_control( new Epsilon_Control_Toggle( 
+			$wp_customize,
 			'philosophy_preloader_control',
 			array(
-				'type'        	 => 'checkbox',
+				'type'        	 => 'epsilon-toggle',
 				'label'          => esc_html__( 'Active preloader', 'philosophy' ),
 				'section'        => 'philosophy_general_section',
 				'settings'       => 'philosophy_preloader_setting',
 				
 			)
-	);
+	));
 
 
 	// Go to top button option
@@ -52,16 +53,18 @@ function philosophy_customize_register( $wp_customize ) {
 		'sanitize_callback' => 'vr_sanitize_html'
 	) );
 
-	$wp_customize->add_control( 
-		'philosophy_gototop_control', 
-		array(
-			'type'        	 => 'checkbox',
-			'label'          => esc_html__( 'Display go to top button', 'philosophy' ),
-			'section'        => 'philosophy_general_section',
-			'settings'       => 'philosophy_gototop_setting',
-			
-		)
-	);
+	$wp_customize->add_control( new Epsilon_Control_Toggle( 
+			$wp_customize,
+			'philosophy_gototop_control', 
+			array(
+				'type'        => 'epsilon-toggle',
+				'label'          => esc_html__( 'Display go to top button', 'philosophy' ),
+				'section'        => 'philosophy_general_section',
+				'settings'       => 'philosophy_gototop_setting',
+				
+			)
+	));
+		
 
 	$wp_customize->add_setting( 'philosophy_header_social_setting' , array(
 	    'default'        => false,
@@ -70,17 +73,20 @@ function philosophy_customize_register( $wp_customize ) {
 		'sanitize_callback' => 'vr_sanitize_html'
 	) );
 
-	$wp_customize->add_control(
+	$wp_customize->add_control( new Epsilon_Control_Toggle( 
+			$wp_customize,
 			'philosophy_header_social_control', 
 			array(
-				'type'        => 'checkbox',
+				'type'        => 'epsilon-toggle',
 				'label'          => __( 'Header Social Icon Show', 'philosophy' ),
 				'description' => esc_html__( 'Header social icon show/hide.', 'philosophy' ),
-				'section'        => 'philosophy_general_section',
+				'section'        => 'philosophy_social_link_section',
 				'settings'       => 'philosophy_header_social_setting',
 				
 			)
-	);
+	));
+
+
 	$wp_customize->selective_refresh->add_partial( 'philosophy_header_social_setting', array(
 		'selector' => '.header__social',
 	) );
@@ -100,14 +106,31 @@ function philosophy_customize_register( $wp_customize ) {
 		'sanitize_callback' => 'vr_sanitize_html'
 	) );
 
-	$wp_customize->add_control( 'banner_posts_control', array(
-		    'label'          => __( 'Banner Enable', 'philosophy' ),
-		    'description' => esc_html__( 'Recent posts banner enable / desable.', 'philosophy' ),
-		    'section'        => 'banner_posts_section',
-		    'settings'       => 'banner_posts_setting',
-		    'type'           => 'checkbox'
-	    )
-	);
+	$wp_customize->add_control( new Epsilon_Control_Toggle( 
+			$wp_customize,
+			'banner_posts_control', 
+			array(
+				'type'        => 'epsilon-toggle',
+				'label'          => esc_html__( 'Banner Enable', 'philosophy' ),
+				'description' => esc_html__( 'Recent posts banner enable / desable.', 'philosophy' ),
+				'section'        => 'banner_posts_section',
+				'settings'       => 'banner_posts_setting',
+				
+			)
+	));
+
+	$wp_customize->add_control( new Epsilon_Control_Toggle( 
+			$wp_customize,
+			'banner_posts_control', 
+			array(
+				'type'        => 'epsilon-toggle',
+				'label'          => esc_html__( 'Banner Enable', 'philosophy' ),
+				'description' => esc_html__( 'Recent posts banner enable / desable.', 'philosophy' ),
+				'section'        => 'banner_posts_section',
+				'settings'       => 'banner_posts_setting',
+				
+			)
+	));
 
 	$wp_customize->selective_refresh->add_partial( 'banner_posts_setting', array(
 		'selector' => '.pageheader-content',
@@ -211,13 +234,16 @@ function philosophy_customize_register( $wp_customize ) {
 		'sanitize_callback' => 'vr_sanitize_html'
 	) );
 
-	$wp_customize->add_control( 'about_block_control_one', array(
-		  'label' 	 => '1 # About info block content',
-		  'section'  => 'about_page_section',
-		  'settings' => 'about_block_setting_content_one',
-		  'type'	 => 'textarea'
+	$wp_customize->add_control( new Epsilon_Control_Text_Editor( 
+		$wp_customize, 
+		'about_block_control_one', 
+		array(
+			'label' 	 => '1 # About info block content',
+			'section'  => 'about_page_section',
+			'settings' => 'about_block_setting_content_one',
+			'type'     => 'epsilon-text-editor',
 	    )
-	);
+	));
 
 	$wp_customize->selective_refresh->add_partial( 'about_block_setting_content_one', array(
 		'selector' => '.col-block-one-content',
@@ -250,13 +276,17 @@ function philosophy_customize_register( $wp_customize ) {
 		'sanitize_callback' => 'vr_sanitize_html'
 	) );
 
-	$wp_customize->add_control( 'about_block_control_two', array(
-		  'label' 	 => '2 # About info block content',
-		  'section'  => 'about_page_section',
-		  'settings' => 'about_block_setting_content_two',
-		  'type'	 => 'textarea'
-	    )
-	);
+	$wp_customize->add_control( new Epsilon_Control_Text_Editor( 
+		$wp_customize, 
+		'about_block_control_two', 
+		array(
+				'label'    => '2 # About info block content',
+				'section'  => 'about_page_section',
+				'settings' => 'about_block_setting_content_two',
+				'type'     => 'epsilon-text-editor',
+			)
+	));
+
 
 	$wp_customize->selective_refresh->add_partial( 'about_block_setting_content_two', array(
 		'selector' => '.col-block-two-content',
@@ -290,13 +320,16 @@ function philosophy_customize_register( $wp_customize ) {
 		'sanitize_callback' => 'vr_sanitize_html'
 	) );
 
-	$wp_customize->add_control( 'about_block_control_three', array(
-		  'label' 	 => '3 # About info block content',
-		  'section'  => 'about_page_section',
-		  'settings' => 'about_block_setting_content_three',
-		  'type'	 => 'textarea'
+	$wp_customize->add_control( new Epsilon_Control_Text_Editor( 
+		$wp_customize,
+		'about_block_control_three', 
+		array(
+			'label' 	 => '3 # About info block content',
+			'section'  => 'about_page_section',
+			'settings' => 'about_block_setting_content_three',
+			'type'	 => 'epsilon-text-editor'
 	    )
-	);
+	));
 
 	$wp_customize->selective_refresh->add_partial( 'about_block_setting_content_three', array(
 		'selector' => '.col-block-three-content',
@@ -330,13 +363,16 @@ function philosophy_customize_register( $wp_customize ) {
 		'sanitize_callback' => 'vr_sanitize_html'
 	) );
 
-	$wp_customize->add_control( 'about_block_control_four', array(
-		  'label' 	 => '4 # About info block content',
-		  'section'  => 'about_page_section',
-		  'settings' => 'about_block_setting_content_four',
-		  'type'	 => 'textarea'
+	$wp_customize->add_control( new Epsilon_Control_Text_Editor( 
+		$wp_customize, 
+		'about_block_control_four', 
+		array(
+			'label' 	 => '4 # About info block content',
+			'section'  => 'about_page_section',
+			'settings' => 'about_block_setting_content_four',
+			'type'     => 'epsilon-text-editor',
 	    )
-	);
+	));
 
 	$wp_customize->selective_refresh->add_partial( 'about_block_setting_content_four', array(
 		'selector' => '.col-block-four-content',
@@ -435,13 +471,17 @@ function philosophy_customize_register( $wp_customize ) {
 		'sanitize_callback' => 'vr_sanitize_html'
 	) );
 
-	$wp_customize->add_control( 'contact_setting_block_control_one', array(
-		  'label' 	 => '1 # Contact info block content',
-		  'section'  => 'contact_page_section',
-		  'settings' => 'contact_setting_block_content_one',
-		  'type'	 => 'textarea'
-	    )
-	);
+	$wp_customize->add_control( 
+		new Epsilon_Control_Text_Editor( 
+			$wp_customize, 
+			'contact_setting_block_control_one', 
+			array(
+				'label' 	 => '1 # Contact info block content',
+				'section'  => 'contact_page_section',
+				'settings' => 'contact_setting_block_content_one',
+				'type'     => 'epsilon-text-editor',
+			)
+	));
 
 	$wp_customize->selective_refresh->add_partial( 'contact_setting_block_content_one', array(
 		'selector' => '.c-block-content-one',
@@ -473,13 +513,17 @@ function philosophy_customize_register( $wp_customize ) {
 		'sanitize_callback' => 'vr_sanitize_html'
 	) );
 
-	$wp_customize->add_control( 'contact_setting_block_control_two', array(
-		  'label' 	 => '2 # Contact info block content',
-		  'section'  => 'contact_page_section',
-		  'settings' => 'contact_setting_block_content_two',
-		  'type'	 => 'textarea'
-	    )
-	);
+	$wp_customize->add_control( 
+		new Epsilon_Control_Text_Editor( 
+			$wp_customize,
+			'contact_setting_block_control_two', 
+			array(
+				'label' 	 => '2 # Contact info block content',
+				'section'  => 'contact_page_section',
+				'settings' => 'contact_setting_block_content_two',
+				'type'     => 'epsilon-text-editor',
+			)
+	));
 
 	$wp_customize->selective_refresh->add_partial( 'contact_setting_block_content_two', array(
 		'selector' => '.c-block-content-two',
@@ -494,13 +538,18 @@ function philosophy_customize_register( $wp_customize ) {
 		'sanitize_callback' => 'vr_sanitize_html'
 	) );
 
-	$wp_customize->add_control( 'contact_form_control', array(
-		  'label' 	 => 'Contact form 7 shortcode',
-		  'section'  => 'contact_page_section',
-		  'settings' => 'contact_form_setting',
-		  'type'	 => 'textarea'
-	    )
-	);
+
+	$wp_customize->add_control( 
+		new Epsilon_Control_Text_Editor( 
+			$wp_customize,
+			'contact_form_control', 
+			array(
+				'label' 	 => 'Contact form 7 shortcode',
+		  		'section'  => 'contact_page_section',
+		  		'settings' => 'contact_form_setting',
+				'type'     => 'epsilon-text-editor',
+			)
+	));
 
 	$wp_customize->selective_refresh->add_partial( 'contact_form_setting', array(
 		'selector' => '.contact-form-7',
@@ -509,7 +558,7 @@ function philosophy_customize_register( $wp_customize ) {
 
 	//Theme background color
 	$wp_customize->add_section( 'philosophy_bgcolor_section' , array(
-		'title' => esc_html__('Background color','philosophy'), 
+		'title' => esc_html__('Color and Background color','philosophy'), 
 		'panel'     =>'philosophy_theme_options'
 	));
 
@@ -579,6 +628,62 @@ function philosophy_customize_register( $wp_customize ) {
 		'label'      => __( 'Footer banckground', 'philosophy' ),
 		'section'    => 'philosophy_bgcolor_section',
 		'settings'   => 'philosophy_footer_bgcolor_setting',
+	) ) );
+	
+	// Footer Widget title color
+	$wp_customize->add_setting( 'philosophy_footer_titlecolor_setting' , array(
+	    'default'   => '#fff',
+	    'transport'            => 'refresh', // refresh or postMessage
+        'capability'           => 'edit_theme_options',
+		'sanitize_callback' => 'vr_sanitize_html'
+	) );
+
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'philosophy_footer_titlecolor_control', array(
+		'label'      => __( 'Footer Widget Title Color', 'philosophy' ),
+		'section'    => 'philosophy_bgcolor_section',
+		'settings'   => 'philosophy_footer_titlecolor_setting',
+	) ) );
+	
+	// Footer Text color
+	$wp_customize->add_setting( 'philosophy_footer_textcolor_setting' , array(
+	    'default'   => '#afafaf',
+	    'transport'            => 'refresh', // refresh or postMessage
+        'capability'           => 'edit_theme_options',
+		'sanitize_callback' => 'vr_sanitize_html'
+	) );
+
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'philosophy_footer_textcolor_control', array(
+		'label'      => __( 'Footer Text Color', 'philosophy' ),
+		'section'    => 'philosophy_bgcolor_section',
+		'settings'   => 'philosophy_footer_textcolor_setting',
+	) ) );
+	
+	// Footer Anchor color
+	$wp_customize->add_setting( 'philosophy_footer_anchorcolor_setting' , array(
+	    'default'   => '#afafaf',
+	    'transport'            => 'refresh', // refresh or postMessage
+        'capability'           => 'edit_theme_options',
+		'sanitize_callback' => 'vr_sanitize_html'
+	) );
+
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'philosophy_footer_anchorcolor_control', array(
+		'label'      => __( 'Footer Anchor Color', 'philosophy' ),
+		'section'    => 'philosophy_bgcolor_section',
+		'settings'   => 'philosophy_footer_anchorcolor_setting',
+	) ) );
+	
+	// Footer Anchor Hover color
+	$wp_customize->add_setting( 'philosophy_footer_anchorhovcolor_setting' , array(
+	    'default'   => '#afafaf',
+	    'transport'            => 'refresh', // refresh or postMessage
+        'capability'           => 'edit_theme_options',
+		'sanitize_callback' => 'vr_sanitize_html'
+	) );
+
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'philosophy_footer_anchorhovcolor_control', array(
+		'label'      => __( 'Footer Anchor Hover Color', 'philosophy' ),
+		'section'    => 'philosophy_bgcolor_section',
+		'settings'   => 'philosophy_footer_anchorhovcolor_setting',
 	) ) );
 
 
@@ -708,18 +813,20 @@ function philosophy_customize_register( $wp_customize ) {
         'capability'           => 'edit_theme_options',
 		'sanitize_callback' => 'vr_sanitize_html'
 	) );
+	
 
-	$wp_customize->add_control(
-			'philosophy_preloader_control',
+	$wp_customize->add_control( new Epsilon_Control_Toggle( 
+			$wp_customize,
+			'philosophy_footer_top_control', 
 			array(
-				'type'        	 => 'checkbox',
-				'label'          => esc_html__( 'Active footer top widgets', 'philosophy' ),
+				'type'        => 'epsilon-toggle',
+				'label'          => __( 'Active footer top widgets', 'philosophy' ),
 				'section'        => 'footer_top_section',
 				'settings'       => 'philosophy_footer_top_enable',
 				
 			)
-	);
-	
+	));
+
 	$wp_customize->selective_refresh->add_partial( 'philosophy_footer_top_enable', array(
 		'selector' => '.footer-enable',
 	) );
@@ -796,13 +903,18 @@ function philosophy_customize_register( $wp_customize ) {
 		'sanitize_callback' => 'vr_sanitize_html'
 	) );
 
-	$wp_customize->add_control( 'footer_top_control_content_two', array(
+
+	$wp_customize->add_control( new Epsilon_Control_Text_Editor( 
+		$wp_customize,
+		'footer_top_control_content_two',
+		array(
 		  'label' 	 => 'About post widget content',
 		  'section'  => 'footer_top_section',
 		  'settings' => 'footer_top_setting_content_two',
-		  'type'	 => 'textarea'
-	    )
-	);
+		  'type'     => 'epsilon-text-editor',
+
+		) 
+	));
 
 	$wp_customize->selective_refresh->add_partial( 'footer_top_setting_content_two', array(
 		'selector' => '.about-post-content',
@@ -817,17 +929,19 @@ function philosophy_customize_register( $wp_customize ) {
 		'sanitize_callback' => 'vr_sanitize_html'
 	) );
 
-	$wp_customize->add_control(
+	$wp_customize->add_control( new Epsilon_Control_Toggle( 
+			$wp_customize,
 			'footer_top_social_control', 
 			array(
-				'type'        => 'checkbox',
+				'type'        => 'epsilon-toggle',
 				'label'          => __( 'About Philosophy Social Icon', 'philosophy' ),
 				'description' => esc_html__( 'About Philosophy social icon show/hide.', 'philosophy' ),
 				'section'        => 'footer_top_section',
 				'settings'       => 'footer_top_setting_social_two',
 				
 			)
-	);
+	));
+
 	$wp_customize->selective_refresh->add_partial( 'footer_top_setting_social_two', array(
 		'selector' => '.about__social',
 	) );
@@ -891,13 +1005,17 @@ function philosophy_customize_register( $wp_customize ) {
 		'sanitize_callback' => 'vr_sanitize_html'
 	) );
 
-	$wp_customize->add_control( 'cd_button_display', array(
-	  'label' 	 => 'Change copyright text',
-	  'section'  => 'footer_copyright_text_section',
-	  'settings' => 'footer_copyright_text_setting',
-	  'type'	 => 'textarea'
+	$wp_customize->add_control( new Epsilon_Control_Text_Editor( 
+		$wp_customize,
+		'cd_button_display',
+		array(
+		  'label' 	 => 'Change copyright text',
+		  'section'  => 'footer_copyright_text_section',
+		  'settings' => 'footer_copyright_text_setting',
+		  'type'     => 'epsilon-text-editor',
 
-	) );
+		) 
+	));
 
 	$wp_customize->selective_refresh->add_partial( 'footer_copyright_text_setting', array(
 		'selector' => '.s-footer__copyright span',

@@ -161,6 +161,7 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 require get_template_directory() . '/inc/philosophy-scripts.php';
+require get_template_directory() . '/inc/epsilon-framework/class-epsilon-framework.php';
 require get_template_directory() . '/inc/register-widgets.php';
 require get_template_directory() . '/inc/wp_bootstrap_navwalker.php';
 require get_template_directory() . '/inc/cmb2.php';
@@ -168,6 +169,5 @@ require get_template_directory() . '/inc/customizer.php';
 require get_template_directory() . '/inc/template-tags.php';
 require get_template_directory() . '/inc/tgmpa/plugins.php';
 require get_template_directory() . '/inc/popular-posts.php';
-// require get_template_directory() . '/inc/widget/subscribe.php';
 require get_template_directory() . '/inc/comment-list.php';
 require get_template_directory() . '/inc/functions.php';
