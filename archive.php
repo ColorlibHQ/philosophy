@@ -1,59 +1,101 @@
-<?php
+<?php 
 /**
- * The template for displaying archive pages
+ * @Packge 	   : Philosophy
+ * @Version    : 1.0
+ * @Author 	   : Colorlib
+ * @Author URI : http://colorlib.com/wp/
  *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
- *
- * @package philosophy
  */
+ 
+	// Block direct access
+	if( !defined( 'ABSPATH' ) ){
+		exit( 'Direct script access denied.' );
+	}
 
-get_header();
-?>
+	//  Call Header
+	get_header();
+
+	/**
+	 * 
+	 * Hook for Blog, single, page, search, archive pages
+	 * wrapper start with wrapper div, container, row.
+	 *
+	 * Hook philosophy_wrp_start
+	 *
+	 * @Hooked philosophy_wrp_start_cb
+	 *  
+	 */
+	do_action( 'philosophy_wrp_start' );
 	
-	<section class="s-content">
+	/**
+	 * 
+	 * Hook for Blog, single, search, archive pages
+	 * column start.
+	 *
+	 * Hook philosophy_blog_col_start
+	 *
+	 * @Hooked philosophy_blog_col_start_cb
+	 *  
+	 */
+	do_action( 'philosophy_blog_col_start' );
 
-        <div class="row narrow">
-            <div class="col-full s-content__header" data-aos="fade-up">
-                
-                <?php
-				the_archive_title( '<h1 class="page-title">', '</h1>' );
-				the_archive_description( '<div class="lead archive-description">', '</div>' );
-				?>
-				
-            </div>
-        </div>
-        
-        <div class="row masonry-wrap">
-            <div class="masonry">
 
-			<?php if ( have_posts() ) :
-
-				/* Start the Loop */
-				while ( have_posts() ) :
-					the_post();
-
-					/*
-					 * Include the Post-Type-specific template for the content.
-					 * If you want to override this in a child theme, then include a file
-					 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
-					 */
-					get_template_part( 'template-parts/post/content', get_post_type() );
-
-				endwhile;
-
-			else :
-
-				get_template_part( 'template-parts/post/content', 'none' );
-
-			endif;
-			?>
-			</div>
-		</div>
-		
-		<div class="row">
-	 		<?php philosophy_pagination(); ?>
-        </div>
-
-	</section>
-
-<?php get_footer();
+	if( have_posts() ){
+		while( have_posts() ){
+			the_post();
+			// Post Contant
+			get_template_part( 'templates/content', get_post_format() );
+		}
+		// Reset Data
+		wp_reset_postdata();
+	}else{
+		get_template_part( 'templates/content', 'none' );
+	}
+	
+	/**
+	 * 
+	 * Hook for Blog, single, search, archive pages
+	 * column end.
+	 *
+	 * Hook philosophy_blog_col_end
+	 *
+	 * @Hooked philosophy_blog_col_end_cb
+	 *  
+	 */
+	do_action( 'philosophy_blog_col_end' );
+	
+	/**
+	 * 
+	 * Hook for Blog pagination
+	 *
+	 * Hook philosophy_blog_pagination
+	 *
+	 * @Hooked philosophy_blog_pagination_cb
+	 *  
+	 */
+	do_action( 'philosophy_blog_pagination' );
+	
+	/**
+	 * 
+	 * Hook for Blog, single blog, search, archive pages sidebar.
+	 *
+	 * Hook philosophy_blog_sidebar
+	 *
+	 * @Hooked philosophy_blog_sidebar_cb
+	 *  
+	 */
+	do_action( 'philosophy_blog_sidebar' );
+ 	
+ 	/**
+	 * Hook for Blog, single, page, search, archive pages
+	 * wrapper end with wrapper div, container, row.
+ 	 *
+ 	 * Hook philosophy_wrp_end
+ 	 * @Hooked  philosophy_wrp_end_cb
+ 	 *
+ 	 */
+ 	do_action( 'philosophy_wrp_end' );
+ 	
+	 // Call Footer
+	 get_footer();
+?>

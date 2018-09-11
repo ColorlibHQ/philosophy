@@ -1,17 +1,23 @@
-<?php
+<?php 
+// Block direct access
+if( !defined( 'ABSPATH' ) ){
+	exit( 'Direct script access denied.' );
+}
 /**
- * The sidebar containing the main widget area
+ * @Packge 	   : Colorlib
+ * @Version    : 1.0
+ * @Author 	   : Colorlib
+ * @Author URI : http://colorlib.com/wp/
  *
- * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
- *
- * @package philosophy
  */
 
-if ( ! is_active_sidebar( 'sidebar-1' ) ) {
-	return;
+// Sidebar
+if( is_active_sidebar( 'philosophy-post-sidebar' ) ){
+	
+	echo '<div class="col-three"><div class="philosophy-blog-sidebar">';
+		dynamic_sidebar( 'philosophy-post-sidebar' );
+	echo '</div></div>';
 }
-?>
+ 
 
-<aside id="secondary" class="widget-area">
-	<?php dynamic_sidebar( 'sidebar-1' ); ?>
-</aside><!-- #secondary -->
+?>

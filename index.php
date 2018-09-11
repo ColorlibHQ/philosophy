@@ -1,83 +1,93 @@
-<?php
+<?php 
 /**
- * The main template file
+ * @Packge 	   : Philosophy
+ * @Version    : 1.0
+ * @Author 	   : Colorlib
+ * @Author URI : http://colorlib.com/wp/
  *
- * This is the most generic template file in a WordPress theme
- * and one of the two required files for a theme (the other being style.css).
- * It is used to display a page when nothing more specific matches a query.
- * E.g., it puts together the home page when no home.php file exists.
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
- *
- * @package philosophy
  */
+ 
+	// Block direct access
+	if( !defined( 'ABSPATH' ) ){
+		exit( 'Direct script access denied.' );
+	}
 
-$blog_sidebar = get_theme_mod( 'blog_sidebar_setting' ) == 'blog_with_sidebar' ? true : false;
+	//  Call Header
+	get_header();
 
-get_header();
+	/**
+	 * 
+	 * Hook for Blog, single, page, search, archive pages
+	 * wrapper start with wrapper div, container, row.
+	 *
+	 * Hook philosophy_wrp_start
+	 *
+	 * @Hooked philosophy_wrp_start_cb
+	 *  
+	 */
+	do_action( 'philosophy_wrp_start' );
+	
+	/**
+	 * 
+	 * Hook for Blog, single, search, archive pages
+	 * column start.
+	 *
+	 * Hook philosophy_blog_col_start
+	 *
+	 * @Hooked philosophy_blog_col_start_cb
+	 *  
+	 */
+	do_action( 'philosophy_blog_col_start' );
+
+
+	if( have_posts() ){
+		while( have_posts() ){
+			the_post();
+			// Post Contant
+			get_template_part( 'templates/content', get_post_format() );
+		}
+		// Reset Data
+		wp_reset_postdata();
+	}else{
+		get_template_part( 'templates/content', 'none' );
+	}
+
+	
+	/**
+	 * 
+	 * Hook for Blog, single, search, archive pages
+	 * column end.
+	 *
+	 * Hook philosophy_blog_col_end
+	 *
+	 * @Hooked philosophy_blog_col_end_cb
+	 *  
+	 */
+	do_action( 'philosophy_blog_col_end' );
+	
+	
+	/**
+	 * 
+	 * Hook for Blog, single blog, search, archive pages sidebar.
+	 *
+	 * Hook philosophy_blog_sidebar
+	 *
+	 * @Hooked philosophy_blog_sidebar_cb
+	 *  
+	 */
+	do_action( 'philosophy_blog_sidebar' );
+ 	
+ 	/**
+	 * Hook for Blog, single, page, search, archive pages
+	 * wrapper end with wrapper div, container, row.
+ 	 *
+ 	 * Hook philosophy_wrp_end
+ 	 * @Hooked  philosophy_wrp_end_cb
+ 	 *
+ 	 */
+ 	do_action( 'philosophy_wrp_end' );
+
+ 	
+	 // Call Footer
+	 get_footer();
 ?>
-
-	<!-- s-content
-    ================================================== -->
-    <section class="s-content">
-        <div class="row masonry-wrap">
-			<?php
-
-			if ( $blog_sidebar == true) {?>
-			<div class="main-content-area">
-			<?php } ?>
-
-				<div class="masonry">
-
-					<div class="grid-sizer"></div>
-
-						<?php
-						if ( have_posts() ) :
-							/* Start the Loop */
-							while ( have_posts() ) :
-								the_post();
-
-								/*
-								 * Include the Post-Type-specific template for the content.
-								 * If you want to override this in a child theme, then include a file
-								 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
-								 */
-								get_template_part( 'template-parts/post/content', get_post_format() );
-
-							endwhile;
-
-						else :
-
-							get_template_part( 'template-parts/post/content', 'none' );
-
-						endif;
-						
-						?>
-
-				</div> <!-- end masonry -->
-				
-			<?php if ( $blog_sidebar == true) {?>
-
-			</div>
-			<div class="sidebar-area">
-				<?php 
-				get_sidebar();
-				?>
-			</div>
-			<?php } ?>
-		</div> <!-- end masonry-wrap -->
-        
-        <?php 
-
-        if ( philosophy_pagination() ):
-
-        		philosophy_pagination();
-		 	
-		endif;
-
-		?>
-		
-
-    </section> <!-- s-content -->
-
-<?php get_footer();

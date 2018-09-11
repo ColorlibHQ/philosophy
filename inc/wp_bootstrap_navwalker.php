@@ -20,7 +20,7 @@ class philosophy_bootstrap_navwalker extends Walker_Nav_Menu {
 	 */
 	public function start_lvl( &$output, $depth = 0, $args = array() ) {
 		$indent = str_repeat( "\t", $depth );
-		$output .= "\n$indent<ul role=\"menu\" class=\" sub-menu\">\n";
+		$output .= "\n$indent<ul role=\"menu\" class=\" dropdown-menu\">\n";
 	}
 
 	/**
@@ -60,6 +60,7 @@ class philosophy_bootstrap_navwalker extends Walker_Nav_Menu {
 
 			$classes = empty( $item->classes ) ? array() : (array) $item->classes;
 			$classes[] = 'menu-item-' . $item->ID;
+			$classes[] = 'nav-item';
 			$classes[] = 'depth-' . $depth;
 									
 							
@@ -79,6 +80,7 @@ class philosophy_bootstrap_navwalker extends Walker_Nav_Menu {
 			$output .= $indent . '<li' . $id . $value . $class_names .'>';
 
 			$atts = array();
+			$atts['class']  =  ( $depth > 0 ) ? 'dropdown-item' : 'nav-link';
 			$atts['title']  = ! empty( $item->title )	? $item->title	: '';
 			$atts['target'] = ! empty( $item->target )	? $item->target	: '';
 			$atts['rel']    = ! empty( $item->xfn )		? $item->xfn	: '';
@@ -87,7 +89,7 @@ class philosophy_bootstrap_navwalker extends Walker_Nav_Menu {
 			if ( $args->has_children && $depth === 0 ) {
 				$atts['href']   		= '#';
 				$atts['data-toggle']	= 'dropdown';
-				$atts['class']			= 'dropdown-toggle';
+				$atts['class']			= 'dropdown-toggle nav-link';
 				$atts['aria-haspopup']	= 'true';
 			} else {
 				$atts['href'] = ! empty( $item->url ) ? $item->url : '';
@@ -208,4 +210,37 @@ class philosophy_bootstrap_navwalker extends Walker_Nav_Menu {
 			echo wp_kses_post( $fb_output );
 		}
 	}
+}
+
+// Social nav Walker
+class philosophy_social_navwalker extends Walker_Nav_Menu {
+    // Tell Walker where to inherit it's parent and id values
+    var $db_fields = array(
+        'parent' => 'menu_item_parent', 
+        'id'     => 'db_id' 
+    );
+
+    /**
+     * 
+     * 
+     * Note: Menu objects include url and title properties, so we will use those.
+     */
+    function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
+
+
+		$class = $item->classes;
+		
+		$setClass = '';
+		
+		if( !empty( $class['0'] ) ){
+			$setClass = $class['0'];
+		}
+		
+        $output .= sprintf( "\n<li><a href='%s' class='topbar-social-item fa %s'></a>\n",
+            $item->url,
+            $setClass
+        );	
+			
+    }
+	
 }

@@ -6,6 +6,13 @@
 (function($) {
 
     "use strict";
+    
+    var cfg = {
+        scrollDuration : 800, // smoothscroll duration
+       
+    },
+
+    $WIN = $(window);
 
     // Add the User Agent to the <html>
     // will be used for IE10 detection (Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Trident/6.0))
@@ -17,13 +24,14 @@
         $(".header__logo img").attr("src", "images/logo.png");
     }
 
+
    /* Preloader
     * ----------------------------------------------------- */
     var clPreloader = function() {
         
         $("html").addClass('cl-preload');
 
-        $(window).on('load', function() {
+        $WIN.on('load', function() {
 
             //force page scroll position to top at page refresh
             // $('html, body').animate({ scrollTop: 0 }, 'normal');
@@ -190,7 +198,7 @@
             containerBricks.masonry({
                 itemSelector: '.masonry__brick',
                 percentPosition: true,
-                resize: true
+                resize: true,
             });
         });
 
@@ -284,7 +292,10 @@
         });
 
     };
-    
+
+
+
+
    /* Back to Top
     * ------------------------------------------------------ */
     var clBackToTop = function() {
@@ -305,7 +316,7 @@
     };
 
 
-/* Map
+   /* Map
     * ------------------------------------------------------ */
 
     // add custom buttons for the zoom-in/zoom-out on the map
@@ -328,12 +339,14 @@
             
     };
 
-    var clGoogleMap = function() { 
-        var dlat = $("#map-wrap").attr("data-lat");
-        var dlong = $("#map-wrap").attr("data-long");
-        var dmarker = $("#map-wrap").attr("data-marker");
+	var clGoogleMap = function() { 
 
         if (typeof google === 'object' && typeof google.maps === 'object') {
+
+            var mapSelector = $("#map-wrap"),
+                dlat    = mapSelector.data("lat"),
+                dlong   = mapSelector.data("long"),
+                dmarker = mapSelector.data("marker");
 
             // 37.422424, -122.085661
 
@@ -365,7 +378,7 @@
                         { saturation: saturation_value }
                     ]
                 },  
-                {   // poi stands for point of interest - don't show these lables on the map 
+                {	// poi stands for point of interest - don't show these lables on the map 
                     featureType: "poi",
                     elementType: "labels",
                     stylers: [
@@ -380,7 +393,7 @@
                         { visibility: "off" }
                     ]
                 }, 
-                {   
+                { 	
                     // don't show local road lables on the map
                     featureType: "road.local",
                     elementType: "labels.icon",
@@ -545,7 +558,7 @@
             // inizialize the map
             var map = new google.maps.Map(document.getElementById('map-container'), map_options);
 
-            // add a custom marker to the map               
+            // add a custom marker to the map				
             var marker = new google.maps.Marker({
 
                     position: new google.maps.LatLng(latitude, longitude),
@@ -565,6 +578,24 @@
 
     };
 
+    // MC Scripts
+    var $subscribe = $( '.subscribe-form' );
+    if( $subscribe.length ){
+        window.fnames = new Array();
+        window.ftypes = new Array();
+        fnames[0]='EMAIL';
+        ftypes[0]='email';
+        fnames[1]='FNAME';
+        ftypes[1]='text';
+        fnames[2]='LNAME';
+        ftypes[2]='text';
+        fnames[3]='ADDRESS';
+        ftypes[3]='address';
+        fnames[4]='PHONE';
+        ftypes[4]='phone';
+        fnames[5]='BIRTHDAY';
+        ftypes[5]='birthday';
+    }
 
    /* Initialize
     * ------------------------------------------------------ */
@@ -582,7 +613,12 @@
         clAlertBoxes();
         clAOS();
         clBackToTop();
-        clGoogleMap();
+
+        var $map = $( '#map-wrap' );
+        if( $map.length ){
+            clGoogleMap();
+        }
+        
 
     })();
         

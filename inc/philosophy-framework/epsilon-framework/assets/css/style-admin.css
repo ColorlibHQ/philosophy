@@ -1,0 +1,35 @@
+.epsilon-framework-notice.epsilon-big {
+    background: #e9eff3;
+    border: 10px solid #fff;
+    color: #608299;
+    padding: 30px 10px;
+    text-align: center;
+    box-shadow: none;
+}
+
+.epsilon-framework-notice.epsilon-big:after, .epsilon-framework-notice.epsilon-big:before {
+    content: "";
+    display: table;
+}
+
+.epsilon-framework-notice.epsilon-big:after {
+    clear: both;
+}
+
+/* backwards compat for Epsilon FW where logos used weren't cut to dimension */
+.epsilon-framework-notice.epsilon-big .epsilon-author-logo {
+    max-width: 100px;
+}
+.customize-control {
+    width: 100%;
+    float: left;
+    clear: both;
+    margin-bottom: 0;
+    display: block;
+    border-bottom: 2px solid #f4f5f6;
+    padding: 15px 0px;
+}
+.customize-control-title,
+.customize-control-title.onoffswitch_label {
+    height: auto !important;
+}

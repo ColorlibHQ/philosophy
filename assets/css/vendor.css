@@ -1557,7 +1557,6 @@ Reference: http://blog.rrwd.nl/2015/04/04/the-screen-reader-text-class-why-and-h
 }
 
 .mejs__container {
-   height: 40px!important;
    background: #000;
    box-sizing: border-box;
    font-family: 'Helvetica', Arial, serif;
@@ -1753,6 +1752,12 @@ Reference: http://blog.rrwd.nl/2015/04/04/the-screen-reader-text-class-why-and-h
    position: absolute;
    width: 100%;
    z-index: 3;
+}
+
+.mejs__controls:not([style*='display:none']) {
+   background: rgba(255, 0, 0, 0.7);
+   background: -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.35));
+   background: linear-gradient(transparent, rgba(0, 0, 0, 0.35));
 }
 
 .mejs__button,

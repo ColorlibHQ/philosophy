@@ -1,109 +1,79 @@
 <?php
+// Block direct access
+if( !defined( 'ABSPATH' ) ){
+    exit( 'Direct script access denied.' );
+}
 /**
- * The template for displaying comments
+ * @Packge     : Philosophy
+ * @Version    : 1.0
+ * @Author     : Colorlib
+ * @Author URI : http://colorlib.com/wp/
  *
- * This is the template that displays the area of the page that contains both the current comments
- * and the comment form.
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
- *
- * @package philosophy
  */
+ 
 
-/*
- * If the current post is protected by a password and
- * the visitor has not yet entered the password we will
- * return early without loading the comments.
- */
-if ( post_password_required() ) {
-	return;
+
+if ( post_password_required() ) 
+{
+    return;
 }
 ?>
 
-<div class="col-full">
-
-	<?php
-	// You can start editing here -- including this comment!
-	if ( have_comments() ) :
-		?>
-		<h3 class="h2">
-			<?php
-			$philosophy_comment_count = get_comments_number();
-			if ( '1' === $philosophy_comment_count ) {
-				printf(
-					/* translators: 1: title. */
-					esc_html__( 'One Comment', 'philosophy' ),
-					'<span>' . get_the_title() . '</span>'
-				);
-			} else {
-				printf( // WPCS: XSS OK.
-					/* translators: 1: comment count number, 2: title. */
-					esc_html( _nx( '%1$s Comment;', '%1$s Comments', $philosophy_comment_count, 'comments title', 'philosophy' ) ),
-					number_format_i18n( $philosophy_comment_count ),
-					'<span>' . get_the_title() . '</span>'
-				);
-			}
-			?>
-		</h3><!-- .comments-title -->
-
-		<?php the_comments_navigation(); ?>
-
-		<ol class="commentlist">
-			<?php
-				wp_list_comments( array(
-					'type' => 'comment',
-					'callback' => 'philosophy_comment',
-				));
-			?>
-		</ol><!-- .comment-list -->
-
-		<?php
-		the_comments_navigation();
-
-		// If comments are closed and there are comments, let's leave a little note, shall we?
-		if ( ! comments_open() ) :
-			?>
-			<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'philosophy' ); ?></p>
-			<?php
-		endif;
-
-	endif; // Check for have_comments().
-
-	$fields =  array(
-		 
-	  'author' =>
-	    '<div class="form-field"><input id="author" name="author" type="text" class="full-width" value="' . esc_attr( $commenter['comment_author'] ) .
-	    '" size="30" placeholder="' . esc_attr('Your Name', 'philosophy') . '" /></div>',
-
-	  'email' =>
-	    '<div class="form-field"><input id="email" name="email" type="text" class="full-width" value="' . esc_attr(  $commenter['comment_author_email'] ) .
-	    '" size="30" placeholder="' . esc_attr('Your Email' , 'philosophy') . '" /></div>',
-
-	  'url' =>
-	    '<div class="form-field"><input id="url" name="url" type="text" class="full-width" value="' . esc_attr( $commenter['comment_author_url'] ) .
-	    '" size="30" placeholder="' . esc_attr('Website', 'philosophy') . '" /></div>',
-	);
-
-	comment_form( array(
-		  'id_form'           => 'commentform',
-		  'class_form'      => 'comment-form',
-		  'id_submit'         => 'submit',
-		  'class_submit'      => 'submit',
-		  'name_submit'       => 'submit',
-		  'title_reply'       => esc_html__( 'Add Comment', 'philosophy'),
-		  'title_reply_to'    => esc_html__( 'Add Comment to %s' , 'philosophy'),
-		  'cancel_reply_link' => esc_html__( 'Cancel Reply' , 'philosophy'),
-		  'label_submit'      => esc_html__( 'Submit' , 'philosophy'),
-		  'format'            => 'xhtml',
-		  'comment_field' =>  '<div class="message form-field"><textarea name="comment" class="full-width"  aria-required="true" placeholder="' . esc_attr__('Your Message', 'philosophy') . '">' .
-		    '</textarea></div>',
-		  'fields' => apply_filters( 'comment_form_default_fields', $fields ),
-		  'submit_button' => '<input name="%1$s" type="submit" id="%2$s" class="btn--primary btn--large full-width %3$s" value="%4$s" />'
-		)
+    <?php if ( have_comments() ) : ?>
+		<div id="comments" class="comment--items"> <!-- Comment Item Start-->
+        <h3 class="h2"><?php printf( _nx( '1 Comment', '%1$s Comments', get_comments_number(), 'comments title', 'philosophy' ), number_format_i18n( get_comments_number() ) ); ?></h3>
 		
+        <?php the_comments_navigation(); ?>
+            <ol class="commentlist">
+                <?php
+                    wp_list_comments( array(
+                        'style'       => 'ol',
+                        'short_ping'  => true,
+                        'avatar_size' => 70,
+                        'callback'    => 'philosophy_comment_callback'
+                    ) );
+                ?>
+            </ol><!-- .comment-list -->
+        <?php the_comments_navigation(); ?>
+		</div><!-- Comment Item End-->
+    <?php endif; // Check for have_comments(). ?>
+
+    <?php
+        // If comments are closed and there are comments, let's leave a little note, shall we?
+        if ( ! comments_open() && get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) :
+    ?>
+        <p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'philosophy' ); ?></p>
+    <?php endif; ?>
+    
+<?php
+	$commenter = wp_get_current_commenter();
+	$req = get_option( 'require_name_email' );
+	$aria_req = ( $req ? "required='required'" : '' );
+	$fields =  array(
+	  'author' =>'<div class="form-field"><input class="full-width" placeholder="'.esc_attr__( 'Your Name', 'philosophy' ).'" type="text" name="author" value="'. esc_attr( $commenter['comment_author'] ).'" id="cName" '.$aria_req.'></div>',
+	  'email' =>'<div class="form-field"><input class="full-width" placeholder="'.esc_attr__( 'Your Email', 'philosophy' ).'" type="text" name="email"  value="' . esc_attr(  $commenter['comment_author_email'] ) .'" id="cEmail" '.$aria_req.'></div>',
+	  'url' =>'<div class="form-field"><input class="full-width" placeholder="'.esc_attr__( 'Website', 'philosophy' ).'" type="text" name="url" value="'. esc_attr( $commenter['comment_author_url'] ) .'" id="cWebsite"></div>',
+      'cookies_consent' =>'<div class="form-field"><p class="comment-form-cookies-consent"><input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" value="yes" type="checkbox"><label for="wp-comment-cookies-consent">'.esc_html__( 'Save my name, email, and website in this browser for the next time I comment.', 'philosophy' ).'</label></p></div>',
 	);
+	
 
+	$args=array(
+	'comment_field'         =>'<div class="message form-field"><textarea id="cMessage" class="full-width" rows="10" name="comment" placeholder="'.esc_attr__( 'Comment...', 'philosophy' ).'"></textarea></div>',
+	'id_form'               =>'contactForm',
+    'class_form'            =>'',
+	'title_reply'           =>esc_html__( 'LEAVE A COMMENT', 'philosophy' ),
+	'title_reply_before'    =>'<h4>',
+	'title_reply_after'     =>'</h4>',
+    'label_submit'          => esc_html__( 'Post Comment', 'philosophy' ),
+    'class_submit'          => 'submit btn--primary btn--large full-width',
+	'submit_button'         => '<button type="submit" name="%1$s" id="%2$s" class="%3$s">%4$s</button>',
+	'fields'                =>$fields,
+	
+	);
+    
+    // Comments form
+	comment_form( $args );
+    
 
-	?>
-
-</div><!-- #comments -->
+?>
+<!-- .comments-area -->

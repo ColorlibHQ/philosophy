@@ -1,38 +1,36 @@
-=== philosophy ===
-
-Contributors: automattic
-Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
-
-Requires at least: 4.5
-Tested up to: 4.8
-Stable tag: 1.0.0
-License: GNU General Public License v2 or later
-License URI: LICENSE
-
-A starter theme called philosophy.
+=== Colorlib ===
+Contributors: Colorlib
+Requires at least: WordPress 4.9
+Tested : WordPress 4.9
+Version: 1.0.1
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: two-columns, left-sidebar, right-sidebar, flexible-header, accessibility-ready, custom-background, custom-colors, custom-header, custom-menu, theme-options, editor-style, featured-images, microformats, post-formats, rtl-language-support, sticky-post, threaded-comments, translation-ready
+Text Domain: philosophy
 
 == Description ==
+Philosophy is a clean, simple, responsive and customizable WordPress theme that looks awesome on any device. For a quick launch of a page to showcases your works, your talents and your services, apredefined theme is a wise decision to make. Philosophy has it all in store for you to easily and effortlessly engineer an appealing page to attract new clients and seal new business deals.
 
-PHILOSOPHY is a modern masonry blog website template. Its stylish design and beautiful  typography makes it an ideal template for your blog site. It features styles for the  following post formats: standard, video, audio, and gallery. It is fully responsive and retina ready  so It will always look great and crisp on any devices and screen sizes. It\'s built with clean  and organized code which makes it very easy to customize.
+* Mobile-first, Responsive Layout
+* Custom Colors
+* Custom Header
+* Social Links
+* Menu Description
+* Post Formats
+* The GPL v2.0 or later license. :) Use it to make something cool.
 
-== Installation ==
+== Installation == 
 
-1. In your admin panel, go to Appearance > Themes and click the Add New button.
-2. Click Upload Theme and Choose File, then select the theme's .zip file. Click Install Now.
-3. Click Activate to use your new theme right away.
+1. In your admin panel, go to Appearance -> Themes and click the 'Add New' button.
+2. Type in philosophy in the search form and press the 'Enter' key on your keyboard.
+3. Click on the 'Activate' button to use your new theme right away.
+5. Navigate to Appearance > Customize in your admin panel and customize to taste.
 
-== Frequently Asked Questions ==
+== Copyright ==
+gpu
 
-= Does this theme support any plugins? =
 
-philosophy includes support for Infinite Scroll in Jetpack.
+http://Colorlib.us/demo/philosophy/wordpress/
 
-== Changelog ==
 
-= 1.0 - May 12 2015 =
-* Initial release
 
-== Credits ==
-
-* Based on Underscores https://underscores.me/, (C) 2012-2017 Automattic, Inc., [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
-* normalize.css https://necolas.github.io/normalize.css/, (C) 2012-2016 Nicolas Gallagher and Jonathan Neal, [MIT](https://opensource.org/licenses/MIT)

@@ -1,6 +1,6 @@
-<form role="search" method="get" class="searchform" action="<?php echo esc_url( home_url( '/' ) ); ?>">
-    <label>
-        <input type="search" class="search-field" placeholder="<?php echo esc_attr_x( 'Type Keywords &hellip;', 'placeholder', 'philosophy' ); ?>" value="<?php echo get_search_query(); ?>" name="s" title="<?php echo esc_attr( 'Search for:', 'philosophy' ); ?>" autocomplete="off">
-    </label>
-    <input type="submit" class="search-submit" value="<?php echo esc_attr_x( 'Search', 'submit button', 'philosophy' ); ?>">
-</form>
+<div class="blog-post-search-widget">
+    <form action="<?php echo esc_url( site_url( '/' ) ); ?>">
+        <input type="search" name="s" id="Search" placeholder="<?php esc_html_e( 'Type Keywords', 'philosophy' ) ?>">
+        <button type="submit" class="submit btn btn--primary full-width"><?php esc_html_e( 'Search', 'philosophy' );?></button>
+    </form>
+</div>

@@ -1,65 +1,101 @@
-<?php
+<?php 
 /**
- * The template for displaying search results pages
+ * @Packge 	   : Philosophy
+ * @Version    : 1.0
+ * @Author 	   : Colorlib
+ * @Author URI : http://colorlib.com/wp/
  *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#search-result
- *
- * @package philosophy
  */
+ 
+	// Block direct access
+	if( !defined( 'ABSPATH' ) ){
+		exit( 'Direct script access denied.' );
+	}
 
-get_header();
+	//  Call Header
+	get_header();
 
-$contentNone = 'masonry';
-if( !have_posts() ){
-	$contentNone = 'no-masonry';
-}
+	/**
+	 * 
+	 * Hook for Blog, single, page, search, archive pages
+	 * wrapper start with wrapper div, container, row.
+	 *
+	 * Hook philosophy_wrp_start
+	 *
+	 * @Hooked philosophy_wrp_start_cb
+	 *  
+	 */
+	do_action( 'philosophy_wrp_start' );
+	
+	/**
+	 * 
+	 * Hook for Blog, single, search, archive pages
+	 * column start.
+	 *
+	 * Hook philosophy_blog_col_start
+	 *
+	 * @Hooked philosophy_blog_col_start_cb
+	 *  
+	 */
+	do_action( 'philosophy_blog_col_start' );
 
+
+	if( have_posts() ){
+		while( have_posts() ){
+			the_post();
+			// Post Contant
+			get_template_part( 'templates/content', get_post_format() );
+		}
+		// Reset Data
+		wp_reset_postdata();
+	}else{
+		get_template_part( 'templates/content', 'none' );
+	}
+	
+	/**
+	 * 
+	 * Hook for Blog, single, search, archive pages
+	 * column end.
+	 *
+	 * Hook philosophy_blog_col_end
+	 *
+	 * @Hooked philosophy_blog_col_end_cb
+	 *  
+	 */
+	do_action( 'philosophy_blog_col_end' );
+	
+	/**
+	 * 
+	 * Hook for Blog pagination
+	 *
+	 * Hook philosophy_blog_pagination
+	 *
+	 * @Hooked philosophy_blog_pagination_cb
+	 *  
+	 */
+	do_action( 'philosophy_blog_pagination' );
+	
+	/**
+	 * 
+	 * Hook for Blog, single blog, search, archive pages sidebar.
+	 *
+	 * Hook philosophy_blog_sidebar
+	 *
+	 * @Hooked philosophy_blog_sidebar_cb
+	 *  
+	 */
+	do_action( 'philosophy_blog_sidebar' );
+ 	
+ 	/**
+	 * Hook for Blog, single, page, search, archive pages
+	 * wrapper end with wrapper div, container, row.
+ 	 *
+ 	 * Hook philosophy_wrp_end
+ 	 * @Hooked  philosophy_wrp_end_cb
+ 	 *
+ 	 */
+ 	do_action( 'philosophy_wrp_end' );
+ 	
+	 // Call Footer
+	 get_footer();
 ?>
-
-	<section class="s-content">
-
-        <div class="row narrow">
-            <div class="col-full s-content__header" data-aos="fade-up">
-                <?php
-				/* translators: %s: search query. */
-				printf( esc_html__( 'Search Results for: %s', 'philosophy' ), '<h1>' . get_search_query() . '</h1>' );
-				?>
-				
-            </div>
-        </div>
-        
-        <div class="row masonry-wrap">
-            <div class="<?php echo esc_attr( $contentNone ); ?>">
-
-				<?php if ( have_posts() ) :
-					
-					/* Start the Loop */
-					while ( have_posts() ) :
-						the_post();
-
-						/**
-						 * Run the loop for the search to output the results.
-						 * If you want to overload this in a child theme then include a file
-						 * called content-search.php and that will be used instead.
-						 */
-						get_template_part( 'template-parts/page/content', 'search' );
-
-					endwhile;
-
-				else :
-
-					get_template_part( 'template-parts/post/content', 'none' );
-
-				endif;
-				?>
-
-			</div>
-		</div>
-
-		<div class="row">
-	 		<?php philosophy_pagination(); ?>
-        </div>
-        
-	</section>
-
-<?php get_footer();
