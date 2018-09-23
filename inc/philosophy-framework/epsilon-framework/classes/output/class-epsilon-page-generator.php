@@ -2,7 +2,7 @@
 /**
  * Page rendering
  *
- * @package Portum
+ * @package Philosophy
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

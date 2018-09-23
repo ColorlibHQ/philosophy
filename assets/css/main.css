@@ -1185,7 +1185,7 @@ button::-moz-focus-inner, input::-moz-focus-inner {
    cursor: default;
 }
 
-.pgn__prev, .pgn__next {
+.pgn__prev a, .pgn__next a {
    display: block;
    background-color: #FFFFFF;
    background-repeat: no-repeat;
@@ -1196,9 +1196,9 @@ button::-moz-focus-inner, input::-moz-focus-inner {
    line-height: 4.8rem;
    padding: 0;
    margin: 0;
-   border-radius: 50%;
-   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
    font: 0/0 a;
+   border-radius: 50%;
+   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);s
    text-shadow: none;
    color: transparent;
    -webkit-transition: all 0.2s ease-in-out;
@@ -1210,7 +1210,7 @@ button::-moz-focus-inner, input::-moz-focus-inner {
    transform: translateY(-50%);
 }
 
-.pgn__prev:hover, .pgn__next:hover {
+.pgn__prev a:hover, .pgn__next a:hover {
    background-color: #151515;
    color: #FFFFFF;
    text-decoration: none;
@@ -1218,25 +1218,25 @@ button::-moz-focus-inner, input::-moz-focus-inner {
    background-position: center;
 }
 
-.pgn__prev {
+.pgn__prev a {
    background-image: url("../../img/icons/icon-arrow-left.svg");
    left: 0;
 }
 
-.pgn__prev:hover {
+.pgn__prev a:hover {
    background-image: url("../../img/icons/icon-arrow-left-w.svg");
 }
 
-.pgn__next {
+.pgn__next a {
    background-image: url("../../img/icons/icon-arrow-right.svg");
    right: 0;
 }
 
-.pgn__next:hover {
+.pgn__next a:hover {
    background-image: url("../../img/icons/icon-arrow-right-w.svg");
 }
 
-.pgn__prev.inactive, .pgn__next.inactive {
+.pgn__prev.inactive , .pgn__next.inactive {
    background-color: #ffffff;
    opacity: 0.5;
    cursor: default;
@@ -4305,7 +4305,6 @@ article.sticky .entry__text{
 #cForm {
    margin-top: 3.6rem;
 }
-
 
 /* Social Icon
  * ----------------------------------------------- */

@@ -19,6 +19,9 @@ if( !defined( 'ABSPATH' ) ){
 
             <div class="featured__column featured__column--big">
                 <?php 
+                $term = philosophy_opt( 'philosophy_featured_cat' );
+                
+                //
                 $args = array(
                     'post_type'      => 'post',
                     'posts_per_page' => 1,
@@ -27,7 +30,7 @@ if( !defined( 'ABSPATH' ) ){
                         array(
                             'taxonomy' => 'category',
                             'field' => 'slug',
-                            'terms' => 'featured',
+                            'terms' => esc_html( ( $term ) ? $term : 'uncategorized'  ),
                         )
                     )
                 );
@@ -84,7 +87,7 @@ if( !defined( 'ABSPATH' ) ){
                         array(
                             'taxonomy'  => 'category',
                             'field'     => 'slug',
-                            'terms'     => 'featured',
+                            'terms'     => esc_html( ( $term ) ? $term : 'uncategorized' ),
                         )
                     )
                 );

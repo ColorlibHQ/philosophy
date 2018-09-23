@@ -397,7 +397,9 @@
 
 .customize-control-epsilon-color-picker {
   padding: 18px 0 6px 0; }
-
+  .customize-control {
+    overflow: -webkit-paged-y;
+}
 .epsilon-color-scheme-name {
   display: block;
   font-size: 14px;

@@ -62,64 +62,60 @@
 	//Widgets Folder Directory
 	if( !defined( 'PHILOSOPHY_DIR_PATH_WIDGET' ) )
 		define( 'PHILOSOPHY_DIR_PATH_WIDGET', PHILOSOPHY_DIR_PATH_INC.'widgets/' );
-	
-	//Elementor Folder Directory
-	if( !defined( 'PHILOSOPHY_DIR_PATH_ELEMENTOR' ) )
-		define( 'PHILOSOPHY_DIR_PATH_ELEMENTOR', PHILOSOPHY_DIR_PATH_INC.'elementor-widgets/' );
-	
+		
 	//Elementor Widgets Folder Directory
 	if( !defined( 'PHILOSOPHY_DIR_PATH_ELEMENTOR_WIDGETS' ) )
 		define( 'PHILOSOPHY_DIR_PATH_ELEMENTOR_WIDGETS', PHILOSOPHY_DIR_PATH_INC.'elementor-widgets/widgets/' );
 	
+
 
 	/**
 	 * Include File
 	 *
 	 */
 	
+	// Breadcrumbs file include
 	require_once( PHILOSOPHY_DIR_PATH_INC . 'philosophy-breadcrumbs.php' );
+	// Sidebar register file include
 	require_once( PHILOSOPHY_DIR_PATH_INC . 'philosophy-widgets-reg.php' );
-	require_once( PHILOSOPHY_DIR_PATH_INC . 'wp_bootstrap_navwalker.php' );
-	require_once( PHILOSOPHY_DIR_PATH_INC . 'philosophy-functions.php' );
-	require_once( PHILOSOPHY_DIR_PATH_INC . 'philosophy-commoncss.php' );
-	require_once( PHILOSOPHY_DIR_PATH_INC . 'support-functions.php' );
+	// Post widget file include
+	require_once( PHILOSOPHY_DIR_PATH_INC . 'popular-post-widget.php' );
+	// News letter widget file include
 	require_once( PHILOSOPHY_DIR_PATH_INC . 'philosophy-newsletter-widget.php' );
+	// Nav walker file include
+	require_once( PHILOSOPHY_DIR_PATH_INC . 'wp_bootstrap_navwalker.php' );
+	// Theme function file include
+	require_once( PHILOSOPHY_DIR_PATH_INC . 'philosophy-functions.php' );
+	// Inline css file include
+	require_once( PHILOSOPHY_DIR_PATH_INC . 'philosophy-commoncss.php' );
+	// Theme support function file include
+	require_once( PHILOSOPHY_DIR_PATH_INC . 'support-functions.php' );
+	// Html helper file include
 	require_once( PHILOSOPHY_DIR_PATH_INC . 'wp-html-helper.php' );
+	// Pagination file include
 	require_once( PHILOSOPHY_DIR_PATH_INC . 'wp_bootstrap_pagination.php' );
-	require_once( PHILOSOPHY_DIR_PATH_INC . 'demo-data/demo-import.php' );
-	require_once( PHILOSOPHY_DIR_PATH_FRAM . 'customizer/sanitization-callbacks.php' );
-	require_once( PHILOSOPHY_DIR_PATH_FRAM . 'customizer/customizer.php' );
-	require_once( PHILOSOPHY_DIR_PATH_FRAM . 'epsilon-framework/class-epsilon-framework.php' );
-	require PHILOSOPHY_DIR_PATH_INC . 'welcome-screen/class-philosophy.php';
-
 	//
 	require_once( PHILOSOPHY_DIR_PATH_CLASSES . 'Class-Enqueue.php' );
 	require_once( PHILOSOPHY_DIR_PATH_CLASSES . 'Class-Config.php' );
 	require_once( PHILOSOPHY_DIR_PATH_HOOKS . 'hooks.php' );
 	require_once( PHILOSOPHY_DIR_PATH_HOOKS . 'hooks-functions.php' );
+	// Epsilon Framework file Include
+	require_once( PHILOSOPHY_DIR_PATH_FRAM . 'epsilon-framework/class-epsilon-framework.php' );
+	require_once( PHILOSOPHY_DIR_PATH_FRAM . 'customizer/customizer.php' );
 
-
-	
-	// philosophy global variable define
-	global $philosophy;
-	$philosophy['philosophyobj'] = new Philosophy();
-	
-	
-	// philosophy theme support
-	add_action( 'after_setup_theme', 'philosophy_themesupport' );
-	function philosophy_themesupport(){
-		global $philosophy;
-		$philosophyobj = $philosophy['philosophyobj'];
-		$philosophyobj->support();
-	}
-	
-	// philosophy theme init
-	add_action( 'init', 'philosophy_init' );
-	function philosophy_init(){
-		global $philosophy;
-		$philosophyobj = $philosophy['philosophyobj'];
-		$philosophyobj->init();
-	}
+	// Class autoloader
+	require_once( PHILOSOPHY_DIR_PATH_INC . 'class-philosophy-autoloader.php' );
+	// Class philosophy dashboard
+	 require_once( PHILOSOPHY_DIR_PATH_INC . 'class-philosophy-dashboard.php' );
+	 
+	/**
+	 * Instantiate Philosophy object
+	 *
+	 * Inside this object:
+	 * Enqueue scripts, Google font, Theme support features, Philosophy Dashboard .
+	 *
+	 */
+	$Philosophy = new Philosophy();
 
 
 
