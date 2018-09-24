@@ -16,31 +16,31 @@ if( !defined( 'ABSPATH' ) ){
 <div class="s-footer__main">
     <div class="row">
 		<?php 
-		// Footer widget 1
-		if( is_active_sidebar( 'footer-1' ) ){
+		// Footer widget 4
+		if( is_active_sidebar( 'footer-4' ) ){
 			echo '<div class="col-two md-four mob-full">';
-				dynamic_sidebar( 'footer-1' );
+				dynamic_sidebar( 'footer-4' );
 			echo '</div>';
 		}
 
-		// Footer widget 2
-		if( is_active_sidebar( 'footer-2' ) ){
+		// Footer widget 5
+		if( is_active_sidebar( 'footer-5' ) ){
 			echo '<div class="col-two md-four mob-full">';
-				dynamic_sidebar( 'footer-2' );
+				dynamic_sidebar( 'footer-5' );
 			echo '</div>';
 		}
 
-		// Footer widget 3
-		if( is_active_sidebar( 'footer-3' ) ){
+		// Footer widget 6
+		if( is_active_sidebar( 'footer-6' ) ){
 			echo '<div class="col-two md-four mob-full">';
-				dynamic_sidebar( 'footer-3' );
+				dynamic_sidebar( 'footer-6' );
 			echo '</div>';
 		}
 		
-		// Footer widget 4
-		if( is_active_sidebar( 'footer-4' ) ){
+		// Footer widget 7
+		if( is_active_sidebar( 'footer-7' ) ){
 			echo '<div class="col-five md-full end">';
-				dynamic_sidebar( 'footer-4' );
+				dynamic_sidebar( 'footer-7' );
 			echo '</div>';
 		}
 		?>

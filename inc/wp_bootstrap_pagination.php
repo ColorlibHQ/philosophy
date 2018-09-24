@@ -58,10 +58,12 @@ function philosophy_pagination( $args = array() ) {
     
     $echo = '';
    
-     
-    $firstpage = esc_attr( get_pagenum_link(1) );
-    if ( $firstpage && (1 != $page) )
-        $echo .= '<li class="previous pgn__prev"><a href="' . esc_attr( $firstpage ) . '">' . esc_html__( 'First', 'philosophy' ) . '</a></li>';
+
+    $previous = intval($page) - 1;
+    $previous = esc_attr( get_pagenum_link($previous) );
+    
+    if ( $previous && (1 != $page) )
+        $echo .= '<li class="previous pgn__prev"><a href="' . esc_attr( $previous ) . '" title="' . esc_html__( 'previous', 'philosophy' ) . '">' . esc_html__( 'Previous', 'philosophy' ) . '</a></li>';
     
     if ( !empty($min) && !empty($max) ) {
         for( $i = $min; $i <= $max; $i++ ) {
@@ -73,13 +75,14 @@ function philosophy_pagination( $args = array() ) {
         }
     }
     
-    
-    $lastpage = esc_attr( get_pagenum_link($count) );
-    if ( $lastpage ) {
-        $echo .= '<li class="next pgn__next"><a href="' . esc_attr( $lastpage ) . '">' . esc_html__( 'Last', 'philosophy' ) . '</a></li>';
-    }
+    $next = intval($page) + 1;
+    $next = esc_attr( get_pagenum_link($next) );
+    if ($next && ($count != $page) )
+        $echo .= '<li class="next pgn__next"><a href="' . esc_attr( $next ) . '" title="' . esc_html__( 'next', 'philosophy') . '">' . esc_html__( 'Next', 'philosophy') . '</a></li>';
+
 
 
     if ( isset($echo) )
         echo wp_kses_post( $args['before_output'] . $echo . $args['after_output'] );
+    
 }

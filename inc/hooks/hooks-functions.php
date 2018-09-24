@@ -14,7 +14,7 @@ if( !defined( 'ABSPATH' ) ){
 	// Before wrapper Preloader
 	if( !function_exists('philosophy_site_preloader') ){
 		function philosophy_site_preloader(){
-			if( philosophy_opt('philosophy-preloader-toggle-settings') ):
+			if( philosophy_opt('philosophy_preloader_toggle') ):
 		?>
 		    <div id="preloader">
 		        <div id="loader">
@@ -37,9 +37,9 @@ if( !defined( 'ABSPATH' ) ){
 		function philosophy_header_cb(){
 			if( !is_404() ){
 
-				echo '<section class="s-pageheader'.( is_home() && philosophy_opt( 'philosophy-featureblog-toggle-settings' ) ? ' s-pageheader--home' : '' ).'">';
+				echo '<section class="s-pageheader'.( is_home() && philosophy_opt( 'philosophy_hfblog_toggle' ) ? ' s-pageheader--home' : '' ).'">';
 					get_template_part( 'templates/menu', 'bar' );
-					if( is_home() && philosophy_opt( 'philosophy-featureblog-toggle-settings' ) ){
+					if( is_home() && philosophy_opt( 'philosophy_hfblog_toggle' ) ){
 						get_template_part( 'templates/home', 'header' );
 					}
 					
@@ -55,15 +55,13 @@ if( !defined( 'ABSPATH' ) ){
 
 			if( !is_404() ){
 				// Footer top widgets
-				$extra = philosophy_opt('philosophy_footer_top_enable');
-				if( $extra ){
-					get_template_part( 'templates/footer-top', 'widgets' );
-				}
+				get_template_part( 'templates/footer-top', 'widgets' );
+			
 				// Footer widgets and footer bottom copyright
 				echo '<footer class="s-footer">';
 				// Footer widget
 
-				if( philosophy_opt( 'philosophy-widget-toggle-settings' ) ){
+				if( philosophy_opt( 'philosophy_footer_widget_toggle' ) ){
 					get_template_part( 'templates/footer', 'widgets' );
 				}
 				
@@ -293,7 +291,7 @@ if( !defined( 'ABSPATH' ) ){
 			<div class="entry__excerpt">
 				<?php 
 				// Post excerpt
-				echo philosophy_excerpt_length( esc_html( philosophy_opt('philosophy_post_excerpt') ) );
+				echo philosophy_excerpt_length( esc_html( philosophy_opt('philosophy_excerpt_length') ) );
 
 				// Link Pages
 				philosophy_link_pages();
@@ -398,7 +396,6 @@ if( !defined( 'ABSPATH' ) ){
 		}
 	}
 
-
 	// Blog single post  social share hook function.
 	if( !function_exists('philosophy_blog_posts_share_cb') ){
 		function philosophy_blog_posts_share_cb(){
@@ -475,7 +472,5 @@ if( !defined( 'ABSPATH' ) ){
 			get_template_part( 'templates/404' );			
 		}
 	}
-
-
 
 ?>

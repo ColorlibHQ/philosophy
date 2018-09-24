@@ -13,7 +13,7 @@
 </head>
 <body id="top" <?php body_class(); ?>>
 
-    <?php 
+    <?php
     /**
      * Preloader Start
      *
