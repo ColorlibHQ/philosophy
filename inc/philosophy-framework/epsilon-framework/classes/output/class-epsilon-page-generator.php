@@ -2,7 +2,7 @@
 /**
  * Page rendering
  *
- * @package Portum
+ * @package epsilon-framework
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

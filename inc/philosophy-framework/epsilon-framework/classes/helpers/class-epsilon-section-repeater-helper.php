@@ -276,7 +276,7 @@ class Epsilon_Section_Repeater_Helper {
 				case 'text-color':
 					$temp = array(
 						'id'          => $key . '_text_color',
-						'label'       => __( 'Text Color', 'philosophy' ),
+						'label'       => __( 'Text Color', 'epsilon-framework' ),
 						'description' => '',
 						'default'     => isset( $values['default'] ) ? $values['default'] : '',
 						'type'        => 'epsilon-color-picker',
@@ -291,7 +291,7 @@ class Epsilon_Section_Repeater_Helper {
 				case 'heading-color':
 					$temp = array(
 						'id'          => $key . '_heading_color',
-						'label'       => __( 'Heading Color', 'philosophy' ),
+						'label'       => __( 'Heading Color', 'epsilon-framework' ),
 						'description' => '',
 						'default'     => isset( $values['default'] ) ? $values['default'] : '',
 						'type'        => 'epsilon-color-picker',
@@ -331,7 +331,7 @@ class Epsilon_Section_Repeater_Helper {
 				case 'background-color':
 					$temp = array(
 						'id'          => $key . '_background_color',
-						'label'       => __( 'Background color', 'philosophy' ),
+						'label'       => __( 'Background color', 'epsilon-framework' ),
 						'description' => '',
 						'default'     => isset( $values['default'] ) ? $values['default'] : '',
 						'type'        => 'epsilon-color-picker',
@@ -345,7 +345,7 @@ class Epsilon_Section_Repeater_Helper {
 				case 'background-color-opacity':
 					$temp = array(
 						'id'          => $key . '_background_color_opacity',
-						'label'       => __( 'Background color opacity', 'philosophy' ),
+						'label'       => __( 'Background color opacity', 'epsilon-framework' ),
 						'description' => '',
 						'type'        => 'epsilon-slider',
 						'default'     => isset( $values['default'] ) ? $values['default'] : 1,
@@ -362,7 +362,7 @@ class Epsilon_Section_Repeater_Helper {
 				case 'background-image':
 					$temp = array(
 						'id'          => $key . '_background_image',
-						'label'       => __( 'Background image', 'philosophy' ),
+						'label'       => __( 'Background image', 'epsilon-framework' ),
 						'description' => '',
 						'type'        => 'epsilon-image',
 						'default'     => isset( $values['default'] ) ? $values['default'] : '',
@@ -377,21 +377,21 @@ class Epsilon_Section_Repeater_Helper {
 				case 'background-position':
 					$temp = array(
 						'id'          => $key . '_background_position',
-						'label'       => __( 'Background position', 'philosophy' ),
+						'label'       => __( 'Background position', 'epsilon-framework' ),
 						'description' => '',
 						'default'     => isset( $values['default'] ) ? $values['default'] : '',
 						'type'        => 'select',
 						'group'       => 'styling',
 						'choices'     => array(
-							'topleft'     => __( 'Top Left', 'philosophy' ),
-							'top'         => __( 'Top', 'philosophy' ),
-							'topright'    => __( 'Top Right', 'philosophy' ),
-							'left'        => __( 'Left', 'philosophy' ),
-							'center'      => __( 'Center', 'philosophy' ),
-							'right'       => __( 'Right', 'philosophy' ),
-							'bottomleft'  => __( 'Bottom Left', 'philosophy' ),
-							'bottom'      => __( 'Bottom', 'philosophy' ),
-							'bottomright' => __( 'Bottom Right', 'philosophy' ),
+							'topleft'     => __( 'Top Left', 'epsilon-framework' ),
+							'top'         => __( 'Top', 'epsilon-framework' ),
+							'topright'    => __( 'Top Right', 'epsilon-framework' ),
+							'left'        => __( 'Left', 'epsilon-framework' ),
+							'center'      => __( 'Center', 'epsilon-framework' ),
+							'right'       => __( 'Right', 'epsilon-framework' ),
+							'bottomleft'  => __( 'Bottom Left', 'epsilon-framework' ),
+							'bottom'      => __( 'Bottom', 'epsilon-framework' ),
+							'bottomright' => __( 'Bottom Right', 'epsilon-framework' ),
 						),
 					);
 
@@ -400,16 +400,16 @@ class Epsilon_Section_Repeater_Helper {
 				case 'background-repeat':
 					$temp = array(
 						'id'          => $key . '_background_repeat',
-						'label'       => __( 'Background repeat', 'philosophy' ),
+						'label'       => __( 'Background repeat', 'epsilon-framework' ),
 						'description' => '',
 						'default'     => isset( $values['default'] ) ? $values['default'] : '',
 						'type'        => 'select',
 						'group'       => 'styling',
 						'choices'     => array(
-							'no-repeat' => __( 'No Repeat', 'philosophy' ),
-							'repeat'    => __( 'Repeat', 'philosophy' ),
-							'repeat-y'  => __( 'Repeat Y', 'philosophy' ),
-							'repeat-x'  => __( 'Repeat X', 'philosophy' ),
+							'no-repeat' => __( 'No Repeat', 'epsilon-framework' ),
+							'repeat'    => __( 'Repeat', 'epsilon-framework' ),
+							'repeat-y'  => __( 'Repeat Y', 'epsilon-framework' ),
+							'repeat-x'  => __( 'Repeat X', 'epsilon-framework' ),
 						),
 					);
 
@@ -418,15 +418,15 @@ class Epsilon_Section_Repeater_Helper {
 				case 'background-size':
 					$temp = array(
 						'id'          => $key . '_background_size',
-						'label'       => __( 'Background size', 'philosophy' ),
+						'label'       => __( 'Background size', 'epsilon-framework' ),
 						'description' => '',
 						'default'     => isset( $values['default'] ) ? $values['default'] : '',
 						'type'        => 'select',
 						'group'       => 'styling',
 						'choices'     => array(
-							'cover'   => __( 'Cover', 'philosophy' ),
-							'contain' => __( 'Contain', 'philosophy' ),
-							'initial' => __( 'Initial', 'philosophy' ),
+							'cover'   => __( 'Cover', 'epsilon-framework' ),
+							'contain' => __( 'Contain', 'epsilon-framework' ),
+							'initial' => __( 'Initial', 'epsilon-framework' ),
 						),
 					);
 
@@ -435,7 +435,7 @@ class Epsilon_Section_Repeater_Helper {
 				case 'background-parallax':
 					$temp = array(
 						'id'          => $key . '_background_parallax',
-						'label'       => __( 'Background parallax', 'philosophy' ),
+						'label'       => __( 'Background parallax', 'epsilon-framework' ),
 						'description' => '',
 						'default'     => isset( $values['default'] ) ? $values['default'] : false,
 						'type'        => 'epsilon-toggle',
@@ -447,7 +447,7 @@ class Epsilon_Section_Repeater_Helper {
 				case 'background-video':
 					$temp = array(
 						'id'          => $key . '_background_video',
-						'label'       => __( 'Background video', 'philosophy' ),
+						'label'       => __( 'Background video', 'epsilon-framework' ),
 						'description' => '',
 						'default'     => isset( $values['default'] ) ? $values['default'] : '',
 						'type'        => 'text',
@@ -500,7 +500,7 @@ class Epsilon_Section_Repeater_Helper {
 					$temp = array(
 						'id'      => $key . '_column_alignment',
 						'type'    => 'epsilon-button-group',
-						'label'   => __( 'Horizontal alignment', 'philosophy' ),
+						'label'   => __( 'Horizontal alignment', 'epsilon-framework' ),
 						'group'   => 'layout',
 						'choices' => $this->create_choices_array( 'column_alignment', $values['choices'] ),
 						'default' => isset( $values['default'] ) ? $values['default'] : 'center',
@@ -515,7 +515,7 @@ class Epsilon_Section_Repeater_Helper {
 					$temp              = array(
 						'id'      => $key . '_column_vertical_alignment',
 						'type'    => 'epsilon-button-group',
-						'label'   => __( 'Vertical alignment', 'philosophy' ),
+						'label'   => __( 'Vertical alignment', 'epsilon-framework' ),
 						'group'   => 'layout',
 						'choices' => $this->create_choices_array( 'column_vertical_alignment', $values['choices'] ),
 						'default' => isset( $values['default'] ) ? $values['default'] : 'middle',
@@ -529,7 +529,7 @@ class Epsilon_Section_Repeater_Helper {
 					$temp              = array(
 						'id'      => $key . '_column_stretch',
 						'type'    => 'epsilon-button-group',
-						'label'   => __( 'Stretch', 'philosophy' ),
+						'label'   => __( 'Stretch', 'epsilon-framework' ),
 						'group'   => 'layout',
 						'choices' => $this->create_choices_array( 'column_stretch', $values['choices'] ),
 						'default' => isset( $values['default'] ) ? $values['default'] : 'boxedin',
@@ -543,7 +543,7 @@ class Epsilon_Section_Repeater_Helper {
 					$temp              = array(
 						'id'      => $key . '_column_spacing',
 						'type'    => 'epsilon-button-group',
-						'label'   => __( 'Items spacing', 'philosophy' ),
+						'label'   => __( 'Items spacing', 'epsilon-framework' ),
 						'group'   => 'layout',
 						'choices' => $this->create_choices_array( 'column_spacing', $values['choices'] ),
 						'default' => isset( $values['default'] ) ? $values['default'] : 'spaced',
@@ -557,7 +557,7 @@ class Epsilon_Section_Repeater_Helper {
 					$temp              = array(
 						'id'      => $key . '_column_group',
 						'type'    => 'epsilon-button-group',
-						'label'   => __( 'Items group', 'philosophy' ),
+						'label'   => __( 'Items group', 'epsilon-framework' ),
 						'group'   => 'layout',
 						'choices' => $this->create_choices_array( 'column_group', $values['choices'] ),
 						'default' => isset( $values['default'] ) ? absint( $values['default'] ) : 4,
@@ -571,7 +571,7 @@ class Epsilon_Section_Repeater_Helper {
 					$temp              = array(
 						'id'      => $key . '_row_spacing_top',
 						'type'    => 'epsilon-button-group',
-						'label'   => __( 'Spacing top', 'philosophy' ),
+						'label'   => __( 'Spacing top', 'epsilon-framework' ),
 						'group'   => 'layout',
 						'choices' => $this->create_choices_array( 'row_spacing', $values['choices'] ),
 						'default' => isset( $values['default'] ) ? $values['default'] : 'none',
@@ -584,7 +584,7 @@ class Epsilon_Section_Repeater_Helper {
 					$temp              = array(
 						'id'      => $key . '_row_spacing_bottom',
 						'type'    => 'epsilon-button-group',
-						'label'   => __( 'Spacing bottom', 'philosophy' ),
+						'label'   => __( 'Spacing bottom', 'epsilon-framework' ),
 						'group'   => 'layout',
 						'choices' => $this->create_choices_array( 'row_spacing_bottom', $values['choices'] ),
 						'default' => isset( $values['default'] ) ? $values['default'] : 'none',
@@ -597,7 +597,7 @@ class Epsilon_Section_Repeater_Helper {
 					$temp              = array(
 						'id'      => $key . '_row_title_align',
 						'type'    => 'epsilon-button-group',
-						'label'   => __( 'Title & description alignment', 'philosophy' ),
+						'label'   => __( 'Title & description alignment', 'epsilon-framework' ),
 						'group'   => 'layout',
 						'choices' => $this->create_choices_array( 'title_align', $values['choices'] ),
 						'default' => isset( $values['default'] ) ? $values['default'] : 'none',

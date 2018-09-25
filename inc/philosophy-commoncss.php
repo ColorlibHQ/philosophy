@@ -11,37 +11,37 @@ if( !defined( 'ABSPATH' ) ){
  *
  */
  
-
+ 
 // enqueue css
 function philosophy_common_custom_css(){
     
     wp_enqueue_style( 'philosophy-common', get_template_directory_uri().'/assets/css/common.css' );
 		
-		$headerBg          		  = philosophy_opt( 'philosophy_header_navbar_bgColor' );
-		$menuColor          	  = philosophy_opt( 'philosophy_header_navbar_menuColor' );
-		$menuHoverColor           = philosophy_opt( 'philosophy_header_navbar_menuHovColor' );
+		$headerBg          		  = philosophy_opt( 'philosophy_header_bg_color' );
+		$menuColor          	  = philosophy_opt( 'philosophy_header_menu_color' );
+		$menuHoverColor           = philosophy_opt( 'philosophy_header_menu_hover_color' );
 
-		$dropMenuBgColor          = philosophy_opt( 'philosophy_header_drop_menubg_color' );
+		$dropMenuBgColor          = philosophy_opt( 'philosophy_header_menu_dropbg_color' );
 		$dropMenuColor            = philosophy_opt( 'philosophy_header_drop_menu_color' );
-		$dropMenuHovColor         = philosophy_opt( 'philosophy_header_drop_menuhov_color' );
+		$dropMenuHovColor         = philosophy_opt( 'philosophy_header_drop_menu_hover_color' );
 
 		$geadertopColor           = philosophy_opt( 'philosophy_header_top_color' );
 
-		$footerwbgColor     	  = philosophy_opt('philosophy_footer_bgColor_settings');
-		$footerwTextColor   	  = philosophy_opt('philosophy_footer_wtcolor_settings');
-		$footerwanchorcolor 	  = philosophy_opt('philosophy_footer_wanchorcolor_settings');
-		$footerwanchorhovcolor    = philosophy_opt('philosophy_footer_wanchorhovcolor_settings');
-		$widgettitlecolor  		  = philosophy_opt('philosophy_footer_widgettitlecolor_settings');
+		$footerwbgColor     	  = philosophy_opt('philosophy_footer_widget_bdcolor');
+		$footerwTextColor   	  = philosophy_opt('philosophy_footer_widget_textcolor');
+		$footerwanchorcolor 	  = philosophy_opt('philosophy_footer_widget_anchorcolor');
+		$footerwanchorhovcolor    = philosophy_opt('philosophy_footer_widget_anchorhovcolor');
+		$widgettitlecolor  		  = philosophy_opt('philosophy_footer_widget_titlecolor');
 
-		$preloaderbgcolor  	      = philosophy_opt('philosophy_preloaderbgcolor');
-		$preloaderbordercolor  	  = philosophy_opt('philosophy_preloaderbordercolor');
+		$preloaderbgcolor  	      = philosophy_opt('philosophy_preloader_bg_color');
+		$preloaderbordercolor  	  = philosophy_opt('philosophy_preloader_color');
 
-		$bttopbgcolor  	      = philosophy_opt('philosophy_backtopbgcolor');
-		$bttophovbgcolor  	  = philosophy_opt('philosophy_backtophovbgcolor');
+		$bttopbgcolor  	      = philosophy_opt('philosophy_backtotop_btn_bg_color');
+		$bttophovbgcolor  	  = philosophy_opt('philosophy_backtotop_btn_hover_bg_color');
 
-		$fofbg  	  		  = philosophy_opt('philosophy_fof_bgcolor_settings');
-		$foftonecolor  	  	  = philosophy_opt('philosophy_fof_textonecolor_settings');
-		$fofttwocolor  	  	  = philosophy_opt('philosophy_fof_texttwocolor_settings');
+		$fofbg  	  		  = philosophy_opt('philosophy_fof_bg_color');
+		$foftonecolor  	  	  = philosophy_opt('philosophy_fof_textone_color');
+		$fofttwocolor  	  	  = philosophy_opt('philosophy_fof_texttwo_color');
 
 
         $customcss ="

@@ -1,10 +1,10 @@
 <?php
+
 if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
 require_once dirname( __FILE__ ) . '/class-epsilon-autoloader.php';
-
 
 /**
  * Class Epsilon_Framework
@@ -66,11 +66,11 @@ class Epsilon_Framework {
 	 */
 	private $plugin_path = '';
 	/**
-	 * Default path is in /inc/libraries
+	 * Default path is in /inc/philosophy-framework
 	 *
 	 * @var mixed|string
 	 */
-	private $path = '/inc/philosophy-framework';
+	private $path = '/inc/philosophy-framework/';
 	/**
 	 * At the current moment, backup is a must
 	 *
@@ -256,10 +256,10 @@ class Epsilon_Framework {
 		) );
 
 		wp_localize_script( 'epsilon-object', 'EpsilonTranslations', array(
-			'remove'     => esc_html__( 'Remove', 'philosophy' ),
-			'add'        => esc_html__( 'Add', 'philosophy' ),
-			'selectFile' => esc_html__( 'Upload image', 'philosophy' ),
-			'row'        => esc_html__( 'Row', 'philosophy' ),
+			'remove'     => esc_html__( 'Remove', 'epsilon-framework' ),
+			'add'        => esc_html__( 'Add', 'epsilon-framework' ),
+			'selectFile' => esc_html__( 'Upload image', 'epsilon-framework' ),
+			'row'        => esc_html__( 'Row', 'epsilon-framework' ),
 		) );
 
 		wp_enqueue_style( 'font-awesome', EPSILON_URI . '/assets/vendors/fontawesome/font-awesome.css' );
@@ -280,16 +280,9 @@ class Epsilon_Framework {
 		/**
 		 * Define URI and PATH for the framework
 		 */
-		if( !defined('EPSILON_URI') ){
-			define( 'EPSILON_URI', $dir_uri . $this->path . '/epsilon-framework' );
-		}
-		if( !defined('EPSILON_PATH') ){
-			define( 'EPSILON_PATH', $dir . $this->path . '/epsilon-framework' );
-		}
-		if( !defined('EPSILON_BACKUP') ){
-			define( 'EPSILON_BACKUP', $this->backup );
-		}
-		
+		define( 'EPSILON_URI', $dir_uri . $this->path . '/epsilon-framework' );
+		define( 'EPSILON_PATH', $dir . $this->path . '/epsilon-framework' );
+		define( 'EPSILON_BACKUP', $this->backup );
 	}
 }
-$obj = new Epsilon_Framework();
+new Epsilon_Framework();

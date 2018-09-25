@@ -55,8 +55,8 @@ class Epsilon_Repeater_Templates {
 						</div>
 					<# } ); #>
 					<div class="repeater-row-footer">
-						<button type="button" class="button-link repeater-row-remove"><?php esc_attr_e( 'Remove', 'philosophy' ); ?></button> |
-						<button type="button" class="button-link repeater-row-minimize"><?php esc_attr_e( 'Close', 'philosophy' ); ?></button>
+						<button type="button" class="button-link repeater-row-remove"><?php esc_attr_e( 'Remove', 'epsilon-framework' ); ?></button> |
+						<button type="button" class="button-link repeater-row-minimize"><?php esc_attr_e( 'Close', 'epsilon-framework' ); ?></button>
 					</div>
 				</div>
 			</li>
@@ -80,16 +80,16 @@ class Epsilon_Repeater_Templates {
 					<# if( data.customization.enabled ) { #>
 					<nav>
 						<# if( data.customization.enabled ) { #>
-							<a href="#" class="active" data-item="regular"><span class="dashicons dashicons-welcome-write-blog"></span> <span class="label"><?php echo __('Content' ,'philosophy'); ?></span></a>
+							<a href="#" class="active" data-item="regular"><span class="dashicons dashicons-welcome-write-blog"></span> <span class="label"><?php echo __('Content' ,'epsilon-framework'); ?></span></a>
 						<# } #>
 						<# if( ! _.isEmpty(data.customization.styling) ) { #>
-							<a href="#" data-item="styling"><span class="dashicons dashicons-admin-customizer"></span> <span class="label"><?php echo __('Style' ,'philosophy'); ?></span></a>
+							<a href="#" data-item="styling"><span class="dashicons dashicons-admin-customizer"></span> <span class="label"><?php echo __('Style' ,'epsilon-framework'); ?></span></a>
 						<# } #>
 						<# if( ! _.isEmpty(data.customization.layout) ) { #>
-							<a href="#" data-item="layout"><span class="dashicons dashicons-layout"></span> <span class="label"><?php echo __('Layout' ,'philosophy'); ?></span></a>
+							<a href="#" data-item="layout"><span class="dashicons dashicons-layout"></span> <span class="label"><?php echo __('Layout' ,'epsilon-framework'); ?></span></a>
 						<# } #>
 						<# if( ! _.isEmpty(data.customization.colors) ) { #>
-							<a href="#" data-item="colors"><span class="dashicons dashicons-admin-appearance"></span> <span class="label"><?php echo __('Colors' ,'philosophy'); ?></span></a>
+							<a href="#" data-item="colors"><span class="dashicons dashicons-admin-appearance"></span> <span class="label"><?php echo __('Colors' ,'epsilon-framework'); ?></span></a>
 						<# } #>
 					<# } #>
 					</nav>
@@ -132,8 +132,8 @@ class Epsilon_Repeater_Templates {
 					<# } ); #>
 
 					<div class="repeater-row-footer">
-						<button type="button" class="button-link repeater-row-remove"><?php esc_attr_e( 'Remove', 'philosophy' ); ?></button> |
-						<button type="button" class="button-link repeater-row-minimize"><?php esc_attr_e( 'Close', 'philosophy' ); ?></button>
+						<button type="button" class="button-link repeater-row-remove"><?php esc_attr_e( 'Remove', 'epsilon-framework' ); ?></button> |
+						<button type="button" class="button-link repeater-row-minimize"><?php esc_attr_e( 'Close', 'epsilon-framework' ); ?></button>
 					</div>
 				</div>
 			</li>
@@ -308,9 +308,9 @@ class Epsilon_Repeater_Templates {
 			</div>
 			<# } else { #>
 			<div class="placeholder">
-				<?php echo esc_html__( 'Upload image', 'philosophy' ); ?>
+				<?php echo esc_html__( 'Upload image', 'epsilon-framework' ); ?>
 				<# if ( ! _.isUndefined( field.sizeArray[field.size] ) ) { #>
-				<span class="recommended-size"><?php echo esc_html__( 'Recommended resolution:', 'philosophy' ); ?>
+				<span class="recommended-size"><?php echo esc_html__( 'Recommended resolution:', 'epsilon-framework' ); ?>
 					{{{ field.sizeArray[field.size].width }}} x {{{ field.sizeArray[field.size].height }}}</span> <# }
 				#>
 			</div>
@@ -318,11 +318,11 @@ class Epsilon_Repeater_Templates {
 			<div class="actions">
 				<button class="button image-upload-remove-button"
 				<# if( '' === field.default ) { #> style="display:none;" <# } #>>
-				<?php esc_attr_e( 'Remove', 'philosophy' ); ?>
+				<?php esc_attr_e( 'Remove', 'epsilon-framework' ); ?>
 				</button>
 
 				<button type="button" class="button-primary image-upload-button">
-					<?php echo esc_html__( 'Select File', 'philosophy' ); ?>
+					<?php echo esc_html__( 'Select File', 'epsilon-framework' ); ?>
 				</button>
 			</div>
 		</div>
@@ -396,7 +396,7 @@ class Epsilon_Repeater_Templates {
 			<input class="epsilon-color-picker" data-attr-mode={{ field.mode }} data-field={{ field.id }} type="text" maxlength="7" placeholder="{{ field.default }}" value="{{ field.default }}"/>
 			<span class="customize-control-title epsilon-color-picker-title">
 				{{{ field.label }}}
-				<a href="#" data-default="{{ field.defaultVal }}" class="epsilon-color-picker-default"><?php echo esc_html__( '(clear)', 'philosophy' ); ?></a>
+				<a href="#" data-default="{{ field.defaultVal }}" class="epsilon-color-picker-default"><?php echo esc_html__( '(clear)', 'epsilon-framework' ); ?></a>
 				<# if( field.description ){ #>
 					<span class="epsilon-color-picker-description">{{{ field.description }}}</span>
 				<# } #>

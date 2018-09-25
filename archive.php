@@ -51,6 +51,7 @@
 	}else{
 		get_template_part( 'templates/content', 'none' );
 	}
+
 	
 	/**
 	 * 
@@ -64,16 +65,6 @@
 	 */
 	do_action( 'philosophy_blog_col_end' );
 	
-	/**
-	 * 
-	 * Hook for Blog pagination
-	 *
-	 * Hook philosophy_blog_pagination
-	 *
-	 * @Hooked philosophy_blog_pagination_cb
-	 *  
-	 */
-	do_action( 'philosophy_blog_pagination' );
 	
 	/**
 	 * 
@@ -95,7 +86,8 @@
  	 *
  	 */
  	do_action( 'philosophy_wrp_end' );
- 	
+
+	 
 	 // Call Footer
 	 get_footer();
 ?>

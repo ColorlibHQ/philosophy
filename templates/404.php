@@ -21,19 +21,19 @@ if( !defined( 'ABSPATH' ) ){
 			<div class="f0f-content-inner">
 				<?php 
 				$errorText = esc_html__( 'Ooops 404 Error !', 'philosophy' );
-				if( philosophy_opt( 'philosophy_fof_text_one' ) ){
-					$errorText = philosophy_opt( 'philosophy_fof_text_one' );
+				if( philosophy_opt( 'philosophy_fof_titleone' ) ){
+					$errorText = philosophy_opt( 'philosophy_fof_titleone' );
 				}
 				//
 				echo '<h1 class="h1">'.esc_html( $errorText ).'</h1>';
-				//
+				
 
 				// Wrong text block
 
 				$wrongText = wp_kses_post( __( 'Either something went wrong or the page dosen&rsquo;t exist anymore.', 'philosophy' ) );
 
-				if( philosophy_opt('philosophy_fof_text_two') ){
-					$wrongText = philosophy_opt('philosophy_fof_text_two');
+				if( philosophy_opt('philosophy_fof_titletwo') ){
+					$wrongText = philosophy_opt('philosophy_fof_titletwo');
 				}
 
 				$anchor = philosophy_anchor_tag(

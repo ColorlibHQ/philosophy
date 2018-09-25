@@ -2,7 +2,11 @@
 Contributors: Colorlib
 Requires at least: WordPress 4.9
 Tested : WordPress 4.9
-Version: 1.0.1
+<<<<<<< HEAD
+Version: 1.1.0
+=======
+Version: 1.1.0
+>>>>>>> 60c1ff77e3c909f997d880e486140e63520d23ae
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: two-columns, left-sidebar, right-sidebar, flexible-header, accessibility-ready, custom-background, custom-colors, custom-header, custom-menu, theme-options, editor-style, featured-images, microformats, post-formats, rtl-language-support, sticky-post, threaded-comments, translation-ready
