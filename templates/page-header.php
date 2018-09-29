@@ -13,13 +13,13 @@
         // 
         $content = '';
         if( !is_archive() ){
-            $content = philosophy_opt( 'philosophy_search_pageheader_content' );
+            $content = philosophy_opt( 'philosophy_search_header_content' );
         }else{
-            $content = philosophy_opt( 'philosophy_archive_pageheader_content' );
+            $content = philosophy_opt( 'philosophy_archive_header_content' );
         }
         //
         if( $content ){
-
+            
             echo '<div class="lead">'.philosophy_get_textareahtml_output( $content ).'</div>';
         }
         ?>

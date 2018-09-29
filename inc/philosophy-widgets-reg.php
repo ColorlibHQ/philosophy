@@ -12,9 +12,9 @@ if( !defined( 'ABSPATH' ) ){
  *
  */
  
-    
+ 
 function philosophy_widgets_init() {
-    // sidebar widgets register
+    // sidebar widgets 
     register_sidebar( array(
         'name'          => esc_html__( 'Sidebar', 'philosophy' ),
         'id'            => 'philosophy-post-sidebar',
@@ -24,34 +24,67 @@ function philosophy_widgets_init() {
         'after_title'   => '</h5>',
     ) );
     
-    // footer widgets register
+    // Footer sidebar #1 
     register_sidebar( array(
-        'name'          => esc_html__( 'Footer One', 'philosophy' ),
+        'name'          => esc_html__( 'Footer sidebar #1', 'philosophy' ),
         'id'            => 'footer-1',
         'before_widget' => '<div id="%1$s" class="single-footer-widget widget mb-100 %2$s">',
         'after_widget'  => '</div>',
-        'before_title'  => '<h4>',
-        'after_title'   => '</h4>',
+        'before_title'  => '<h3>',
+        'after_title'   => '</h3>',
     ) );
+
+    // Footer sidebar #2 
     register_sidebar( array(
-        'name'          => esc_html__( 'Footer Two', 'philosophy' ),
+        'name'          => esc_html__( 'Footer sidebar #2', 'philosophy' ),
         'id'            => 'footer-2',
         'before_widget' => '<div id="%1$s" class="single-footer-widget widget mb-100 %2$s">',
         'after_widget'  => '</div>',
-        'before_title'  => '<h4>',
-        'after_title'   => '</h4>',
+        'before_title'  => '<h3>',
+        'after_title'   => '</h3>',
     ) );
+
+    // Footer sidebar #3 
     register_sidebar( array(
-        'name'          => esc_html__( 'Footer Three', 'philosophy' ),
+        'name'          => esc_html__( 'Footer sidebar #3', 'philosophy' ),
         'id'            => 'footer-3',
+        'before_widget' => '<div id="%1$s" class="single-footer-widget widget mb-100 %2$s">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h3>',
+        'after_title'   => '</h3>',
+    ) );
+    
+    // Footer sidebar #4 
+    register_sidebar( array(
+        'name'          => esc_html__( 'Footer sidebar #4', 'philosophy' ),
+        'id'            => 'footer-4',
         'before_widget' => '<div id="%1$s" class="single-footer-widget widget mb-100 %2$s">',
         'after_widget'  => '</div>',
         'before_title'  => '<h4>',
         'after_title'   => '</h4>',
     ) );
+    // Footer sidebar #5 
     register_sidebar( array(
-        'name'          => esc_html__( 'Footer Four', 'philosophy' ),
-        'id'            => 'footer-4',
+        'name'          => esc_html__( 'Footer sidebar #5', 'philosophy' ),
+        'id'            => 'footer-5',
+        'before_widget' => '<div id="%1$s" class="single-footer-widget widget mb-100 %2$s">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h4>',
+        'after_title'   => '</h4>',
+    ) );
+    // Footer sidebar #6
+    register_sidebar( array(
+        'name'          => esc_html__( 'Footer sidebar #6', 'philosophy' ),
+        'id'            => 'footer-6',
+        'before_widget' => '<div id="%1$s" class="single-footer-widget widget mb-100 %2$s">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h4>',
+        'after_title'   => '</h4>',
+    ) );
+    // Footer sidebar #7
+    register_sidebar( array(
+        'name'          => esc_html__( 'Footer sidebar #7', 'philosophy' ),
+        'id'            => 'footer-7',
         'before_widget' => '<div id="%1$s" class="single-footer-widget widget mb-100 %2$s">',
         'after_widget'  => '</div>',
         'before_title'  => '<h4>',

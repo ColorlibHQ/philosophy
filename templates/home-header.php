@@ -19,6 +19,9 @@ if( !defined( 'ABSPATH' ) ){
 
             <div class="featured__column featured__column--big">
                 <?php 
+                $term = philosophy_opt( 'philosophy_featured_cat' );
+                
+                //
                 $args = array(
                     'post_type'      => 'post',
                     'posts_per_page' => 1,
@@ -27,7 +30,7 @@ if( !defined( 'ABSPATH' ) ){
                         array(
                             'taxonomy' => 'category',
                             'field' => 'slug',
-                            'terms' => 'featured',
+                            'terms' => esc_html( ( $term ) ? $term : 'uncategorized'  ),
                         )
                     )
                 );
@@ -38,7 +41,7 @@ if( !defined( 'ABSPATH' ) ){
 
                         $url = get_author_posts_url( get_the_author_meta( 'ID' ) );
                          
-                        
+
                 ?>
                     <div class="entry" <?php echo philosophy_inline_bg_img( get_the_post_thumbnail_url() ); ?>>
                         
@@ -84,7 +87,7 @@ if( !defined( 'ABSPATH' ) ){
                         array(
                             'taxonomy'  => 'category',
                             'field'     => 'slug',
-                            'terms'     => 'featured',
+                            'terms'     => esc_html( ( $term ) ? $term : 'uncategorized' ),
                         )
                     )
                 );

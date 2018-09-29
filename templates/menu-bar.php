@@ -4,12 +4,12 @@
 
         <div class="header__logo">
             <?php 
-            // Logo
+            // Site Logo
             echo philosophy_theme_logo('logo');
             ?>
         </div> <!-- end header__logo -->
             <?php 
-            if( has_nav_menu( 'social-menu' ) && philosophy_opt('philosophy-socialicon-toggle-settings') ){
+            if( has_nav_menu( 'social-menu' ) && philosophy_opt('philosophy_headersocial_toggle') ){
                 $args = array(
                     'theme_location' => 'social-menu',
                     'container'      => '',
@@ -22,7 +22,7 @@
             }
             ?>
         <?php 
-        if( philosophy_opt( 'philosophy-searchopt-toggle-settings' ) ):
+        if( philosophy_opt( 'philosophy_hsearchform_toggle' ) ):
         ?>
         <a class="header__search-trigger" href="#0"></a>
 

@@ -15,6 +15,7 @@
 	// Final Class
 	final class Philosophy{
 
+		
 		// Theme Version
 		private $philosophy_version = '1.0';
 
@@ -23,6 +24,16 @@
 
 		// Minimum PHP version required 
 		private $min_php = '5.6.25';
+
+		function __construct(){
+			// Theme Support
+			add_action( 'after_setup_theme', array( $this, 'support' ) );
+
+			// 
+			$this->init();
+			// Instantiate Philosophy Dashboard
+			$Philosophy_Dashboard = Philosophy_Dashboard::get_instance();
+		}
 
 		// Theme init
 		public function init(){
@@ -65,12 +76,6 @@
 	        	        
 	        // support automatic feed links
 	        add_theme_support( 'automatic-feed-links' );
-
-	        // support custom header
-	        add_theme_support( "custom-header" );
-	        
-	        // support custom background
-	        add_theme_support( "custom-background" );
 	        
 	        // support html5
 	        add_theme_support( 'html5' );
@@ -94,7 +99,7 @@
 
 			$cssPath = PHILOSOPHY_DIR_CSS_URI;
 			$jsPath  = PHILOSOPHY_DIR_JS_URI;
-			$apiKey	 = philosophy_opt('philosophy_map_apikey');
+			$apiKey	 = philosophy_opt('philosophy_gmap_api_key');
 			
 
 			$scripts = array(
@@ -207,7 +212,4 @@
 
 	} // End Philosophy Class
 
-	
-	
-	
 ?>

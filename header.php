@@ -13,7 +13,7 @@
 </head>
 <body id="top" <?php body_class(); ?>>
 
-    <?php 
+    <?php
     /**
      * Preloader Start
      *
@@ -31,6 +31,7 @@
      * @Hook philosophy_header
      *
      * @Hooked philosophy_header_cb 10
+     * 
      */
 
 	do_action( 'philosophy_header' );
