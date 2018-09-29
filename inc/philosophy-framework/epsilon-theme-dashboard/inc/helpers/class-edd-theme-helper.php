@@ -22,6 +22,7 @@ class EDD_Theme_Helper {
 	public static function get_strings() {
 		return array(
 			/* Translators: Registration */
+<<<<<<< HEAD
 			'theme-license'             => __( 'Registration', 'epsilon-framework' ),
 			/* Translators: Enter Key field label */
 			'enter-key'                 => __( 'Enter your theme license key.', 'epsilon-framework' ),
@@ -63,6 +64,49 @@ class EDD_Theme_Helper {
 			'update-notice'             => __( "Updating this theme will lose any customizations you have made. 'Cancel' to stop, 'OK' to update.", 'epsilon-framework' ),
 			/* Translators: license sites, title, update link */
 			'update-available'          => __( '<strong>%1$s %2$s</strong> is available. <a href="%3$s" class="thickbox" title="%4$s">Check out what\'s new</a> or <a href="%5$s"%6$s>update now</a>.', 'epsilon-framework' ),
+=======
+			'theme-license'             => __( 'Registration', 'philosophy' ),
+			/* Translators: Enter Key field label */
+			'enter-key'                 => __( 'Enter your theme license key.', 'philosophy' ),
+			/* Translators: License Key */
+			'license-key'               => __( 'License Key', 'philosophy' ),
+			/* Translators: Action */
+			'license-action'            => __( 'License Action', 'philosophy' ),
+			/* Translators: Deactivate License Label */
+			'deactivate-license'        => __( 'Deactivate License', 'philosophy' ),
+			/* Translators: Activate License Label */
+			'activate-license'          => __( 'Activate License', 'philosophy' ),
+			/* Translators: Unknown License Label */
+			'status-unknown'            => __( 'License status is unknown.', 'philosophy' ),
+			/* Translators: Renewal Label */
+			'renew'                     => __( 'Renew?', 'philosophy' ),
+			/* Translators: Unlimited activations */
+			'unlimited'                 => __( 'unlimited', 'philosophy' ),
+			/* Translators: Active key */
+			'license-key-is-active'     => __( 'License key is active.', 'philosophy' ),
+			/* Translators: expires */
+			'expires%s'                 => __( 'Expires %s.', 'philosophy' ),
+			/* Translators: websites activated */
+			'%1$s/%2$-sites'            => __( 'You have %1$s / %2$s sites activated.', 'philosophy' ),
+			/* Translators: License expired*/
+			'license-key-expired-%s'    => __( 'License key expired %s.', 'philosophy' ),
+			/* Translators: Expired License Key */
+			'license-key-expired'       => __( 'License key has expired.', 'philosophy' ),
+			/* Translators: Match failed */
+			'license-keys-do-not-match' => __( 'License keys do not match.', 'philosophy' ),
+			/* Translators: Inactive license */
+			'license-is-inactive'       => __( 'License is inactive.', 'philosophy' ),
+			/* Translators: Disabled license */
+			'license-key-is-disabled'   => __( 'License key is disabled.', 'philosophy' ),
+			/* Translators: Inactive website */
+			'site-is-inactive'          => __( 'Site is inactive.', 'philosophy' ),
+			/* Translators: Unknown license key */
+			'license-status-unknown'    => __( 'License status is unknown.', 'philosophy' ),
+			/* Translators: Update notice */
+			'update-notice'             => __( "Updating this theme will lose any customizations you have made. 'Cancel' to stop, 'OK' to update.", 'philosophy' ),
+			/* Translators: license sites, title, update link */
+			'update-available'          => __( '<strong>%1$s %2$s</strong> is available. <a href="%3$s" class="thickbox" title="%4$s">Check out what\'s new</a> or <a href="%5$s"%6$s>update now</a>.', 'philosophy' ),
+>>>>>>> 5a42a4e760d4c9695deb1c2d83070bd5fb910a24
 		);
 	}
 

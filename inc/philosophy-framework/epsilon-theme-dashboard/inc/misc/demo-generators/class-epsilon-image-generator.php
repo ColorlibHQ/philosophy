@@ -88,7 +88,11 @@ class Epsilon_Image_Generator {
 	 */
 	public function generate_featured_image() {
 		if ( has_post_thumbnail( $this->post_id ) ) {
+<<<<<<< HEAD
 			return new WP_Error( 'Post Thumbnail already set', 'epsilon-framework' );
+=======
+			return new WP_Error( 'Post Thumbnail already set', 'philosophy' );
+>>>>>>> 5a42a4e760d4c9695deb1c2d83070bd5fb910a24
 		}
 
 		// Set variables for storage, fix file filename for query strings.

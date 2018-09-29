@@ -47,7 +47,11 @@ if( $sidebar1 || $sidebar2 || $sidebar3 ):
     </div>
     <?php 
     endif;
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> 5a42a4e760d4c9695deb1c2d83070bd5fb910a24
     // 
     if( $sidebar3 ):
     ?>

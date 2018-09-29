@@ -477,7 +477,11 @@ class Epsilon_Import_Data {
 				$menu_id = wp_create_nav_menu( $menu['label'] );
 				if ( 'primary' === $menu['id'] ) {
 					wp_update_nav_menu_item( $menu_id, 0, array(
+<<<<<<< HEAD
 						'menu-item-title'   => esc_html__( 'Home', 'epsilon-framework' ),
+=======
+						'menu-item-title'   => esc_html__( 'Home', 'philosophy' ),
+>>>>>>> 5a42a4e760d4c9695deb1c2d83070bd5fb910a24
 						'menu-item-classes' => 'home',
 						'menu-item-url'     => home_url( '/' ),
 						'menu-item-status'  => 'publish',
@@ -486,7 +490,11 @@ class Epsilon_Import_Data {
 					$page_for_posts = get_option( 'page_for_posts', false );
 					if ( $page_for_posts ) {
 						wp_update_nav_menu_item( $menu_id, 0, array(
+<<<<<<< HEAD
 							'menu-item-title'   => esc_html__( 'Blog', 'epsilon-framework' ),
+=======
+							'menu-item-title'   => esc_html__( 'Blog', 'philosophy' ),
+>>>>>>> 5a42a4e760d4c9695deb1c2d83070bd5fb910a24
 							'menu-item-classes' => 'blog',
 							'menu-item-url'     => home_url( '/?page_id=' . get_option( 'page_for_posts' ) ),
 							'menu-item-status'  => 'publish',
@@ -651,7 +659,11 @@ class Epsilon_Import_Data {
 			update_option( 'show_on_front', 'page' );
 			$id = wp_insert_post(
 				array(
+<<<<<<< HEAD
 					'post_title'  => __( 'Homepage', 'epsilon-framework' ),
+=======
+					'post_title'  => __( 'Homepage', 'philosophy' ),
+>>>>>>> 5a42a4e760d4c9695deb1c2d83070bd5fb910a24
 					'post_type'   => 'page',
 					'post_status' => 'publish',
 				)
@@ -716,7 +728,11 @@ class Epsilon_Import_Data {
 
 		$id = wp_insert_post(
 			array(
+<<<<<<< HEAD
 				'post_title'  => __( 'Blog', 'epsilon-framework' ),
+=======
+				'post_title'  => __( 'Blog', 'philosophy' ),
+>>>>>>> 5a42a4e760d4c9695deb1c2d83070bd5fb910a24
 				'post_type'   => 'page',
 				'post_status' => 'publish',
 			)

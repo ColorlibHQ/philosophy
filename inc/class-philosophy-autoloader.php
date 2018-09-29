@@ -4,7 +4,11 @@
  * Philosophy Theme Autoloader
  *
  * @package Philosophy
+<<<<<<< HEAD
  * @since   1.1.0
+=======
+ * @since   1.2.2
+>>>>>>> 5a42a4e760d4c9695deb1c2d83070bd5fb910a24
  */
 
 if ( ! defined( 'WPINC' ) ) {

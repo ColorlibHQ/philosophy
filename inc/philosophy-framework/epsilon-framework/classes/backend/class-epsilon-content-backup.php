@@ -218,7 +218,11 @@ class Epsilon_Content_Backup {
 			array(
 				'id'      => $this->slug . '_content_backup',
 				'type'    => 'notice notice-info',
+<<<<<<< HEAD
 				'message' => '<p>' . esc_html__( 'This page contains the content created by the customizer.', 'epsilon-framework' ) . '</p>',
+=======
+				'message' => '<p>' . esc_html__( 'This page contains the content created by the customizer.', 'philosophy' ) . '</p>',
+>>>>>>> 5a42a4e760d4c9695deb1c2d83070bd5fb910a24
 			)
 		);
 	}

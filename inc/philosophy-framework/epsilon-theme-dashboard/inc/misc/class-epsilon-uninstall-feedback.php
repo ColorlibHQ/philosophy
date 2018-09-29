@@ -91,31 +91,51 @@ class Epsilon_Uninstall_Feedback {
 						'type'  => 'radio',
 						'value' => 'options',
 						'id'    => 'feedback-options',
+<<<<<<< HEAD
 						'label' => esc_html__( 'It lacks options.', 'epsilon-framework' ),
+=======
+						'label' => esc_html__( 'It lacks options.', 'philosophy' ),
+>>>>>>> 5a42a4e760d4c9695deb1c2d83070bd5fb910a24
 					),
 					array(
 						'type'  => 'radio',
 						'value' => 'design',
 						'id'    => 'feedback-design',
+<<<<<<< HEAD
 						'label' => esc_html__( 'I want to try a new design, I do not like this theme style.', 'epsilon-framework' ),
+=======
+						'label' => esc_html__( 'I want to try a new design, I do not like this theme style.', 'philosophy' ),
+>>>>>>> 5a42a4e760d4c9695deb1c2d83070bd5fb910a24
 					),
 					array(
 						'type'  => 'radio',
 						'value' => 'plugin',
 						'id'    => 'feedback-plugin',
+<<<<<<< HEAD
 						'label' => esc_html__( 'Is not working with a plugin that I need.', 'epsilon-framework' ),
+=======
+						'label' => esc_html__( 'Is not working with a plugin that I need.', 'philosophy' ),
+>>>>>>> 5a42a4e760d4c9695deb1c2d83070bd5fb910a24
 					),
 					array(
 						'type'  => 'radio',
 						'value' => 'other',
 						'id'    => 'feedback-other',
+<<<<<<< HEAD
 						'label' => esc_html__( 'Other', 'epsilon-framework' ),
+=======
+						'label' => esc_html__( 'Other', 'philosophy' ),
+>>>>>>> 5a42a4e760d4c9695deb1c2d83070bd5fb910a24
 					),
 					array(
 						'type'  => 'textarea',
 						'value' => '',
 						'id'    => 'feedback-other-text',
+<<<<<<< HEAD
 						'label' => esc_html__( 'Specify reason', 'epsilon-framework' ),
+=======
+						'label' => esc_html__( 'Specify reason', 'philosophy' ),
+>>>>>>> 5a42a4e760d4c9695deb1c2d83070bd5fb910a24
 					)
 				),
 			)

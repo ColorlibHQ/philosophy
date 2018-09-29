@@ -186,7 +186,11 @@ class Epsilon_Control_Section_Repeater extends WP_Customize_Control {
 			 * Adds the new section class
 			 */
 			$this->repeatable_sections[ $key ]['fields'][ $key . '_section_class' ] = array(
+<<<<<<< HEAD
 				'label'   => esc_html__( 'Section Class', 'epsilon-framework' ),
+=======
+				'label'   => esc_html__( 'Section Class', 'philosophy' ),
+>>>>>>> 5a42a4e760d4c9695deb1c2d83070bd5fb910a24
 				'type'    => 'epsilon-section-class',
 				'default' => 'section-' . $key . '-' . mt_rand( 1, mt_getrandmax()),
 			);
@@ -264,7 +268,11 @@ class Epsilon_Control_Section_Repeater extends WP_Customize_Control {
 				 * Epsilon Upsell
 				 */
 				if ( 'epsilon-upsell' === $v['type'] ) {
+<<<<<<< HEAD
 					$this->repeatable_sections[ $key ]['fields'][ $k ]['label']              = ! empty( $this->repeatable_sections[ $key ]['fields'][ $k ]['label'] ) ? $this->repeatable_sections[ $key ]['fields'][ $k ]['label'] : __( 'See what\'s in the PRO version', 'epsilon-framework' );
+=======
+					$this->repeatable_sections[ $key ]['fields'][ $k ]['label']              = ! empty( $this->repeatable_sections[ $key ]['fields'][ $k ]['label'] ) ? $this->repeatable_sections[ $key ]['fields'][ $k ]['label'] : __( 'See what\'s in the PRO version', 'philosophy' );
+>>>>>>> 5a42a4e760d4c9695deb1c2d83070bd5fb910a24
 					$this->repeatable_sections[ $key ]['fields'][ $k ]['separator']          = ! empty( $this->repeatable_sections[ $key ]['fields'][ $k ]['separator'] ) ? $this->repeatable_sections[ $key ]['fields'][ $k ]['separator'] : '';
 					$this->repeatable_sections[ $key ]['fields'][ $k ]['button_text']        = ! empty( $this->repeatable_sections[ $key ]['fields'][ $k ]['button_text'] ) ? $this->repeatable_sections[ $key ]['fields'][ $k ]['button_text'] : '';
 					$this->repeatable_sections[ $key ]['fields'][ $k ]['button_url']         = ! empty( $this->repeatable_sections[ $key ]['fields'][ $k ]['button_url'] ) ? $this->repeatable_sections[ $key ]['fields'][ $k ]['button_url'] : '';
@@ -350,18 +358,28 @@ class Epsilon_Control_Section_Repeater extends WP_Customize_Control {
 		<ul class="repeater-sections"></ul>
 		<# if(!_.isUndefined(data.choices.limit)){ #>
 		<?php /* Translators: Section limit */ ?>
+<<<<<<< HEAD
 		<p class="limit"><?php echo esc_html__( 'Limit: ', 'epsilon-framework' ); ?>
 			{{{ data.choices.limit }}} <?php echo esc_html__( 'sections', 'epsilon-framework' ); ?></p>
+=======
+		<p class="limit"><?php echo esc_html__( 'Limit: ', 'philosophy' ); ?>
+			{{{ data.choices.limit }}} <?php echo esc_html__( 'sections', 'philosophy' ); ?></p>
+>>>>>>> 5a42a4e760d4c9695deb1c2d83070bd5fb910a24
 		<# } #>
 		<div class="epsilon-add-section-buttons">
 			<input type="hidden" value="" {{{ data.link }}}/>
 			<button type="button" class="button epsilon-add-new-section" aria-expanded="false" aria-controls="available-sections">
+<<<<<<< HEAD
 				<?php esc_html_e( 'Add a Section', 'epsilon-framework' ); ?>
+=======
+				<?php esc_html_e( 'Add a Section', 'philosophy' ); ?>
+>>>>>>> 5a42a4e760d4c9695deb1c2d83070bd5fb910a24
 			</button>
 		</div>
 		<div id="sections-left-{{ data.id }}">
 			<div class="available-sections">
 				<div class="available-sections-filter">
+<<<<<<< HEAD
 					<label class="screen-reader-text" for="sections-search-{{ data.id }}"><?php esc_html_e( 'Search sections', 'epsilon-framework' ); ?></label>
 					<input type="text" class="sections-search-input" id="sections-search-{{ data.id }}" placeholder="<?php esc_attr_e( 'Search sections &hellip;', 'epsilon-framework' ) ?>" aria-describedby="sections-search-desc"/>
 					<div class="search-icon" aria-hidden="true"></div>
@@ -369,12 +387,26 @@ class Epsilon_Control_Section_Repeater extends WP_Customize_Control {
 						<span class="screen-reader-text"><?php esc_html_e( 'Clear Results', 'epsilon-framework' ); ?></span>
 					</button>
 					<p class="screen-reader-text" id="sections-search-desc-{{ data.id }}"><?php esc_html_e( 'The search results will be updated as you type.', 'epsilon-framework' ); ?></p>
+=======
+					<label class="screen-reader-text" for="sections-search-{{ data.id }}"><?php esc_html_e( 'Search sections', 'philosophy' ); ?></label>
+					<input type="text" class="sections-search-input" id="sections-search-{{ data.id }}" placeholder="<?php esc_attr_e( 'Search sections &hellip;', 'philosophy' ) ?>" aria-describedby="sections-search-desc"/>
+					<div class="search-icon" aria-hidden="true"></div>
+					<button type="button" class="clear-results">
+						<span class="screen-reader-text"><?php esc_html_e( 'Clear Results', 'philosophy' ); ?></span>
+					</button>
+					<p class="screen-reader-text" id="sections-search-desc-{{ data.id }}"><?php esc_html_e( 'The search results will be updated as you type.', 'philosophy' ); ?></p>
+>>>>>>> 5a42a4e760d4c9695deb1c2d83070bd5fb910a24
 				</div>
 				<div class="available-sections-list">
 					<# if ( data.integrations ) { #>
 						<nav class="available-sections-tab-nav">
+<<<<<<< HEAD
 							<a href="#" data-tab="normal" class="available-sections-tab-toggler active"><span class="dashicons dashicons-menu"></span> <?php esc_html_e( 'Sections', 'epsilon-framework' ); ?></a>
 							<a href="#" data-tab="integrations" class="available-sections-tab-toggler"><span class="dashicons dashicons-admin-plugins"></span> <?php esc_html_e( 'Integrations', 'epsilon-framework' ); ?> <span class="badge">{{ data.integrations_count }}</span></a>
+=======
+							<a href="#" data-tab="normal" class="available-sections-tab-toggler active"><span class="dashicons dashicons-menu"></span> <?php esc_html_e( 'Sections', 'philosophy' ); ?></a>
+							<a href="#" data-tab="integrations" class="available-sections-tab-toggler"><span class="dashicons dashicons-admin-plugins"></span> <?php esc_html_e( 'Integrations', 'philosophy' ); ?> <span class="badge">{{ data.integrations_count }}</span></a>
+>>>>>>> 5a42a4e760d4c9695deb1c2d83070bd5fb910a24
 						</nav>
 					<# } #>
 

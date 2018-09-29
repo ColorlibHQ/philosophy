@@ -256,10 +256,17 @@ class Epsilon_Framework {
 		) );
 
 		wp_localize_script( 'epsilon-object', 'EpsilonTranslations', array(
+<<<<<<< HEAD
 			'remove'     => esc_html__( 'Remove', 'epsilon-framework' ),
 			'add'        => esc_html__( 'Add', 'epsilon-framework' ),
 			'selectFile' => esc_html__( 'Upload image', 'epsilon-framework' ),
 			'row'        => esc_html__( 'Row', 'epsilon-framework' ),
+=======
+			'remove'     => esc_html__( 'Remove', 'philosophy' ),
+			'add'        => esc_html__( 'Add', 'philosophy' ),
+			'selectFile' => esc_html__( 'Upload image', 'philosophy' ),
+			'row'        => esc_html__( 'Row', 'philosophy' ),
+>>>>>>> 5a42a4e760d4c9695deb1c2d83070bd5fb910a24
 		) );
 
 		wp_enqueue_style( 'font-awesome', EPSILON_URI . '/assets/vendors/fontawesome/font-awesome.css' );

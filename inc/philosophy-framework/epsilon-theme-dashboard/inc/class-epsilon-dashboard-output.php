@@ -68,7 +68,11 @@ class Epsilon_Dashboard_Output {
 
 	public function dashboard_menu() {
 		/* Translators: Menu Title */
+<<<<<<< HEAD
 		$title = sprintf( esc_html__( 'About %1$s', 'epsilon-framework' ), esc_html( $this->theme['theme-name'] ) );
+=======
+		$title = sprintf( esc_html__( 'About %1$s', 'philosophy' ), esc_html( $this->theme['theme-name'] ) );
+>>>>>>> 5a42a4e760d4c9695deb1c2d83070bd5fb910a24
 
 		if ( 0 < count( $this->actions ) ) {
 			$title .= '<span class="badge-action-count">' . absint( count( $this->actions ) ) . '</span>';

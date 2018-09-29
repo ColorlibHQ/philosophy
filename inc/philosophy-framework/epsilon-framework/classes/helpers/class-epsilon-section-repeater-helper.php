@@ -276,7 +276,11 @@ class Epsilon_Section_Repeater_Helper {
 				case 'text-color':
 					$temp = array(
 						'id'          => $key . '_text_color',
+<<<<<<< HEAD
 						'label'       => __( 'Text Color', 'epsilon-framework' ),
+=======
+						'label'       => __( 'Text Color', 'philosophy' ),
+>>>>>>> 5a42a4e760d4c9695deb1c2d83070bd5fb910a24
 						'description' => '',
 						'default'     => isset( $values['default'] ) ? $values['default'] : '',
 						'type'        => 'epsilon-color-picker',
@@ -291,7 +295,11 @@ class Epsilon_Section_Repeater_Helper {
 				case 'heading-color':
 					$temp = array(
 						'id'          => $key . '_heading_color',
+<<<<<<< HEAD
 						'label'       => __( 'Heading Color', 'epsilon-framework' ),
+=======
+						'label'       => __( 'Heading Color', 'philosophy' ),
+>>>>>>> 5a42a4e760d4c9695deb1c2d83070bd5fb910a24
 						'description' => '',
 						'default'     => isset( $values['default'] ) ? $values['default'] : '',
 						'type'        => 'epsilon-color-picker',
@@ -331,7 +339,11 @@ class Epsilon_Section_Repeater_Helper {
 				case 'background-color':
 					$temp = array(
 						'id'          => $key . '_background_color',
+<<<<<<< HEAD
 						'label'       => __( 'Background color', 'epsilon-framework' ),
+=======
+						'label'       => __( 'Background color', 'philosophy' ),
+>>>>>>> 5a42a4e760d4c9695deb1c2d83070bd5fb910a24
 						'description' => '',
 						'default'     => isset( $values['default'] ) ? $values['default'] : '',
 						'type'        => 'epsilon-color-picker',
@@ -345,7 +357,11 @@ class Epsilon_Section_Repeater_Helper {
 				case 'background-color-opacity':
 					$temp = array(
 						'id'          => $key . '_background_color_opacity',
+<<<<<<< HEAD
 						'label'       => __( 'Background color opacity', 'epsilon-framework' ),
+=======
+						'label'       => __( 'Background color opacity', 'philosophy' ),
+>>>>>>> 5a42a4e760d4c9695deb1c2d83070bd5fb910a24
 						'description' => '',
 						'type'        => 'epsilon-slider',
 						'default'     => isset( $values['default'] ) ? $values['default'] : 1,
@@ -362,7 +378,11 @@ class Epsilon_Section_Repeater_Helper {
 				case 'background-image':
 					$temp = array(
 						'id'          => $key . '_background_image',
+<<<<<<< HEAD
 						'label'       => __( 'Background image', 'epsilon-framework' ),
+=======
+						'label'       => __( 'Background image', 'philosophy' ),
+>>>>>>> 5a42a4e760d4c9695deb1c2d83070bd5fb910a24
 						'description' => '',
 						'type'        => 'epsilon-image',
 						'default'     => isset( $values['default'] ) ? $values['default'] : '',
@@ -377,12 +397,17 @@ class Epsilon_Section_Repeater_Helper {
 				case 'background-position':
 					$temp = array(
 						'id'          => $key . '_background_position',
+<<<<<<< HEAD
 						'label'       => __( 'Background position', 'epsilon-framework' ),
+=======
+						'label'       => __( 'Background position', 'philosophy' ),
+>>>>>>> 5a42a4e760d4c9695deb1c2d83070bd5fb910a24
 						'description' => '',
 						'default'     => isset( $values['default'] ) ? $values['default'] : '',
 						'type'        => 'select',
 						'group'       => 'styling',
 						'choices'     => array(
+<<<<<<< HEAD
 							'topleft'     => __( 'Top Left', 'epsilon-framework' ),
 							'top'         => __( 'Top', 'epsilon-framework' ),
 							'topright'    => __( 'Top Right', 'epsilon-framework' ),
@@ -392,6 +417,17 @@ class Epsilon_Section_Repeater_Helper {
 							'bottomleft'  => __( 'Bottom Left', 'epsilon-framework' ),
 							'bottom'      => __( 'Bottom', 'epsilon-framework' ),
 							'bottomright' => __( 'Bottom Right', 'epsilon-framework' ),
+=======
+							'topleft'     => __( 'Top Left', 'philosophy' ),
+							'top'         => __( 'Top', 'philosophy' ),
+							'topright'    => __( 'Top Right', 'philosophy' ),
+							'left'        => __( 'Left', 'philosophy' ),
+							'center'      => __( 'Center', 'philosophy' ),
+							'right'       => __( 'Right', 'philosophy' ),
+							'bottomleft'  => __( 'Bottom Left', 'philosophy' ),
+							'bottom'      => __( 'Bottom', 'philosophy' ),
+							'bottomright' => __( 'Bottom Right', 'philosophy' ),
+>>>>>>> 5a42a4e760d4c9695deb1c2d83070bd5fb910a24
 						),
 					);
 
@@ -400,16 +436,27 @@ class Epsilon_Section_Repeater_Helper {
 				case 'background-repeat':
 					$temp = array(
 						'id'          => $key . '_background_repeat',
+<<<<<<< HEAD
 						'label'       => __( 'Background repeat', 'epsilon-framework' ),
+=======
+						'label'       => __( 'Background repeat', 'philosophy' ),
+>>>>>>> 5a42a4e760d4c9695deb1c2d83070bd5fb910a24
 						'description' => '',
 						'default'     => isset( $values['default'] ) ? $values['default'] : '',
 						'type'        => 'select',
 						'group'       => 'styling',
 						'choices'     => array(
+<<<<<<< HEAD
 							'no-repeat' => __( 'No Repeat', 'epsilon-framework' ),
 							'repeat'    => __( 'Repeat', 'epsilon-framework' ),
 							'repeat-y'  => __( 'Repeat Y', 'epsilon-framework' ),
 							'repeat-x'  => __( 'Repeat X', 'epsilon-framework' ),
+=======
+							'no-repeat' => __( 'No Repeat', 'philosophy' ),
+							'repeat'    => __( 'Repeat', 'philosophy' ),
+							'repeat-y'  => __( 'Repeat Y', 'philosophy' ),
+							'repeat-x'  => __( 'Repeat X', 'philosophy' ),
+>>>>>>> 5a42a4e760d4c9695deb1c2d83070bd5fb910a24
 						),
 					);
 
@@ -418,15 +465,25 @@ class Epsilon_Section_Repeater_Helper {
 				case 'background-size':
 					$temp = array(
 						'id'          => $key . '_background_size',
+<<<<<<< HEAD
 						'label'       => __( 'Background size', 'epsilon-framework' ),
+=======
+						'label'       => __( 'Background size', 'philosophy' ),
+>>>>>>> 5a42a4e760d4c9695deb1c2d83070bd5fb910a24
 						'description' => '',
 						'default'     => isset( $values['default'] ) ? $values['default'] : '',
 						'type'        => 'select',
 						'group'       => 'styling',
 						'choices'     => array(
+<<<<<<< HEAD
 							'cover'   => __( 'Cover', 'epsilon-framework' ),
 							'contain' => __( 'Contain', 'epsilon-framework' ),
 							'initial' => __( 'Initial', 'epsilon-framework' ),
+=======
+							'cover'   => __( 'Cover', 'philosophy' ),
+							'contain' => __( 'Contain', 'philosophy' ),
+							'initial' => __( 'Initial', 'philosophy' ),
+>>>>>>> 5a42a4e760d4c9695deb1c2d83070bd5fb910a24
 						),
 					);
 
@@ -435,7 +492,11 @@ class Epsilon_Section_Repeater_Helper {
 				case 'background-parallax':
 					$temp = array(
 						'id'          => $key . '_background_parallax',
+<<<<<<< HEAD
 						'label'       => __( 'Background parallax', 'epsilon-framework' ),
+=======
+						'label'       => __( 'Background parallax', 'philosophy' ),
+>>>>>>> 5a42a4e760d4c9695deb1c2d83070bd5fb910a24
 						'description' => '',
 						'default'     => isset( $values['default'] ) ? $values['default'] : false,
 						'type'        => 'epsilon-toggle',
@@ -447,7 +508,11 @@ class Epsilon_Section_Repeater_Helper {
 				case 'background-video':
 					$temp = array(
 						'id'          => $key . '_background_video',
+<<<<<<< HEAD
 						'label'       => __( 'Background video', 'epsilon-framework' ),
+=======
+						'label'       => __( 'Background video', 'philosophy' ),
+>>>>>>> 5a42a4e760d4c9695deb1c2d83070bd5fb910a24
 						'description' => '',
 						'default'     => isset( $values['default'] ) ? $values['default'] : '',
 						'type'        => 'text',
@@ -500,7 +565,11 @@ class Epsilon_Section_Repeater_Helper {
 					$temp = array(
 						'id'      => $key . '_column_alignment',
 						'type'    => 'epsilon-button-group',
+<<<<<<< HEAD
 						'label'   => __( 'Horizontal alignment', 'epsilon-framework' ),
+=======
+						'label'   => __( 'Horizontal alignment', 'philosophy' ),
+>>>>>>> 5a42a4e760d4c9695deb1c2d83070bd5fb910a24
 						'group'   => 'layout',
 						'choices' => $this->create_choices_array( 'column_alignment', $values['choices'] ),
 						'default' => isset( $values['default'] ) ? $values['default'] : 'center',
@@ -515,7 +584,11 @@ class Epsilon_Section_Repeater_Helper {
 					$temp              = array(
 						'id'      => $key . '_column_vertical_alignment',
 						'type'    => 'epsilon-button-group',
+<<<<<<< HEAD
 						'label'   => __( 'Vertical alignment', 'epsilon-framework' ),
+=======
+						'label'   => __( 'Vertical alignment', 'philosophy' ),
+>>>>>>> 5a42a4e760d4c9695deb1c2d83070bd5fb910a24
 						'group'   => 'layout',
 						'choices' => $this->create_choices_array( 'column_vertical_alignment', $values['choices'] ),
 						'default' => isset( $values['default'] ) ? $values['default'] : 'middle',
@@ -529,7 +602,11 @@ class Epsilon_Section_Repeater_Helper {
 					$temp              = array(
 						'id'      => $key . '_column_stretch',
 						'type'    => 'epsilon-button-group',
+<<<<<<< HEAD
 						'label'   => __( 'Stretch', 'epsilon-framework' ),
+=======
+						'label'   => __( 'Stretch', 'philosophy' ),
+>>>>>>> 5a42a4e760d4c9695deb1c2d83070bd5fb910a24
 						'group'   => 'layout',
 						'choices' => $this->create_choices_array( 'column_stretch', $values['choices'] ),
 						'default' => isset( $values['default'] ) ? $values['default'] : 'boxedin',
@@ -543,7 +620,11 @@ class Epsilon_Section_Repeater_Helper {
 					$temp              = array(
 						'id'      => $key . '_column_spacing',
 						'type'    => 'epsilon-button-group',
+<<<<<<< HEAD
 						'label'   => __( 'Items spacing', 'epsilon-framework' ),
+=======
+						'label'   => __( 'Items spacing', 'philosophy' ),
+>>>>>>> 5a42a4e760d4c9695deb1c2d83070bd5fb910a24
 						'group'   => 'layout',
 						'choices' => $this->create_choices_array( 'column_spacing', $values['choices'] ),
 						'default' => isset( $values['default'] ) ? $values['default'] : 'spaced',
@@ -557,7 +638,11 @@ class Epsilon_Section_Repeater_Helper {
 					$temp              = array(
 						'id'      => $key . '_column_group',
 						'type'    => 'epsilon-button-group',
+<<<<<<< HEAD
 						'label'   => __( 'Items group', 'epsilon-framework' ),
+=======
+						'label'   => __( 'Items group', 'philosophy' ),
+>>>>>>> 5a42a4e760d4c9695deb1c2d83070bd5fb910a24
 						'group'   => 'layout',
 						'choices' => $this->create_choices_array( 'column_group', $values['choices'] ),
 						'default' => isset( $values['default'] ) ? absint( $values['default'] ) : 4,
@@ -571,7 +656,11 @@ class Epsilon_Section_Repeater_Helper {
 					$temp              = array(
 						'id'      => $key . '_row_spacing_top',
 						'type'    => 'epsilon-button-group',
+<<<<<<< HEAD
 						'label'   => __( 'Spacing top', 'epsilon-framework' ),
+=======
+						'label'   => __( 'Spacing top', 'philosophy' ),
+>>>>>>> 5a42a4e760d4c9695deb1c2d83070bd5fb910a24
 						'group'   => 'layout',
 						'choices' => $this->create_choices_array( 'row_spacing', $values['choices'] ),
 						'default' => isset( $values['default'] ) ? $values['default'] : 'none',
@@ -584,7 +673,11 @@ class Epsilon_Section_Repeater_Helper {
 					$temp              = array(
 						'id'      => $key . '_row_spacing_bottom',
 						'type'    => 'epsilon-button-group',
+<<<<<<< HEAD
 						'label'   => __( 'Spacing bottom', 'epsilon-framework' ),
+=======
+						'label'   => __( 'Spacing bottom', 'philosophy' ),
+>>>>>>> 5a42a4e760d4c9695deb1c2d83070bd5fb910a24
 						'group'   => 'layout',
 						'choices' => $this->create_choices_array( 'row_spacing_bottom', $values['choices'] ),
 						'default' => isset( $values['default'] ) ? $values['default'] : 'none',
@@ -597,7 +690,11 @@ class Epsilon_Section_Repeater_Helper {
 					$temp              = array(
 						'id'      => $key . '_row_title_align',
 						'type'    => 'epsilon-button-group',
+<<<<<<< HEAD
 						'label'   => __( 'Title & description alignment', 'epsilon-framework' ),
+=======
+						'label'   => __( 'Title & description alignment', 'philosophy' ),
+>>>>>>> 5a42a4e760d4c9695deb1c2d83070bd5fb910a24
 						'group'   => 'layout',
 						'choices' => $this->create_choices_array( 'title_align', $values['choices'] ),
 						'default' => isset( $values['default'] ) ? $values['default'] : 'none',

@@ -107,14 +107,21 @@ class Epsilon_Control_Image extends WP_Customize_Control {
 			</div>
 			<# } else { #>
 			<div class="placeholder">
+<<<<<<< HEAD
 				<?php echo esc_html__( 'Upload image', 'epsilon-framework' ); ?>
 				<# if ( ! _.isUndefined( data.sizeArray[data.size] ) ) { #>
 					<span class="recommended-size"><?php echo esc_html__('Recommended resolution:', 'epsilon-framework'); ?> {{{ data.sizeArray[data.size].width }}} x {{{ data.sizeArray[data.size].height }}}</span>
+=======
+				<?php echo esc_html__( 'Upload image', 'philosophy' ); ?>
+				<# if ( ! _.isUndefined( data.sizeArray[data.size] ) ) { #>
+					<span class="recommended-size"><?php echo esc_html__('Recommended resolution:', 'philosophy'); ?> {{{ data.sizeArray[data.size].width }}} x {{{ data.sizeArray[data.size].height }}}</span>
+>>>>>>> 5a42a4e760d4c9695deb1c2d83070bd5fb910a24
 				<# } #>
 			</div>
 			<# } #>
 			<div class="actions">
 				<button class="button image-upload-remove-button" <# if( '' === data.stringifiedVal ) { #> style="display:none;" <# } #>>
+<<<<<<< HEAD
 					<?php esc_attr_e( 'Remove', 'epsilon-framework' ); ?>
 				</button>
 
@@ -124,6 +131,17 @@ class Epsilon_Control_Image extends WP_Customize_Control {
 
 				<button type="button" class="button-primary image-upload-button">
 					<?php echo esc_html__( 'Select File', 'epsilon-framework' ); ?>
+=======
+					<?php esc_attr_e( 'Remove', 'philosophy' ); ?>
+				</button>
+
+				<button type="button" class="button-secondary image-default-button" <# if ( _.isEmpty( data.default ) ) { #> style="display:none;" <# } #>>
+					<?php echo esc_html__( 'Default', 'philosophy' ); ?>
+				</button>
+
+				<button type="button" class="button-primary image-upload-button">
+					<?php echo esc_html__( 'Select File', 'philosophy' ); ?>
+>>>>>>> 5a42a4e760d4c9695deb1c2d83070bd5fb910a24
 				</button>
 			</div>
 		</div>

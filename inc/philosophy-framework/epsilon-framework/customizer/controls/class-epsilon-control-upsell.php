@@ -67,7 +67,11 @@ class Epsilon_Control_Upsell extends WP_Customize_Control {
 		/**
 		 * Provide a fallback for the label
 		 */
+<<<<<<< HEAD
 		$json['label'] = ! empty( $this->label ) ? $this->label : __( 'See what\'s in the PRO version', 'epsilon-framework' );
+=======
+		$json['label'] = ! empty( $this->label ) ? $this->label : __( 'See what\'s in the PRO version', 'philosophy' );
+>>>>>>> 5a42a4e760d4c9695deb1c2d83070bd5fb910a24
 		/**
 		 * Buttons
 		 */

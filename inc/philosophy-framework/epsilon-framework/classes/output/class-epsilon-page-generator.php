@@ -2,7 +2,11 @@
 /**
  * Page rendering
  *
+<<<<<<< HEAD
  * @package epsilon-framework
+=======
+ * @package Philosophy
+>>>>>>> 5a42a4e760d4c9695deb1c2d83070bd5fb910a24
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

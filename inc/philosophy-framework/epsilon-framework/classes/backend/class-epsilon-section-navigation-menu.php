@@ -42,7 +42,11 @@ class Epsilon_Section_Navigation_Menu {
 	public function add_section_metabox() {
 		add_meta_box(
 			'epsilon-page-sections',
+<<<<<<< HEAD
 			__( 'Front Page Sections', 'epsilon-framework' ),
+=======
+			__( 'Front Page Sections', 'philosophy' ),
+>>>>>>> 5a42a4e760d4c9695deb1c2d83070bd5fb910a24
 			array( $this, 'metabox_callback' ),
 			'nav-menus',
 			'side',
@@ -69,13 +73,21 @@ class Epsilon_Section_Navigation_Menu {
 			<p id="menu-item-url-wrap" class="wp-clearfix">
 				<label class="howto"
 				       for="custom-menu-item-url">
+<<<<<<< HEAD
 					<?php esc_html_e( 'Section', 'epsilon-framework' ); ?>
+=======
+					<?php esc_html_e( 'Section', 'philosophy' ); ?>
+>>>>>>> 5a42a4e760d4c9695deb1c2d83070bd5fb910a24
 				</label>
 				<select id="epsilon-section-id"
 				        name="menu-item[<?php echo esc_attr( $_nav_menu_placeholder ); ?>][menu-item-url]"
 				        type="text"
 				        class="code menu-item-textbox">
+<<<<<<< HEAD
 					<option value="0"><?php esc_html_e( 'Select a Section', 'epsilon-framework' ); ?></option>
+=======
+					<option value="0"><?php esc_html_e( 'Select a Section', 'philosophy' ); ?></option>
+>>>>>>> 5a42a4e760d4c9695deb1c2d83070bd5fb910a24
 					<?php foreach ( $this->sections as $k => $v ) { ?>
 						<option value="<?php echo esc_attr( $k ); ?>"><?php echo esc_html( $v['label'] ); ?></option>
 					<?php } ?>
@@ -84,7 +96,11 @@ class Epsilon_Section_Navigation_Menu {
 			<p id="menu-item-name-wrap" class="wp-clearfix">
 				<label class="howto"
 				       for="custom-menu-item-name">
+<<<<<<< HEAD
 					<?php esc_html_e( 'Label', 'epsilon-framework' ); ?>
+=======
+					<?php esc_html_e( 'Label', 'philosophy' ); ?>
+>>>>>>> 5a42a4e760d4c9695deb1c2d83070bd5fb910a24
 				</label>
 				<input id="epsilon-section-label"
 				       name="menu-item[<?php echo esc_attr( $_nav_menu_placeholder ); ?>][menu-item-title]"
@@ -92,13 +108,21 @@ class Epsilon_Section_Navigation_Menu {
 				       class="regular-text menu-item-textbox"/>
 			</p>
 			<p>
+<<<<<<< HEAD
 				<?php esc_html_e('Only sections that have an ID are selectable, please edit section id\'s to see all the sections!', 'epsilon-framework');?>
+=======
+				<?php esc_html_e('Only sections that have an ID are selectable, please edit section id\'s to see all the sections!', 'philosophy');?>
+>>>>>>> 5a42a4e760d4c9695deb1c2d83070bd5fb910a24
 			</p>
 			<p class="button-controls wp-clearfix">
 			<span class="add-to-menu">
 				<input type="submit" <?php wp_nav_menu_disabled_check( $nav_menu_selected_id ); ?>
 				       class="button submit-add-to-menu right"
+<<<<<<< HEAD
 				       value="<?php esc_attr_e( 'Add to Menu', 'epsilon-framework' ); ?>"
+=======
+				       value="<?php esc_attr_e( 'Add to Menu', 'philosophy' ); ?>"
+>>>>>>> 5a42a4e760d4c9695deb1c2d83070bd5fb910a24
 				       name="add-epsilon-section-menu-item"
 				       id="submit-epsilon-section"/>
 				<span class="spinner"></span>

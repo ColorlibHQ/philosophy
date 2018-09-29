@@ -74,7 +74,11 @@ class Epsilon_Onboarding_Output {
 		$func(
 			null,
 			'epsilon-onboarding',
+<<<<<<< HEAD
 			__( 'Onboarding', 'epsilon-framework' ),
+=======
+			__( 'Onboarding', 'philosophy' ),
+>>>>>>> 5a42a4e760d4c9695deb1c2d83070bd5fb910a24
 			'edit_theme_options',
 			'epsilon-onboarding',
 			array(

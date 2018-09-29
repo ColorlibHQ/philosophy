@@ -261,6 +261,18 @@ class Philosophy_Dashboard_Setup {
 				'recommended' => false,
 			),
 
+<<<<<<< HEAD
+=======
+			'kiwi-social-share' => array(
+				'integration' => false,
+				'recommended' => false,
+			),
+
+			'modula-best-grid-gallery' => array(
+				'integration' => false,
+				'recommended' => true,
+			),
+>>>>>>> 5a42a4e760d4c9695deb1c2d83070bd5fb910a24
 		);
 
 		if ( ! $integrated ) {
@@ -399,12 +411,21 @@ class Philosophy_Dashboard_Setup {
 				'hidden'  => $this->theme['theme-slug'] . '_recommended_actions',
 				'content' => $this->get_actions(),
 			),
+<<<<<<< HEAD
 			// array(
 			// 	'id'     => 'epsilon-plugins',
 			// 	'title'  => esc_html__( 'Recommended Plugins', 'philosophy' ),
 			// 	'hidden' => $this->theme['theme-slug'] . '_recommended_plugins',
 			// 	'type'   => 'plugins',
 			// ),
+=======
+			array(
+				'id'     => 'epsilon-plugins',
+				'title'  => esc_html__( 'Recommended Plugins', 'philosophy' ),
+				'hidden' => $this->theme['theme-slug'] . '_recommended_plugins',
+				'type'   => 'plugins',
+			),
+>>>>>>> 5a42a4e760d4c9695deb1c2d83070bd5fb910a24
 			array(
 				'id'     => 'epsilon-registration',
 				'title'  => esc_html__( 'Registration', 'philosophy' ),

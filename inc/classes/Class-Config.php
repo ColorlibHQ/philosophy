@@ -15,7 +15,11 @@
 	// Final Class
 	final class Philosophy{
 
+<<<<<<< HEAD
 		
+=======
+
+>>>>>>> 5a42a4e760d4c9695deb1c2d83070bd5fb910a24
 		// Theme Version
 		private $philosophy_version = '1.0';
 

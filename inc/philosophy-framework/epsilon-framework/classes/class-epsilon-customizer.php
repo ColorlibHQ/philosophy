@@ -476,7 +476,11 @@ class Epsilon_Customizer {
 		}
 
 
+<<<<<<< HEAD
 		$actions['customize'] = '<a href="' . esc_url( get_admin_url() . 'customize.php?url=' . get_permalink( $post->ID ) ) . '" />' . esc_html__( 'Customize', 'epsilon-framework' ) . '</a>';
+=======
+		$actions['customize'] = '<a href="' . esc_url( get_admin_url() . 'customize.php?url=' . get_permalink( $post->ID ) ) . '" />' . esc_html__( 'Customize', 'philosophy' ) . '</a>';
+>>>>>>> 5a42a4e760d4c9695deb1c2d83070bd5fb910a24
 
 		return $actions;
 	}

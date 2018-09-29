@@ -37,7 +37,11 @@ class Epsilon_Dashboard_Ajax {
 				wp_json_encode(
 					array(
 						'status' => false,
+<<<<<<< HEAD
 						'error'  => esc_html__( 'Not allowed', 'epsilon-framework' ),
+=======
+						'error'  => esc_html__( 'Not allowed', 'philosophy' ),
+>>>>>>> 5a42a4e760d4c9695deb1c2d83070bd5fb910a24
 					)
 				)
 			);
@@ -50,7 +54,11 @@ class Epsilon_Dashboard_Ajax {
 				wp_json_encode(
 					array(
 						'status' => false,
+<<<<<<< HEAD
 						'error'  => esc_html__( 'Not allowed', 'epsilon-framework' ),
+=======
+						'error'  => esc_html__( 'Not allowed', 'philosophy' ),
+>>>>>>> 5a42a4e760d4c9695deb1c2d83070bd5fb910a24
 					)
 				)
 			);
@@ -61,7 +69,11 @@ class Epsilon_Dashboard_Ajax {
 				wp_json_encode(
 					array(
 						'status' => false,
+<<<<<<< HEAD
 						'error'  => esc_html__( 'Class does not exist', 'epsilon-framework' ),
+=======
+						'error'  => esc_html__( 'Class does not exist', 'philosophy' ),
+>>>>>>> 5a42a4e760d4c9695deb1c2d83070bd5fb910a24
 					)
 				)
 			);

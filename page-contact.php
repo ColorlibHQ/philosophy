@@ -48,6 +48,7 @@ $marker = philosophy_opt( 'philosophy_map_marker' );
                     <div id="map-zoom-out"></div>
                 </div> 
             </div> <!-- end s-content__media -->
+<<<<<<< HEAD
 
             <div class="col-full s-content__main">
                 
@@ -61,6 +62,21 @@ $marker = philosophy_opt( 'philosophy_map_marker' );
                 }
                 ?>
                 
+=======
+
+            <div class="col-full s-content__main">
+                
+                <?php 
+                if( have_posts() ){
+                    while( have_posts() ){
+                        the_post();
+
+                        the_content();
+                    }
+                }
+                ?>
+
+>>>>>>> 5a42a4e760d4c9695deb1c2d83070bd5fb910a24
                 <div class="row">
                     <?php 
                     $contactinfo = philosophy_opt_repeater_value('philosophy_contact_infoblock');
