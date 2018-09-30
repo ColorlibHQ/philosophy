@@ -48,8 +48,8 @@
 		define( 'PHILOSOPHY_DIR_PATH_INC', PHILOSOPHY_DIR_PATH.'inc/' );
 	
 	//Colorlib framework Folder Directory
-	if( !defined( 'PHILOSOPHY_DIR_PATH_FRAM' ) )
-		define( 'PHILOSOPHY_DIR_PATH_FRAM', PHILOSOPHY_DIR_PATH_INC.'philosophy-framework/' );
+	if( !defined( 'PHILOSOPHY_DIR_PATH_LIB' ) )
+		define( 'PHILOSOPHY_DIR_PATH_LIB', PHILOSOPHY_DIR_PATH_INC.'libraries/' );
 	
 	//Classes Folder Directory
 	if( !defined( 'PHILOSOPHY_DIR_PATH_CLASSES' ) )
@@ -68,11 +68,7 @@
 		define( 'PHILOSOPHY_DIR_PATH_ELEMENTOR_WIDGETS', PHILOSOPHY_DIR_PATH_INC.'elementor-widgets/widgets/' );
 	
 
-<<<<<<< HEAD
 		
-=======
-
->>>>>>> 5a42a4e760d4c9695deb1c2d83070bd5fb910a24
 	/**
 	 * Include File
 	 *
@@ -104,13 +100,13 @@
 	require_once( PHILOSOPHY_DIR_PATH_HOOKS . 'hooks.php' );
 	require_once( PHILOSOPHY_DIR_PATH_HOOKS . 'hooks-functions.php' );
 	// Epsilon Framework file Include
-	require_once( PHILOSOPHY_DIR_PATH_FRAM . 'epsilon-framework/class-epsilon-framework.php' );
-	require_once( PHILOSOPHY_DIR_PATH_FRAM . 'customizer/customizer.php' );
+	require_once( PHILOSOPHY_DIR_PATH_LIB . 'epsilon-framework/class-epsilon-framework.php' );
+	require_once( PHILOSOPHY_DIR_PATH_INC . 'customizer/customizer.php' );
 
 	// Class autoloader
-	require_once( PHILOSOPHY_DIR_PATH_INC . 'class-philosophy-autoloader.php' );
+	require_once( PHILOSOPHY_DIR_PATH_INC . 'class-epsilon-dashboard-autoloader.php' );
 	// Class philosophy dashboard
-	 require_once( PHILOSOPHY_DIR_PATH_INC . 'class-philosophy-dashboard.php' );
+	 require_once( PHILOSOPHY_DIR_PATH_INC . 'class-epsilon-init-dashboard.php' );
 	 
 	/**
 	 * Instantiate Philosophy object

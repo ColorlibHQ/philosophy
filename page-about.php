@@ -59,9 +59,10 @@ get_header();
                 ?>
 
                 <div class="row block-1-2 block-tab-full">
-                <?php 
+                <?php
+
                 // 
-                $aboutinfo = philosophy_opt_repeater_value('philosophy_about_infoblock');
+                $aboutinfo = philosophy_opt('philosophy_about_infoblock');
 
                 if( is_array( $aboutinfo ) && count( $aboutinfo ) > 0 ):
                     foreach( $aboutinfo as $info ):

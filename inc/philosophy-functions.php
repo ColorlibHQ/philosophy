@@ -25,22 +25,6 @@ function philosophy_opt( $id = null ){
 	
 	return $data;
 }
-// customizer repeatable field data filter
-function philosophy_opt_repeater_value( $id = '' ){
-
-    $data = '';
-    if( $id ){
-
-        $getdata = get_post_meta( Epsilon_Content_Backup::get_instance()->setting_page, esc_html( $id ) , true );
-
-        if( !empty( $getdata[$id] ) ){
-            $data = $getdata[$id];
-        }
-
-    }
-    return $data;
-
-}
 // custom meta id callback
 function philosophy_meta( $id = '' ){
     

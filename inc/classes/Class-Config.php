@@ -15,11 +15,7 @@
 	// Final Class
 	final class Philosophy{
 
-<<<<<<< HEAD
 		
-=======
-
->>>>>>> 5a42a4e760d4c9695deb1c2d83070bd5fb910a24
 		// Theme Version
 		private $philosophy_version = '1.0';
 
@@ -36,7 +32,7 @@
 			// 
 			$this->init();
 			// Instantiate Philosophy Dashboard
-			$Philosophy_Dashboard = Philosophy_Dashboard::get_instance();
+			$Epsilon_init_Dashboard = Epsilon_init_Dashboard::get_instance();
 		}
 
 		// Theme init

@@ -1,0 +1,287 @@
+{
+  "standard": {
+    "label": "Standard",
+    "thumb": "/inc/libraries/epsilon-theme-dashboard/assets/images/standard.png",
+    "posts": {
+      "label": "Posts",
+      "content": {
+        "importer": {
+          "class": "Epsilon_Post_Generator",
+          "method": "add_posts"
+        },
+        "post_count": 20,
+        "image_size": [
+          800,
+          530
+        ],
+        "image_category": [
+          "food",
+          "travel",
+          "cinema",
+          "event",
+          "work"
+        ]
+      }
+    },
+    "menus": {
+      "label": "Menus",
+      "content": {
+        "primary-menu": {
+          "id": "primary-menu",
+          "label": "Primary Menu",
+          "menu": [
+            {
+              "href": "#",
+              "label": "Home"
+            },
+            {
+              "href": "#",
+              "label": "About"
+            },
+            {
+              "href": "#",
+              "label": "Pages",
+              "submenus": [
+                {
+                  "href": "#",
+                  "label": "Page 1a"
+                },
+                {
+                  "href": "#",
+                  "label": "Page 1b"
+                },
+                {
+                  "href": "#",
+                  "label": "Page 1c"
+                }
+              ]
+            },
+            {
+              "href": "#",
+              "label": "Contact"
+            }
+          ]
+        },
+        "social-menu": {
+          "id": "social-menu",
+          "label": "Social Menu",
+          "menu": [
+            {
+              "href": "https://www.facebook.com/",
+              "label": "Facebook"
+            },
+            {
+              "href": "https://twitter.com/",
+              "label": "Twitter"
+            },
+            {
+              "href": "https://www.instagram.com/",
+              "label": "Instagram"
+            },
+            {
+              "href": "https://www.linkedin.com/",
+              "label": "linkedin"
+            },
+            {
+              "href": "https://www.pinterest.com/",
+              "label": "pinterest"
+            }
+          ]
+        },
+        "quick-links": {
+          "id": "quick-links",
+          "label": "Quick Links",
+          "menu": [
+            {
+              "href": "#",
+              "label": "Home"
+            },
+            {
+              "href": "#",
+              "label": "Blog"
+            },
+            {
+              "href": "#",
+              "label": "Styles"
+            },
+            {
+              "href": "#",
+              "label": "About"
+            },
+            {
+              "href": "#",
+              "label": "Contact"
+            },
+            {
+              "href": "#",
+              "label": "Privacy Policy"
+            }
+          ]
+        }
+      }
+    },
+    "widgets": {
+      "label": "Widgets",
+      "content": {
+        "footer-1":{"philosophy_popular_post_widget-1":{"sectiontitle":"Popular Post","postnumber":"5"}},
+        "footer-2":{"text-1":{"title":"About Philosophy","text":"Donec sollicitudin molestie malesuada. Nulla quis lorem ut libero malesuada feugiat. Pellentesque in ipsum id orci porta dapibus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Donec sollicitudin molestie malesuada.","filter":true,"visual":true}},
+        "footer-3":{"tag_cloud-2":{"title":"Tags","count":0,"taxonomy":"post_tag"}},
+        "footer-4":{"nav_menu-2":{"title":"QUICK LINKS","nav_menu":15}},
+        "footer-5":{"archives-3":{"title":"ARCHIVES","count":0,"dropdown":0}},
+        "footer-6":{"nav_menu-3":{"title":"SOCIAL","nav_menu":3}},
+        "footer-7":{"philosophy_newsletter_widget-2":{"title":"OUR NEWSLETTER","actionurl":"","desc":"Sit vel delectus amet officiis repudiandae est voluptatem. Tempora maxime provident nisi et fuga et enim exercitationem ipsam. Culpa consequatur occaecati."}}
+      }
+    },
+    "options": {
+      "label": "Theme Options",
+      "content": {
+        "logo": {
+          "id": "logo",
+          "label": "Logo",
+          "setting": "custom_logo",
+          "content": "/img/logo.png"
+        },
+        "philosophy_blog_layout": {
+          "id": "philosophy_blog_layout",
+          "label": "Blog Layout",
+          "setting": "philosophy_blog_layout",
+          "content": "{\"columnsCount\":1,\"columns\":{\"1\":{\"index\":1,\"span\":12}}}"
+        },
+        "philosophy_footer_widget_toggle": {
+          "id": "philosophy_footer_widget_toggle",
+          "label": "Footer Widget Toggle",
+          "setting": "philosophy_footer_widget_toggle",
+          "content": "true"
+        },
+        "philosophy_fof_titletwo": {
+          "id": "philosophy_fof_titletwo",
+          "label": "404 Title Two",
+          "setting": "philosophy_fof_titletwo",
+          "content": "Either something went wrong or the page dose't exist anymore."
+        },
+        "philosophy_fof_titleone": {
+          "id": "philosophy_fof_titleone",
+          "label": "404 Title One",
+          "setting": "philosophy_fof_titleone",
+          "content": "Ooops 404 Error !"
+        },
+        "philosophy_contact_formshortcode": {
+          "id": "philosophy_contact_formshortcode",
+          "label": "Contact Form Shortcode",
+          "setting": "philosophy_contact_formshortcode",
+          "content": "63"
+        },
+        "philosophy_contact_formtitle": {
+          "id": "philosophy_contact_formtitle",
+          "label": "Contact Form Title",
+          "setting": "philosophy_contact_formtitle",
+          "content": "Say Hello."
+        },
+        "philosophy_contact_top_title": {
+          "id": "philosophy_contact_top_title",
+          "label": "Contact Top Title",
+          "setting": "philosophy_contact_top_title",
+          "content": "Feel Free To Contact Us."
+        },
+        "philosophy_about_top_title": {
+          "id": "philosophy_about_top_title",
+          "label": "About Top Title",
+          "setting": "philosophy_about_top_title",
+          "content": "Learn More About Us."
+        },
+        "philosophy_search_header_content": {
+          "id": "philosophy_search_header_content",
+          "label": "Search Header Content",
+          "setting": "philosophy_search_header_content",
+          "content": "Dolor similique vitae. Exercitationem quidem occaecati iusto. Id non vitae enim quas error dolor maiores ut. Exercitationem earum ut repudiandae optio veritatis animi nulla qui dolores."
+        },
+        "philosophy_archive_header_content": {
+          "id": "philosophy_archive_header_content",
+          "label": "Archive Header Content",
+          "setting": "philosophy_archive_header_content",
+          "content": "Dolor similique vitae. Exercitationem quidem occaecati iusto. Id non vitae enim quas error dolor maiores ut. Exercitationem earum ut repudiandae optio veritatis animi nulla qui dolores."
+        },
+        "philosophy_hfblog_toggle": {
+          "id": "philosophy_hfblog_toggle",
+          "label": "Home Feature Blog",
+          "setting": "philosophy_hfblog_toggle",
+          "content": "true"
+        },
+        "philosophy_headersocial_toggle": {
+          "id": "philosophy_headersocial_toggle",
+          "label": "Header Social Toggle",
+          "setting": "philosophy_headersocial_toggle",
+          "content": "true"
+        },
+        "philosophy_hsearchform_toggle": {
+          "id": "philosophy_hsearchform_toggle",
+          "label": "Header Search Form Toggle",
+          "setting": "philosophy_hsearchform_toggle",
+          "content": "true"
+        },
+        "philosophy_backtotop_btn": {
+          "id": "philosophy_backtotop_btn",
+          "label": "Back To Top Button",
+          "setting": "philosophy_backtotop_btn",
+          "content": "true"
+        },
+        "philosophy_preloader_toggle": {
+          "id": "philosophy_preloader_toggle",
+          "label": "Preloader Toggle",
+          "setting": "philosophy_preloader_toggle",
+          "content": "true"
+        }
+      }
+    },
+    "plugins": {
+      "label": "Plugins",
+      "content": {
+        "contact-form-7": "Contact Form 7"
+      }
+    },
+    "content": {
+      "label": "Content",
+      "content": {
+        "about": {
+          "id": "about",
+          "setting": "philosophy_about_infoblock",
+          "label": "About",
+          "content": {
+            "0":{
+            "info_title":"Who We Are.",
+            "info_desc":"Lorem ipsum Nisi amet fugiat eiusmod et aliqua ad qui ut nisi Ut aute anim mollit fugiat qui sit ex occaecat et eu mollit nisi pariatur fugiat deserunt dolor veniam reprehenderit aliquip magna nisi consequat aliqua veniam in aute ullamco Duis laborum ad non pariatur sit."
+            },
+            "1":{
+            "info_title":"Our Mission.",
+            "info_desc":"Lorem ipsum Nisi amet fugiat eiusmod et aliqua ad qui ut nisi Ut aute anim mollit fugiat qui sit ex occaecat et eu mollit nisi pariatur fugiat deserunt dolor veniam reprehenderit aliquip magna nisi consequat aliqua veniam in aute ullamco Duis laborum ad non pariatur sit."
+            },
+            "2":{
+            "info_title":"Our Vision.",
+            "info_desc":"Lorem ipsum Nisi amet fugiat eiusmod et aliqua ad qui ut nisi Ut aute anim mollit fugiat qui sit ex occaecat et eu mollit nisi pariatur fugiat deserunt dolor veniam reprehenderit aliquip magna nisi consequat aliqua veniam in aute ullamco Duis laborum ad non pariatur sit."
+            },
+            "3":{
+            "info_title":"Our Values.",
+            "info_desc":"Lorem ipsum Nisi amet fugiat eiusmod et aliqua ad qui ut nisi Ut aute anim mollit fugiat qui sit ex occaecat et eu mollit nisi pariatur fugiat deserunt dolor veniam reprehenderit aliquip magna nisi consequat aliqua veniam in aute ullamco Duis laborum ad non pariatur sit."
+            }
+          }
+        },
+        "contact": {
+          "id": "contact",
+          "setting": "philosophy_contact_infoblock",
+          "label": "Contact",
+          "content": {
+            "0":{
+            "info_title":"Where to Find Us",
+            "contact_info":"1600 Amphitheatre Parkway\nMountain View, CA\n94043 US"
+            },
+            "1":{
+            "info_title":"Contact Info",
+            "contact_info":"contact@philosophywebsite.com\ninfo@philosophywebsite.com\nPhone: (+1) 123 456"
+            }
+          }
+        }
+
+      }
+    }
+  }
+}
