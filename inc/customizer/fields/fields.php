@@ -355,7 +355,7 @@ $wp_customize->add_setting( 'philosophy_map_marker' , array(
     'default'               =>  esc_url( PHILOSOPHY_DIR_URI . '/img/icon-location@2x.png' ),
     'transport'             => 'refresh', // refresh or postMessage
     'capability'            => 'edit_theme_options',
-    'sanitize_callback'     => 'philosophy_sanitize_image'
+    'sanitize_callback'     => 'philosophy_theme_customizer::philosophy_sanitize_image'
 ) );
 
 $wp_customize->add_control(

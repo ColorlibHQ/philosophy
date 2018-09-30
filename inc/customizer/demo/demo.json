@@ -1,7 +1,7 @@
 {
   "standard": {
     "label": "Standard",
-    "thumb": "/inc/libraries/epsilon-theme-dashboard/assets/images/standard.png",
+    "thumb": "/inc/customizer/demo/standard.png",
     "posts": {
       "label": "Posts",
       "content": {

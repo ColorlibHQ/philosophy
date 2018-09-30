@@ -82,7 +82,7 @@ class Epsilon_Dashboard_Setup {
 		}
 
 		if ( empty( $this->notice ) ) {
-			$this->notice .= '<img src="' . esc_url( get_template_directory_uri() ) . '/inc/libraries/epsilon-theme-dashboard/assets/images/colorlib-themes-logo-black.png" class="epsilon-author-logo" />';
+			$this->notice .= '<img src="' . esc_url( get_template_directory_uri() ) . '/inc/libraries/epsilon-theme-dashboard/assets/images/colorlib-logo-dark.png" class="epsilon-author-logo" />';
 
 
 			/* Translators: Notice Title */
@@ -182,7 +182,7 @@ class Epsilon_Dashboard_Setup {
 					),
 				),
 				'progress' => __( 'Demos', 'philosophy' ),
-				'demos'    => PHILOSOPHY_DIR_PATH_LIB . 'customizer/demo/demo.json',
+				'demos'    => PHILOSOPHY_DIR_PATH_INC . 'customizer/demo/demo.json',
 				'buttons'  => array(
 					'next' => array(
 						'action' => 'next',

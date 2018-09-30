@@ -99,10 +99,9 @@
 	require_once( PHILOSOPHY_DIR_PATH_CLASSES . 'Class-Config.php' );
 	require_once( PHILOSOPHY_DIR_PATH_HOOKS . 'hooks.php' );
 	require_once( PHILOSOPHY_DIR_PATH_HOOKS . 'hooks-functions.php' );
-	// Epsilon Framework file Include
-	require_once( PHILOSOPHY_DIR_PATH_LIB . 'epsilon-framework/class-epsilon-framework.php' );
-	require_once( PHILOSOPHY_DIR_PATH_INC . 'customizer/customizer.php' );
 
+	// Customizer
+	require_once( PHILOSOPHY_DIR_PATH_INC . 'customizer/customizer.php' );
 	// Class autoloader
 	require_once( PHILOSOPHY_DIR_PATH_INC . 'class-epsilon-dashboard-autoloader.php' );
 	// Class philosophy dashboard
@@ -115,7 +114,9 @@
 	 * Enqueue scripts, Google font, Theme support features, Philosophy Dashboard .
 	 *
 	 */
+	
 	$Philosophy = new Philosophy();
+	
 
 
 
