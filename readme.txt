@@ -116,14 +116,6 @@ Google Fonts
 
     -- License: SIL OFL 1.1
     -- URL: http://scripts.sil.org/OFL
-
-Libre Baskerville Font
-    -- Copyright (c) 2012
-    -- SIL Open Font License https://www.fontsquirrel.com/license/libre-baskerville
-
-METROPOLIS
-    -- Copyright (c) 2015, Chris Simpson
-    -- SIL Open Font License https://www.fontsquirrel.com/fonts/metropolis
     
 #### Images
 
