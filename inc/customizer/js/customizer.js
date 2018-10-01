@@ -168,6 +168,45 @@
 
     } );
 
+    // Footer section
+    api.section( 'philosophy_footer_section' , function( section ){
+
+        section.expanded.bind( function( isExpanded ){
+
+
+            // Preloader option show/hide
+
+            var $widget_toggle      = $('#philosophy_footer_widget_toggle');
+
+
+            // Default
+
+            if( $widget_toggle.is( ':checked' ) ){
+                $widget_toggle.show('slow');
+            }else{
+                $widget_toggle.hide('slow');
+            }
+
+            // on click
+            $widget_toggle.on( 'click',  function(){
+
+                var $this =  $( this );
+
+                if( $this.is(':checked') ){
+                    $widget_toggle.show('slow');
+                }else{
+                    $widget_toggle.hide('slow');
+                }
+
+
+            } ); 
+
+
+        } );
+
+
+    } );
+
     
 
 })( jQuery, wp.customize );
