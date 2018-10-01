@@ -12,7 +12,7 @@
                 if( $setCopyright ){
                     $copyText = $setCopyright;
                 }
-                    
+                 
                 ?>
                 <span><?php echo wp_kses_post( $copyText ); ?></span>
             </div>

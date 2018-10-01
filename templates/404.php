@@ -26,7 +26,7 @@ if( !defined( 'ABSPATH' ) ){
 				}
 				//
 				echo '<h1 class="h1">'.esc_html( $errorText ).'</h1>';
-				//
+				
 
 				// Wrong text block
 

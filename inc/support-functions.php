@@ -15,8 +15,8 @@
 
 // Post Category
 function philosophy_post_cats( $args = array() ){
-	
-
+    
+    
     $default = array(
         'wrp_start'         => '',
         'wrp_end'           => '',

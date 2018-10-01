@@ -87,7 +87,7 @@
  	 */
  	do_action( 'philosophy_wrp_end' );
 
- 	
+	 
 	 // Call Footer
 	 get_footer();
 ?>

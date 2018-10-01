@@ -41,7 +41,7 @@ if( !defined( 'ABSPATH' ) ){
 
                         $url = get_author_posts_url( get_the_author_meta( 'ID' ) );
                          
-                        
+
                 ?>
                     <div class="entry" <?php echo philosophy_inline_bg_img( get_the_post_thumbnail_url() ); ?>>
                         

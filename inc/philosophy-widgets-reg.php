@@ -12,7 +12,7 @@ if( !defined( 'ABSPATH' ) ){
  *
  */
  
-    
+ 
 function philosophy_widgets_init() {
     // sidebar widgets 
     register_sidebar( array(

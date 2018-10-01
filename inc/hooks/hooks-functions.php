@@ -32,7 +32,7 @@ if( !defined( 'ABSPATH' ) ){
 		}
 	}
 
-	// Header menu hook function
+	// Header menu hook function 
 	if( !function_exists( 'philosophy_header_cb' ) ){
 		function philosophy_header_cb(){
 			if( !is_404() ){

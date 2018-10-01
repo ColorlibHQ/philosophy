@@ -11,7 +11,7 @@ if( !defined( 'ABSPATH' ) ){
  *
  */
  
-
+ 
 // enqueue css
 function philosophy_common_custom_css(){
     

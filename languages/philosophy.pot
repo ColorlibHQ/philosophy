@@ -1,0 +1,1037 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Philosophy\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-09-25 06:19+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/"
+
+#: inc/philosophy-functions.php:99
+msgid " Comments"
+msgstr ""
+
+#: inc/libraries/class-philosophy-dashboard-setup.php:148
+msgid ""
+" This wizard will set up your theme, install plugins and import demo content."
+" It is optional & should take less than a minute."
+msgstr ""
+
+#: inc/support-functions.php:142
+#, php-format
+msgid "%1$s at %2$s"
+msgstr ""
+
+#: inc/support-functions.php:142
+msgid "(Edit)"
+msgstr ""
+
+#: inc/philosophy-functions.php:101
+msgid "1 Comment"
+msgstr ""
+
+#: inc/libraries/customizer/fields/sections.php:101
+msgid "404 Page"
+msgstr ""
+
+#: inc/libraries/customizer/fields/fields.php:514
+msgid "404 Page Background Color"
+msgstr ""
+
+#: inc/libraries/customizer/fields/fields.php:472
+msgid "404 Text #1"
+msgstr ""
+
+#: inc/libraries/customizer/fields/fields.php:494
+msgid "404 Text #1 Color"
+msgstr ""
+
+#: inc/libraries/customizer/fields/fields.php:483
+msgid "404 Text #2"
+msgstr ""
+
+#: inc/libraries/customizer/fields/fields.php:504
+msgid "404 Text #2 Color"
+msgstr ""
+
+#: inc/libraries/class-philosophy-dashboard-setup.php:181
+msgid ""
+"<em>Note: This is the easiest way to see what goes where. After you've "
+"finished the import, you can edit the content using the built-in Customizer, "
+"available under Appearance -> Customize.</em>"
+msgstr ""
+
+#: inc/support-functions.php:140
+#, php-format
+msgid "<span class=\"comment-author-name\">%s</span> "
+msgstr ""
+
+#: inc/libraries/class-philosophy-dashboard-setup.php:427
+msgid ""
+"<u>We really hope</u> you'll enjoy using our products as much as we've "
+"enjoyed building them."
+msgstr ""
+
+#. Widget name will appear in UI
+#: inc/popular-post-widget.php:30
+msgid "[ Philosophy ] Popular Blog Post"
+msgstr ""
+
+#: inc/libraries/customizer/fields/fields.php:317
+msgid "About info block content"
+msgstr ""
+
+#. Name of the template
+#: inc/libraries/customizer/fields/sections.php:79
+msgid "About Page"
+msgstr ""
+
+#: inc/libraries/customizer/fields/fields.php:304
+msgid "About page top title"
+msgstr ""
+
+#: inc/philosophy-newsletter-widget.php:114
+msgid "Action URL:"
+msgstr ""
+
+#: inc/libraries/class-philosophy-dashboard-setup.php:397
+msgid "Actions"
+msgstr ""
+
+#: inc/libraries/class-philosophy-dashboard-setup.php:305
+msgid "Activate Plugin"
+msgstr ""
+
+#. %s is the plugin name
+#: inc/libraries/class-philosophy-notify-system.php:61
+#, php-format
+msgid "Activate: %s"
+msgstr ""
+
+#: inc/libraries/class-philosophy-dashboard-setup.php:242
+msgid "Activation, deactivation and uninstall"
+msgstr ""
+
+#: inc/wp_bootstrap_navwalker.php:204
+msgid "Add a menu"
+msgstr ""
+
+#: inc/philosophy-newsletter-widget.php:27
+msgid "Add footer newsletter signup form."
+msgstr ""
+
+#: inc/libraries/customizer/fields/fields.php:318
+#: inc/libraries/customizer/fields/fields.php:405
+msgid "Add new block"
+msgstr ""
+
+#: inc/libraries/class-philosophy-dashboard-setup.php:284
+#: inc/libraries/class-philosophy-dashboard-setup.php:321
+msgid "Add sample content"
+msgstr ""
+
+#: inc/libraries/class-philosophy-dashboard-setup.php:290
+msgid "Advanced"
+msgstr ""
+
+#: inc/libraries/class-philosophy-dashboard-setup.php:207
+msgid "Allow & Finish"
+msgstr ""
+
+#: inc/libraries/class-philosophy-dashboard-setup.php:199
+msgid "Allow MachoThemes to track theme usage."
+msgstr ""
+
+#: inc/libraries/class-philosophy-dashboard-setup.php:448
+msgid "Allow Theme Tracking"
+msgstr ""
+
+#: inc/libraries/class-philosophy-dashboard-setup.php:195
+msgid "Almost ready"
+msgstr ""
+
+#: inc/libraries/class-philosophy-dashboard-setup.php:422
+msgid ""
+"And as such, we've made it easy for you - our user, to disable all of our "
+"theme upsells & recommendations."
+msgstr ""
+
+#: inc/libraries/customizer/fields/fields.php:280
+msgid "Archive page header content"
+msgstr ""
+
+#: templates/content-none.php:31
+msgid "Back to home page"
+msgstr ""
+
+#: inc/libraries/customizer/fields/fields.php:54
+msgid "Back to top"
+msgstr ""
+
+#: inc/libraries/customizer/fields/fields.php:65
+msgid "Back to top button background color."
+msgstr ""
+
+#: inc/libraries/customizer/fields/fields.php:77
+msgid "Back to top button hover background color."
+msgstr ""
+
+#: templates/page-header.php:7
+#: inc/libraries/customizer/fields/sections.php:67
+msgid "Blog"
+msgstr ""
+
+#: inc/libraries/customizer/fields/fields.php:249
+msgid "Blog Layout"
+msgstr ""
+
+#: inc/popular-post-widget.php:78
+msgid "By"
+msgstr ""
+
+#: inc/libraries/class-philosophy-dashboard-setup.php:425
+msgid ""
+"By turning any or all of the toggles below to the <span style=\"color: green;"
+"\">ON</span> position you'll be able\n"
+"\t\tto hide all upsells & recommended plugin discovery sections & actions."
+msgstr ""
+
+#: inc/libraries/class-philosophy-dashboard-setup.php:285
+#: inc/libraries/class-philosophy-dashboard-setup.php:322
+msgid ""
+"Clicking the button below will add content/sections/settings and recommended "
+"plugins to your WordPress installation. Click advanced to customize the "
+"import process in the dedicated tab."
+msgstr ""
+
+#: templates/menu-bar.php:38 templates/menu-bar.php:64
+msgid "Close"
+msgstr ""
+
+#: templates/menu-bar.php:38
+msgid "Close Search"
+msgstr ""
+
+#. Author of the theme
+msgid "Colorlib"
+msgstr ""
+
+#: comments.php:61
+msgid "Comment..."
+msgstr ""
+
+#: inc/philosophy-functions.php:105
+msgid "Comments are closed"
+msgstr ""
+
+#: comments.php:45
+msgid "Comments are closed."
+msgstr ""
+
+#: comments.php:24
+#, php-format
+msgctxt "comments title"
+msgid "1 Comment"
+msgid_plural "%1$s Comments"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/libraries/customizer/fields/fields.php:445
+msgid "Contact Form"
+msgstr ""
+
+#: inc/support-functions.php:264
+msgid "Contact form not found."
+msgstr ""
+
+#: inc/libraries/customizer/fields/fields.php:404
+msgid "Contact info block content"
+msgstr ""
+
+#. Name of the template
+#: inc/libraries/customizer/fields/sections.php:90
+msgid "Contact Page"
+msgstr ""
+
+#: inc/libraries/customizer/fields/fields.php:349
+msgid "Contact page top title"
+msgstr ""
+
+#: templates/footer-bottom.php:8
+#, php-format
+msgid ""
+"Copyright &copy; %s All rights reserved. | This template is made with %s by "
+"<a href=\"%s\" target=\"_blank\">Colorlib</a>"
+msgstr ""
+
+#: inc/libraries/class-philosophy-dashboard-setup.php:241
+msgid "CURRENT PLUGIN EVENTS"
+msgstr ""
+
+#: inc/support-functions.php:243
+msgid "Custom Shortcode"
+msgstr ""
+
+#: inc/libraries/class-philosophy-dashboard-setup.php:384
+msgid "Demo Content"
+msgstr ""
+
+#: inc/libraries/class-philosophy-dashboard-setup.php:389
+msgid "Demo content already installed"
+msgstr ""
+
+#: inc/libraries/class-philosophy-dashboard-setup.php:184
+msgid "Demos"
+msgstr ""
+
+#: inc/libraries/customizer/fields/fields.php:331
+msgid "Descriptions"
+msgstr ""
+
+#: inc/libraries/customizer/fields/fields.php:212
+#: inc/libraries/customizer/fields/fields.php:223
+msgid "Display features blog section"
+msgstr ""
+
+#: inc/libraries/customizer/fields/fields.php:185
+msgid "Dropdown menu color"
+msgstr ""
+
+#: inc/libraries/customizer/fields/fields.php:196
+msgid "Dropdown menu hover color"
+msgstr ""
+
+#: templates/404.php:33
+msgid "Either something went wrong or the page dosen&rsquo;t exist anymore."
+msgstr ""
+
+#: inc/philosophy-newsletter-widget.php:62
+msgid "Email Address"
+msgstr ""
+
+#: inc/philosophy-newsletter-widget.php:118
+#, php-format
+msgid "Enter here your MailChimp action URL. %s %s %s"
+msgstr ""
+
+#: inc/philosophy-breadcrumbs.php:110
+msgid "Error 404"
+msgstr ""
+
+#: inc/libraries/class-philosophy-dashboard-setup.php:360
+msgid ""
+"Even if you are a long-time WordPress user, we still believe you should give "
+"our documentation a very quick Read."
+msgstr ""
+
+#: inc/libraries/customizer/fields/fields.php:352
+msgid "Feel Free To Contact Us."
+msgstr ""
+
+#: inc/libraries/class-philosophy-dashboard-setup.php:203
+msgid "Finished"
+msgstr ""
+
+#: inc/libraries/customizer/fields/fields.php:540
+msgid "Footer copyright text"
+msgstr ""
+
+#: inc/libraries/customizer/fields/sections.php:112
+msgid "Footer Page"
+msgstr ""
+
+#: inc/philosophy-widgets-reg.php:29
+msgid "Footer sidebar #1"
+msgstr ""
+
+#: inc/philosophy-widgets-reg.php:39
+msgid "Footer sidebar #2"
+msgstr ""
+
+#: inc/philosophy-widgets-reg.php:49
+msgid "Footer sidebar #3"
+msgstr ""
+
+#: inc/philosophy-widgets-reg.php:59
+msgid "Footer sidebar #4"
+msgstr ""
+
+#: inc/philosophy-widgets-reg.php:68
+msgid "Footer sidebar #5"
+msgstr ""
+
+#: inc/philosophy-widgets-reg.php:77
+msgid "Footer sidebar #6"
+msgstr ""
+
+#: inc/philosophy-widgets-reg.php:86
+msgid "Footer sidebar #7"
+msgstr ""
+
+#: inc/libraries/customizer/fields/fields.php:580
+msgid "Footer Widget Anchor Color"
+msgstr ""
+
+#: inc/libraries/customizer/fields/fields.php:590
+msgid "Footer Widget Anchor Hover Color"
+msgstr ""
+
+#: inc/libraries/customizer/fields/fields.php:550
+msgid "Footer Widget Background Color"
+msgstr ""
+
+#: inc/libraries/customizer/fields/fields.php:529
+msgid "Footer widget show/hide"
+msgstr ""
+
+#: inc/libraries/customizer/fields/fields.php:560
+msgid "Footer Widget Text Color"
+msgstr ""
+
+#: inc/libraries/customizer/fields/fields.php:570
+msgid "Footer Widget Title Color"
+msgstr ""
+
+#: inc/libraries/customizer/fields/fields.php:431
+msgid "Form Title"
+msgstr ""
+
+#: inc/libraries/class-philosophy-dashboard-setup.php:361
+msgid "Full documentation"
+msgstr ""
+
+#: inc/libraries/customizer/fields/sections.php:45
+msgid "General"
+msgstr ""
+
+#. Notice URL
+#: inc/libraries/class-philosophy-dashboard-setup.php:100
+#, php-format
+msgid "Get started with %1$s"
+msgstr ""
+
+#: inc/libraries/class-philosophy-dashboard-setup.php:151
+#: inc/libraries/class-philosophy-dashboard-setup.php:349
+msgid "Getting Started"
+msgstr ""
+
+#: inc/libraries/class-philosophy-dashboard-setup.php:366
+msgid "Go to Customizer"
+msgstr ""
+
+#: templates/404.php:42
+msgid "Go To Home page"
+msgstr ""
+
+#: inc/classes/Class-Config.php:195
+msgctxt "Google font: on or off"
+msgid "on"
+msgstr ""
+
+#: inc/libraries/customizer/fields/fields.php:90
+msgid "Google map api key"
+msgstr ""
+
+#: inc/libraries/customizer/fields/sections.php:56
+msgid "Header"
+msgstr ""
+
+#: inc/libraries/customizer/fields/fields.php:129
+msgid "Header Background Color"
+msgstr ""
+
+#: inc/libraries/customizer/fields/fields.php:151
+msgid "Header menu color"
+msgstr ""
+
+#: inc/libraries/customizer/fields/fields.php:174
+msgid "Header menu dropdown background color"
+msgstr ""
+
+#: inc/libraries/customizer/fields/fields.php:163
+msgid "Header menu hover color"
+msgstr ""
+
+#: inc/libraries/customizer/fields/fields.php:140
+msgid "Header Top Color"
+msgstr ""
+
+#: inc/libraries/class-philosophy-dashboard-setup.php:435
+msgid "Hide Customizer Recommended Actions"
+msgstr ""
+
+#: inc/libraries/class-philosophy-dashboard-setup.php:442
+msgid "Hide Plugin Recommendations"
+msgstr ""
+
+#: inc/philosophy-breadcrumbs.php:27 inc/philosophy-breadcrumbs.php:52
+msgid "Home"
+msgstr ""
+
+#: inc/philosophy-newsletter-widget.php:118
+msgid "How to"
+msgstr ""
+
+#. Author URI of the theme
+msgid "http://colorlib.com/"
+msgstr ""
+
+#. URI of the theme
+msgid "https://colorlib.com/wp/themes/philosophy/"
+msgstr ""
+
+#: inc/support-functions.php:269
+#, php-format
+msgid ""
+"If you want to use contact form 7, Please install and active contact form 7 "
+"plugin. %s Click here to install %s  "
+msgstr ""
+
+#: inc/libraries/class-philosophy-dashboard-setup.php:177
+#: inc/libraries/class-philosophy-dashboard-setup.php:324
+msgid "Import Demo Content"
+msgstr ""
+
+#: inc/hooks/hooks-functions.php:276
+msgid "In"
+msgstr ""
+
+#: inc/libraries/customizer/fields/fields.php:418
+msgid "Information"
+msgstr ""
+
+#: inc/libraries/class-philosophy-dashboard-setup.php:305
+msgid "Install Plugin"
+msgstr ""
+
+#: inc/libraries/class-philosophy-dashboard-setup.php:161
+msgid "Install Recommended Plugins"
+msgstr ""
+
+#: inc/libraries/class-philosophy-dashboard-setup.php:388
+msgid "Install your demo content"
+msgstr ""
+
+#. %s is the plugin name.
+#: inc/libraries/class-philosophy-notify-system.php:55
+#, php-format
+msgid "Install: %s"
+msgstr ""
+
+#: templates/content-none.php:40
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr ""
+
+#: inc/libraries/customizer/fields/fields.php:379
+msgid "Latitude"
+msgstr ""
+
+#: inc/libraries/class-philosophy-dashboard-setup.php:356
+msgid "Launch wizard"
+msgstr ""
+
+#: inc/libraries/customizer/fields/fields.php:307
+msgid "Learn More About Us."
+msgstr ""
+
+#: comments.php:64
+msgid "LEAVE A COMMENT"
+msgstr ""
+
+#: inc/libraries/class-philosophy-dashboard-setup.php:369
+msgid "Lend a hand and share your thoughts"
+msgstr ""
+
+#: inc/libraries/class-philosophy-dashboard-setup.php:155
+msgid ""
+"Let's get started <span class=\"dashicons dashicons-arrow-right-alt2\">"
+"</span>"
+msgstr ""
+
+#: inc/libraries/customizer/fields/fields.php:390
+msgid "Longitude"
+msgstr ""
+
+#: templates/menu-bar.php:45
+msgid "Menu"
+msgstr ""
+
+#: inc/libraries/class-philosophy-dashboard-setup.php:423
+msgid ""
+"Mind you that we use these as a way to facilitate compatible product "
+"discovery - as in: plugins that enhance the\n"
+"\t\tuser experience with any of our products. But, in the end, the user "
+"should always have a say in it."
+msgstr ""
+
+#: inc/libraries/class-philosophy-dashboard-setup.php:228
+msgid "Name and email address"
+msgstr ""
+
+#: templates/pagination.php:19
+msgid "Newer Post"
+msgstr ""
+
+#: inc/wp_bootstrap_pagination.php:81
+msgid "Next"
+msgstr ""
+
+#: inc/wp_bootstrap_pagination.php:81
+msgid "next"
+msgstr ""
+
+#: inc/libraries/class-philosophy-dashboard-setup.php:171
+#: inc/libraries/class-philosophy-dashboard-setup.php:189
+msgid "Next <span class=\"dashicons dashicons-arrow-right-alt2\"></span>"
+msgstr ""
+
+#: inc/hooks/hooks-functions.php:455
+msgid "Next Post"
+msgstr ""
+
+#: inc/philosophy-functions.php:97
+msgid "No Comments"
+msgstr ""
+
+#: templates/content-none.php:16
+msgid "Nothing Found"
+msgstr ""
+
+#: templates/pagination.php:20
+msgid "Older Post"
+msgstr ""
+
+#: inc/popular-post-widget.php:79
+msgid "on"
+msgstr ""
+
+#: templates/404.php:23
+msgid "Ooops 404 Error !"
+msgstr ""
+
+#. Widget name will appear in UI
+#: inc/philosophy-newsletter-widget.php:24
+#: inc/philosophy-newsletter-widget.php:85
+msgid "OUR NEWSLETTER"
+msgstr ""
+
+#: inc/philosophy-functions.php:155
+msgid "Page"
+msgstr ""
+
+#: inc/philosophy-functions.php:151
+msgid "Pages:"
+msgstr ""
+
+#. Name of the theme
+msgid "Philosophy"
+msgstr ""
+
+#: inc/libraries/class-philosophy-dashboard-setup.php:164
+msgid ""
+"Philosophy integrates tightly with a few plugins that we recommend "
+"installing to get the full theme experience, as we've intended it to be. "
+"This is an optional step, but we recommend installing them as we think these "
+"hand-picked plugins work really nice with Philosophy and help enhance the "
+"overall experience."
+msgstr ""
+
+#. Description of the theme
+msgid ""
+"Philosophy is a modern masonry blog website template. Its stylish design and "
+"beautiful  typography makes it an ideal template for your blog site. It "
+"features styles for the  following post formats: standard, video, audio, and "
+"gallery. It is fully responsive and retina ready  so It will always look "
+"great and crisp on any devices and screen sizes. It\\'s built with clean  "
+"and organized code which makes it very easy to customize."
+msgstr ""
+
+#. %s is the plugin name
+#: inc/libraries/class-philosophy-notify-system.php:63
+#, php-format
+msgid "Please activate %s in order to create the demo content."
+msgstr ""
+
+#. %s is the plugin name.
+#: inc/libraries/class-philosophy-notify-system.php:57
+#, php-format
+msgid "Please install %s in order to create the demo content."
+msgstr ""
+
+#: inc/libraries/class-philosophy-dashboard-setup.php:167
+msgid "Plugins"
+msgstr ""
+
+#: comments.php:67
+msgid "Post Comment"
+msgstr ""
+
+#: inc/popular-post-widget.php:117
+msgid "Post Number:"
+msgstr ""
+
+#: inc/hooks/hooks-functions.php:422
+msgid "Post Tags:"
+msgstr ""
+
+#: inc/libraries/customizer/fields/fields.php:32
+msgid "Preloader Background Color"
+msgstr ""
+
+#: inc/libraries/customizer/fields/fields.php:43
+msgid "Preloader Color"
+msgstr ""
+
+#: inc/libraries/customizer/fields/fields.php:21
+msgid "Preloader On/Off"
+msgstr ""
+
+#: inc/wp_bootstrap_pagination.php:66
+msgid "Previous"
+msgstr ""
+
+#: inc/wp_bootstrap_pagination.php:66
+msgid "previous"
+msgstr ""
+
+#: inc/hooks/hooks-functions.php:445
+msgid "Previous Post"
+msgstr ""
+
+#: inc/classes/Class-Config.php:88
+msgid "Primary Menu"
+msgstr ""
+
+#: inc/libraries/class-philosophy-dashboard-setup.php:416
+msgid "Privacy"
+msgstr ""
+
+#: inc/hooks/hooks-functions.php:301
+msgid "Read More"
+msgstr ""
+
+#: templates/content-none.php:20
+#, php-format
+msgid ""
+"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+
+#: inc/libraries/class-philosophy-dashboard-setup.php:410
+msgid "Registration"
+msgstr ""
+
+#: comments.php:56
+msgid ""
+"Save my name, email, and website in this browser for the next time I comment."
+msgstr ""
+
+#: searchform.php:4 templates/menu-bar.php:35
+msgid "Search"
+msgstr ""
+
+#: templates/menu-bar.php:32 templates/menu-bar.php:33
+msgid "Search for:"
+msgstr ""
+
+#: inc/libraries/customizer/fields/fields.php:290
+msgid "Search page header content"
+msgstr ""
+
+#: templates/page-header.php:9
+msgid "Search Result"
+msgstr ""
+
+#: inc/philosophy-breadcrumbs.php:108
+msgid "Search results for:"
+msgstr ""
+
+#: inc/popular-post-widget.php:113
+msgid "Section Title:"
+msgstr ""
+
+#: inc/libraries/customizer/fields/fields.php:226
+msgid "Select blog post category to show as featured post."
+msgstr ""
+
+#: inc/libraries/customizer/fields/fields.php:66
+msgid "Select the back to top button background color."
+msgstr ""
+
+#: inc/libraries/customizer/fields/fields.php:78
+msgid "Select the back to top button hover background color."
+msgstr ""
+
+#: inc/libraries/customizer/fields/fields.php:130
+msgid "Select the header background color."
+msgstr ""
+
+#: inc/libraries/customizer/fields/fields.php:186
+msgid "Select the header dropdown menu color."
+msgstr ""
+
+#: inc/libraries/customizer/fields/fields.php:197
+msgid "Select the header dropdown menu hover color."
+msgstr ""
+
+#: inc/libraries/customizer/fields/fields.php:175
+msgid "Select the header menu dropdown background color."
+msgstr ""
+
+#: inc/libraries/customizer/fields/fields.php:152
+msgid "Select the header nav menu color."
+msgstr ""
+
+#: inc/libraries/customizer/fields/fields.php:164
+msgid "Select the header nav menu hover color."
+msgstr ""
+
+#: inc/libraries/customizer/fields/fields.php:141
+msgid "Select the header top color."
+msgstr ""
+
+#: inc/libraries/customizer/fields/fields.php:251
+msgid "Select the option to set blog page layout."
+msgstr ""
+
+#: inc/libraries/customizer/fields/fields.php:33
+msgid "Select the preloader background color."
+msgstr ""
+
+#: inc/libraries/customizer/fields/fields.php:44
+msgid "Select the preloader color."
+msgstr ""
+
+#: inc/philosophy-newsletter-widget.php:64
+msgid "Send"
+msgstr ""
+
+#: inc/libraries/customizer/fields/fields.php:457
+msgid "Set custom contact form shortcode"
+msgstr ""
+
+#: inc/libraries/customizer/fields/fields.php:91
+#, php-format
+msgid "Set google map api key. To get api key %s click here %s."
+msgstr ""
+
+#: inc/libraries/customizer/fields/fields.php:237
+msgid "Set post excerpt length"
+msgstr ""
+
+#: inc/libraries/customizer/fields/fields.php:238
+msgid "Set post excerpt length."
+msgstr ""
+
+#: inc/philosophy-newsletter-widget.php:110
+msgid "Short Description:"
+msgstr ""
+
+#: inc/libraries/customizer/fields/fields.php:107
+msgid "Show header search form"
+msgstr ""
+
+#: inc/libraries/customizer/fields/fields.php:118
+msgid "Show header social icon"
+msgstr ""
+
+#: inc/popular-post-widget.php:33
+msgid "Show most popular blog post."
+msgstr ""
+
+#: inc/philosophy-widgets-reg.php:19
+msgid "Sidebar"
+msgstr ""
+
+#: inc/libraries/class-philosophy-dashboard-setup.php:390
+msgid ""
+"Since Philosophy is a versatile theme we provided a few sample demo styles "
+"for you, please choose one from the following pages so you will have to work "
+"as little as you should. Click on the style and press next!"
+msgstr ""
+
+#: templates/menu-bar.php:49
+msgid "Site Navigation"
+msgstr ""
+
+#: inc/libraries/class-philosophy-dashboard-setup.php:235
+msgid "Site URL, WP Version, PHP Version, plugins and themes"
+msgstr ""
+
+#: inc/classes/Class-Config.php:89
+msgid "Social Menu"
+msgstr ""
+
+#: templates/content-none.php:24
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+
+#: inc/libraries/class-philosophy-dashboard-setup.php:354
+msgid "Step 1 - Implement recommended actions"
+msgstr ""
+
+#: inc/libraries/class-philosophy-dashboard-setup.php:359
+msgid "Step 2 - Check our documentation"
+msgstr ""
+
+#: inc/libraries/class-philosophy-dashboard-setup.php:364
+msgid "Step 3 - Customize everything"
+msgstr ""
+
+#: inc/libraries/customizer/fields/sections.php:27
+msgid "Theme Options"
+msgstr ""
+
+#: inc/libraries/customizer/fields/fields.php:325
+#: inc/libraries/customizer/fields/fields.php:412
+msgid "Title"
+msgstr ""
+
+#: inc/philosophy-newsletter-widget.php:106
+msgid "Title:"
+msgstr ""
+
+#: inc/libraries/customizer/fields/fields.php:55
+msgid "Toggle the back to top button show."
+msgstr ""
+
+#: inc/libraries/customizer/fields/fields.php:530
+msgid "Toggle to display footer widgets."
+msgstr ""
+
+#: inc/libraries/customizer/fields/fields.php:213
+#: inc/libraries/customizer/fields/fields.php:224
+msgid "Toggle to display front page feature blog section."
+msgstr ""
+
+#: inc/libraries/customizer/fields/fields.php:22
+msgid "Toggle to display preloader."
+msgstr ""
+
+#: inc/libraries/customizer/fields/fields.php:108
+msgid "Toggle to show header search form."
+msgstr ""
+
+#: inc/libraries/customizer/fields/fields.php:119
+msgid "Toggle to show header social icon."
+msgstr ""
+
+#: searchform.php:3 templates/menu-bar.php:33
+msgid "Type Keywords"
+msgstr ""
+
+#: inc/libraries/customizer/fields/fields.php:367
+msgid "Upload map marker image"
+msgstr ""
+
+#: inc/libraries/class-philosophy-dashboard-setup.php:365
+msgid ""
+"Using the WordPress Customizer you can easily customize every aspect of the "
+"theme."
+msgstr ""
+
+#: inc/libraries/class-philosophy-dashboard-setup.php:420
+msgid "We believe in a better and streamlined user experiences"
+msgstr ""
+
+#: inc/libraries/class-philosophy-dashboard-setup.php:355
+msgid ""
+"We compiled a list of steps for you, to take make sure the experience you "
+"will have using one of our products is very easy to follow."
+msgstr ""
+
+#. 1 is Theme Name, 2 is opening Anchor, 3 is closing.
+#: inc/libraries/class-philosophy-dashboard-setup.php:372
+#, php-format
+msgid ""
+"We worked hard on making %1$s the best one out there. We are interested in "
+"hearing your thoughts about %1$s and what we could do to make it even better."
+"<br/> <br/>"
+msgstr ""
+
+#. 1 is Theme Name, 2 is opening Anchor, 3 is closing.
+#: inc/class-philosophy-dashboard.php:143
+#, php-format
+msgid ""
+"We've been working hard on making %1$s the best one out there. We're "
+"interested in hearing your thoughts about %1$s and what we could do to make "
+"it even better. %2$sSend your feedback our way%3$s."
+msgstr ""
+
+#: inc/libraries/class-philosophy-dashboard-setup.php:180
+msgid ""
+"We've made it easy for you to get up and running in a jiffy. Just pick any "
+"of the theme demos below, click on Select, Import and you'll be ready in no "
+"time. Feel free to skip this step if you'd like to create the content "
+"yourself."
+msgstr ""
+
+#: comments.php:55
+msgid "Website"
+msgstr ""
+
+#. Notice Title
+#: inc/libraries/class-philosophy-dashboard-setup.php:89
+#, php-format
+msgid "Welcome to %1$s"
+msgstr ""
+
+#: inc/libraries/class-philosophy-dashboard-setup.php:145
+msgid "Welcome to Philosophy"
+msgstr ""
+
+#. Notice
+#: inc/libraries/class-philosophy-dashboard-setup.php:93
+#, php-format
+msgid ""
+"Welcome! Thank you for choosing %3$s! To fully take advantage of the best "
+"our theme can offer please make sure you visit our %1$swelcome page%2$s."
+msgstr ""
+
+#: inc/libraries/class-philosophy-dashboard-setup.php:221
+msgid "What permissions are being granted"
+msgstr ""
+
+#: inc/libraries/customizer/fields/fields.php:415
+msgid "Where to Find Us"
+msgstr ""
+
+#: inc/libraries/customizer/fields/fields.php:328
+msgid "Who We Are."
+msgstr ""
+
+#: inc/support-functions.php:144
+msgid "Your comment is awaiting moderation."
+msgstr ""
+
+#: comments.php:54
+msgid "Your Email"
+msgstr ""
+
+#: comments.php:53
+msgid "Your Name"
+msgstr ""
+
+#: inc/libraries/class-philosophy-dashboard-setup.php:198
+msgid ""
+"Your new theme has been all set up. Enjoy your new theme by <a href=\"https:"
+"//www.colorlib.com\">Colorlib</a>."
+msgstr ""
+
+#: inc/libraries/class-philosophy-dashboard-setup.php:227
+msgid "YOUR PROFILE OVERVIEW"
+msgstr ""
+
+#: inc/libraries/class-philosophy-dashboard-setup.php:234
+msgid "YOUR SITE OVERVIEW"
+msgstr ""

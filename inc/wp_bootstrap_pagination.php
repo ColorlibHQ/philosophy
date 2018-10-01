@@ -58,7 +58,7 @@ function philosophy_pagination( $args = array() ) {
     
     $echo = '';
    
-
+    
     $previous = intval($page) - 1;
     $previous = esc_attr( get_pagenum_link($previous) );
     

@@ -15,7 +15,7 @@
 	// Final Class
 	final class Philosophy{
 
-
+		
 		// Theme Version
 		private $philosophy_version = '1.0';
 
@@ -28,17 +28,22 @@
 		function __construct(){
 			// Theme Support
 			add_action( 'after_setup_theme', array( $this, 'support' ) );
-
 			// 
 			$this->init();
-			// Instantiate Philosophy Dashboard
-			$Philosophy_Dashboard = Philosophy_Dashboard::get_instance();
 		}
 
 		// Theme init
 		public function init(){
-			
+			//
 			$this->setup();
+
+			// customizer init Instantiate
+			if( class_exists('Epsilon_Framework') ){
+				$this->customizer_init();
+			}
+			
+			// Instantiate  Dashboard
+			$Epsilon_init_Dashboard = Epsilon_init_Dashboard::get_instance();
 		}
 
 		// Theme setup
@@ -121,12 +126,6 @@
 						'version' 		=> '4.7.0',
 					),
 					array(
-						'handler'		=> 'fonts',
-						'file' 			=> $cssPath.'fonts.css',
-						'dependency' 	=> array(),
-						'version' 		=> '1.0',
-					),
-					array(
 						'handler'		=> 'vendor',
 						'file' 			=> $cssPath.'vendor.css',
 						'dependency' 	=> array(),
@@ -195,7 +194,8 @@
 			if ( 'off' !== _x( 'on', 'Google font: on or off', 'philosophy' ) ) {
 			
 				$font_families = array(
-					'Roboto:400,500,700,900'
+					'Libre+Baskerville:400,400i,700',
+					'Montserrat:300,400,400i,500,500i,600,600i,700,800'
 				);
 
 				$familyArgs = array(
@@ -209,6 +209,56 @@
 			return esc_url_raw( $fontUrl );
 
 		} //End google_font method
+
+		// epsilon customizer init
+		private function customizer_init(){
+
+			// epsilon customizer quickie settings
+		
+			add_filter( 'epsilon_quickie_bar_shortcuts', array( $this, 'epsilon_quickie' ) );
+			
+			// Instantiate Epsilon Framework object
+			$Epsilon_Framework = new Epsilon_Framework();
+
+			
+			// Instantiate philosophy theme customizer
+			$philosophy_theme_customizer = new philosophy_theme_customizer();
+		}
+
+		public function epsilon_quickie(){
+
+				return	array(
+
+				'links' => array(
+					array(
+						'link_to'   => 'philosophy_theme_options_panel',
+						'icon'      => 'dashicons dashicons-admin-tools',
+						'link_type' => 'panel',
+					),
+					array(
+						'link_to'   => 'nav_menus',
+						'icon'      => 'dashicons dashicons-menu',
+						'link_type' => 'panel',
+					),
+					array(
+						'link_to'   => 'widgets',
+						'icon'      => 'dashicons dashicons-archive',
+						'link_type' => 'panel',
+					),
+					array(
+						'link_to'   => 'custom_css',
+						'icon'      => 'dashicons dashicons-editor-code',
+						'link_type' => 'section',
+					),
+
+				),
+				'logo'  => array(
+					'url' => EPSILON_URI . '/assets/img/epsilon-logo.png',
+					'alt' => 'Epsilon Builder Logo',
+				),
+			);
+
+		}
 
 	} // End Philosophy Class
 

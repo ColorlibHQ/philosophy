@@ -4,7 +4,7 @@
 
         <div class="header__logo">
             <?php 
-            // Logo
+            // Site Logo
             echo philosophy_theme_logo('logo');
             ?>
         </div> <!-- end header__logo -->

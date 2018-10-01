@@ -19,7 +19,7 @@
         }
         //
         if( $content ){
-
+            
             echo '<div class="lead">'.philosophy_get_textareahtml_output( $content ).'</div>';
         }
         ?>

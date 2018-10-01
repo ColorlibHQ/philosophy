@@ -47,7 +47,7 @@ if( $sidebar1 || $sidebar2 || $sidebar3 ):
     </div>
     <?php 
     endif;
-
+    
     // 
     if( $sidebar3 ):
     ?>

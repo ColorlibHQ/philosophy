@@ -60,10 +60,11 @@ $marker = philosophy_opt( 'philosophy_map_marker' );
                     }
                 }
                 ?>
-
+                
                 <div class="row">
                     <?php 
-                    $contactinfo = philosophy_opt_repeater_value('philosophy_contact_infoblock');
+
+                    $contactinfo = philosophy_opt( 'philosophy_contact_infoblock');
                     //
                     if( is_array( $contactinfo ) && count( $contactinfo ) > 0 ):
                         foreach( $contactinfo as $info ):

@@ -17,8 +17,8 @@ if( !defined( 'WPINC' ) ){
 ***************************************/
  
 class philosophy_popular_post_widget extends WP_Widget {
-
-
+    
+    
 function __construct() {
 
 parent::__construct(

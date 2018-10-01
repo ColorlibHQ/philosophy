@@ -22,7 +22,7 @@ if( !defined( 'ABSPATH' ) ){
 				dynamic_sidebar( 'footer-4' );
 			echo '</div>';
 		}
-
+		
 		// Footer widget 5
 		if( is_active_sidebar( 'footer-5' ) ){
 			echo '<div class="col-two md-four mob-full">';

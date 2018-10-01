@@ -31,6 +31,7 @@
      * @Hook philosophy_header
      *
      * @Hooked philosophy_header_cb 10
+     * 
      */
 
 	do_action( 'philosophy_header' );
