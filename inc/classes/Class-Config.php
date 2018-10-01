@@ -126,12 +126,6 @@
 						'version' 		=> '4.7.0',
 					),
 					array(
-						'handler'		=> 'fonts',
-						'file' 			=> $cssPath.'fonts.css',
-						'dependency' 	=> array(),
-						'version' 		=> '1.0',
-					),
-					array(
 						'handler'		=> 'vendor',
 						'file' 			=> $cssPath.'vendor.css',
 						'dependency' 	=> array(),
@@ -200,7 +194,8 @@
 			if ( 'off' !== _x( 'on', 'Google font: on or off', 'philosophy' ) ) {
 			
 				$font_families = array(
-					'Roboto:400,500,700,900'
+					'Libre+Baskerville:400,400i,700',
+					'Montserrat:300,400,400i,500,500i,600,600i,700,800'
 				);
 
 				$familyArgs = array(
