@@ -541,7 +541,7 @@ Epsilon_Customizer::add_field(
     'philosophy_footer_widget_bdcolor',
     array(
         'type'        => 'epsilon-color-picker',
-        'label'       => esc_html__( 'Footer Widget Background Color', 'philosophy' ),
+        'label'       => esc_html__( 'Footer Background Color', 'philosophy' ),
         'section'     => 'philosophy_footer_section',
         'default'     => '#19191b',
     )
@@ -551,7 +551,7 @@ Epsilon_Customizer::add_field(
     'philosophy_footer_widget_textcolor',
     array(
         'type'        => 'epsilon-color-picker',
-        'label'       => esc_html__( 'Footer Widget Text Color', 'philosophy' ),
+        'label'       => esc_html__( 'Footer Text Color', 'philosophy' ),
         'section'     => 'philosophy_footer_section',
         'default'     => '#FFFFFF',
     )
@@ -571,7 +571,7 @@ Epsilon_Customizer::add_field(
     'philosophy_footer_widget_anchorcolor',
     array(
         'type'        => 'epsilon-color-picker',
-        'label'       => esc_html__( 'Footer Widget Anchor Color', 'philosophy' ),
+        'label'       => esc_html__( 'Footer Anchor Color', 'philosophy' ),
         'section'     => 'philosophy_footer_section',
         'default'     => '#888888',
     )
@@ -581,7 +581,7 @@ Epsilon_Customizer::add_field(
     'philosophy_footer_widget_anchorhovcolor',
     array(
         'type'        => 'epsilon-color-picker',
-        'label'       => esc_html__( 'Footer Widget Anchor Hover Color', 'philosophy' ),
+        'label'       => esc_html__( 'Footer Anchor Hover Color', 'philosophy' ),
         'section'     => 'philosophy_footer_section',
         'default'     => '#888888',
     )
