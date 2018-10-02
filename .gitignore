@@ -1,0 +1,8 @@
+.git/
+/.idea/
+/.sass-cache/
+/node_modules/
+/build/
+.DS_Store
+philosophy.zip
+.idea
