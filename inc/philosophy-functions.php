@@ -25,7 +25,6 @@ function philosophy_opt( $id = null ){
 	
 	return $data;
 }
-
 // custom meta id callback
 function philosophy_meta( $id = '' ){
     
@@ -56,8 +55,8 @@ if ( ! function_exists( 'philosophy_excerpt_length' ) ) {
 		}else{
 			$limit = 30;
 		}
-		
-		
+        
+        
 		if ( count( $excerpt ) >= $limit ) {
 			array_pop( $excerpt );
 			$exc_slice = array_slice( $excerpt, 0, $limit );
@@ -242,21 +241,25 @@ function philosophy_featured_post_cat(){
 
          
 }
+
 //  customize sidebar option value return
 function philosophy_sidebar_opt(){
 
-    $sidebarOpt = philosophy_opt( 'philosophy-blog-sidebar-settings' );
-    
+    $sidebarOpt = philosophy_opt( 'philosophy_blog_layout' );
+    $sidebar = '1';
     // Blog Sidebar layout  opt
-    $sidebarOpt =  json_decode( $sidebarOpt, true );
-
+    if( is_array( $sidebarOpt ) ){
+        $sidebarOpt =  $sidebarOpt;
+    }else{
+        $sidebarOpt =  json_decode( $sidebarOpt, true );
+    }
+    
     
     if( !empty( $sidebarOpt['columnsCount'] ) ){
-        $sidebarOpt = $sidebarOpt['columnsCount'];
-    }else{
-        $sidebarOpt = '';
+        $sidebar = $sidebarOpt['columnsCount'];
     }
 
-    return $sidebarOpt;
+
+    return $sidebar;
 }
 ?>

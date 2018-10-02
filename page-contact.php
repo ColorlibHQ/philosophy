@@ -1,40 +1,128 @@
-<?php
+<?php 
+// Block direct access
+if( !defined( 'ABSPATH' ) ){
+    exit( 'Direct script access denied.' );
+}
 /**
- * The template for displaying contact page
- * Template Name: Contact page
- * This is the template that displays all pages by default.
- * Please note that this is the WordPress construct of pages
- * and that other 'pages' on your WordPress site may use a
- * different template.
+ * @Packge     : Philosophy
+ * @Version    : 1.0
+ * @Author     : Colorlib
+ * @Author URI : http://colorlib.com/wp/
  *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
+ * Template Name: Contact Page
  *
- * @package philosophy
  */
 
 get_header();
-?>
 
-	<section class="s-content s-content--narrow">
+$lat    = philosophy_opt( 'philosophy_contact_latitude' );
+$long   = philosophy_opt( 'philosophy_contact_longitude' );
+$marker = philosophy_opt( 'philosophy_map_marker' );
+
+
+?>
+    <!-- s-content
+    ================================================== -->
+    <section class="s-content s-content--narrow">
 
         <div class="row">
+            <?php
+            // Page top title
+            $pagetitle = philosophy_opt( 'philosophy_contact_top_title' ); 
+            if( $pagetitle ){
+                echo philosophy_heading_tag(
+                    array(
+                        'tag'      => 'h1',
+                        'class'    => 's-content__header-title',
+                        'text'    => esc_html( $pagetitle ),
+                        'wrap_before' => '<div class="s-content__header col-full">',
+                        'wrap_after'  => '</div>',
+                    )
+                );
+            }
+            ?>    
+            <div class="s-content__media col-full">
+                <div id="map-wrap" data-lat="<?php echo esc_attr( $lat ); ?>" data-long="<?php echo esc_attr( $long ); ?>" data-marker="<?php echo esc_url( $marker ); ?>">
+                    <div id="map-container"></div>
+                    <div id="map-zoom-in"></div>
+                    <div id="map-zoom-out"></div>
+                </div> 
+            </div> <!-- end s-content__media -->
 
-			<?php
-			while ( have_posts() ) :
-				the_post();
+            <div class="col-full s-content__main">
+                
+                <?php 
+                if( have_posts() ){
+                    while( have_posts() ){
+                        the_post();
 
-				get_template_part( 'template-parts/page/content', 'contact' );
+                        the_content();
+                    }
+                }
+                ?>
+                
+                <div class="row">
+                    <?php 
 
-				// If comments are open or we have at least one comment, load up the comment template.
-				if ( comments_open() || get_comments_number() ) :
-					comments_template();
-				endif;
+                    $contactinfo = philosophy_opt( 'philosophy_contact_infoblock');
+                    //
+                    if( is_array( $contactinfo ) && count( $contactinfo ) > 0 ):
+                        foreach( $contactinfo as $info ):
+                    ?>
+                    <div class="col-six tab-full">
+                        <?php 
+                        if( !empty( $info['info_title'] ) ){
+                            echo philosophy_heading_tag(
+                                array(
+                                    'tag'      => 'h3',
+                                    'text'    => esc_html( $info['info_title'] )
+                                )
+                            );
+                        }
+                        // Information
+                        if( !empty( $info['contact_info'] ) ){
+                            echo philosophy_get_textareahtml_output( $info['contact_info'] );
+                        }
+                        ?>
+                    </div>
+                    <?php 
+                        endforeach;
+                    endif;
+                    ?>
+                </div> <!-- end row -->
+                <?php
+                // Form Title
+                $title = philosophy_opt('philosophy_contact_formtitle'); 
+                if( $title ){
+                    echo philosophy_heading_tag(
+                        array(
+                            'tag'      => 'h3',
+                            'class'    => 'form-title',
+                            'text'    => esc_html( $title )
+                        )
+                    );
+                }
+                // contact form shortcode
+                $form7shortcode = philosophy_opt('philosophy_contact_formshortcode');
+                $formcs         = philosophy_opt('philosophy_contact_custom_formshortcode');
 
-			endwhile; // End of the loop.
-			?>
+                if( $form7shortcode && $form7shortcode != 'cs' ){
+                    $form = '[contact-form-7 id="'.esc_html( $form7shortcode ).'" title="'.esc_html( get_the_title( $form7shortcode ) ).'"]';
+                }else{
+                    $form = $formcs;
+                }
+                //
+                if( $form ){
+                   echo do_shortcode( $form );
+                }
+                ?>
 
-			</div>
+            </div> <!-- end s-content__main -->
 
-	</section>
+        </div> <!-- end row -->
 
-<?php get_footer();
+    </section> <!-- s-content -->
+
+<?php 
+get_footer();
+?>

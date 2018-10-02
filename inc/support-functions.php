@@ -15,8 +15,8 @@
 
 // Post Category
 function philosophy_post_cats( $args = array() ){
-	
-
+    
+    
     $default = array(
         'wrp_start'         => '',
         'wrp_end'           => '',
@@ -235,18 +235,44 @@ if ( ! function_exists( 'philosophy_social' ) ) {
 		endif;
 	}
 }
-// header cart count
-function philosophy_cart_count( $class= '' ){
-	
-	?>
-	<div class="header-wrapicon2 <?php echo esc_attr( $class ); ?>">
-		<img src="<?php echo esc_url( PHILOSOPHY_DIR_ASSETS_URI ); ?>img/icons/icon-header-02.png" class="header-icon1 js-show-header-dropdown" alt="<?php esc_html_e( 'ICON', 'philosophy' ); ?>">
-		<span class="header-icons-noti"><?php echo sprintf('%d', WC()->cart->cart_contents_count); ?></span>
-		<div class="header-cart header-dropdown">
-			<?php the_widget( 'WC_Widget_Cart', 'title=' ); ?>
-		</div>
-	</div>
-	<?php
+
+//  contact form 7 Shortcode list
+function philosophy_contact_form7_shortcode(){
+
+    // contact form list
+    $getforms['cs'] = __( 'Custom Shortcode', 'philosophy' );
+    // Instruction
+    $Instruction = ''; 
+
+    if( defined('WPCF7_VERSION') ){
+        $args = array(
+            'post_type'      => 'wpcf7_contact_form',
+            'post_per_pages' => '-1'
+        );
+
+        $loop = new WP_Query( $args );
+
+        if( $loop->have_posts() ){
+            while( $loop->have_posts() ){
+                $loop->the_post();
+
+                $getforms[ get_the_ID() ] = get_the_title();
+
+            }
+
+        }else{
+            $Instruction = __( 'Contact form not found.', 'philosophy' );
+        }
+    }else{
+        $url = admin_url( 'plugins.php' );
+        
+        $Instruction = sprintf( __( 'If you want to use contact form 7, Please install and active contact form 7 plugin. %s Click here to install %s  ' , 'philosophy' ), '<a target="_blank" href="'.esc_url( $url ).'">', '</a>'  );
+    }
+
+    $data = [ $getforms, $Instruction ];
+
+    return $data;
+
 }
 // Set contact form 7 default form template
 function philosophy_contact7_form_content( $template, $prop ) {
@@ -294,4 +320,18 @@ function philosophy_set_post_views($postID) {
 }
 //To keep the count accurate, lets get rid of prefetching
 remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0);
+
+// blog post categoty 
+function philosophy_get_post_cat(){
+    $cats = get_categories();
+
+    $categories = array( 'na' => esc_html( 'Select post category', 'philosophy' ) );
+    foreach ( $cats as $value ) {
+        
+        $categories[$value->slug] = $value->name;
+
+    }
+
+    return $categories;
+}
 ?>

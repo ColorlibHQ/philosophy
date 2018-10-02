@@ -86,10 +86,10 @@ html, body {
 
 body {
    background: #19191b;
-   font-family: "metropolis-regular", sans-serif;
+   font-family: 'Montserrat', sans-serif;
    font-size: 1.6rem;
    font-style: normal;
-   font-weight: normal;
+   font-weight: 400;
    line-height: 1.875;
    color: #656565;
    margin: 0;
@@ -121,10 +121,10 @@ a:hover, a:active {
  * 
  * ------------------------------------------------------------------- */
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
-   font-family: "librebaskerville-bold", serif;
+   font-family: 'Libre Baskerville', serif;
    color: #000000;
    font-style: normal;
-   font-weight: normal;
+   font-weight: 700;
    text-rendering: optimizeLegibility;
 }
 
@@ -206,8 +206,9 @@ p img {
 }
 .lead p,
 p.lead {
-   font-family: "metropolis-medium", sans-serif;
+   font-family: 'Montserrat', sans-serif;
    font-size: 2rem;
+   font-weight: 500;
    line-height: 1.8;
    margin-bottom: 3.6rem;
    color: #000000;
@@ -229,11 +230,12 @@ em, i, strong, b {
 }
 
 em, i {
-   font-family: "metropolis-italic", sans-serif;
+   font-family: 'Montserrat', sans-serif;
+   font-style: italic;
 }
 
 strong, b {
-   font-family: "metropolis-bold", sans-serif;
+   font-family: 'Montserrat', sans-serif;
    font-weight: bold;
 }
 
@@ -261,17 +263,19 @@ blockquote:before {
 }
 
 blockquote p {
-   font-family: "metropolis-medium", sans-serif;
+   font-family: 'Montserrat', sans-serif;
    padding: 0;
    font-size: 2.1rem;
+   font-weight: 500;
    line-height: 1.857;
    color: #000000;
 }
 
 blockquote cite {
    display: block;
-   font-family: "metropolis-medium", sans-serif;
+   font-family: 'Montserrat', sans-serif;
    font-size: 1.5rem;
+   font-weight: 500;
    font-style: normal;
    line-height: 1.4;
 }
@@ -286,7 +290,8 @@ blockquote cite a, blockquote cite a:visited {
 }
 
 abbr {
-   font-family: "metropolis-bold", sans-serif;
+   font-family: 'Montserrat', sans-serif;
+   font-weight: 500;
    font-variant: small-caps;
    text-transform: lowercase;
    letter-spacing: .05rem;
@@ -447,7 +452,8 @@ table {
    border-width: 0;
    width: 100%;
    max-width: 100%;
-   font-family: "metropolis-regular", sans-serif;
+   font-family: 'Montserrat', sans-serif;
+   font-weight: 400;
 }
 
 th, td {
@@ -458,7 +464,8 @@ th, td {
 
 th {
    color: #000000;
-   font-family: "metropolis-bold", sans-serif;
+   font-family: 'Montserrat', sans-serif;
+   font-weight: 700;
 }
 
 td {
@@ -663,7 +670,8 @@ select {
    border: 0;
    outline: none;
    color: #151515;
-   font-family: "metropolis-regular", sans-serif;
+   font-family: 'Montserrat', sans-serif;
+   font-weight: 400;
    font-size: 1.6rem;
    line-height: 3rem;
    max-width: 100%;
@@ -745,7 +753,7 @@ select:focus {
 }
 
 label, legend {
-   font-family: "metropolis-regular", sans-serif;
+   font-family: 'Montserrat', sans-serif;
    font-size: 1.4rem;
    font-weight: bold;
    margin-bottom: .9rem;
@@ -761,8 +769,8 @@ input[type="checkbox"], input[type="radio"] {
 label > .label-text {
    display: inline-block;
    margin-left: 1rem;
-   font-family: "librebaskerville-regular", serif;
-   font-weight: normal;
+   font-family: 'Libre Baskerville', serif;
+   font-weight: 400;
    line-height: inherit;
 }
 
@@ -819,7 +827,8 @@ input[type="submit"],
 input[type="reset"],
 input[type="button"] {
    display: inline-block;
-   font-family: "metropolis-bold", sans-serif;
+   font-family: 'Montserrat', sans-serif;
+   font-weight: 700;
    font-size: 1.2rem;
    text-transform: uppercase;
    letter-spacing: .3rem;
@@ -935,7 +944,8 @@ button::-moz-focus-inner, input::-moz-focus-inner {
    position: relative;
    margin-bottom: 3rem;
    border-radius: 3px;
-   font-family: "metropolis-semibold", sans-serif;
+   font-family: 'Montserrat', sans-serif;
+   font-weight: 600;
    font-size: 1.5rem;
    line-height: 1.6;
 }
@@ -983,7 +993,7 @@ button::-moz-focus-inner, input::-moz-focus-inner {
    margin: 0;
    padding: 1.5rem .6rem 0 0;
    font-size: 8.4rem;
-   font-family: "metropolis-extrabold", sans-serif;
+   font-family: 'Montserrat', sans-serif;
    font-weight: bold;
    line-height: 6rem;
    text-indent: 0;
@@ -1115,7 +1125,7 @@ button::-moz-focus-inner, input::-moz-focus-inner {
 .stats-tabs li a {
    display: inline-block;
    font-size: 2.5rem;
-   font-family: "metropolis-bold", sans-serif;
+   font-family: 'Montserrat', sans-serif;
    font-weight: bold;
    border: none;
    color: #000000;
@@ -1129,7 +1139,8 @@ button::-moz-focus-inner, input::-moz-focus-inner {
    display: block;
    margin: .6rem 0 0 0;
    font-size: 1.5rem;
-   font-family: "metropolis-regular", sans-serif;
+   font-family: 'Montserrat', sans-serif;
+   font-weight: 400;
    color: #727272;
 }
 
@@ -1157,8 +1168,9 @@ button::-moz-focus-inner, input::-moz-focus-inner {
 }
 
 .pgn__num {
-   font-family: "metropolis-bold", sans-serif;
+   font-family: 'Montserrat', sans-serif;
    font-size: 1.5rem;
+   font-weight: 700;
    line-height: 2.4rem;
    display: inline-block;
    padding: .6rem 1.2rem;
@@ -1185,7 +1197,7 @@ button::-moz-focus-inner, input::-moz-focus-inner {
    cursor: default;
 }
 
-.pgn__prev, .pgn__next {
+.pgn__prev a, .pgn__next a {
    display: block;
    background-color: #FFFFFF;
    background-repeat: no-repeat;
@@ -1196,9 +1208,9 @@ button::-moz-focus-inner, input::-moz-focus-inner {
    line-height: 4.8rem;
    padding: 0;
    margin: 0;
-   border-radius: 50%;
-   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
    font: 0/0 a;
+   border-radius: 50%;
+   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);s
    text-shadow: none;
    color: transparent;
    -webkit-transition: all 0.2s ease-in-out;
@@ -1210,7 +1222,7 @@ button::-moz-focus-inner, input::-moz-focus-inner {
    transform: translateY(-50%);
 }
 
-.pgn__prev:hover, .pgn__next:hover {
+.pgn__prev a:hover, .pgn__next a:hover {
    background-color: #151515;
    color: #FFFFFF;
    text-decoration: none;
@@ -1218,25 +1230,25 @@ button::-moz-focus-inner, input::-moz-focus-inner {
    background-position: center;
 }
 
-.pgn__prev {
+.pgn__prev a {
    background-image: url("../../img/icons/icon-arrow-left.svg");
    left: 0;
 }
 
-.pgn__prev:hover {
+.pgn__prev a:hover {
    background-image: url("../../img/icons/icon-arrow-left-w.svg");
 }
 
-.pgn__next {
+.pgn__next a {
    background-image: url("../../img/icons/icon-arrow-right.svg");
    right: 0;
 }
 
-.pgn__next:hover {
+.pgn__next a:hover {
    background-image: url("../../img/icons/icon-arrow-right-w.svg");
 }
 
-.pgn__prev.inactive, .pgn__next.inactive {
+.pgn__prev.inactive , .pgn__next.inactive {
    background-color: #ffffff;
    opacity: 0.5;
    cursor: default;
@@ -1302,7 +1314,8 @@ button::-moz-focus-inner, input::-moz-focus-inner {
 
 .audio-wrap .mejs__container {
    background-color: rgba(0, 0, 0, 0.8) !important;
-   font-family: "metropolis-light", sans-serif;
+   font-family: 'Montserrat', sans-serif;
+   font-weight: 300;
 }
 
 .audio-wrap .mejs__time-buffering,
@@ -1530,8 +1543,9 @@ button::-moz-focus-inner, input::-moz-focus-inner {
 }
 
 .masonry .entry__date {
-   font-family: "metropolis-medium", sans-serif;
+   font-family: 'Montserrat', sans-serif;
    font-size: 1.4rem;
+   font-weight: 500;
    line-height: 1.714;
    margin-bottom: .6rem;
 }
@@ -1546,8 +1560,9 @@ button::-moz-focus-inner, input::-moz-focus-inner {
 }
 
 .masonry .entry__meta {
-   font-family: "metropolis-semibold", sans-serif;
+   font-family: 'Montserrat', sans-serif;
    font-size: 1.5rem;
+   font-weight: 600;
    margin-bottom: 0;
 }
 
@@ -1619,19 +1634,21 @@ button::-moz-focus-inner, input::-moz-focus-inner {
 }
 
 .format-quote blockquote p, .format-link .link-wrap p {
-   font-family: "librebaskerville-bold", serif;
+   font-family: 'Libre Baskerville', serif;
    color: #000000;
    padding: 7.8rem 0 0 0;
    margin-bottom: 3.3rem;
    font-size: 2.4rem;
+   font-weight: 700;
    line-height: 1.625;
 }
 
 .format-quote cite, .format-link cite {
    display: block;
-   font-family: "metropolis-regular", sans-serif;
+   font-family: 'Montserrat', sans-serif;
    font-size: 1.5rem;
    font-style: normal;
+   font-weight: 400;
    line-height: 1.6;
    color: #999999;
 }
@@ -1907,8 +1924,9 @@ button::-moz-focus-inner, input::-moz-focus-inner {
    color: #000000;
    height: auto;
    width: 100%;
-   font-family: "metropolis-semibold", sans-serif;
+   font-family: 'Montserrat', sans-serif;
    font-size: 6rem;
+   font-weight: 600;
    line-height: 1.5;
    border: none;
    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
@@ -1984,8 +2002,9 @@ body.search-is-visible {
 }
 
 .header__search-trigger::before {
-   font-family: "metropolis-semibold", sans-serif;
+   font-family: 'Montserrat', sans-serif;
    font-size: 12px;
+   font-weight: 600;
    text-transform: uppercase;
    letter-spacing: 2px;
    line-height: 21px;
@@ -2131,8 +2150,9 @@ body.search-is-visible {
 
 .header__nav-wrap .header__nav-heading {
    text-align: center;
-   font-family: "metropolis-semibold", sans-serif;
+   font-family: 'Montserrat', sans-serif;
    font-size: 1.4rem;
+   font-weight: 600;
    color: #FFFFFF;
    text-transform: uppercase;
    letter-spacing: .3rem;
@@ -2148,8 +2168,9 @@ body.search-is-visible {
    list-style: none;
    margin: 0;
    padding: 0;
-   font-family: "metropolis-medium", sans-serif;
+   font-family: 'Montserrat', sans-serif;
    font-size: 15px;
+   font-weight: 600;
 }
 
 .header__nav li {
@@ -2243,7 +2264,8 @@ body.search-is-visible {
    display: block;
    white-space: nowrap;
    padding: 7.5px 3rem 7.5px 2rem;
-   font-family: "metropolis-regular", sans-serif;
+   font-family: 'Montserrat', sans-serif;
+   font-weight: 400;
    line-height: 18px;
    color: rgba(255, 255, 255, 0.6);
 }
@@ -2304,8 +2326,9 @@ body.search-is-visible {
    .header__nav {
       margin: 4.8rem 6rem 3rem 6rem;
       border-bottom: 1px solid rgba(255, 255, 255, 0.03);
-      font-family: "metropolis-semibold", sans-serif;
+      font-family: 'Montserrat', sans-serif;
       font-size: 16px;
+      font-weight: 600;
    }
 
    .header__nav li {
@@ -2456,8 +2479,9 @@ body.search-is-visible {
 
 .featured .entry__category {
    display: inline-block;
-   font-family: "metropolis-bold", sans-serif;
+   font-family: 'Montserrat', sans-serif;
    font-size: 1.1rem;
+   font-weight: 700;
    line-height: 2.4rem;
    text-transform: uppercase;
    letter-spacing: .2rem;
@@ -2489,7 +2513,8 @@ body.search-is-visible {
    list-style: none;
    margin: 0 0 0 6rem;
    padding: 0;
-   font-family: "metropolis-semibold", sans-serif;
+   font-family: 'Montserrat', sans-serif;
+   font-weight: 600;
    color: rgba(255, 255, 255, 0.5);
    line-height: 1.5;
 }
@@ -3055,7 +3080,8 @@ html.no-csstransitions .featured {
    background-color: #FFFFFF;
    padding-top: 7.8rem;
    padding-bottom: 9rem;
-   font-family: "metropolis-regular", sans-serif;
+   font-family: 'Montserrat', sans-serif;
+   font-weight: 400;
    font-size: 1.5rem;
    line-height: 1.8;
 }
@@ -3079,8 +3105,9 @@ html.no-csstransitions .featured {
 }
 
 .s-extra h5 {
-   font-family: "metropolis-extrabold", sans-serif;
+   font-family: 'Montserrat', sans-serif;
    font-size: 1.6rem;
+   font-weight: 800;
    line-height: 1.3125;
    margin-bottom: .6rem;
 }
@@ -3160,8 +3187,9 @@ html.no-csstransitions .featured {
 .sidebar-widget .tagcloud a,
 .s-extra .tagcloud a {
    display: inline-block;
-   font-family: "metropolis-extrabold", sans-serif;
+   font-family: 'Montserrat', sans-serif;
    font-size: 1.3rem !important;
+   font-weight: 800;
    line-height: 3.6rem;
    text-transform: uppercase;
    letter-spacing: .2rem;
@@ -3277,8 +3305,9 @@ footer a {
 }
 
 footer h4 {
-   font-family: "metropolis-bold", sans-serif;
+   font-family: 'Montserrat', sans-serif;
    font-size: 1.4rem;
+   font-weight: 600;
    line-height: 1.286;
    text-transform: uppercase;
    letter-spacing: .25rem;
@@ -3386,7 +3415,8 @@ footer h4::after {
 
 .s-footer__subscribe #mc-form label {
    color: #FFFFFF;
-   font-family: "metropolis-regular", sans-serif, sans-serif;
+   font-family: 'Montserrat', sans-serif;
+   font-weight: 400;
    font-size: 1.3rem;
    padding: 0 2rem;
 }
@@ -3584,8 +3614,9 @@ footer h4::after {
    list-style: none;
    margin-left: 0;
    margin-bottom: 1.2rem;
-   font-family: "metropolis-medium", sans-serif;
+   font-family: 'Montserrat', sans-serif;
    font-size: 1.5rem;
+   font-weight: 500;
    line-height: 1.8;
    position: relative;
 }
@@ -3705,11 +3736,13 @@ article.sticky .entry__text{
  * ------------------------------------------------------------------- */
 .s-content__tags {
    margin-top: 6rem;
-   font-family: "metropolis-regular", sans-serif;
+   font-family: 'Montserrat', sans-serif;
+   font-weight: 400;
 }
 
 .s-content__tags span {
-   font-family: "metropolis-bold", sans-serif;
+   font-family: 'Montserrat', sans-serif;
+   font-weight: 700;
    color: #151515;
    position: relative;
    padding-right: 55px;
@@ -3740,7 +3773,8 @@ article.sticky .entry__text{
 
 .s-content__tags .s-content__tag-list a {
    display: inline-block;
-   font-family: "metropolis-regular", sans-serif;
+   font-family: 'Montserrat', sans-serif;
+   font-weight: 400;
    font-size: 1.3rem;
    line-height: inherit;
    color: #7f7f7f;
@@ -3797,7 +3831,8 @@ article.sticky .entry__text{
 .s-content__author-social {
    list-style: none;
    margin-left: 0;
-   font-family: "metropolis-bold", sans-serif;
+   font-family: 'Montserrat', sans-serif;
+   font-weight: 700;
    font-size: 12px;
    text-transform: uppercase;
    letter-spacing: 1px;
@@ -3832,8 +3867,9 @@ article.sticky .entry__text{
 
 .s-content__nav span {
    display: block;
-   font-family: "metropolis-medium", sans-serif;
+   font-family: 'Montserrat', sans-serif;
    font-size: 12px;
+   font-weight: 600;
    text-transform: uppercase;
    letter-spacing: 2.5px;
    color: #7f7f7f;
@@ -3843,8 +3879,9 @@ article.sticky .entry__text{
 }
 
 .s-content__nav a {
-   font-family: "librebaskerville-bold", serif;
+   font-family: 'Libre Baskerville', serif;
    font-size: 2.2rem;
+   font-weight: 700;
    line-height: 1.5;
    color: #19191b;
 }
@@ -4108,16 +4145,18 @@ article.sticky .entry__text{
 }
 
 .comment__info cite {
-   font-family: "metropolis-bold", sans-serif;
+   font-family: 'Montserrat', sans-serif;
    font-size: 1.9rem;
+   font-weight: 700;
    line-height: 1.263;
    font-style: normal;
    color: #151515;
 }
 
 .comment__meta {
-   font-family: "metropolis-regular", sans-serif;
+   font-family: 'Montserrat', sans-serif;
    font-size: 1.45rem;
+   font-weight: 400;
    line-height: 3rem;
    font-style: normal;
    display: block;
@@ -4129,7 +4168,8 @@ article.sticky .entry__text{
 }
 
 .comment__meta .reply {
-   font-family: "metropolis-semibold", sans-serif;
+   font-family: 'Montserrat', sans-serif;
+   font-weight: 600;
 }
 
 .comment__text {
@@ -4305,7 +4345,6 @@ article.sticky .entry__text{
 #cForm {
    margin-top: 3.6rem;
 }
-
 
 /* Social Icon
  * ----------------------------------------------- */

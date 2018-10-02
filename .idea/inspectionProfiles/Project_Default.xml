@@ -1,0 +1,59 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="BashAddShebang" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="BashBuiltInVariable" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="BashDuplicateFunction" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="BashEvaluateArithmeticExpression" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="BashEvaluateExpression" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="BashFixShebang" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="BashFloatArithmetic" enabled="false" level="INFO" enabled_by_default="false" />
+    <inspection_tool class="BashGlobalLocalVarDef" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
+    <inspection_tool class="BashGloballyRegisteredVariable" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
+    <inspection_tool class="BashInternalCommandFunctionOverride" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
+    <inspection_tool class="BashMissingInclude" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="BashReadOnlyVariable" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="BashRecursiveInclusion" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="BashSimpleArrayUse" enabled="false" level="INFO" enabled_by_default="false" />
+    <inspection_tool class="BashSimpleVarUsage" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
+    <inspection_tool class="BashUnknownFileDescriptor" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="BashUnresolvedVariable" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="BashUnusedFunction" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="BashUnusedFunctionParams" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="BashWrapFunction" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
+    <inspection_tool class="CheckDtdRefs" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="CheckEmptyScriptTag" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="CheckImageSize" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="CheckTagEmptyBody" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="CheckValidXmlInScriptTagBody" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="CheckXmlFileWithXercesValidator" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="HtmlDeprecatedTag" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="HtmlExtraClosingTag" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="HtmlFormInputWithoutLabel" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="HtmlMissingClosingTag" enabled="false" level="INFORMATION" enabled_by_default="false" />
+    <inspection_tool class="HtmlPresentationalElement" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="HtmlUnknownAnchorTarget" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="HtmlUnknownAttribute" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="HtmlUnknownBooleanAttribute" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="HtmlUnknownTag" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="HtmlUnknownTarget" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="JSEqualityComparisonWithCoercion.TS" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="JsonDuplicatePropertyKeys" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="JsonStandardCompliance" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="LossyEncoding" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="MarkdownUnresolvedFileReference" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="NonAsciiCharacters" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="RequiredAttributes" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="SpellCheckingInspection" enabled="false" level="TYPO" enabled_by_default="false" />
+    <inspection_tool class="TsLint" enabled="true" level="ERROR" enabled_by_default="true" />
+    <inspection_tool class="UnresolvedReference" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="XmlDefaultAttributeValue" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="XmlDuplicatedId" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="XmlHighlighting" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="XmlInvalidId" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="XmlPathReference" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="XmlUnboundNsPrefix" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="XmlUnusedNamespaceDeclaration" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="XmlWrongRootElement" enabled="false" level="ERROR" enabled_by_default="false" />
+  </profile>
+</component>
