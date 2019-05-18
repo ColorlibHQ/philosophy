@@ -169,7 +169,7 @@ class Epsilon_init_Dashboard {
 	 *
 	 */
 	public function init_nav_menus() {
-		new Epsilon_Section_Navigation_Menu( 'philosophy_frontpage_sections_' );
+		 new Epsilon_Section_Navigation_Menu( 'philosophy_frontpage_sections_' );
 	}
 
 	/**

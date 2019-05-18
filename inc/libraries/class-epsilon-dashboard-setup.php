@@ -173,7 +173,7 @@ class Epsilon_Dashboard_Setup {
 					),
 				),
 				'progress' => __( 'Demos', 'philosophy' ),
-				'demos'    => PHILOSOPHY_DIR_PATH_INC . 'customizer/demo/demo.json',
+				'demos'    => get_template_directory() . '/inc/customizer/demo/demo.json',
 				'buttons'  => array(
 					'next' => array(
 						'action' => 'next',
@@ -186,8 +186,8 @@ class Epsilon_Dashboard_Setup {
 				'title'    => __( 'Almost ready', 'philosophy' ),
 				'content'  => array(
 					'paragraphs' => array(
-						__( 'Your new theme has been all set up. Enjoy your new theme by <a href="https://www.colorlib.com">Colorlib</a>.', 'philosophy' ),
-						$this->get_permission_content(),
+						__( 'Your new theme has been all set up. Enjoy your new theme by <a href="https://www.colorlib.com">Colorlib</a>.', 'philosophy' )
+
 					),
 				),
 				'progress' => __( 'Finished', 'philosophy' ),

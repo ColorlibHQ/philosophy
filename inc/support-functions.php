@@ -319,13 +319,13 @@ function philosophy_set_post_views($postID) {
     }
 }
 //To keep the count accurate, lets get rid of prefetching
-remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0);
+remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 );
 
 // blog post categoty 
 function philosophy_get_post_cat(){
     $cats = get_categories();
 
-    $categories = array( 'na' => esc_html( 'Select post category', 'philosophy' ) );
+    $categories = array( 'na' => esc_html__( 'Select post category', 'philosophy' ) );
     foreach ( $cats as $value ) {
         
         $categories[$value->slug] = $value->name;

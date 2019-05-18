@@ -153,7 +153,7 @@ function philosophy_theme_logo( $class = '' ) {
 	if( !empty( $imageUrl[0] ) ){
 		$siteLogo = '<a class="'.esc_attr( $class ).'" href="'.esc_url( $siteUrl ).'"><img src="'.esc_url( $imageUrl[0] ).'" alt="'.esc_attr( philosophy_image_alt( $imageUrl[0] ) ).'"></a>';
 	}else{
-		$siteLogo = '<h2><a class="'.esc_attr( $class ).'" href="'.esc_url( $siteUrl ).'">'.esc_html( get_bloginfo('name') ).'</a></h2>';
+		$siteLogo = '<h2><a class="'.esc_attr( $class ).'" href="'.esc_url( $siteUrl ).'">'.esc_html( get_bloginfo('name') ).'</a></h2><span>'. esc_html( get_bloginfo('description') ) .'</span>';
 	}
 	
 	return wp_kses_post( $siteLogo );

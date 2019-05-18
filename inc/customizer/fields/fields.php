@@ -31,6 +31,7 @@ Epsilon_Customizer::add_field(
         'type'        => 'epsilon-color-picker',
         'label'       => esc_html__( 'Preloader Background Color', 'philosophy' ),
         'description' => esc_html__( 'Select the preloader background color.', 'philosophy' ),
+        'sanitize_callback' => 'sanitize_text_field',
         'section'     => 'philosophy_general_section',
         'default'     => '#050505',
     )
@@ -42,6 +43,7 @@ Epsilon_Customizer::add_field(
         'type'        => 'epsilon-color-picker',
         'label'       => esc_html__( 'Preloader Color', 'philosophy' ),
         'description' => esc_html__( 'Select the preloader color.', 'philosophy' ),
+        'sanitize_callback' => 'sanitize_text_field',
         'section'     => 'philosophy_general_section',
         'default'     => '#ffffff',
     )
@@ -64,6 +66,7 @@ Epsilon_Customizer::add_field(
         'type'        => 'epsilon-color-picker',
         'label'       => esc_html__( 'Back to top button background color.', 'philosophy' ),
         'description' => esc_html__( 'Select the back to top button background color.', 'philosophy' ),
+        'sanitize_callback' => 'sanitize_text_field',
         'section'     => 'philosophy_general_section',
         'default'     => '#000000',
     )
@@ -76,6 +79,7 @@ Epsilon_Customizer::add_field(
         'type'        => 'epsilon-color-picker',
         'label'       => esc_html__( 'Back to top button hover background color.', 'philosophy' ),
         'description' => esc_html__( 'Select the back to top button hover background color.', 'philosophy' ),
+        'sanitize_callback' => 'sanitize_text_field',
         'section'     => 'philosophy_general_section',
         'default'     => '#0054a5',
     )
@@ -128,6 +132,7 @@ Epsilon_Customizer::add_field(
         'type'        => 'epsilon-color-picker',
         'label'       => esc_html__( 'Header Background Color', 'philosophy' ),
         'description' => esc_html__( 'Select the header background color.', 'philosophy' ),
+        'sanitize_callback' => 'sanitize_text_field',
         'section'     => 'philosophy_header_section',
         'default'     => '#151515',
     )
@@ -139,6 +144,7 @@ Epsilon_Customizer::add_field(
         'type'        => 'epsilon-color-picker',
         'label'       => esc_html__( 'Header Top Color', 'philosophy' ),
         'description' => esc_html__( 'Select the header top color.', 'philosophy' ),
+        'sanitize_callback' => 'sanitize_text_field',
         'section'     => 'philosophy_header_section',
         'default'     => '#fff',
     )
@@ -150,6 +156,7 @@ Epsilon_Customizer::add_field(
         'type'        => 'epsilon-color-picker',
         'label'       => esc_html__( 'Header menu color', 'philosophy' ),
         'description' => esc_html__( 'Select the header nav menu color.', 'philosophy' ),
+        'sanitize_callback' => 'sanitize_text_field',
         'section'     => 'philosophy_header_section',
         'default'     => '#fff',
     )
@@ -162,6 +169,7 @@ Epsilon_Customizer::add_field(
         'type'        => 'epsilon-color-picker',
         'label'       => esc_html__( 'Header menu hover color', 'philosophy' ),
         'description' => esc_html__( 'Select the header nav menu hover color.', 'philosophy' ),
+        'sanitize_callback' => 'sanitize_text_field',
         'section'     => 'philosophy_header_section',
         'default'     => '#b5b3b3',
     )
@@ -173,6 +181,7 @@ Epsilon_Customizer::add_field(
         'type'        => 'epsilon-color-picker',
         'label'       => esc_html__( 'Header menu dropdown background color', 'philosophy' ),
         'description' => esc_html__( 'Select the header menu dropdown background color.', 'philosophy' ),
+        'sanitize_callback' => 'sanitize_text_field',
         'section'     => 'philosophy_header_section',
         'default'     => '#050505',
     )
@@ -184,6 +193,7 @@ Epsilon_Customizer::add_field(
         'type'        => 'epsilon-color-picker',
         'label'       => esc_html__( 'Dropdown menu color', 'philosophy' ),
         'description' => esc_html__( 'Select the header dropdown menu color.', 'philosophy' ),
+        'sanitize_callback' => 'sanitize_text_field',
         'section'     => 'philosophy_header_section',
         'default'     => '#b5b3b3',
     )
@@ -195,6 +205,7 @@ Epsilon_Customizer::add_field(
         'type'        => 'epsilon-color-picker',
         'label'       => esc_html__( 'Dropdown menu hover color', 'philosophy' ),
         'description' => esc_html__( 'Select the header dropdown menu hover color.', 'philosophy' ),
+        'sanitize_callback' => 'sanitize_text_field',
         'section'     => 'philosophy_header_section',
         'default'     => '#ffffff',
     )
@@ -223,7 +234,6 @@ Epsilon_Customizer::add_field(
         'label'       => esc_html__( 'Display features blog section', 'philosophy' ),
         'description' => esc_html__( 'Toggle to display front page feature blog section.', 'philosophy' ),
         'section'     => 'philosophy_blog_section',
-        'description' => esc_html__( 'Select blog post category to show as featured post.', 'philosophy' ),
         'default'     => 'uncategorized',
         'choices'     => philosophy_get_post_cat() // This function create in support-functions.php
 
@@ -486,6 +496,7 @@ Epsilon_Customizer::add_field(
     array(
         'type'        => 'epsilon-color-picker',
         'label'       => esc_html__( '404 Text #1 Color', 'philosophy' ),
+        'sanitize_callback' => 'sanitize_text_field',
         'section'     => 'philosophy_fof_section',
         'default'     => '#000000',
     )
@@ -496,6 +507,7 @@ Epsilon_Customizer::add_field(
     array(
         'type'        => 'epsilon-color-picker',
         'label'       => esc_html__( '404 Text #2 Color', 'philosophy' ),
+        'sanitize_callback' => 'sanitize_text_field',
         'section'     => 'philosophy_fof_section',
         'default'     => '#656565',
     )
@@ -506,6 +518,7 @@ Epsilon_Customizer::add_field(
     array(
         'type'        => 'epsilon-color-picker',
         'label'       => esc_html__( '404 Page Background Color', 'philosophy' ),
+        'sanitize_callback' => 'sanitize_text_field',
         'section'     => 'philosophy_fof_section',
         'default'     => '#fff',
     )
@@ -542,6 +555,7 @@ Epsilon_Customizer::add_field(
     array(
         'type'        => 'epsilon-color-picker',
         'label'       => esc_html__( 'Footer Background Color', 'philosophy' ),
+        'sanitize_callback' => 'sanitize_text_field',
         'section'     => 'philosophy_footer_section',
         'default'     => '#19191b',
     )
@@ -552,6 +566,7 @@ Epsilon_Customizer::add_field(
     array(
         'type'        => 'epsilon-color-picker',
         'label'       => esc_html__( 'Footer Text Color', 'philosophy' ),
+        'sanitize_callback' => 'sanitize_text_field',
         'section'     => 'philosophy_footer_section',
         'default'     => '#FFFFFF',
     )
@@ -562,6 +577,7 @@ Epsilon_Customizer::add_field(
     array(
         'type'        => 'epsilon-color-picker',
         'label'       => esc_html__( 'Footer Widget Title Color', 'philosophy' ),
+        'sanitize_callback' => 'sanitize_text_field',
         'section'     => 'philosophy_footer_section',
         'default'     => '#FFFFFF',
     )
@@ -572,6 +588,7 @@ Epsilon_Customizer::add_field(
     array(
         'type'        => 'epsilon-color-picker',
         'label'       => esc_html__( 'Footer Anchor Color', 'philosophy' ),
+        'sanitize_callback' => 'sanitize_text_field',
         'section'     => 'philosophy_footer_section',
         'default'     => '#888888',
     )
@@ -582,6 +599,7 @@ Epsilon_Customizer::add_field(
     array(
         'type'        => 'epsilon-color-picker',
         'label'       => esc_html__( 'Footer Anchor Hover Color', 'philosophy' ),
+        'sanitize_callback' => 'sanitize_text_field',
         'section'     => 'philosophy_footer_section',
         'default'     => '#888888',
     )
