@@ -1,0 +1,27 @@
+.epsilon-dashboard-tab .row .col {
+    background-color: #fff;
+    min-width: 29% !important;
+    margin-left: 6px;
+    margin-right: 6px;
+    padding: 12px;
+}
+.epsilon-dashboard-tab .standout {
+    padding: 40px !important;
+}
+#epsilon-demo.epsilon-dashboard-tab .row .epsilon-demo-box.col, 
+#epsilon-demos .row .epsilon-demo-box.col {
+    background-color: transparent;
+    min-width: 159px !important;
+    width: 155px !important;
+}
+.epsilon-dashboard-container--tabs nav a.active {   
+    border-bottom-color: #0073aa;
+    background-color: #222;
+    color: #fff !important;
+}
+.epsilon-dashboard-container--tabs nav a {
+    background-color: #fff;
+}
+ .dashicons-admin-tools:before{
+    content: "\f102";
+  }

@@ -106,6 +106,15 @@
 	require_once( PHILOSOPHY_DIR_PATH_INC . 'class-epsilon-dashboard-autoloader.php' );
 	// Class philosophy dashboard
 	 require_once( PHILOSOPHY_DIR_PATH_INC . 'class-epsilon-init-dashboard.php' );
+
+
+	// Admin Enqueue Script
+	function philosophy_admin_script(){
+		wp_enqueue_style( 'philosophy-admin', get_template_directory_uri().'/assets/css/philosophy_admin.css', false, '1.0.0' );
+		wp_enqueue_script( 'philosophy_admin', get_template_directory_uri().'/assets/js/philosophy_admin.js', false, '1.0.0' );
+	}
+	add_action( 'admin_enqueue_scripts', 'philosophy_admin_script' );
+
 	 
 	/**
 	 * Instantiate Philosophy object
