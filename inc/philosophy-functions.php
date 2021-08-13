@@ -161,12 +161,12 @@ function philosophy_theme_logo( $class = '' ) {
 }
 
 // Blog pull right class callback
-function philosophy_pull_right( $id = '', $condation ){
+function philosophy_pull_right( $id = '', $condation= '' ){
     
     if( $id == $condation ){
         return ' '.'order-last';
     }else{
-        return;
+        return true;
     }
     
 }

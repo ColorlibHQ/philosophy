@@ -166,24 +166,9 @@ class Epsilon_init_Dashboard {
 	}
 
 	/**
-	 *
-	 */
-	public function init_nav_menus() {
-		 new Epsilon_Section_Navigation_Menu( 'philosophy_frontpage_sections_' );
-	}
-
-	/**
 	 * Initiate the welcome screen
 	 */
 	public function init_dashboard() {
-		Epsilon_Dashboard::get_instance(
-			array(
-				'theme'    => array(
-					'download-id' => '212499'
-				),
-				'tracking' => $this->theme['theme-slug'] . '_tracking_enable',
-			)
-		);
 
 		$dashboard = Epsilon_Dashboard_Setup::get_instance();
 		$dashboard->add_admin_notice();
