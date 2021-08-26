@@ -546,7 +546,7 @@ Epsilon_Customizer::add_field(
         'type'        => 'epsilon-text-editor',
         'label'       => esc_html__( 'Footer copyright text', 'philosophy' ),
         'section'     => 'philosophy_footer_section',
-        'default'     => '',
+        'default'     => sprintf( __( 'Copyright &copy; %s All rights reserved. | This template is made with %s by <a href="%s" target="_blank">Colorlib</a>', 'philosophy' ), date('Y') ,'<i class="fa fa-heart-o" aria-hidden="true"></i>', 'https://colorlib.com' ),
     )
 );
 // Footer widget background color field
