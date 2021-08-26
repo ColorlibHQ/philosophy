@@ -476,7 +476,7 @@ Epsilon_Customizer::add_field(
         'label'             => esc_html__( '404 Text #1', 'philosophy' ),
         'section'           => 'philosophy_fof_section',
         'sanitize_callback' => 'sanitize_text_field',
-        'default'           => 'Say Hello.'
+        'default'           => esc_html__( 'Ooops 404 Error !', 'philosophy' )
     )
 );
 // 404 text #2 field
@@ -487,7 +487,7 @@ Epsilon_Customizer::add_field(
         'label'             => esc_html__( '404 Text #2', 'philosophy' ),
         'section'           => 'philosophy_fof_section',
         'sanitize_callback' => 'sanitize_text_field',
-        'default'           => 'Say Hello.'
+        'default'           => wp_kses_post( __( 'Either something went wrong or the page dosen&rsquo;t exist anymore.', 'philosophy' ) )
     )
 );
 // 404 text #1 color field
