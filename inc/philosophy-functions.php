@@ -13,10 +13,9 @@
     }
 
  // theme option callback
-function philosophy_opt( $id = null ){
+function philosophy_opt( $id = null, $default = 0 ){
 	
-	$opt = get_theme_mod( $id );
-	
+	$opt = get_theme_mod( $id , $default);
 	$data = '';
 	
 	if( $opt ){
