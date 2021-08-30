@@ -16,8 +16,8 @@
                 ?>
                 <span><?php echo wp_kses_post( $copyText ); ?></span>
             </div>
-            <?php 
-            if( philosophy_opt('philosophy_backtotop_btn') ):
+            <?php
+            if( philosophy_opt('philosophy_backtotop_btn',1) ):
             ?>
             <div class="go-top">
                 <a class="smoothscroll" title="Back to Top" href="#top"></a>

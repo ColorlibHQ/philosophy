@@ -14,7 +14,7 @@ if( !defined( 'ABSPATH' ) ){
 	// Before wrapper Preloader
 	if( !function_exists('philosophy_site_preloader') ){
 		function philosophy_site_preloader(){
-			if( philosophy_opt('philosophy_preloader_toggle') ):
+			if( philosophy_opt('philosophy_preloader_toggle',1) ):
 		?>
 		    <div id="preloader">
 		        <div id="loader">
