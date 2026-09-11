@@ -108,7 +108,7 @@ $sections = array(
     array(
         'id'   => 'philosophy_footer_section',
         'args' => array(
-            'title'    => esc_html__( 'Footer Page', 'philosophy' ),
+            'title'    => esc_html__( 'Footer', 'philosophy' ),
             'panel'    => 'philosophy_theme_options_panel',
             'priority' => 7,
         ),
@@ -125,6 +125,6 @@ $collection = array(
     'section' => $sections,
 );
 
-Epsilon_Customizer::add_multiple( $collection );
+Philosophy_Customizer::add_multiple( $collection );
 
 ?>

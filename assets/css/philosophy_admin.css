@@ -1,27 +1,55 @@
-.epsilon-dashboard-tab .row .col {
-    background-color: #fff;
-    min-width: 29% !important;
-    margin-left: 6px;
-    margin-right: 6px;
-    padding: 12px;
+/**
+ * Styling for the About Philosophy screen.
+ *
+ * @package Philosophy
+ * @since   1.2.0
+ */
+
+.philosophy-welcome .about-text {
+	max-width: 68ch;
+	font-size: 15px;
+	line-height: 1.6;
 }
-.epsilon-dashboard-tab .standout {
-    padding: 40px !important;
+
+.philosophy-welcome__steps {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+	gap: 16px;
+	margin: 16px 0 8px;
 }
-#epsilon-demo.epsilon-dashboard-tab .row .epsilon-demo-box.col, 
-#epsilon-demos .row .epsilon-demo-box.col {
-    background-color: transparent;
-    min-width: 159px !important;
-    width: 155px !important;
+
+.philosophy-welcome__step {
+	padding: 16px 20px;
+	background: #fff;
+	border: 1px solid #c3c4c7;
+	border-radius: 4px;
 }
-.epsilon-dashboard-container--tabs nav a.active {   
-    border-bottom-color: #0073aa;
-    background-color: #222;
-    color: #fff !important;
+
+.philosophy-welcome__step h3 {
+	margin-top: 0;
 }
-.epsilon-dashboard-container--tabs nav a {
-    background-color: #fff;
+
+.philosophy-welcome__step p {
+	color: #50575e;
 }
- .dashicons-admin-tools:before{
-    content: "\f102";
-  }
+
+.philosophy-plugin-card {
+	max-width: 420px;
+	padding: 16px 20px;
+	background: #fff;
+	border: 1px solid #c3c4c7;
+	border-radius: 4px;
+}
+
+.philosophy-plugin-card h3 {
+	margin-top: 0;
+}
+
+.philosophy-plugin-card__done {
+	color: #007017;
+	font-weight: 600;
+}
+
+.philosophy-welcome-notice h2 {
+	margin-bottom: 4px;
+}
