@@ -1,246 +1,340 @@
 <?php
 /**
- * Class Name: philosophy_bootstrap_navwalker
- * GitHub URI: https://github.com/twittem/wp-bootstrap-navwalker
- * Description: A custom WordPress nav walker class to implement the Bootstrap 3 navigation style in a custom theme using the WordPress built in menu manager.
- * Version: 2.0.4
- * Author: Edward McIntyre - @twittem
- * License: GPL-2.0+
- * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
+ * Navigation walkers.
+ *
+ * philosophy_bootstrap_navwalker started life as wp-bootstrap-navwalker 2.0.4 by
+ * Edward McIntyre (GPL-2.0+). Philosophy does not use Bootstrap, so 1.2.0 dropped
+ * the parts that only existed to satisfy Bootstrap 3 — the dropdown data
+ * attributes, the caret and the href="#" that used to swallow clicks on parent
+ * menu items.
+ *
+ * @package Philosophy
+ * @since   1.0
  */
 
-class philosophy_bootstrap_navwalker extends Walker_Nav_Menu {
+if ( ! defined( 'ABSPATH' ) ) {
+	exit( 'Direct script access denied.' );
+}
+
+if ( ! class_exists( 'philosophy_bootstrap_navwalker' ) ) {
 
 	/**
-	 * @see Walker::start_lvl()
-	 * @since 3.0.0
-	 *
-	 * @param string $output Passed by reference. Used to append additional content.
-	 * @param int $depth Depth of page. Used for padding.
+	 * Class philosophy_bootstrap_navwalker
 	 */
-	public function start_lvl( &$output, $depth = 0, $args = array() ) {
-		$indent = str_repeat( "\t", $depth );
-		$output .= "\n$indent<ul role=\"menu\" class=\" dropdown-menu\">\n";
-	}
+	class philosophy_bootstrap_navwalker extends Walker_Nav_Menu {
 
-	/**
-	 * @see Walker::start_el()
-	 * @since 3.0.0
-	 *
-	 * @param string $output Passed by reference. Used to append additional content.
-	 * @param object $item Menu item data object.
-	 * @param int $depth Depth of menu item. Used for padding.
-	 * @param int $current_page Menu item ID.
-	 * @param object $args
-	 */
-	public function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
-		$indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
-
-			
-		
 		/**
-		 * Dividers, Headers or Disabled
-		 * =============================
-		 * Determine whether the item is a Divider, Header, Disabled or regular
-		 * menu item. To prevent errors we use the strcasecmp() function to so a
-		 * comparison that is not case sensitive. The strcasecmp() function returns
-		 * a 0 if the strings are equal.
+		 * Opens a sub-menu.
+		 *
+		 * @param string   $output Menu markup, by reference.
+		 * @param int      $depth  Current depth.
+		 * @param stdClass $args   Menu arguments.
 		 */
-		if ( strcasecmp( $item->attr_title, 'divider' ) == 0 && $depth === 1 ) {
-			$output .= $indent . '<li role="presentation" class="divider">';
-		} else if ( strcasecmp( $item->title, 'divider') == 0 && $depth === 1 ) {
-			$output .= $indent . '<li role="presentation" class="divider">';
-		} else if ( strcasecmp( $item->attr_title, 'dropdown-header') == 0 && $depth === 1 ) {
-			$output .= $indent . '<li role="presentation" class="dropdown-header">' . esc_attr( $item->title );
-		} else if ( strcasecmp($item->attr_title, 'disabled' ) == 0 ) {
-			$output .= $indent . '<li role="presentation" class="disabled"><a href="#">' . esc_attr( $item->title ) . '</a>';
-		} else {
+		public function start_lvl( &$output, $depth = 0, $args = null ) {
+			$indent  = str_repeat( "\t", $depth );
+			$output .= "\n" . $indent . '<ul class="sub-menu dropdown-menu">' . "\n";
+		}
 
-			$class_names = $value = '';
+		/**
+		 * Renders a menu item.
+		 *
+		 * @param string   $output Menu markup, by reference.
+		 * @param WP_Post  $item   Menu item.
+		 * @param int      $depth  Current depth.
+		 * @param stdClass $args   Menu arguments.
+		 * @param int      $id     Menu item ID.
+		 */
+		public function start_el( &$output, $item, $depth = 0, $args = null, $id = 0 ) {
+			$indent = $depth ? str_repeat( "\t", $depth ) : '';
 
-			$classes = empty( $item->classes ) ? array() : (array) $item->classes;
+			// attr_title is null for most items; casting keeps PHP 8.1 quiet.
+			$attr_title    = (string) ( isset( $item->attr_title ) ? $item->attr_title : '' );
+			$has_children  = ! empty( $args->has_children );
+
+			if ( 1 === $depth && ( 0 === strcasecmp( $attr_title, 'divider' ) || 0 === strcasecmp( (string) $item->title, 'divider' ) ) ) {
+				$output .= $indent . '<li class="divider" aria-hidden="true">';
+
+				return;
+			}
+
+			if ( 1 === $depth && 0 === strcasecmp( $attr_title, 'dropdown-header' ) ) {
+				$output .= $indent . '<li class="dropdown-header">' . esc_html( $item->title );
+
+				return;
+			}
+
+			$classes   = empty( $item->classes ) ? array() : (array) $item->classes;
 			$classes[] = 'menu-item-' . $item->ID;
 			$classes[] = 'nav-item';
 			$classes[] = 'depth-' . $depth;
-									
-							
-			$class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ) );
-			
-			if ( $args->has_children )
-				$class_names .= ' dropdown has-children';
 
-			if ( in_array( 'current-menu-item', $classes ) )
-				$class_names .= ' active';
-
-			$class_names = $class_names ? ' class="' . esc_attr( $class_names ) . '"' : '';
-
-			$id = apply_filters( 'nav_menu_item_id', 'menu-item-'. $item->ID, $item, $args );
-			$id = $id ? ' id="' . esc_attr( $id ) . '"' : '';
-
-			$output .= $indent . '<li' . $id . $value . $class_names .'>';
-
-			$atts = array();
-			$atts['class']  =  ( $depth > 0 ) ? 'dropdown-item' : 'nav-link';
-			$atts['title']  = ! empty( $item->title )	? $item->title	: '';
-			$atts['target'] = ! empty( $item->target )	? $item->target	: '';
-			$atts['rel']    = ! empty( $item->xfn )		? $item->xfn	: '';
-
-			// If item has_children add atts to a.
-			if ( $args->has_children && $depth === 0 ) {
-				$atts['href']   		= '#';
-				$atts['data-toggle']	= 'dropdown';
-				$atts['class']			= 'dropdown-toggle nav-link';
-				$atts['aria-haspopup']	= 'true';
-			} else {
-				$atts['href'] = ! empty( $item->url ) ? $item->url : '';
+			if ( $has_children ) {
+				$classes[] = 'dropdown';
+				$classes[] = 'has-children';
 			}
 
-			$atts = apply_filters( 'nav_menu_link_attributes', $atts, $item, $args );
+			if ( in_array( 'current-menu-item', $classes, true ) ) {
+				$classes[] = 'active';
+			}
+
+			$class_names = implode( ' ', array_filter( apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args, $depth ) ) );
+			$item_id     = apply_filters( 'nav_menu_item_id', 'menu-item-' . $item->ID, $item, $args, $depth );
+
+			$output .= $indent . '<li id="' . esc_attr( $item_id ) . '" class="' . esc_attr( $class_names ) . '">';
+
+			$atts           = array();
+			$atts['class']  = ( $depth > 0 ) ? 'dropdown-item' : 'nav-link';
+			$atts['title']  = $attr_title;
+			$atts['target'] = ! empty( $item->target ) ? $item->target : '';
+			$atts['rel']    = ! empty( $item->xfn ) ? $item->xfn : '';
+			$atts['href']   = ! empty( $item->url ) ? $item->url : '';
+
+			// A parent item keeps its own link. On the mobile overlay the theme's
+			// script intercepts the click to expand the sub-menu instead.
+			if ( $has_children && 0 === $depth ) {
+				$atts['aria-haspopup'] = 'true';
+				$atts['aria-expanded'] = 'false';
+			}
+
+			if ( in_array( 'current-menu-item', $classes, true ) ) {
+				$atts['aria-current'] = 'page';
+			}
+
+			$atts = apply_filters( 'nav_menu_link_attributes', $atts, $item, $args, $depth );
 
 			$attributes = '';
+
 			foreach ( $atts as $attr => $value ) {
-				if ( ! empty( $value ) ) {
-					$value = ( 'href' === $attr ) ? esc_url( $value ) : esc_attr( $value );
-					$attributes .= ' ' . $attr . '="' . $value . '"';
+				if ( '' === $value || false === $value ) {
+					continue;
 				}
+
+				$value       = ( 'href' === $attr ) ? esc_url( $value ) : esc_attr( $value );
+				$attributes .= ' ' . esc_attr( $attr ) . '="' . $value . '"';
 			}
-			
 
-			$item_output = $args->before;
-			
+			$title = apply_filters( 'the_title', $item->title, $item->ID );
 
-			/*
-			 * Glyphicons
-			 * ===========
-			 * Since the the menu item is NOT a Divider or Header we check the see
-			 * if there is a value in the attr_title property. If the attr_title
-			 * property is NOT null we apply it as the class name for the glyphicon.
-			 */
-			if ( ! empty( $item->attr_title ) )
-				$item_output .= '<a'. $attributes .'><i class="fa fa-fw ' . esc_attr( $item->attr_title ) . '"></i>&nbsp;';
-			else
-				$item_output .= '<a'. $attributes .'>';
-
-			$item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
-			$item_output .= ( $args->has_children && 0 === $depth ) ? ' <span class="caret"></span></a>' : '</a>';
-			$item_output .= $args->after;
+			$item_output  = isset( $args->before ) ? $args->before : '';
+			$item_output .= '<a' . $attributes . '>';
+			$item_output .= isset( $args->link_before ) ? $args->link_before : '';
+			$item_output .= $title;
+			$item_output .= isset( $args->link_after ) ? $args->link_after : '';
+			$item_output .= '</a>';
+			$item_output .= isset( $args->after ) ? $args->after : '';
 
 			$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
 		}
-	}
 
-	/**
-	 * Traverse elements to create list from elements.
-	 *
-	 * Display one element if the element doesn't have any children otherwise,
-	 * display the element and its children. Will only traverse up to the max
-	 * depth and no ignore elements under that depth.
-	 *
-	 * This method shouldn't be called directly, use the walk() method instead.
-	 *
-	 * @see Walker::start_el()
-	 * @since 2.5.0
-	 *
-	 * @param object $element Data object
-	 * @param array $children_elements List of elements to continue traversing.
-	 * @param int $max_depth Max depth to traverse.
-	 * @param int $depth Depth of current element.
-	 * @param array $args
-	 * @param string $output Passed by reference. Used to append additional content.
-	 * @return null Null on failure with no changes to parameters.
-	 */
-	public function display_element( $element, &$children_elements, $max_depth, $depth, $args, &$output ) {
-        if ( ! $element )
-            return;
-
-        $id_field = $this->db_fields['id'];
-
-        // Display this element.
-        if ( is_object( $args[0] ) )
-           $args[0]->has_children = ! empty( $children_elements[ $element->$id_field ] );
-
-        parent::display_element( $element, $children_elements, $max_depth, $depth, $args, $output );
-    }
-
-	/**
-	 * Menu Fallback
-	 * =============
-	 * If this function is assigned to the wp_nav_menu's fallback_cb variable
-	 * and a manu has not been assigned to the theme location in the WordPress
-	 * menu manager the function with display nothing to a non-logged in user,
-	 * and will add a link to the WordPress menu manager if logged in as an admin.
-	 *
-	 * @param array $args passed from the wp_nav_menu function.
-	 *
-	 */
-	public static function fallback( $args ) {
-		if ( current_user_can( 'manage_options' ) ) {
-
-			extract( $args );
-
-			$fb_output = null;
-
-			if ( $container ) {
-				$fb_output = '<' . $container;
-
-				if ( $container_id )
-					$fb_output .= ' id="' . $container_id . '"';
-
-				if ( $container_class )
-					$fb_output .= ' class="' . $container_class . '"';
-
-				$fb_output .= '>';
+		/**
+		 * Flags whether an element has children before rendering it.
+		 *
+		 * @param object $element           Menu item.
+		 * @param array  $children_elements Remaining items.
+		 * @param int    $max_depth         Maximum depth.
+		 * @param int    $depth             Current depth.
+		 * @param array  $args              Menu arguments.
+		 * @param string $output            Menu markup, by reference.
+		 */
+		public function display_element( $element, &$children_elements, $max_depth, $depth, $args, &$output ) {
+			if ( ! $element ) {
+				return;
 			}
 
-			$fb_output .= '<ul';
+			$id_field = $this->db_fields['id'];
 
-			if ( $menu_id )
-				$fb_output .= ' id="' . $menu_id . '"';
+			if ( isset( $args[0] ) && is_object( $args[0] ) ) {
+				$args[0]->has_children = ! empty( $children_elements[ $element->$id_field ] );
+			}
 
-			if ( $menu_class )
-				$fb_output .= ' class="' . $menu_class . '"';
+			parent::display_element( $element, $children_elements, $max_depth, $depth, $args, $output );
+		}
 
-			$fb_output .= '>';
-			$fb_output .= '<li><a href="' . admin_url( 'nav-menus.php' ) . '">'.esc_html__( 'Add a menu', 'philosophy' ).'</a></li>';
-			$fb_output .= '</ul>';
+		/**
+		 * Fallback when no menu is assigned to the location.
+		 *
+		 * Renders the site's pages, so a brand-new site still has navigation.
+		 * Before 1.2.0 this printed an "Add a menu" link for administrators and
+		 * nothing at all for everybody else.
+		 *
+		 * @param array $args Menu arguments.
+		 */
+		public static function fallback( $args = array() ) {
+			$menu_class = isset( $args['menu_class'] ) ? $args['menu_class'] : '';
 
-			if ( $container )
-				$fb_output .= '</' . $container . '>';
-
-			echo wp_kses_post( $fb_output );
+			wp_page_menu(
+				array(
+					'menu_class'  => $menu_class,
+					'container'   => 'ul',
+					'echo'        => true,
+					'show_home'   => true,
+					'link_before' => '',
+					'link_after'  => '',
+				)
+			);
 		}
 	}
 }
 
-// Social nav Walker
-class philosophy_social_navwalker extends Walker_Nav_Menu {
-    // Tell Walker where to inherit it's parent and id values
-    var $db_fields = array(
-        'parent' => 'menu_item_parent', 
-        'id'     => 'db_id' 
-    );
+if ( ! class_exists( 'philosophy_social_navwalker' ) ) {
 
-    /**
-     * 
-     * 
-     * Note: Menu objects include url and title properties, so we will use those.
-     */
-    function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
+	/**
+	 * Class philosophy_social_navwalker
+	 *
+	 * Renders a menu of icon-only links. The icon is worked out from the address
+	 * the item points at, so no CSS class is needed; a Font Awesome class set on
+	 * the menu item still wins.
+	 */
+	class philosophy_social_navwalker extends Walker_Nav_Menu {
 
+		/**
+		 * Database fields.
+		 *
+		 * @var array
+		 */
+		public $db_fields = array(
+			'parent' => 'menu_item_parent',
+			'id'     => 'db_id',
+		);
 
-		$class = $item->classes;
-		
-		$setClass = '';
-		
-		if( !empty( $class['0'] ) ){
-			$setClass = $class['0'];
+		/**
+		 * Host fragment (or scheme) to Font Awesome brand icon and label.
+		 *
+		 * @return array
+		 */
+		public static function networks() {
+			return apply_filters(
+				'philosophy_social_networks',
+				array(
+					'x.com'           => array( 'fa-brands fa-x-twitter', 'X' ),
+					'twitter.com'     => array( 'fa-brands fa-x-twitter', 'X' ),
+					'bsky.app'        => array( 'fa-brands fa-bluesky', 'Bluesky' ),
+					'threads.net'     => array( 'fa-brands fa-threads', 'Threads' ),
+					'threads.com'     => array( 'fa-brands fa-threads', 'Threads' ),
+					'mastodon'        => array( 'fa-brands fa-mastodon', 'Mastodon' ),
+					'facebook.com'    => array( 'fa-brands fa-facebook-f', 'Facebook' ),
+					'instagram.com'   => array( 'fa-brands fa-instagram', 'Instagram' ),
+					'tiktok.com'      => array( 'fa-brands fa-tiktok', 'TikTok' ),
+					'youtube.com'     => array( 'fa-brands fa-youtube', 'YouTube' ),
+					'youtu.be'        => array( 'fa-brands fa-youtube', 'YouTube' ),
+					'linkedin.com'    => array( 'fa-brands fa-linkedin-in', 'LinkedIn' ),
+					'pinterest.'      => array( 'fa-brands fa-pinterest-p', 'Pinterest' ),
+					'github.com'      => array( 'fa-brands fa-github', 'GitHub' ),
+					'gitlab.com'      => array( 'fa-brands fa-gitlab', 'GitLab' ),
+					'codepen.io'      => array( 'fa-brands fa-codepen', 'CodePen' ),
+					'dribbble.com'    => array( 'fa-brands fa-dribbble', 'Dribbble' ),
+					'behance.net'     => array( 'fa-brands fa-behance', 'Behance' ),
+					'medium.com'      => array( 'fa-brands fa-medium', 'Medium' ),
+					'tumblr.com'      => array( 'fa-brands fa-tumblr', 'Tumblr' ),
+					'reddit.com'      => array( 'fa-brands fa-reddit-alien', 'Reddit' ),
+					'twitch.tv'       => array( 'fa-brands fa-twitch', 'Twitch' ),
+					'discord'         => array( 'fa-brands fa-discord', 'Discord' ),
+					'telegram'        => array( 'fa-brands fa-telegram', 'Telegram' ),
+					't.me'            => array( 'fa-brands fa-telegram', 'Telegram' ),
+					'whatsapp.com'    => array( 'fa-brands fa-whatsapp', 'WhatsApp' ),
+					'wa.me'           => array( 'fa-brands fa-whatsapp', 'WhatsApp' ),
+					'snapchat.com'    => array( 'fa-brands fa-snapchat', 'Snapchat' ),
+					'vimeo.com'       => array( 'fa-brands fa-vimeo-v', 'Vimeo' ),
+					'spotify.com'     => array( 'fa-brands fa-spotify', 'Spotify' ),
+					'soundcloud.com'  => array( 'fa-brands fa-soundcloud', 'SoundCloud' ),
+					'flickr.com'      => array( 'fa-brands fa-flickr', 'Flickr' ),
+					'500px.com'       => array( 'fa-brands fa-500px', '500px' ),
+					'unsplash.com'    => array( 'fa-brands fa-unsplash', 'Unsplash' ),
+					'foursquare.com'  => array( 'fa-brands fa-foursquare', 'Foursquare' ),
+					'skype.'          => array( 'fa-brands fa-skype', 'Skype' ),
+					'skype:'          => array( 'fa-brands fa-skype', 'Skype' ),
+					'/feed'           => array( 'fa-solid fa-rss', 'RSS' ),
+					'mailto:'         => array( 'fa-solid fa-envelope', 'Email' ),
+				)
+			);
 		}
-		
-        $output .= sprintf( "\n<li><a href='%s' class='topbar-social-item fa %s'></a>\n",
-            $item->url,
-            $setClass
-        );	
-			
-    }
-	
+
+		/**
+		 * Renders one social link.
+		 *
+		 * @param string   $output Menu markup, by reference.
+		 * @param WP_Post  $item   Menu item.
+		 * @param int      $depth  Current depth.
+		 * @param stdClass $args   Menu arguments.
+		 * @param int      $id     Menu item ID.
+		 */
+		public function start_el( &$output, $item, $depth = 0, $args = null, $id = 0 ) {
+			$url   = ! empty( $item->url ) ? $item->url : '';
+			$label = trim( (string) $item->title );
+			$icon  = '';
+
+			// A class set on the menu item wins: that is how these menus were
+			// configured before the icon could be worked out from the address.
+			foreach ( (array) $item->classes as $class ) {
+				if ( '' !== $class && 0 === strpos( $class, 'fa-' ) ) {
+					$icon .= ' ' . $class;
+				}
+			}
+
+			if ( '' === $icon ) {
+				foreach ( self::networks() as $needle => $network ) {
+					if ( false !== stripos( $url, $needle ) ) {
+						$icon = ' ' . $network[0];
+
+						if ( '' === $label ) {
+							$label = $network[1];
+						}
+
+						break;
+					}
+				}
+			}
+
+			// Anything the theme does not recognise still needs an icon: without
+			// one the link renders as an empty, zero-width box that nobody can
+			// click and no screen reader can describe.
+			if ( '' === $icon ) {
+				$icon = ' fa-solid fa-link';
+			}
+
+			if ( '' === $label ) {
+				$label = esc_html__( 'Social link', 'philosophy' );
+			}
+
+			$classes = 'topbar-social-item fa' . $icon;
+
+			$atts = array(
+				'href'   => $url,
+				'class'  => $classes,
+				'target' => ! empty( $item->target ) ? $item->target : '',
+				'rel'    => ! empty( $item->xfn ) ? $item->xfn : '',
+			);
+
+			$atts = apply_filters( 'nav_menu_link_attributes', $atts, $item, $args, $depth );
+
+			$attributes = '';
+
+			foreach ( $atts as $attr => $value ) {
+				if ( '' === $value || false === $value ) {
+					continue;
+				}
+
+				$value       = ( 'href' === $attr ) ? esc_url( $value ) : esc_attr( $value );
+				$attributes .= ' ' . esc_attr( $attr ) . '="' . $value . '"';
+			}
+
+			// The link has no visible text, so it needs a name a screen reader
+			// can announce. Before 1.2.0 these were empty anchors.
+			$output .= "\n" . '<li class="menu-item menu-item-' . absint( $item->ID ) . '"><a' . $attributes . '>'
+				. '<span class="screen-reader-text">' . esc_html( $label ) . '</span>'
+				. '</a>';
+		}
+
+		/**
+		 * Closes a social link.
+		 *
+		 * @param string   $output Menu markup, by reference.
+		 * @param WP_Post  $item   Menu item.
+		 * @param int      $depth  Current depth.
+		 * @param stdClass $args   Menu arguments.
+		 */
+		public function end_el( &$output, $item, $depth = 0, $args = null ) {
+			$output .= "</li>\n";
+		}
+	}
 }
