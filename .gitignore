@@ -1,8 +1,11 @@
-.git/
-/.idea/
-/.sass-cache/
-/node_modules/
-/build/
+# Dependencies
+node_modules/
+
+# Build and editor noise
+.sass-cache/
 .DS_Store
-philosophy.zip
-.idea
+*.map
+*.log
+
+# Release archives
+/philosophy.zip

@@ -1,0 +1,7 @@
+# Files that belong in the repository but not in a release archive.
+/.gitattributes  export-ignore
+/.gitignore      export-ignore
+/.github         export-ignore
+/CLAUDE.md       export-ignore
+/README.md       export-ignore
+/tools           export-ignore
