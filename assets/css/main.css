@@ -4986,3 +4986,21 @@ textarea:focus-visible,
       display: block;
    }
 }
+
+/* ## social bar width
+ *
+ *    The list is absolutely positioned beside a centred logo. With enough menu
+ *    items it used to run straight across the site title; capping its width
+ *    keeps the title readable however many links are set.
+ * ----------------------------------------------- */
+.header__social:not(.header__social--nav) {
+   max-width: calc(50% - 180px);
+   overflow: hidden;
+   white-space: nowrap;
+}
+
+@media only screen and (max-width: 1000px) {
+   .header__social:not(.header__social--nav) {
+      max-width: calc(50% - 150px);
+   }
+}

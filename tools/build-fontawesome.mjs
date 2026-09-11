@@ -25,6 +25,7 @@
 import { readFileSync, writeFileSync, mkdirSync, copyFileSync, existsSync } from 'node:fs';
 import { join, dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { spawnSync } from 'node:child_process';
 
 const here = dirname( fileURLToPath( import.meta.url ) );
 const themeRoot = resolve( here, '..' );
@@ -349,8 +350,52 @@ mkdirSync( outFonts, { recursive: true } );
 writeFileSync( join( outDir, 'all.css' ), out );
 writeFileSync( join( outDir, 'all.min.css' ), minify( out ) + '\n' );
 
-for ( const font of [ 'fa-brands-400.woff2', 'fa-regular-400.woff2', 'fa-solid-900.woff2', 'fa-v4compatibility.woff2' ] ) {
-	copyFileSync( join( source, 'webfonts', font ), join( outFonts, font ) );
+/**
+ * Every codepoint the built stylesheet can ask for.
+ *
+ * The solid and regular faces are subset to exactly this set, which keeps the
+ * fonts and the stylesheet in lockstep: an icon whose CSS rule survived will
+ * always have a glyph, and one that did not was already unreachable.
+ */
+const codepoints = [ ...new Set( [ ...out.matchAll( /--fa(?:--fa)?: "\\([0-9a-f]+)"/g ) ].map( ( m ) => m[ 1 ] ) ) ];
+
+// Brands is shipped whole: which networks a site links to is unknowable, and
+// a missing brand glyph is a visible hole in someone's header.
+copyFileSync( join( source, 'webfonts', 'fa-brands-400.woff2' ), join( outFonts, 'fa-brands-400.woff2' ) );
+copyFileSync( join( source, 'webfonts', 'fa-v4compatibility.woff2' ), join( outFonts, 'fa-v4compatibility.woff2' ) );
+
+const unicodes = codepoints.map( ( c ) => 'U+' + c.toUpperCase() ).join( ',' );
+
+for ( const font of [ 'fa-regular-400.woff2', 'fa-solid-900.woff2' ] ) {
+	const from = join( source, 'webfonts', font );
+	const to = join( outFonts, font );
+
+	const result = spawnSync(
+		'python3',
+		[
+			'-m', 'fontTools.subset', from,
+			'--unicodes=' + unicodes,
+			'--flavor=woff2',
+			'--layout-features=*',
+			'--no-hinting',
+			'--desubroutinize',
+			'--output-file=' + to
+		],
+		{ encoding: 'utf8' }
+	);
+
+	if ( result.status !== 0 ) {
+		console.error( `Could not subset ${ font }. Install fonttools (pip install fonttools brotli) or ship the full file.` );
+		console.error( result.stderr || result.stdout );
+		process.exit( 1 );
+	}
+
+	const before = readFileSync( from ).length;
+	const after = readFileSync( to ).length;
+
+	console.log(
+		`${ font.padEnd( 24 ) } ${ ( before / 1024 ).toFixed( 1 ).padStart( 7 ) } KB -> ${ ( after / 1024 ).toFixed( 1 ).padStart( 7 ) } KB`
+	);
 }
 
 copyFileSync( join( source, 'LICENSE.txt' ), join( outDir, 'LICENSE.txt' ) );

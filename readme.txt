@@ -137,6 +137,8 @@ Performance
 * Post thumbnails are output through `the_post_thumbnail()`, which adds srcset,
   sizes, width, height and lazy loading. None of that was present before.
 * The vendor stylesheet went from 53 KB to 2 KB.
+* A blog home page now pulls 356 KB from the theme, fonts and icons included,
+  against 464 KB before the fonts were subset and around 1 MB in 1.1.x.
 * The preloader no longer holds the featured area at zero opacity until the page
   finishes loading, and it is removed outright if an asset hangs.
 * The screenshot went from 750 KB to 130 KB.
@@ -145,9 +147,13 @@ Icons
 
 * Font Awesome 4.7 was replaced with Font Awesome 7.3.1, trimmed to every brand
   icon, every Font Awesome 4.7 icon and the icons the theme uses. Existing
-  `fa-` classes keep working through Font Awesome's version 4 shims.
-* Only `.woff2` font files are shipped, and the browser fetches only the ones a
-  page actually uses.
+  `fa-` classes keep working through Font Awesome's version 4 shims. The
+  stylesheet is 51 KB rather than the 111 KB of upstream's all.css plus shims.
+* Only `.woff2` font files are shipped, and the solid and regular faces are
+  subset to the icons the stylesheet can reference: 117 KB becomes 17 KB and
+  19 KB becomes 11 KB. Brands ships whole, because which networks a site links
+  to is unknowable. tools/verify-icons.py checks that every codepoint the
+  stylesheet references still has a glyph that draws.
 * Social icons cover the networks that did not exist in 2018: X, Bluesky,
   Threads, Mastodon, TikTok, Discord, Telegram and others.
 
