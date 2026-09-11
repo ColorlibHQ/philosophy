@@ -5004,3 +5004,18 @@ textarea:focus-visible,
       max-width: calc(50% - 150px);
    }
 }
+
+/* ## 404 search
+ *
+ *    The 404 page offers the search form as a way out. It is the widget layout,
+ *    so it needs a width of its own here.
+ * ----------------------------------------------- */
+.f0f-search {
+   max-width: 42rem;
+   margin: 4rem auto 0;
+   text-align: left;
+}
+
+.f0f-search input[type="search"] {
+   width: 100%;
+}
