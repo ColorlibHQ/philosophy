@@ -1,42 +1,47 @@
-<?php 
-// Block direct access
-if( !defined( 'ABSPATH' ) ){
+<?php
+/**
+ * Archive pagination.
+ *
+ * @package Philosophy
+ * @since   1.0
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
 	exit( 'Direct script access denied.' );
 }
-/**
- * @Packge 	   : Colorlib
- * @Version    : 1.0
- * @Author 	   : Colorlib
- * @Author URI : http://colorlib.com/wp/
- *
- */
- 
-    //Pagination
-	if ( function_exists('philosophy_pagination') ){
-		philosophy_pagination();
 
-	}else{
-		$newer 	= '<i class="fa fm fa-long-arrow-left"></i>'.esc_html__( 'Newer Post', 'philosophy' );
-		$older 	= esc_html__( 'Older Post', 'philosophy' ).'<i class="fa flm fa-long-arrow-right"></i>';
+if ( function_exists( 'philosophy_pagination' ) ) {
+	philosophy_pagination();
 
-        echo '<ul class="pager">';
-			// Previous
-			echo '<li class="previous">';
-			if( get_previous_posts_link() ){
-				previous_posts_link( $newer );
-			}else{
-				echo wp_kses_post( '<span>'.$newer.'</span>' );
-			}
-			echo '</li>';
-			// next
-			echo '<li class="next">';
-			if( get_next_posts_link() ){
-				next_posts_link( $older );
-			}else{
-				echo wp_kses_post( '<span>'.$older.'</span>' );
-			}
-			echo '</li>';
-		echo '</ul>';
-	}
-	
+	return;
+}
+
+if ( ! get_previous_posts_link() && ! get_next_posts_link() ) {
+	return;
+}
+
+$philosophy_newer = '<i class="fa-solid fa-arrow-left-long fm" aria-hidden="true"></i>' . esc_html__( 'Newer Post', 'philosophy' );
+$philosophy_older = esc_html__( 'Older Post', 'philosophy' ) . '<i class="fa-solid fa-arrow-right-long flm" aria-hidden="true"></i>';
 ?>
+<nav class="pagination-wrap" aria-label="<?php esc_attr_e( 'Posts navigation', 'philosophy' ); ?>">
+	<ul class="pager">
+		<li class="previous">
+			<?php
+			if ( get_previous_posts_link() ) {
+				previous_posts_link( $philosophy_newer );
+			} else {
+				echo '<span>' . wp_kses_post( $philosophy_newer ) . '</span>';
+			}
+			?>
+		</li>
+		<li class="next">
+			<?php
+			if ( get_next_posts_link() ) {
+				next_posts_link( $philosophy_older );
+			} else {
+				echo '<span>' . wp_kses_post( $philosophy_older ) . '</span>';
+			}
+			?>
+		</li>
+	</ul>
+</nav>

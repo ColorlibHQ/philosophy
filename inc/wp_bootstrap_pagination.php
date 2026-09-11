@@ -18,7 +18,7 @@ function philosophy_pagination( $args = array() ) {
     $defaults = array(
         'range'           => 4,
         'custom_query'    => FALSE,
-        'before_output'   => '<div class="col-full"><nav class="pgn"><ul>',
+        'before_output'   => '<div class="col-full"><nav class="pgn" aria-label="' . esc_attr__( 'Posts navigation', 'philosophy' ) . '"><ul>',
         'after_output'    => '</ul></nav></div>'
     );
     
@@ -60,25 +60,30 @@ function philosophy_pagination( $args = array() ) {
    
     
     $previous = intval($page) - 1;
-    $previous = esc_attr( get_pagenum_link($previous) );
+    $previous = get_pagenum_link( $previous );
     
     if ( $previous && (1 != $page) )
-        $echo .= '<li class="previous pgn__prev"><a href="' . esc_attr( $previous ) . '" title="' . esc_html__( 'previous', 'philosophy' ) . '">' . esc_html__( 'Previous', 'philosophy' ) . '</a></li>';
+        $echo .= '<li class="previous pgn__prev"><a href="' . esc_url( $previous ) . '">' . esc_html__( 'Previous', 'philosophy' ) . '</a></li>';
     
     if ( !empty($min) && !empty($max) ) {
         for( $i = $min; $i <= $max; $i++ ) {
             if ( $page == $i ) {
-                $echo .= '<li class="page-item"><span class="pgn__num current">' . str_pad( (int)$i, 2, '0', STR_PAD_LEFT ) . '</span></li>';
+                $echo .= '<li class="page-item"><span class="pgn__num current" aria-current="page">' . esc_html( str_pad( (int) $i, 2, '0', STR_PAD_LEFT ) ) . '</span></li>';
             } else {
-                $echo .= sprintf( '<li class="page-item"><a href="%s" class="pgn__num">%002d</a></li>', esc_attr( get_pagenum_link($i) ), $i );
+                $echo .= sprintf(
+                    '<li class="page-item"><a href="%1$s" class="pgn__num"><span class="screen-reader-text">%2$s </span>%3$02d</a></li>',
+                    esc_url( get_pagenum_link( $i ) ),
+                    esc_html__( 'Page', 'philosophy' ),
+                    (int) $i
+                );
             }
         }
     }
     
     $next = intval($page) + 1;
-    $next = esc_attr( get_pagenum_link($next) );
+    $next = get_pagenum_link( $next );
     if ($next && ($count != $page) )
-        $echo .= '<li class="next pgn__next"><a href="' . esc_attr( $next ) . '" title="' . esc_html__( 'next', 'philosophy') . '">' . esc_html__( 'Next', 'philosophy') . '</a></li>';
+        $echo .= '<li class="next pgn__next"><a href="' . esc_url( $next ) . '">' . esc_html__( 'Next', 'philosophy' ) . '</a></li>';
 
 
 

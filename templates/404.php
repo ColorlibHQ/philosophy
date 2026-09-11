@@ -1,56 +1,46 @@
-<?php 
-// Block direct access
-if( !defined( 'ABSPATH' ) ){
-	exit( 'Direct script access denied.' );
-}
+<?php
 /**
- * @Packge 	   : Philosophy
- * @Version    : 1.0
- * @Author 	   : Colorlib
- * @Author URI : http://colorlib.com/wp/
+ * The 404 page body.
  *
+ * @package Philosophy
+ * @since   1.0
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit( 'Direct script access denied.' );
+}
 
+$philosophy_title = philosophy_opt( 'philosophy_fof_titleone' );
+
+if ( ! $philosophy_title ) {
+	$philosophy_title = esc_html__( 'Ooops 404 Error!', 'philosophy' );
+}
+
+$philosophy_message = philosophy_opt( 'philosophy_fof_titletwo' );
+
+if ( ! $philosophy_message ) {
+	$philosophy_message = esc_html__( 'Either something went wrong or the page doesn&rsquo;t exist anymore.', 'philosophy' );
+}
 ?>
+<main id="content" class="s-content">
+	<div id="f0f">
+		<div class="container">
+			<div class="row">
+				<div class="f0f-content text-center">
+					<div class="f0f-content-inner">
+						<h1 class="h1"><?php echo esc_html( $philosophy_title ); ?></h1>
 
-<div id="f0f">
-	<div class="container">
-		<div class="row">
-			<div class="f0f-content text-center">
-			<div class="f0f-content-inner">
-				<?php 
-				$errorText = esc_html__( 'Ooops 404 Error !', 'philosophy' );
-				if( philosophy_opt( 'philosophy_fof_titleone' ) ){
-					$errorText = philosophy_opt( 'philosophy_fof_titleone' );
-				}
-				//
-				echo '<h1 class="h1">'.esc_html( $errorText ).'</h1>';
-				
+						<p>
+							<?php echo esc_html( $philosophy_message ); ?>
+							<a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php esc_html_e( 'Go to the home page', 'philosophy' ); ?></a>
+						</p>
 
-				// Wrong text block
-
-				$wrongText = wp_kses_post( __( 'Either something went wrong or the page dosen&rsquo;t exist anymore.', 'philosophy' ) );
-
-				if( philosophy_opt('philosophy_fof_titletwo') ){
-					$wrongText = philosophy_opt('philosophy_fof_titletwo');
-				}
-
-				$anchor = philosophy_anchor_tag(
-					array(
-						'url' 	 => esc_url( site_url( '/' ) ),
-						'text' 	 => esc_html__( 'Go To Home page', 'philosophy' ),
-					)
-				);
-
-				echo philosophy_paragraph_tag(
-					array(
-						'text' 	 => esc_html( $wrongText ).' '.wp_kses_post( $anchor ),
-					)
-				);
-				?>
-			</div>
+						<div class="f0f-search">
+							<?php get_search_form(); ?>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
+</main>

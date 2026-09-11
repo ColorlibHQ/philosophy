@@ -80,8 +80,8 @@ if( !defined( 'ABSPATH' ) ){
 		function philosophy_wrp_start_cb(){
 		
 			//
-			if( is_home() || is_archive() || is_search()  ){
-				echo '<section class="s-content">';
+			if( is_home() || is_archive() || is_search() ){
+				echo '<main id="content" class="s-content">';
 
 				if( is_archive() || is_search() ){
 					get_template_part( 'templates/page', 'header' );
@@ -91,7 +91,7 @@ if( !defined( 'ABSPATH' ) ){
 
 
 			}else{
-				echo '<section class="s-content s-content--narrow s-content--no-padding-bottom">';
+				echo '<main id="content" class="s-content s-content--narrow s-content--no-padding-bottom">';
 			}
 			
 		}
@@ -101,9 +101,9 @@ if( !defined( 'ABSPATH' ) ){
 		function philosophy_wrp_end_cb(){
 			
 			if( is_home() || is_archive() || is_search() ){
-				echo '</div></section>';
+				echo '</div></main>';
 			}else{
-				echo '</section>';
+				echo '</main>';
 			}
 			
 		}
@@ -164,36 +164,35 @@ if( !defined( 'ABSPATH' ) ){
 	if( !function_exists('philosophy_blog_posts_thumb_cb') ){
 		function philosophy_blog_posts_thumb_cb(){
 			// Thumbnail Show
+			//
+			// the_post_thumbnail() rather than a hand-built <img>: it supplies
+			// srcset, sizes, width, height and loading, none of which the theme
+			// emitted before 1.2.0. The dimensions in particular stop the
+			// masonry grid reflowing as images arrive.
 			if( has_post_thumbnail() ){
-						
+
 				if( !is_single() ){
-				
-					$html = '';
-					$html .= '<div class="entry__thumb">';
-					$html .= '<a href="'.esc_url( get_the_permalink() ).'" class="entry__thumb-link">';
-					$html .= philosophy_img_tag(
-						array(
-							'url' => esc_url( get_the_post_thumbnail_url() )
-						)
-					);
-					$html .= '</a>';
-					$html .= '</div>';
-				
+
+					echo '<div class="entry__thumb">';
+					echo '<a href="'.esc_url( get_the_permalink() ).'" class="entry__thumb-link" tabindex="-1" aria-hidden="true">';
+					the_post_thumbnail( 'large' );
+					echo '</a>';
+					echo '</div>';
+
 				}else{
-					
-					$html = '';
-					$html .= '<div class="s-content__media col-full"><div class="s-content__post-thumb">';
-					$html .= philosophy_img_tag(
+
+					echo '<div class="s-content__media col-full"><div class="s-content__post-thumb">';
+					the_post_thumbnail(
+						'full',
 						array(
-							'url' => esc_url( get_the_post_thumbnail_url() )
+							'fetchpriority' => 'high',
+							'loading'       => 'eager',
 						)
 					);
-					$html .= '</div></div>';
+					echo '</div></div>';
 
 				}
 
-				echo wp_kses_post( $html );
-				
 			}
 			// Thumbnail check and video and audio thumb show
 			if( !is_single() && !has_post_thumbnail() ){
@@ -214,7 +213,7 @@ if( !defined( 'ABSPATH' ) ){
 					}
 				}
 				
-				echo apply_filters( 'philosophy_audio_embedded_media', $html );
+				echo wp_kses_post( apply_filters( 'philosophy_audio_embedded_media', $html ) );
 
 			}
 			
@@ -227,12 +226,12 @@ if( !defined( 'ABSPATH' ) ){
 			if( get_the_title() ){
 
 				if( !is_single() ){
-					echo '<h1 class="entry__title"><a href="'.esc_url( get_the_permalink() ).'">'.esc_html( get_the_title() ).'</a></h1>';
+					echo '<h2 class="entry__title"><a href="'.esc_url( get_the_permalink() ).'">'.esc_html( get_the_title() ).'</a></h2>';
 				}else{
 
 				echo '<div class="s-content__header col-full">';
 
-					echo '<h1 class="s-content__header col-full">'.esc_html( get_the_title() ).'</h1>';
+					echo '<h1 class="s-content__header-title">'.esc_html( get_the_title() ).'</h1>';
 
 					/**
 					 * Blog Post Meta
@@ -260,23 +259,32 @@ if( !defined( 'ABSPATH' ) ){
 					// Date
 					if( get_the_date() ){
 						echo '<div class="entry__date">';
-						$postData = '<a href="'.esc_url( philosophy_blog_date_permalink() ).'">'.esc_html( get_the_date() ).',</a>';
-						echo wp_kses_post( $postData );
+						printf(
+							'<a href="%1$s"><time datetime="%2$s">%3$s</time></a>',
+							esc_url( philosophy_blog_date_permalink() ),
+							esc_attr( get_the_date( DATE_W3C ) ),
+							esc_html( get_the_date() )
+						);
 
 						echo '</div>';
 					}
 				}else{
 
                 echo '<ul class="s-content__header-meta">';
-                    echo '<li class="date"><a href="'.esc_url( philosophy_blog_date_permalink() ).'">'.esc_html( get_the_date() ).',</a></li>';
+                    printf(
+                        '<li class="date"><a href="%1$s"><time datetime="%2$s">%3$s</time></a></li>',
+                        esc_url( philosophy_blog_date_permalink() ),
+                        esc_attr( get_the_date( DATE_W3C ) ),
+                        esc_html( get_the_date() )
+                    );
 
-            		echo philosophy_post_cats(array(
+            		echo wp_kses_post( philosophy_post_cats(array(
 				        'wrp_start'         => '<li class="cat">',
 				        'wrp_end'           => '</li>',
 				        'label'				=> esc_html__( 'In', 'philosophy' ),
 				        'tag'               => 'a',
 				        'link'              => true,
-					));
+					)) );
                 echo '</ul>';
 
 				}
@@ -291,26 +299,36 @@ if( !defined( 'ABSPATH' ) ){
 			<div class="entry__excerpt">
 				<?php 
 				// Post excerpt
-				echo philosophy_excerpt_length( esc_html( philosophy_opt('philosophy_excerpt_length') ) );
+				echo wp_kses_post( philosophy_excerpt_length( philosophy_opt('philosophy_excerpt_length') ) );
 
 				// Link Pages
 				philosophy_link_pages();
 				?>
 			</div>	
-			<a href="<?php the_permalink(); ?>">
+			<a class="entry__more-link" href="<?php the_permalink(); ?>">
 				<?php esc_html_e( 'Read More', 'philosophy' ); ?>
-			</a>	
-			<?php 
-			// // Post category
+				<span class="screen-reader-text">
+					<?php
+					printf(
+						/* translators: %s: post title. */
+						esc_html__( 'about %s', 'philosophy' ),
+						esc_html( get_the_title() )
+					);
+					?>
+				</span>
+			</a>
+			<?php
 			$cats = get_the_category();
-			$categories = '';
+
 			if( is_array( $cats ) && count( $cats ) > 0 ){
-				echo '<div class="entry__meta"><span class="entry__meta-links">';
-				
+				$categories = array();
+
 				foreach( $cats as $cat ){
-				   $categories .= '<a href="'.esc_url( get_category_link( $cat->term_id ) ).'">'.esc_html( $cat->name ).',</a>';
+				   $categories[] = '<a href="'.esc_url( get_category_link( $cat->term_id ) ).'">'.esc_html( $cat->name ).'</a>';
 				}
-				echo wp_kses_post( $categories );
+
+				echo '<div class="entry__meta"><span class="entry__meta-links">';
+				echo wp_kses_post( implode( ', ', $categories ) );
 				echo '</span></div>';
 			}
 

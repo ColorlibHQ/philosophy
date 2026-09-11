@@ -43,17 +43,17 @@ if( !defined( 'ABSPATH' ) ){
                          
 
                 ?>
-                    <div class="entry" <?php echo philosophy_inline_bg_img( get_the_post_thumbnail_url() ); ?>>
+                    <div class="entry" <?php echo philosophy_inline_bg_img( get_the_post_thumbnail_url( null, 'large' ) ); ?>>
                         
                         <div class="entry__content">
                             <?php 
                             if( philosophy_featured_post_cat() ){
-                                echo '<span class="entry__category">'.philosophy_featured_post_cat().'</span>';
+                                echo '<span class="entry__category">'.wp_kses_post( philosophy_featured_post_cat() ).'</span>';
                             }
                             ?>
                             
 
-                            <h1><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
+                            <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 
                             <div class="entry__info">
                                 <a href="<?php echo esc_url( $url ); ?>" class="entry__profile-pic">
@@ -62,7 +62,7 @@ if( !defined( 'ABSPATH' ) ){
 
                                 <ul class="entry__meta">
                                     <li><a href="<?php echo esc_url( $url ); ?>"><?php echo esc_html( get_the_author() ); ?></a></li>
-                                    <li><?php echo esc_attr( get_the_date() ); ?></li>
+                                    <li><time datetime="<?php echo esc_attr( get_the_date( DATE_W3C ) ); ?>"><?php echo esc_html( get_the_date() ); ?></time></li>
                                 </ul>
                             </div>
 
@@ -99,20 +99,20 @@ if( !defined( 'ABSPATH' ) ){
                         $url = get_author_posts_url( get_the_author_meta( 'ID' ) );
                          
                 ?>
-                    <div class="entry" <?php echo philosophy_inline_bg_img( get_the_post_thumbnail_url() ); ?>>
+                    <div class="entry" <?php echo philosophy_inline_bg_img( get_the_post_thumbnail_url( null, 'large' ) ); ?>>
                         
                         <div class="entry__content">
                             <?php 
                             if( philosophy_featured_post_cat() ){
-                                echo '<span class="entry__category">'.philosophy_featured_post_cat().'</span>';
+                                echo '<span class="entry__category">'.wp_kses_post( philosophy_featured_post_cat() ).'</span>';
                             }
                             ?>                            
-                            <h1><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
+                            <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 
                             <div class="entry__info">
                                 <ul class="entry__meta">
                                     <li><a href="<?php echo esc_url( $url ); ?>"><?php echo esc_html( get_the_author() ); ?></a></li>
-                                    <li><?php echo esc_attr( get_the_date() ); ?></li>
+                                    <li><time datetime="<?php echo esc_attr( get_the_date( DATE_W3C ) ); ?>"><?php echo esc_html( get_the_date() ); ?></time></li>
                                 </ul>
                             </div>
 

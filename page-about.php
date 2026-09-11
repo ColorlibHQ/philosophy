@@ -1,104 +1,76 @@
-<?php 
-// Block direct access
-if( !defined( 'ABSPATH' ) ){
-    exit( 'Direct script access denied.' );
-}
+<?php
 /**
- * @Packge     : Philosophy
- * @Version    : 1.0
- * @Author     : Colorlib
- * @Author URI : http://colorlib.com/wp/
- *
  * Template Name: About Page
  *
+ * @package Philosophy
+ * @since   1.0
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit( 'Direct script access denied.' );
+}
+
 get_header();
+
+$philosophy_top_title = philosophy_opt( 'philosophy_about_top_title' );
+$philosophy_blocks    = philosophy_decode_repeater( philosophy_opt( 'philosophy_about_infoblock' ) );
 ?>
+	<!-- s-content
+	================================================== -->
+	<main id="content" class="s-content s-content--narrow">
 
-    <!-- s-content
-    ================================================== -->
-    <section class="s-content s-content--narrow">
-        <div class="row">
-            <?php
-            // Page top title
-            $pagetitle = philosophy_opt( 'philosophy_about_top_title' ); 
-            if( $pagetitle ){
-                echo philosophy_heading_tag(
-                    array(
-                        'tag'         => 'h1',
-                        'class'       => 's-content__header-title',
-                        'text'        => esc_html( $pagetitle ),
-                        'wrap_before' => '<div class="s-content__header col-full">',
-                        'wrap_after'  => '</div>',
-                    )
-                );
-            }
-            //
-            if( has_post_thumbnail() ):
-            ?>
-            <div class="s-content__media col-full">
-                <div class="s-content__post-thumb">
-                    <?php 
-                    the_post_thumbnail();
-                    ?>
-                </div>
-            </div> <!-- end s-content__media -->
-            <?php 
-            endif;
-            ?>
-            <div class="col-full s-content__main">
+		<div class="row">
+			<?php if ( $philosophy_top_title ) : ?>
+				<div class="s-content__header col-full">
+					<h1 class="s-content__header-title"><?php echo esc_html( $philosophy_top_title ); ?></h1>
+				</div>
+			<?php endif; ?>
 
-                <?php 
-                if( have_posts() ){
-                    while( have_posts() ){
-                        the_post();
-                        the_content();
-                    }
-                }
-                ?>
+			<div class="col-full s-content__main">
 
-                <div class="row block-1-2 block-tab-full">
-                <?php
+				<?php
+				while ( have_posts() ) :
+					the_post();
 
-                // 
-                $aboutinfo = philosophy_opt('philosophy_about_infoblock');
+					if ( ! $philosophy_top_title ) {
+						the_title( '<div class="s-content__header col-full"><h1 class="s-content__header-title">', '</h1></div>' );
+					}
 
-                if( is_array( $aboutinfo ) && count( $aboutinfo ) > 0 ):
-                    foreach( $aboutinfo as $info ):
-                ?>
-                    <div class="col-block">
-                        <?php 
-                        //
-                        if( !empty( $info['info_title'] ) ){
-                            echo philosophy_heading_tag(
-                                array(
-                                    'tag'   => 'h3',
-                                    'class' => 'quarter-top-margin',
-                                    'text'  => esc_html( $info['info_title'] )
-                                )
-                            );
-                        }
-                        //
-                        if( !empty( $info['info_desc'] ) ){
-                            echo philosophy_get_textareahtml_output( $info['info_desc'] );
-                        }
-                        ?>
-                    </div>
-                    <?php 
-                    endforeach;
-                endif;
-                    ?>
+					the_content();
+					philosophy_link_pages();
+				endwhile;
+				?>
 
-                </div>
+				<?php if ( $philosophy_blocks ) : ?>
+					<div class="row block-1-2 block-tab-full">
+						<?php foreach ( $philosophy_blocks as $philosophy_block ) : ?>
+							<?php $philosophy_block = (array) $philosophy_block; ?>
+							<div class="col-block">
+								<?php if ( ! empty( $philosophy_block['info_title'] ) ) : ?>
+									<h2 class="quarter-top-margin"><?php echo esc_html( $philosophy_block['info_title'] ); ?></h2>
+								<?php endif; ?>
 
+								<?php
+								if ( ! empty( $philosophy_block['info_desc'] ) ) {
+									echo philosophy_get_textareahtml_output( $philosophy_block['info_desc'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- run through wp_kses_post().
+								}
+								?>
+							</div>
+						<?php endforeach; ?>
+					</div>
+				<?php endif; ?>
 
-            </div> <!-- end s-content__main -->
+				<?php
+				if ( comments_open() || get_comments_number() ) {
+					comments_template();
+				}
+				?>
 
-        </div> <!-- end row -->
+			</div> <!-- end s-content__main -->
 
-    </section> <!-- s-content -->
+		</div> <!-- end row -->
 
-<?php 
+	</main> <!-- s-content -->
+
+<?php
 get_footer();
-?>

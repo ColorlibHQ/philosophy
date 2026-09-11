@@ -98,23 +98,13 @@ function philosophy_post_tags(){
     
 }
 
-// get Tags
+/**
+ * Alias of philosophy_post_tags(), kept for child themes.
+ *
+ * @return string
+ */
 function philosophy_tags_list(){
-	
-	$tags = get_the_tags();
-	
-	$getTags = '';
-	
-	if( $tags ){
-
-		foreach( $tags as $tag ){
-			$getTags .= '<a href="'.esc_url( get_tag_link( $tag->term_id ) ).'" class="tag-item">'.esc_html( $tag->name ).'</a>';
-		}
-	
-	}
-	
-	return $getTags;
-	
+    return philosophy_post_tags();
 }
 
 // philosophy comment template callback
@@ -137,14 +127,37 @@ function philosophy_comment_callback( $comment, $args, $depth ) {
     			<?php if ( $args['avatar_size'] != 0 ) echo get_avatar( $comment, $args['avatar_size'] ); ?>
     		</div>
             <div class="comment__info">
-                <cite><?php printf( __( '<span class="comment-author-name">%s</span> ', 'philosophy' ), get_comment_author_link() ); ?></cite>
+                <cite><span class="comment-author-name"><?php echo wp_kses_post( get_comment_author_link( $comment ) ); ?></span></cite>
                 <div class="comment__meta">
-                    <time class="comment__time"> <?php printf( __('%1$s at %2$s', 'philosophy'), get_comment_date(),  get_comment_time() ); ?><?php edit_comment_link( esc_html__( '(Edit)', 'philosophy' ), '  ', '' ); ?></time> 
-                    <?php if ( $comment->comment_approved == '0' ) : ?>
-                     <em class="comment-awaiting-moderation"><?php esc_html_e( 'Your comment is awaiting moderation.', 'philosophy' ); ?></em>
+                    <time class="comment__time" datetime="<?php echo esc_attr( get_comment_date( DATE_W3C, $comment ) ); ?>">
+                        <?php
+                        printf(
+                            /* translators: 1: comment date, 2: comment time. */
+                            esc_html__( '%1$s at %2$s', 'philosophy' ),
+                            esc_html( get_comment_date( '', $comment ) ),
+                            esc_html( get_comment_time( '', false, true, $comment ) )
+                        );
+                        ?>
+                    </time>
+                    <?php edit_comment_link( esc_html__( '(Edit)', 'philosophy' ), ' ', '' ); ?>
+
+                    <?php if ( '0' === $comment->comment_approved ) : ?>
+                        <em class="comment-awaiting-moderation"><?php esc_html_e( 'Your comment is awaiting moderation.', 'philosophy' ); ?></em>
                     <?php endif; ?>
-                    
-                    <?php comment_reply_link(array_merge( $args, array( 'add_below' => $add_below, 'depth' => 1, 'max_depth' => 5, 'reply_text' => 'Reply' ) ) ); ?>
+
+                    <?php
+                    comment_reply_link(
+                        array_merge(
+                            $args,
+                            array(
+                                'add_below' => $add_below,
+                                'depth'     => $depth,
+                                'max_depth' => isset( $args['max_depth'] ) ? $args['max_depth'] : 5,
+                                'reply_text' => esc_html__( 'Reply', 'philosophy' ),
+                            )
+                        )
+                    );
+                    ?>
                 </div>
             </div>
         </div>
@@ -179,63 +192,6 @@ function philosophy_replace_reply_link_class( $class ){
     return $class;
 }
 
-// social media
-if ( ! function_exists( 'philosophy_social' ) ) {
-	function philosophy_social( $args = array()  ){
-		
-		$default = array(
-			'wrapper_start' => '',
-			'wrapper_end'   => '',
-			'class'   		=> 'topbar-social',
-		);
-		
-		$args = wp_parse_args( $args, $default );
-		
-		
-		$url = philosophy_opt('philosophy_social_url');
-		if( is_array( $url ) && count( $url ) > 0 ):
-		
-		echo wp_kses_post( $args['wrapper_start'] );
-		
-			echo '<div class="'.esc_attr( $args['class'] ).'">';
-		
-			// Facebook
-			if( !empty( $url['facebook_url'] ) ){
-				echo '<a href="'.esc_url( $url['facebook_url'] ).'" class="topbar-social-item fa fa-facebook"></a>';
-			}
-			// Twitter
-			if( !empty( $url['twitter_url'] ) ){
-				echo '<a href="'.esc_url( $url['twitter_url'] ).'" class="topbar-social-item fa fa-twitter"></a>';
-			}
-			// Google
-			if( !empty( $url['google_url'] ) ){
-				echo '<a href="'.esc_url( $url['google_url'] ).'" class="topbar-social-item fa fa-google-plus"></a>';
-			}
-			// Instagram
-			if( !empty( $url['instagram_url'] ) ){
-				echo '<a href="'.esc_url( $url['instagram_url'] ).'" class="topbar-social-item fa fa-instagram"></a>';
-			}
-			// Pinterest
-			if( !empty( $url['pinterest_url'] ) ){
-				echo '<a href="'.esc_url( $url['pinterest_url'] ).'" class="topbar-social-item fa fa-pinterest-p"></a>';
-			}
-			// Snapchat
-			if( !empty( $url['snapchat_url'] ) ){
-				echo '<a href="'.esc_url( $url['snapchat_url'] ).'" class="topbar-social-item fa fa-snapchat-ghost"></a>';
-			}
-			// Youtube
-			if( !empty( $url['youtube_url'] ) ){
-				echo '<a href="'.esc_url( $url['youtube_url'] ).'" class="topbar-social-item fa fa-youtube-play"></a>';
-			}
-			
-		
-			echo '</div>';
-		echo wp_kses_post( $args['wrapper_end'] );
-
-		endif;
-	}
-}
-
 //  contact form 7 Shortcode list
 function philosophy_contact_form7_shortcode(){
 
@@ -245,22 +201,22 @@ function philosophy_contact_form7_shortcode(){
     $Instruction = ''; 
 
     if( defined('WPCF7_VERSION') ){
-        $args = array(
-            'post_type'      => 'wpcf7_contact_form',
-            'post_per_pages' => '-1'
+        $forms = get_posts(
+            array(
+                'post_type'              => 'wpcf7_contact_form',
+                'posts_per_page'         => 100,
+                'post_status'            => 'publish',
+                'no_found_rows'          => true,
+                'update_post_meta_cache' => false,
+                'update_post_term_cache' => false,
+            )
         );
 
-        $loop = new WP_Query( $args );
-
-        if( $loop->have_posts() ){
-            while( $loop->have_posts() ){
-                $loop->the_post();
-
-                $getforms[ get_the_ID() ] = get_the_title();
-
+        if ( $forms ) {
+            foreach ( $forms as $form ) {
+                $getforms[ $form->ID ] = $form->post_title;
             }
-
-        }else{
+        } else {
             $Instruction = __( 'Contact form not found.', 'philosophy' );
         }
     }else{
@@ -304,22 +260,31 @@ function philosophy_contact7_form_content( $template, $prop ) {
 }
 add_filter( 'wpcf7_default_template', 'philosophy_contact7_form_content', 10, 2 );
 
-// Popular post count
-function philosophy_set_post_views($postID) {
-    $count_key = 'philosophy_post_views_count';
-    $count = get_post_meta($postID, $count_key, true);
+/**
+ * Increments the view counter the Popular Posts widget orders by.
+ *
+ * Skipped for previews, feeds, logged-in editors looking at their own drafts
+ * and anything that is not a real front-end request, so the count reflects
+ * readers rather than traffic of every kind.
+ *
+ * @param int $post_id Post ID.
+ */
+function philosophy_set_post_views( $post_id ) {
+    $post_id = absint( $post_id );
 
-    if($count==''){
-        $count = 0;
-        delete_post_meta($postID, $count_key);
-        add_post_meta($postID, $count_key, '0');
-    }else{
-        $count++;
-        update_post_meta($postID, $count_key, $count);
+    if ( ! $post_id || is_preview() || is_feed() || is_robots() || wp_doing_ajax() || wp_is_json_request() ) {
+        return;
     }
+
+    if ( 'publish' !== get_post_status( $post_id ) ) {
+        return;
+    }
+
+    $count_key = 'philosophy_post_views_count';
+    $count     = (int) get_post_meta( $post_id, $count_key, true );
+
+    update_post_meta( $post_id, $count_key, $count + 1 );
 }
-//To keep the count accurate, lets get rid of prefetching
-remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 );
 
 // blog post categoty 
 function philosophy_get_post_cat(){

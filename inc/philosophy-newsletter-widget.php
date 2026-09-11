@@ -1,147 +1,149 @@
 <?php
 /**
- * @version  1.0
- * @package  Philosophy
+ * Newsletter sign-up widget.
  *
+ * @package Philosophy
+ * @since   1.0
  */
- 
- 
-/**************************************
-*Creating Newsletter Widget
-***************************************/
- 
-class philosophy_newsletter_widget extends WP_Widget {
 
-
-function __construct() {
-
-parent::__construct(
-// Base ID of your widget
-'philosophy_newsletter_widget',
-
-
-// Widget name will appear in UI
-esc_html__( 'OUR NEWSLETTER', 'philosophy' ), 
-
-// Widget description
-array( 'description' => esc_html__( 'Add footer newsletter signup form.', 'philosophy' ), ) 
-);
-
+if ( ! defined( 'ABSPATH' ) ) {
+	exit( 'Direct script access denied.' );
 }
 
-// This is where the action happens
-public function widget( $args, $instance ) {
-	
-$title 		= apply_filters( 'widget_title', $instance['title'] );
-$desc 		= apply_filters( 'widget_desc', $instance['desc'] );
-$actionurl 	= apply_filters( 'widget_actionurl', $instance['actionurl'] );
+if ( ! class_exists( 'philosophy_newsletter_widget' ) ) {
 
-// mc validation
- wp_enqueue_script( 'mc-validate', '//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js' );
+	/**
+	 * Class philosophy_newsletter_widget
+	 */
+	class philosophy_newsletter_widget extends WP_Widget {
 
-// before and after widget arguments are defined by themes
-echo wp_kses_post( $args['before_widget'] );
-if ( ! empty( $title ) )
-echo wp_kses_post( $args['before_title'] . $title . $args['after_title'] );
-    
-?>
+		/**
+		 * Registers the widget.
+		 */
+		public function __construct() {
+			parent::__construct(
+				'philosophy_newsletter_widget',
+				esc_html__( '[ Philosophy ] Newsletter', 'philosophy' ),
+				array(
+					'description' => esc_html__( 'A newsletter sign-up form that posts to your mailing list provider.', 'philosophy' ),
+					'classname'   => 'philosophy-newsletter-widget',
+				)
+			);
+		}
 
+		/**
+		 * Renders the widget.
+		 *
+		 * @param array $args     Sidebar arguments.
+		 * @param array $instance Widget settings.
+		 */
+		public function widget( $args, $instance ) {
+			$title      = isset( $instance['title'] ) ? $instance['title'] : '';
+			$desc       = isset( $instance['desc'] ) ? $instance['desc'] : '';
+			$action_url = isset( $instance['actionurl'] ) ? $instance['actionurl'] : '';
 
-<div class="s-footer__subscribe">
-	<?php 
-	//
-	if( $desc ){
-		echo '<p>'.wp_kses_post( $desc ).'</p>';
+			$title = apply_filters( 'widget_title', $title, $instance, $this->id_base );
+
+			if ( ! $action_url ) {
+				if ( current_user_can( 'edit_theme_options' ) ) {
+					echo wp_kses_post( $args['before_widget'] );
+					echo '<p>' . esc_html__( 'Add your mailing list form action URL to this widget to show the sign-up form.', 'philosophy' ) . '</p>';
+					echo wp_kses_post( $args['after_widget'] );
+				}
+
+				return;
+			}
+
+			$field_id = 'philosophy-newsletter-' . esc_attr( $this->id );
+
+			echo wp_kses_post( $args['before_widget'] );
+
+			if ( $title ) {
+				echo wp_kses_post( $args['before_title'] . $title . $args['after_title'] );
+			}
+			?>
+			<div class="s-footer__subscribe">
+				<?php if ( $desc ) : ?>
+					<p><?php echo wp_kses_post( $desc ); ?></p>
+				<?php endif; ?>
+
+				<div class="subscribe-form">
+					<div id="mc-form">
+						<form class="group validate" method="post" action="<?php echo esc_url( $action_url ); ?>" target="_blank">
+							<label for="<?php echo esc_attr( $field_id ); ?>" class="screen-reader-text">
+								<?php esc_html_e( 'Email Address', 'philosophy' ); ?>
+							</label>
+
+							<input
+								type="email"
+								name="EMAIL"
+								class="email required"
+								id="<?php echo esc_attr( $field_id ); ?>"
+								placeholder="<?php esc_attr_e( 'Email Address', 'philosophy' ); ?>"
+								autocomplete="email"
+								required>
+
+							<input type="submit" name="subscribe" value="<?php esc_attr_e( 'Send', 'philosophy' ); ?>">
+						</form>
+					</div>
+				</div>
+			</div> <!-- end s-footer__subscribe -->
+			<?php
+			echo wp_kses_post( $args['after_widget'] );
+		}
+
+		/**
+		 * Renders the widget settings form.
+		 *
+		 * @param array $instance Widget settings.
+		 */
+		public function form( $instance ) {
+			$title      = isset( $instance['title'] ) ? $instance['title'] : esc_html__( 'Our Newsletter', 'philosophy' );
+			$desc       = isset( $instance['desc'] ) ? $instance['desc'] : '';
+			$action_url = isset( $instance['actionurl'] ) ? $instance['actionurl'] : '';
+			?>
+			<p>
+				<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title:', 'philosophy' ); ?></label>
+				<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>">
+			</p>
+			<p>
+				<label for="<?php echo esc_attr( $this->get_field_id( 'desc' ) ); ?>"><?php esc_html_e( 'Short description:', 'philosophy' ); ?></label>
+				<textarea class="widefat" rows="3" id="<?php echo esc_attr( $this->get_field_id( 'desc' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'desc' ) ); ?>"><?php echo esc_textarea( $desc ); ?></textarea>
+			</p>
+			<p>
+				<label for="<?php echo esc_attr( $this->get_field_id( 'actionurl' ) ); ?>"><?php esc_html_e( 'Form action URL:', 'philosophy' ); ?></label>
+				<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'actionurl' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'actionurl' ) ); ?>" type="url" value="<?php echo esc_attr( $action_url ); ?>">
+				<span class="description">
+					<?php esc_html_e( 'The URL your mailing list provider gives you for an embedded form, for example the action attribute of a Mailchimp embed.', 'philosophy' ); ?>
+				</span>
+			</p>
+			<?php
+		}
+
+		/**
+		 * Sanitizes the settings.
+		 *
+		 * @param array $new_instance Submitted settings.
+		 * @param array $old_instance Previous settings.
+		 *
+		 * @return array
+		 */
+		public function update( $new_instance, $old_instance ) {
+			return array(
+				'title'     => isset( $new_instance['title'] ) ? sanitize_text_field( $new_instance['title'] ) : '',
+				'desc'      => isset( $new_instance['desc'] ) ? wp_kses_post( $new_instance['desc'] ) : '',
+				'actionurl' => isset( $new_instance['actionurl'] ) ? esc_url_raw( $new_instance['actionurl'] ) : '',
+			);
+		}
 	}
-	?>
-
-    <div class="subscribe-form">
-    <div id="mc-form">
-        <form id="mc-embedded-subscribe-form" class="group validate" name="mc-embedded-subscribe-form" method="post" action="<?php echo esc_url( $actionurl ); ?>" target="_blank" novalidate>
-
-            <input type="email" name="EMAIL" class="email required" id="mce-EMAIL" placeholder="<?php esc_html_e( 'Email Address', 'philosophy' ); ?>" required>
-
-            <input type="submit" id="mc-embedded-subscribe" name="subscribe" value="<?php esc_html_e( 'Send', 'philosophy' ); ?>">
-
-            <div id="mce-responses" class="clear">
-                <div class="response" id="mce-error-response" style="display:none"></div>
-                <div class="response" id="mce-success-response" style="display:none"></div>
-            </div>
-        </form>
-    </div>
-    </div>
-</div> <!-- end s-footer__subscribe -->
-
-<?php
-echo wp_kses_post( $args['after_widget'] );
-}
-		
-// Widget Backend 
-public function form( $instance ) {
-	
-if ( isset( $instance[ 'title' ] ) ) {
-	$title = $instance[ 'title' ];
-}else {
-	$title = esc_html__( 'OUR NEWSLETTER', 'philosophy' );
 }
 
-
-//	Url
-if ( isset( $instance[ 'actionurl' ] ) ) {
-	$actionurl = $instance[ 'actionurl' ];
-}else {
-	$actionurl = '';
-}
-//	Text Area
-if ( isset( $instance[ 'desc' ] ) ) {
-	$desc = $instance[ 'desc' ];
-}else {
-	$desc = '';
-}
-
-
-// Widget admin form
-?>
-<p>
-<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title:' ,'philosophy'); ?></label> 
-<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
-</p>
-<p>
-<label for="<?php echo esc_attr( $this->get_field_id( 'desc' ) ); ?>"><?php esc_html_e( 'Short Description:' ,'philosophy'); ?></label> 
-<textarea class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'desc' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'desc' ) ); ?>"><?php echo esc_textarea( $desc ); ?></textarea>
-</p>
-<p>
-<label for="<?php echo esc_attr( $this->get_field_id( 'actionurl' ) ); ?>"><?php esc_html_e( 'Action URL:' ,'philosophy'); ?></label>
-<?php 
-$url = 'http://docs.creativegigs.net/docs/aproch/how-to-use-optin-form/how-to-locate-mailchimp-newsletter-form-action-url/';
-?>
-<p><?php echo sprintf( __( 'Enter here your MailChimp action URL. %s %s %s', 'philosophy' ), '<a href="'.esc_url( $url ).'" target="_blank">', esc_html__( 'How to', 'philosophy' ), '</a>' ); ?></p>
-
-<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'actionurl' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'actionurl' ) ); ?>" type="text" value="<?php echo esc_attr( $actionurl ); ?>" />
-</p>
-
-<?php 
-}
-
-	
-// Updating widget replacing old instances with new
-public function update( $new_instance, $old_instance ) {
-
-	
-$instance = array();
-$instance['title'] 	  = ( ! empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';
-$instance['actionurl'] = ( ! empty( $new_instance['actionurl'] ) ) ? strip_tags( $new_instance['actionurl'] ) : '';
-$instance['desc'] = ( ! empty( $new_instance['desc'] ) ) ? strip_tags( $new_instance['desc'] ) : '';
-
-return $instance;
-
-}
-
-} // Class philosophy_newsletter_widget ends here
-
-
-// Register and load the widget
-function philosophy_newsletter_load_widget() {
-	register_widget( 'philosophy_newsletter_widget' );
+if ( ! function_exists( 'philosophy_newsletter_load_widget' ) ) {
+	/**
+	 * Registers the widget.
+	 */
+	function philosophy_newsletter_load_widget() {
+		register_widget( 'philosophy_newsletter_widget' );
+	}
 }
 add_action( 'widgets_init', 'philosophy_newsletter_load_widget' );
