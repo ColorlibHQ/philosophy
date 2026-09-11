@@ -78,7 +78,14 @@
 			var apply = function ( value ) {
 				dependents.forEach( function ( id ) {
 					api.control( id, function ( control ) {
-						control.container.hidden = ! value;
+						// control.container is a jQuery object, so the element
+						// itself has to be reached for; setting .hidden on the
+						// wrapper silently does nothing.
+						var node = control.container[ 0 ] || control.container;
+
+						if ( node && 'undefined' !== typeof node.hidden ) {
+							node.hidden = ! value;
+						}
 					} );
 				} );
 			};
@@ -113,7 +120,11 @@
 	api( 'philosophy_contact_formshortcode', function ( setting ) {
 		var apply = function ( value ) {
 			api.control( 'philosophy_contact_custom_formshortcode', function ( control ) {
-				control.container.hidden = 'cs' !== value;
+				var node = control.container[ 0 ] || control.container;
+
+				if ( node && 'undefined' !== typeof node.hidden ) {
+					node.hidden = 'cs' !== value;
+				}
 			} );
 		};
 

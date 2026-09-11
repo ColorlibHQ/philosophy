@@ -140,19 +140,20 @@ if ( ! class_exists( 'Philosophy_Control_Repeater' ) ) {
 				<input type="hidden" class="philosophy-repeater__value"
 					value="<?php echo esc_attr( wp_json_encode( $rows ) ); ?>"
 					<?php $this->link(); ?> />
+
+				<?php // The template stays inside the wrapper: the script looks it up from there. ?>
+				<script type="text/html" class="philosophy-repeater__template">
+					<?php
+					$blank = array();
+
+					foreach ( $this->fields as $name => $field ) {
+						$blank[ $name ] = isset( $field['default'] ) ? (string) $field['default'] : '';
+					}
+
+					$this->render_row( $blank, '__i__' );
+					?>
+				</script>
 			</div>
-
-			<script type="text/html" class="philosophy-repeater__template">
-				<?php
-				$blank = array();
-
-				foreach ( $this->fields as $name => $field ) {
-					$blank[ $name ] = isset( $field['default'] ) ? (string) $field['default'] : '';
-				}
-
-				$this->render_row( $blank, '__i__' );
-				?>
-			</script>
 			<?php
 		}
 

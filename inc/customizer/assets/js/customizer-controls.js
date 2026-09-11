@@ -214,10 +214,11 @@
 			mediaButtons: false
 		} );
 
-		// The Text tab writes to the textarea directly; mirror that back out.
-		textarea.addEventListener( 'input', function () {
-			notify( textarea );
-		} );
+		// The Text tab writes straight to the textarea, and the Customizer is
+		// already listening to it, so nothing needs re-dispatching here. An
+		// earlier version called notify() from this handler, which re-entered
+		// the same listener and blew the call stack.
+
 	};
 
 	/**
