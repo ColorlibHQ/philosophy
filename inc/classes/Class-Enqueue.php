@@ -1,128 +1,79 @@
-<?php 
+<?php
 /**
- * @Packge 	   : Colorlib
- * @Version    : 1.0
- * @Author 	   : Colorlib
- * @Author URI : http://colorlib.com/wp/
+ * Legacy enqueue helper.
  *
+ * @deprecated 1.2.0 The theme enqueues its own assets in Philosophy::enqueue_assets().
+ *                   This class is kept only so a child theme that instantiated it
+ *                   does not fatal.
+ *
+ * @package Philosophy
+ * @since   1.0
  */
- 
-	// Block direct access
-	if( !defined( 'ABSPATH' ) ){
-		exit( 'Direct script access denied.' );
-	}
 
-	// Front-End script and style Enqueue class 
-	class philosophy_Enqueue{
+if ( ! defined( 'ABSPATH' ) ) {
+	exit( 'Direct script access denied.' );
+}
 
+if ( ! class_exists( 'philosophy_Enqueue' ) ) {
+
+	/**
+	 * Class philosophy_Enqueue
+	 *
+	 * @deprecated 1.2.0
+	 */
+	class philosophy_Enqueue {
+
+		/**
+		 * Style and script definitions.
+		 *
+		 * @var array
+		 */
 		public $scripts = array();
 
-		public function philosophy_scripts_enqueue_init(){
-			add_action( 'wp_enqueue_scripts', array( $this, 'philosophy_frontend_enqueue_scripts', ) );
+		/**
+		 * Hooks the enqueue callback up.
+		 */
+		public function philosophy_scripts_enqueue_init() {
+			add_action( 'wp_enqueue_scripts', array( $this, 'philosophy_frontend_enqueue_scripts' ) );
 		}
 
-		public function philosophy_frontend_enqueue_scripts( ){
-
-			$scripts = $this->scripts;
-			
-			// variable type check
-			if( is_array( $scripts ) && count( $scripts ) > 0 ){
-
-				// Style Enqueue
-				if( is_array( $scripts['style'] ) && count( $scripts['style'] ) > 0 ){
-
-					foreach( $scripts['style'] as $style ){
-
-						// Check handler
-						$handler = '';
-						if( !empty( $style['handler'] ) ){
-							$handler = $style['handler'];
-						}
-
-						// Check file
-						$file = '';
-						if( !empty( $style['file'] ) ){
-							$file = $style['file'];
-						}
-						// Check dependency
-						$dependency = '';
-						if( !empty( $style['dependency'] ) ){
-							$dependency = $style['dependency'];
-						}
-						// Check version
-						$version = '';
-						if( !empty( $style['version'] ) ){
-							$version = $style['version'];
-						}
-
-						// wp_enqueue_style
-						wp_enqueue_style( esc_html( $handler ), esc_url( $file ), $dependency, esc_html( $version ) );
-
+		/**
+		 * Enqueues everything in $scripts.
+		 */
+		public function philosophy_frontend_enqueue_scripts() {
+			if ( ! empty( $this->scripts['style'] ) && is_array( $this->scripts['style'] ) ) {
+				foreach ( $this->scripts['style'] as $style ) {
+					if ( empty( $style['handler'] ) || empty( $style['file'] ) ) {
+						continue;
 					}
 
-				} // End Style Enqueue
+					wp_enqueue_style(
+						sanitize_key( $style['handler'] ),
+						esc_url_raw( $style['file'] ),
+						isset( $style['dependency'] ) ? (array) $style['dependency'] : array(),
+						isset( $style['version'] ) ? $style['version'] : false
+					);
+				}
+			}
 
-				// Scripts Enqueue 
-				if( is_array( $scripts['scripts'] ) && count( $scripts['scripts'] ) > 0 ){
-
-					foreach( $scripts['scripts'] as $script ){
-
-						// Check handler
-						$handler = '';
-						if( !empty( $script['handler'] ) ){
-							$handler = $script['handler'];
-						}
-
-						// Check file
-						$file = '';
-						if( !empty( $script['file'] ) ){
-							$file = $script['file'];
-						}
-						// Check dependency
-						$dependency = array('jquery');
-						if( !empty( $script['dependency'] ) ){
-							$dependency = $script['dependency'];
-						}
-						// Check version
-						$version = '';
-						if( !empty( $script['version'] ) ){
-							$version = $script['version'];
-						}
-						// Check in_footer
-						$in_footer = '';
-						if( !empty( $script['in_footer'] ) ){
-							$in_footer = $script['in_footer'];
-						}
-												
-						// wp enqueue script
-						if( !empty( $script['register'] ) ){
-							wp_register_script( esc_html( $handler ), esc_url( $file ), $dependency, esc_html( $version ), esc_html( $in_footer ) );
-						}else{							
-							wp_enqueue_script( esc_html( $handler ), esc_url( $file ), $dependency, esc_html( $version ), esc_html( $in_footer )  );
-						}
-						
-						// Condational Script
-						if( !empty( $script['condation'] ) ){
-							wp_script_add_data( esc_html( $handler ), 'conditional', esc_html( $script['condation'] ) );
-						}
-	
-					}
-					
-					// Comment replay
-					if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-						wp_enqueue_script( 'comment-reply' );
+			if ( ! empty( $this->scripts['scripts'] ) && is_array( $this->scripts['scripts'] ) ) {
+				foreach ( $this->scripts['scripts'] as $script ) {
+					if ( empty( $script['handler'] ) || empty( $script['file'] ) ) {
+						continue;
 					}
 
-				} // End Scripts Enqueue
+					$handle    = sanitize_key( $script['handler'] );
+					$deps      = isset( $script['dependency'] ) ? (array) $script['dependency'] : array();
+					$version   = isset( $script['version'] ) ? $script['version'] : false;
+					$in_footer = ! empty( $script['in_footer'] );
 
-
-			} // End variable type check
-
+					if ( ! empty( $script['register'] ) ) {
+						wp_register_script( $handle, esc_url_raw( $script['file'] ), $deps, $version, $in_footer );
+					} else {
+						wp_enqueue_script( $handle, esc_url_raw( $script['file'] ), $deps, $version, $in_footer );
+					}
+				}
+			}
 		}
-
 	}
-
-
-
-
-?>
+}
