@@ -1,132 +1,111 @@
-<?php 
+<?php
 /**
- * @Packge 	   : Colorlib
- * @Version    : 1.0
- * @Author 	   : Colorlib
- * @Author URI : http://colorlib.com/wp/
+ * Philosophy theme bootstrap.
  *
+ * @package Philosophy
+ * @since   1.0
  */
- 
-	// Block direct access
-	if( !defined( 'ABSPATH' ) ){
-		exit( 'Direct script access denied.' );
-	}
 
-	/**
-	 *
-	 * Define constant
-	 *
-	 */
-	
-	 
-	// Base URI
-	if( !defined( 'PHILOSOPHY_DIR_URI' ) )
-		define( 'PHILOSOPHY_DIR_URI', get_template_directory_uri().'/' );
-	
-	// assets URI
-	if( !defined( 'PHILOSOPHY_DIR_ASSETS_URI' ) )
-		define( 'PHILOSOPHY_DIR_ASSETS_URI', PHILOSOPHY_DIR_URI.'assets/' );
-	
-	// Css File URI
-	if( !defined( 'PHILOSOPHY_DIR_CSS_URI' ) )
-		define( 'PHILOSOPHY_DIR_CSS_URI', PHILOSOPHY_DIR_ASSETS_URI .'css/' );
-	
-	// Js File URI
-	if( !defined( 'PHILOSOPHY_DIR_JS_URI' ) )
-		define( 'PHILOSOPHY_DIR_JS_URI', PHILOSOPHY_DIR_ASSETS_URI .'js/' );
-	
-	// Icon Images
-	if( !defined('PHILOSOPHY_DIR_ICON_IMG_URI') )
-		define( 'PHILOSOPHY_DIR_ICON_IMG_URI', PHILOSOPHY_DIR_URI.'img/core-img/' );
-	
-	// Base Directory
-	if( !defined( 'PHILOSOPHY_DIR_PATH' ) )
-		define( 'PHILOSOPHY_DIR_PATH', get_parent_theme_file_path().'/' );
-	
-	//Inc Folder Directory
-	if( !defined( 'PHILOSOPHY_DIR_PATH_INC' ) )
-		define( 'PHILOSOPHY_DIR_PATH_INC', PHILOSOPHY_DIR_PATH.'inc/' );
-	
-	//Colorlib framework Folder Directory
-	if( !defined( 'PHILOSOPHY_DIR_PATH_LIB' ) )
-		define( 'PHILOSOPHY_DIR_PATH_LIB', PHILOSOPHY_DIR_PATH_INC.'libraries/' );
-	
-	//Classes Folder Directory
-	if( !defined( 'PHILOSOPHY_DIR_PATH_CLASSES' ) )
-		define( 'PHILOSOPHY_DIR_PATH_CLASSES', PHILOSOPHY_DIR_PATH_INC.'classes/' );
-	
-	//Hooks Folder Directory
-	if( !defined( 'PHILOSOPHY_DIR_PATH_HOOKS' ) )
-		define( 'PHILOSOPHY_DIR_PATH_HOOKS', PHILOSOPHY_DIR_PATH_INC.'hooks/' );
-	
-	//Widgets Folder Directory
-	if( !defined( 'PHILOSOPHY_DIR_PATH_WIDGET' ) )
-		define( 'PHILOSOPHY_DIR_PATH_WIDGET', PHILOSOPHY_DIR_PATH_INC.'widgets/' );
-		
-	//Elementor Widgets Folder Directory
-	if( !defined( 'PHILOSOPHY_DIR_PATH_ELEMENTOR_WIDGETS' ) )
-		define( 'PHILOSOPHY_DIR_PATH_ELEMENTOR_WIDGETS', PHILOSOPHY_DIR_PATH_INC.'elementor-widgets/widgets/' );
-	
+// Block direct access.
+if ( ! defined( 'ABSPATH' ) ) {
+	exit( 'Direct script access denied.' );
+}
 
-		
-	/**
-	 * Include File
-	 *
-	 */
-	
-	// Breadcrumbs file include
-	require_once( PHILOSOPHY_DIR_PATH_INC . 'philosophy-breadcrumbs.php' );
-	// Sidebar register file include
-	require_once( PHILOSOPHY_DIR_PATH_INC . 'philosophy-widgets-reg.php' );
-	// Post widget file include
-	require_once( PHILOSOPHY_DIR_PATH_INC . 'popular-post-widget.php' );
-	// News letter widget file include
-	require_once( PHILOSOPHY_DIR_PATH_INC . 'philosophy-newsletter-widget.php' );
-	// Nav walker file include
-	require_once( PHILOSOPHY_DIR_PATH_INC . 'wp_bootstrap_navwalker.php' );
-	// Theme function file include
-	require_once( PHILOSOPHY_DIR_PATH_INC . 'philosophy-functions.php' );
-	// Inline css file include
-	require_once( PHILOSOPHY_DIR_PATH_INC . 'philosophy-commoncss.php' );
-	// Theme support function file include
-	require_once( PHILOSOPHY_DIR_PATH_INC . 'support-functions.php' );
-	// Html helper file include
-	require_once( PHILOSOPHY_DIR_PATH_INC . 'wp-html-helper.php' );
-	// Pagination file include
-	require_once( PHILOSOPHY_DIR_PATH_INC . 'wp_bootstrap_pagination.php' );
-	//
-	require_once( PHILOSOPHY_DIR_PATH_CLASSES . 'Class-Enqueue.php' );
-	require_once( PHILOSOPHY_DIR_PATH_CLASSES . 'Class-Config.php' );
-	require_once( PHILOSOPHY_DIR_PATH_HOOKS . 'hooks.php' );
-	require_once( PHILOSOPHY_DIR_PATH_HOOKS . 'hooks-functions.php' );
+/**
+ * Theme version. Read from style.css so the two can never drift apart.
+ */
+if ( ! defined( 'PHILOSOPHY_VERSION' ) ) {
+	$philosophy_theme = wp_get_theme( get_template() );
+	define( 'PHILOSOPHY_VERSION', $philosophy_theme->get( 'Version' ) ? $philosophy_theme->get( 'Version' ) : '1.2.0' );
+	unset( $philosophy_theme );
+}
 
-	// Customizer
-	require_once( PHILOSOPHY_DIR_PATH_INC . 'customizer/customizer.php' );
-	// Class autoloader
-	require_once( PHILOSOPHY_DIR_PATH_INC . 'class-epsilon-dashboard-autoloader.php' );
-	// Class philosophy dashboard
-	 require_once( PHILOSOPHY_DIR_PATH_INC . 'class-epsilon-init-dashboard.php' );
+/**
+ * Bundled Font Awesome version, used as the icon stylesheet's cache buster.
+ */
+if ( ! defined( 'PHILOSOPHY_FONTAWESOME_VERSION' ) ) {
+	define( 'PHILOSOPHY_FONTAWESOME_VERSION', '6.7.2' );
+}
 
+/**
+ * Paths and URIs.
+ */
+if ( ! defined( 'PHILOSOPHY_DIR_URI' ) ) {
+	define( 'PHILOSOPHY_DIR_URI', trailingslashit( get_template_directory_uri() ) );
+}
 
-	// Admin Enqueue Script
-	function philosophy_admin_script(){
-		wp_enqueue_style( 'philosophy-admin', get_template_directory_uri().'/assets/css/philosophy_admin.css', false, '1.0.0' );
-		wp_enqueue_script( 'philosophy_admin', get_template_directory_uri().'/assets/js/philosophy_admin.js', false, '1.0.0' );
-	}
-	add_action( 'admin_enqueue_scripts', 'philosophy_admin_script' );
+if ( ! defined( 'PHILOSOPHY_DIR_ASSETS_URI' ) ) {
+	define( 'PHILOSOPHY_DIR_ASSETS_URI', PHILOSOPHY_DIR_URI . 'assets/' );
+}
 
-	 
-	/**
-	 * Instantiate Philosophy object
-	 *
-	 * Inside this object:
-	 * Enqueue scripts, Google font, Theme support features, Philosophy Dashboard .
-	 *
-	 */
-	
-	$Philosophy = new Philosophy();
-	
+if ( ! defined( 'PHILOSOPHY_DIR_CSS_URI' ) ) {
+	define( 'PHILOSOPHY_DIR_CSS_URI', PHILOSOPHY_DIR_ASSETS_URI . 'css/' );
+}
 
+if ( ! defined( 'PHILOSOPHY_DIR_JS_URI' ) ) {
+	define( 'PHILOSOPHY_DIR_JS_URI', PHILOSOPHY_DIR_ASSETS_URI . 'js/' );
+}
 
+if ( ! defined( 'PHILOSOPHY_DIR_IMG_URI' ) ) {
+	define( 'PHILOSOPHY_DIR_IMG_URI', PHILOSOPHY_DIR_URI . 'img/' );
+}
 
-?>
+// Retained for child themes; the directory it pointed at never existed.
+if ( ! defined( 'PHILOSOPHY_DIR_ICON_IMG_URI' ) ) {
+	define( 'PHILOSOPHY_DIR_ICON_IMG_URI', PHILOSOPHY_DIR_URI . 'img/icons/' );
+}
+
+if ( ! defined( 'PHILOSOPHY_DIR_PATH' ) ) {
+	define( 'PHILOSOPHY_DIR_PATH', trailingslashit( get_parent_theme_file_path() ) );
+}
+
+if ( ! defined( 'PHILOSOPHY_DIR_PATH_INC' ) ) {
+	define( 'PHILOSOPHY_DIR_PATH_INC', PHILOSOPHY_DIR_PATH . 'inc/' );
+}
+
+if ( ! defined( 'PHILOSOPHY_DIR_PATH_LIB' ) ) {
+	define( 'PHILOSOPHY_DIR_PATH_LIB', PHILOSOPHY_DIR_PATH_INC . 'libraries/' );
+}
+
+if ( ! defined( 'PHILOSOPHY_DIR_PATH_CLASSES' ) ) {
+	define( 'PHILOSOPHY_DIR_PATH_CLASSES', PHILOSOPHY_DIR_PATH_INC . 'classes/' );
+}
+
+if ( ! defined( 'PHILOSOPHY_DIR_PATH_HOOKS' ) ) {
+	define( 'PHILOSOPHY_DIR_PATH_HOOKS', PHILOSOPHY_DIR_PATH_INC . 'hooks/' );
+}
+
+if ( ! defined( 'PHILOSOPHY_DIR_PATH_WIDGET' ) ) {
+	define( 'PHILOSOPHY_DIR_PATH_WIDGET', PHILOSOPHY_DIR_PATH_INC . 'widgets/' );
+}
+
+/**
+ * Includes.
+ */
+require_once PHILOSOPHY_DIR_PATH_INC . 'philosophy-functions.php';
+require_once PHILOSOPHY_DIR_PATH_INC . 'philosophy-sanitize.php';
+require_once PHILOSOPHY_DIR_PATH_INC . 'philosophy-breadcrumbs.php';
+require_once PHILOSOPHY_DIR_PATH_INC . 'philosophy-widgets-reg.php';
+require_once PHILOSOPHY_DIR_PATH_INC . 'popular-post-widget.php';
+require_once PHILOSOPHY_DIR_PATH_INC . 'philosophy-newsletter-widget.php';
+require_once PHILOSOPHY_DIR_PATH_INC . 'wp_bootstrap_navwalker.php';
+require_once PHILOSOPHY_DIR_PATH_INC . 'philosophy-commoncss.php';
+require_once PHILOSOPHY_DIR_PATH_INC . 'philosophy-blocks.php';
+require_once PHILOSOPHY_DIR_PATH_INC . 'support-functions.php';
+require_once PHILOSOPHY_DIR_PATH_INC . 'wp-html-helper.php';
+require_once PHILOSOPHY_DIR_PATH_INC . 'wp_bootstrap_pagination.php';
+require_once PHILOSOPHY_DIR_PATH_CLASSES . 'Class-Enqueue.php';
+require_once PHILOSOPHY_DIR_PATH_HOOKS . 'hooks.php';
+require_once PHILOSOPHY_DIR_PATH_HOOKS . 'hooks-functions.php';
+require_once PHILOSOPHY_DIR_PATH_INC . 'customizer/customizer.php';
+require_once PHILOSOPHY_DIR_PATH_CLASSES . 'Class-Config.php';
+require_once PHILOSOPHY_DIR_PATH_INC . 'philosophy-deprecated.php';
+
+if ( is_admin() ) {
+	require_once PHILOSOPHY_DIR_PATH_INC . 'admin/class-philosophy-welcome.php';
+}
+
+/**
+ * Instantiate the theme.
+ */
+$GLOBALS['philosophy'] = new Philosophy();

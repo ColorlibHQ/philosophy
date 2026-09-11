@@ -2001,14 +2001,13 @@ body.search-is-visible {
    background-size: contain;
 }
 
-.header__search-trigger::before {
+.header__search-trigger .search-label {
    font-family: 'Montserrat', sans-serif;
    font-size: 12px;
    font-weight: 600;
    text-transform: uppercase;
    letter-spacing: 2px;
    line-height: 21px;
-   content: "Search";
    display: block;
    color: #FFFFFF;
    float: left;
@@ -2595,19 +2594,12 @@ body.search-is-visible {
 
 /* animate .featured
  * ------------------------------------------------------------------- */
-html.cl-preload .featured {
-   opacity: 0;
-}
-
 html.cl-loaded .featured {
    animation-duration: 2s;
    -webkit-animation-name: fadeIn;
    animation-name: fadeIn;
 }
 
-html.no-csstransitions .featured {
-   opacity: 1;
-}
 
 
 /* ------------------------------------------------------------------- 
@@ -4347,108 +4339,208 @@ article.sticky .entry__text{
 }
 
 /* Social Icon
+ * -----------------------------------------------
+ *
+ * Social links pick up their icon from the address they point at, so a menu
+ * item needs no CSS class at all. A Font Awesome class on the menu item still
+ * wins, which is how these menus were set up before 1.2.0.
+ *
+ * The theme's navigation walker also adds the matching fa-brands class in PHP;
+ * these rules are what make an icon appear on a link the walker did not build,
+ * such as one written into a widget.
  * ----------------------------------------------- */
-.about__social a[href*="twitter.com"].fa:before,
-.header__social a[href*="twitter.com"].fa:before,
-.fa-twitter:before {
-   content: "\f099"
+.about__social a.fa:not([class*="fa-"])::before,
+.header__social a.fa:not([class*="fa-"])::before {
+   font-family: "Font Awesome 7 Brands";
+   font-weight: 400;
 }
 
-.about__social a[href*="facebook.com"].fa:before,
-.header__social a[href*="facebook.com"].fa:before,
-.fa-facebook-f:before,
-.fa-facebook:before {
-   content: "\f09a"
+.about__social a[href^="mailto:"].fa:not([class*="fa-"])::before,
+.header__social a[href^="mailto:"].fa:not([class*="fa-"])::before,
+.about__social a[href*="/feed"].fa:not([class*="fa-"])::before,
+.header__social a[href*="/feed"].fa:not([class*="fa-"])::before {
+   font-family: "Font Awesome 7 Free";
+   font-weight: 900;
 }
 
-.about__social a[href*="github.com"].fa:before,
-.header__social a[href*="github.com"].fa:before,
-.fa-github:before {
-   content: "\f09b"
+.about__social a[href*="x.com"].fa:not([class*="fa-"])::before,
+.header__social a[href*="x.com"].fa:not([class*="fa-"])::before {
+   content: "\e61b";
 }
 
-.about__social a[href*="/feed"].fa:before,
-.header__social a[href*="/feed"].fa:before,
-.fa-rss:before {
-   content: "\f09e"
+.about__social a[href*="twitter.com"].fa:not([class*="fa-"])::before,
+.header__social a[href*="twitter.com"].fa:not([class*="fa-"])::before {
+   content: "\e61b";
 }
 
-.about__social a[href*="pinterest.com"].fa:before,
-.header__social a[href*="pinterest.com"].fa:before,
-.fa-pinterest:before {
-   content: "\f0d2"
+.about__social a[href*="bsky.app"].fa:not([class*="fa-"])::before,
+.header__social a[href*="bsky.app"].fa:not([class*="fa-"])::before {
+   content: "\e671";
 }
 
-.about__social a[href*="plus.google.com"].fa:before,
-.header__social a[href*="plus.google.com"].fa:before,
-.fa-google-plus:before {
-   content: "\f0d5"
+.about__social a[href*="threads.net"].fa:not([class*="fa-"])::before,
+.header__social a[href*="threads.net"].fa:not([class*="fa-"])::before,
+.about__social a[href*="threads.com"].fa:not([class*="fa-"])::before,
+.header__social a[href*="threads.com"].fa:not([class*="fa-"])::before {
+   content: "\e618";
 }
 
-.about__social a[href*="linkedin.com"].fa:before,
-.header__social a[href*="linkedin.com"].fa:before,
-.fa-linkedin:before {
-   content: "\f0e1"
+.about__social a[href*="mastodon"].fa:not([class*="fa-"])::before,
+.header__social a[href*="mastodon"].fa:not([class*="fa-"])::before {
+   content: "\f4f6";
 }
 
-.about__social a[href*="youtube.com"].fa:before,
-.header__social a[href*="youtube.com"].fa:before,
-.fa-youtube:before {
-   content: "\f167"
+.about__social a[href*="facebook.com"].fa:not([class*="fa-"])::before,
+.header__social a[href*="facebook.com"].fa:not([class*="fa-"])::before {
+   content: "\f39e";
 }
 
-.about__social a[href*="instagram.com"].fa:before,
-.header__social a[href*="instagram.com"].fa:before,
-.fa-instagram:before {
-   content: "\f16d"
+.about__social a[href*="instagram.com"].fa:not([class*="fa-"])::before,
+.header__social a[href*="instagram.com"].fa:not([class*="fa-"])::before {
+   content: "\f16d";
 }
 
-.about__social a[href*="flickr.com"].fa:before,
-.header__social a[href*="flickr.com"].fa:before,
-.fa-flickr:before {
-   content: "\f16e"
+.about__social a[href*="tiktok.com"].fa:not([class*="fa-"])::before,
+.header__social a[href*="tiktok.com"].fa:not([class*="fa-"])::before {
+   content: "\e07b";
 }
 
-.about__social a[href*="tumblr.com"].fa:before,
-.header__social a[href*="tumblr.com"].fa:before,
-.fa-tumblr:before {
-   content: "\f173"
+.about__social a[href*="youtube.com"].fa:not([class*="fa-"])::before,
+.header__social a[href*="youtube.com"].fa:not([class*="fa-"])::before,
+.about__social a[href*="youtu.be"].fa:not([class*="fa-"])::before,
+.header__social a[href*="youtu.be"].fa:not([class*="fa-"])::before {
+   content: "\f167";
 }
 
-.about__social a[href*="dribbble.com"].fa:before,
-.header__social a[href*="dribbble.com"].fa:before,
-.fa-dribbble:before {
-   content: "\f17d"
+.about__social a[href*="linkedin.com"].fa:not([class*="fa-"])::before,
+.header__social a[href*="linkedin.com"].fa:not([class*="fa-"])::before {
+   content: "\f0e1";
 }
 
-.about__social a[href*="skype.com"].fa:before,
-.header__social a[href*="skype.com"].fa:before,
-.fa-skype:before {
-   content: "\f17e"
+.about__social a[href*="pinterest.com"].fa:not([class*="fa-"])::before,
+.header__social a[href*="pinterest.com"].fa:not([class*="fa-"])::before {
+   content: "\f231";
 }
 
-.about__social a[href*="foursquare.com"].fa:before,
-.header__social a[href*="foursquare.com"].fa:before,
-.fa-foursquare:before {
-   content: "\f180"
+.about__social a[href*="github.com"].fa:not([class*="fa-"])::before,
+.header__social a[href*="github.com"].fa:not([class*="fa-"])::before {
+   content: "\f09b";
 }
 
-.about__social a[href*="vimeo.com"].fa:before,
-.header__social a[href*="vimeo.com"].fa:before,
-.fa-vimeo-square:before {
-   content: "\f194"
+.about__social a[href*="gitlab.com"].fa:not([class*="fa-"])::before,
+.header__social a[href*="gitlab.com"].fa:not([class*="fa-"])::before {
+   content: "\f296";
 }
 
-.about__social a[href*="spotify.com"].fa:before,
-.header__social a[href*="spotify.com"].fa:before,
-.fa-spotify:before {
-   content: "\f1bc"
+.about__social a[href*="codepen.io"].fa:not([class*="fa-"])::before,
+.header__social a[href*="codepen.io"].fa:not([class*="fa-"])::before {
+   content: "\f1cb";
 }
 
-.about__social a[href*="soundcloud.com"].fa:before,
-.header__social a[href*="soundcloud.com"].fa:before,
-.fa-soundcloud:before {
-   content: "\f1be"
+.about__social a[href*="dribbble.com"].fa:not([class*="fa-"])::before,
+.header__social a[href*="dribbble.com"].fa:not([class*="fa-"])::before {
+   content: "\f17d";
+}
+
+.about__social a[href*="behance.net"].fa:not([class*="fa-"])::before,
+.header__social a[href*="behance.net"].fa:not([class*="fa-"])::before {
+   content: "\f1b4";
+}
+
+.about__social a[href*="medium.com"].fa:not([class*="fa-"])::before,
+.header__social a[href*="medium.com"].fa:not([class*="fa-"])::before {
+   content: "\f23a";
+}
+
+.about__social a[href*="tumblr.com"].fa:not([class*="fa-"])::before,
+.header__social a[href*="tumblr.com"].fa:not([class*="fa-"])::before {
+   content: "\f173";
+}
+
+.about__social a[href*="reddit.com"].fa:not([class*="fa-"])::before,
+.header__social a[href*="reddit.com"].fa:not([class*="fa-"])::before {
+   content: "\f1a1";
+}
+
+.about__social a[href*="twitch.tv"].fa:not([class*="fa-"])::before,
+.header__social a[href*="twitch.tv"].fa:not([class*="fa-"])::before {
+   content: "\f1e8";
+}
+
+.about__social a[href*="discord"].fa:not([class*="fa-"])::before,
+.header__social a[href*="discord"].fa:not([class*="fa-"])::before {
+   content: "\f392";
+}
+
+.about__social a[href*="telegram"].fa:not([class*="fa-"])::before,
+.header__social a[href*="telegram"].fa:not([class*="fa-"])::before,
+.about__social a[href*="t.me"].fa:not([class*="fa-"])::before,
+.header__social a[href*="t.me"].fa:not([class*="fa-"])::before {
+   content: "\f2c6";
+}
+
+.about__social a[href*="whatsapp.com"].fa:not([class*="fa-"])::before,
+.header__social a[href*="whatsapp.com"].fa:not([class*="fa-"])::before,
+.about__social a[href*="wa.me"].fa:not([class*="fa-"])::before,
+.header__social a[href*="wa.me"].fa:not([class*="fa-"])::before {
+   content: "\f232";
+}
+
+.about__social a[href*="snapchat.com"].fa:not([class*="fa-"])::before,
+.header__social a[href*="snapchat.com"].fa:not([class*="fa-"])::before {
+   content: "\f2ac";
+}
+
+.about__social a[href*="vimeo.com"].fa:not([class*="fa-"])::before,
+.header__social a[href*="vimeo.com"].fa:not([class*="fa-"])::before {
+   content: "\f27d";
+}
+
+.about__social a[href*="spotify.com"].fa:not([class*="fa-"])::before,
+.header__social a[href*="spotify.com"].fa:not([class*="fa-"])::before {
+   content: "\f1bc";
+}
+
+.about__social a[href*="soundcloud.com"].fa:not([class*="fa-"])::before,
+.header__social a[href*="soundcloud.com"].fa:not([class*="fa-"])::before {
+   content: "\f1be";
+}
+
+.about__social a[href*="flickr.com"].fa:not([class*="fa-"])::before,
+.header__social a[href*="flickr.com"].fa:not([class*="fa-"])::before {
+   content: "\f16e";
+}
+
+.about__social a[href*="500px.com"].fa:not([class*="fa-"])::before,
+.header__social a[href*="500px.com"].fa:not([class*="fa-"])::before {
+   content: "\f26e";
+}
+
+.about__social a[href*="unsplash.com"].fa:not([class*="fa-"])::before,
+.header__social a[href*="unsplash.com"].fa:not([class*="fa-"])::before {
+   content: "\e07c";
+}
+
+.about__social a[href*="foursquare.com"].fa:not([class*="fa-"])::before,
+.header__social a[href*="foursquare.com"].fa:not([class*="fa-"])::before {
+   content: "\f180";
+}
+
+.about__social a[href*="skype.com"].fa:not([class*="fa-"])::before,
+.header__social a[href*="skype.com"].fa:not([class*="fa-"])::before,
+.about__social a[href^="skype:"].fa:not([class*="fa-"])::before,
+.header__social a[href^="skype:"].fa:not([class*="fa-"])::before {
+   content: "\f17e";
+}
+
+.about__social a[href*="/feed"].fa:not([class*="fa-"])::before,
+.header__social a[href*="/feed"].fa:not([class*="fa-"])::before {
+   content: "\f09e";
+}
+
+.about__social a[href^="mailto:"].fa:not([class*="fa-"])::before,
+.header__social a[href^="mailto:"].fa:not([class*="fa-"])::before {
+   content: "\f0e0";
 }
 
 /* =WordPress Core
@@ -4561,4 +4653,336 @@ a img.aligncenter {
    width: auto;
    z-index: 100000;
    /* Above WP toolbar. */
+}
+/* ===================================================================
+ * # 1.2.0 additions
+ *
+ *   Accessibility helpers, the preloader's exit state and the block
+ *   editor's wide alignments.
+ * ------------------------------------------------------------------- */
+
+/* ## skip link
+ * ----------------------------------------------- */
+.skip-link {
+   position: absolute;
+   top: -100px;
+   left: 6px;
+   z-index: 100000;
+   display: block;
+   padding: 12px 22px;
+   background-color: #fff;
+   color: #050505;
+   font-family: "Montserrat", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+   font-size: 1.4rem;
+   font-weight: 600;
+   line-height: normal;
+   text-decoration: none;
+   box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+   transition: top 0.2s ease-in-out;
+}
+
+.skip-link:focus {
+   top: 6px;
+   color: #050505;
+   outline: 2px solid #0054a5;
+   outline-offset: 2px;
+}
+
+/* ## visible focus
+ *
+ *    The theme removed every outline in its reset, which left keyboard users
+ *    with no way to tell where they were.
+ * ----------------------------------------------- */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+   outline: 2px solid #0054a5;
+   outline-offset: 2px;
+}
+
+.header__nav a:focus-visible,
+.header__social a:focus-visible,
+.header__search-trigger:focus-visible,
+.header__toggle-menu:focus-visible,
+.header__overlay-close:focus-visible {
+   outline: 2px solid #fff;
+   outline-offset: 2px;
+}
+
+/* ## preloader exit
+ *
+ *    The fade used to be animated by jQuery; it is a CSS transition now.
+ * ----------------------------------------------- */
+#preloader,
+#loader {
+   transition: opacity 0.5s ease-in-out;
+}
+
+#loader.is-hidden {
+   opacity: 0;
+}
+
+#preloader.is-hidden {
+   opacity: 0;
+   pointer-events: none;
+}
+
+.no-js #preloader {
+   display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+   #preloader,
+   #loader {
+      transition: none;
+   }
+}
+
+/* ## responsive embeds
+ *
+ *    Replaces FitVids, which needed jQuery to wrap every iframe at runtime.
+ * ----------------------------------------------- */
+.wp-has-aspect-ratio .wp-block-embed__wrapper,
+.video-container {
+   position: relative;
+   width: 100%;
+}
+
+.video-container {
+   aspect-ratio: 16 / 9;
+}
+
+.video-container iframe,
+.video-container object,
+.video-container embed,
+.video-container video {
+   position: absolute;
+   inset: 0;
+   width: 100%;
+   height: 100%;
+}
+
+.entry__thumb iframe,
+.s-content__post-thumb iframe,
+.s-content__main iframe {
+   max-width: 100%;
+}
+
+/* ## block editor alignments
+ * ----------------------------------------------- */
+.s-content__main .alignwide {
+   max-width: 1100px;
+   margin-left: auto;
+   margin-right: auto;
+}
+
+.s-content__main .alignfull {
+   max-width: 100vw;
+   margin-left: calc(50% - 50vw);
+   margin-right: calc(50% - 50vw);
+}
+
+.s-content__main .alignfull img {
+   width: 100%;
+}
+
+.s-content__main .wp-block-image figcaption,
+.s-content__main .wp-block-embed figcaption {
+   font-size: 1.4rem;
+   text-align: center;
+}
+
+/* ## sticky posts
+ * ----------------------------------------------- */
+.masonry__brick.sticky .entry__title::before {
+   content: "\f08d";
+   margin-right: 0.6rem;
+   font-family: "Font Awesome 7 Free";
+   font-size: 0.8em;
+   font-weight: 900;
+}
+
+/* ## comment navigation
+ * ----------------------------------------------- */
+.comment-navigation .nav-links {
+   display: flex;
+   justify-content: space-between;
+   gap: 2rem;
+   margin-bottom: 3rem;
+}
+
+/* ## galleries
+ * ----------------------------------------------- */
+.s-content__main .gallery {
+   display: flex;
+   flex-wrap: wrap;
+   margin: 0 -1rem 3rem;
+}
+
+.s-content__main .gallery-item {
+   margin: 0 0 2rem;
+   padding: 0 1rem;
+   text-align: center;
+}
+
+.s-content__main .gallery-columns-2 .gallery-item { width: 50%; }
+.s-content__main .gallery-columns-3 .gallery-item { width: 33.3333%; }
+.s-content__main .gallery-columns-4 .gallery-item { width: 25%; }
+.s-content__main .gallery-columns-5 .gallery-item { width: 20%; }
+.s-content__main .gallery-columns-6 .gallery-item { width: 16.6666%; }
+.s-content__main .gallery-columns-7 .gallery-item { width: 14.2857%; }
+.s-content__main .gallery-columns-8 .gallery-item { width: 12.5%; }
+.s-content__main .gallery-columns-9 .gallery-item { width: 11.1111%; }
+
+@media screen and (max-width: 600px) {
+   .s-content__main .gallery-item {
+      width: 50% !important;
+   }
+}
+
+/* ## header controls
+ *
+ *    The search trigger, the menu toggle and the two overlay close controls are
+ *    <button> elements as of 1.2.0 — they perform an action rather than going
+ *    anywhere, and as anchors with href="#0" they were unreachable by keyboard
+ *    and announced as links to nowhere. These rules undo the browser's default
+ *    button chrome so the design is unchanged.
+ * ----------------------------------------------- */
+.header__search-trigger,
+.header__toggle-menu,
+.header__overlay-close {
+   -webkit-appearance: none;
+   appearance: none;
+   margin: 0;
+   padding: 0;
+   border: 0;
+   background-color: transparent;
+   color: inherit;
+   font: inherit;
+   text-align: inherit;
+   cursor: pointer;
+}
+
+.header__search-trigger {
+   display: block;
+}
+
+.header__overlay-close {
+   font: 0/0 a;
+}
+
+.header__search-trigger .search-label {
+   color: inherit;
+}
+
+/* ## block styles
+ *
+ *    The front-end half of the styles registered in inc/philosophy-blocks.php.
+ *    The editor stylesheet carries the same rules.
+ * ----------------------------------------------- */
+.wp-block-quote.is-style-philosophy-pull {
+   padding-left: 0;
+   border-left: 0;
+   text-align: center;
+}
+
+.wp-block-quote.is-style-philosophy-pull p {
+   font-family: "Libre Baskerville", Georgia, serif;
+   font-size: 2.4rem;
+   font-style: italic;
+   line-height: 1.5;
+}
+
+.wp-block-quote.is-style-philosophy-pull cite {
+   display: block;
+   margin-top: 1.2rem;
+   font-family: "Montserrat", sans-serif;
+   font-size: 1.3rem;
+   font-style: normal;
+   letter-spacing: 0.16rem;
+   text-transform: uppercase;
+}
+
+.wp-block-image.is-style-philosophy-framed img {
+   padding: 1.2rem;
+   border: 1px solid #e8e8e8;
+   background-color: #fff;
+}
+
+.wp-block-separator.is-style-philosophy-asterisks {
+   max-width: none;
+   height: auto;
+   border: 0;
+   text-align: center;
+   line-height: 1;
+}
+
+.wp-block-separator.is-style-philosophy-asterisks::before {
+   content: "* * *";
+   color: #888;
+   font-size: 2rem;
+   letter-spacing: 1.2rem;
+}
+
+.wp-block-list.is-style-philosophy-checked {
+   list-style: none;
+   padding-left: 0;
+}
+
+.wp-block-list.is-style-philosophy-checked li {
+   position: relative;
+   padding-left: 3rem;
+}
+
+.wp-block-list.is-style-philosophy-checked li::before {
+   content: "\f00c";
+   position: absolute;
+   left: 0;
+   top: 0.15em;
+   color: #0054a5;
+   font-family: "Font Awesome 7 Free";
+   font-size: 0.8em;
+   font-weight: 900;
+}
+
+/* ## social icons inside the mobile navigation
+ *
+ *    The header bar hides its social icons below 900px, which left them
+ *    unreachable on a phone. They are repeated inside the navigation overlay
+ *    and hidden on the widths where the header bar shows them.
+ * ----------------------------------------------- */
+.header__nav-social {
+   display: none;
+}
+
+.header__social--nav {
+   position: static;
+   margin: 3rem 0 0;
+   padding: 0;
+   font-size: 22px;
+   text-align: center;
+}
+
+.header__social--nav li {
+   display: inline-block;
+   margin: 0 10px;
+   padding-left: 0;
+}
+
+.header__social--nav a {
+   color: #fff;
+}
+
+@media only screen and (max-width: 900px) {
+   .header__nav-social {
+      display: block;
+   }
+
+   /* The bar's own list is hidden at this width; the overlay copy is not. */
+   .header__social--nav {
+      display: block;
+   }
 }
