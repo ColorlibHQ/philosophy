@@ -1,0 +1,181 @@
+/**
+ * Block editor styles.
+ *
+ * Philosophy declared add_editor_style( 'assets/css/editor-style.css' ) from
+ * 1.0 but never shipped the file, so the editor rendered nothing like the front
+ * end. These rules carry the theme's typography and spacing into the editor.
+ *
+ * @package Philosophy
+ * @since   1.2.0
+ */
+
+.editor-styles-wrapper {
+	font-family: "Libre Baskerville", Georgia, "Times New Roman", serif;
+	font-size: 17px;
+	line-height: 1.8;
+	color: #3f3f3f;
+	background-color: #fff;
+}
+
+.editor-styles-wrapper h1,
+.editor-styles-wrapper h2,
+.editor-styles-wrapper h3,
+.editor-styles-wrapper h4,
+.editor-styles-wrapper h5,
+.editor-styles-wrapper h6 {
+	margin-top: 1.6em;
+	margin-bottom: 0.6em;
+	font-family: "Montserrat", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-weight: 600;
+	line-height: 1.3;
+	color: #151515;
+}
+
+.editor-styles-wrapper h1 { font-size: 2.4em; }
+.editor-styles-wrapper h2 { font-size: 1.9em; }
+.editor-styles-wrapper h3 { font-size: 1.5em; }
+.editor-styles-wrapper h4 { font-size: 1.25em; }
+.editor-styles-wrapper h5 { font-size: 1.05em; }
+
+.editor-styles-wrapper h6 {
+	font-size: 0.95em;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+}
+
+.editor-styles-wrapper a {
+	color: #0054a5;
+	text-decoration: underline;
+	text-underline-offset: 0.2em;
+}
+
+.editor-styles-wrapper blockquote {
+	margin-left: 0;
+	padding-left: 2.4rem;
+	border-left: 3px solid #151515;
+	font-style: italic;
+}
+
+.editor-styles-wrapper blockquote cite {
+	display: block;
+	margin-top: 1rem;
+	font-family: "Montserrat", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 0.8em;
+	font-style: normal;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+}
+
+.editor-styles-wrapper code,
+.editor-styles-wrapper pre {
+	font-family: Consolas, "Andale Mono", Courier, "Courier New", monospace;
+	font-size: 0.85em;
+	background-color: #f4f4f4;
+}
+
+.editor-styles-wrapper pre {
+	padding: 2rem;
+	overflow-x: auto;
+	border-left: 3px solid #151515;
+}
+
+.editor-styles-wrapper table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.editor-styles-wrapper th,
+.editor-styles-wrapper td {
+	padding: 1rem 1.2rem;
+	border-bottom: 1px solid #e8e8e8;
+	text-align: left;
+}
+
+.editor-styles-wrapper th {
+	font-family: "Montserrat", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-weight: 600;
+}
+
+.editor-styles-wrapper .wp-block-button__link {
+	font-family: "Montserrat", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-weight: 600;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+}
+
+.editor-styles-wrapper figcaption {
+	font-family: "Montserrat", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 0.8em;
+	color: #888;
+	text-align: center;
+}
+
+/* ## block styles
+ *
+ *    The front-end half of the styles registered in inc/philosophy-blocks.php.
+ *    The editor stylesheet carries the same rules.
+ * ----------------------------------------------- */
+.editor-styles-wrapper .wp-block-quote.is-style-philosophy-pull {
+   padding-left: 0;
+   border-left: 0;
+   text-align: center;
+}
+
+.editor-styles-wrapper .wp-block-quote.is-style-philosophy-pull p {
+   font-family: "Libre Baskerville", Georgia, serif;
+   font-size: 2.4rem;
+   font-style: italic;
+   line-height: 1.5;
+}
+
+.editor-styles-wrapper .wp-block-quote.is-style-philosophy-pull cite {
+   display: block;
+   margin-top: 1.2rem;
+   font-family: "Montserrat", sans-serif;
+   font-size: 1.3rem;
+   font-style: normal;
+   letter-spacing: 0.16rem;
+   text-transform: uppercase;
+}
+
+.editor-styles-wrapper .wp-block-image.is-style-philosophy-framed img {
+   padding: 1.2rem;
+   border: 1px solid #e8e8e8;
+   background-color: #fff;
+}
+
+.editor-styles-wrapper .wp-block-separator.is-style-philosophy-asterisks {
+   max-width: none;
+   height: auto;
+   border: 0;
+   text-align: center;
+   line-height: 1;
+}
+
+.editor-styles-wrapper .wp-block-separator.is-style-philosophy-asterisks::before {
+   content: "* * *";
+   color: #888;
+   font-size: 2rem;
+   letter-spacing: 1.2rem;
+}
+
+.editor-styles-wrapper .wp-block-list.is-style-philosophy-checked {
+   list-style: none;
+   padding-left: 0;
+}
+
+.editor-styles-wrapper .wp-block-list.is-style-philosophy-checked li {
+   position: relative;
+   padding-left: 3rem;
+}
+
+.editor-styles-wrapper .wp-block-list.is-style-philosophy-checked li::before {
+   content: "\f00c";
+   position: absolute;
+   left: 0;
+   top: 0.15em;
+   color: #0054a5;
+   font-family: "Font Awesome 7 Free";
+   font-size: 0.8em;
+   font-weight: 900;
+}
