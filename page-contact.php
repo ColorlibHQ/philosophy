@@ -17,7 +17,6 @@ $philosophy_lat       = philosophy_opt( 'philosophy_contact_latitude' );
 $philosophy_long      = philosophy_opt( 'philosophy_contact_longitude' );
 $philosophy_marker    = philosophy_opt( 'philosophy_map_marker' );
 $philosophy_api_key   = philosophy_opt( 'philosophy_gmap_api_key' );
-$philosophy_blocks    = philosophy_decode_repeater( philosophy_opt( 'philosophy_contact_infoblock' ) );
 $philosophy_form_id   = philosophy_opt( 'philosophy_contact_formshortcode' );
 $philosophy_custom    = philosophy_opt( 'philosophy_contact_custom_formshortcode' );
 $philosophy_form_head = philosophy_opt( 'philosophy_contact_formtitle' );
@@ -65,24 +64,12 @@ $philosophy_form_head = philosophy_opt( 'philosophy_contact_formtitle' );
 				endwhile;
 				?>
 
-				<?php if ( $philosophy_blocks ) : ?>
-					<div class="row">
-						<?php foreach ( $philosophy_blocks as $philosophy_block ) : ?>
-							<?php $philosophy_block = (array) $philosophy_block; ?>
-							<div class="col-six tab-full">
-								<?php if ( ! empty( $philosophy_block['info_title'] ) ) : ?>
-									<h2><?php echo esc_html( $philosophy_block['info_title'] ); ?></h2>
-								<?php endif; ?>
-
-								<?php
-								if ( ! empty( $philosophy_block['contact_info'] ) ) {
-									echo philosophy_get_textareahtml_output( $philosophy_block['contact_info'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- run through wp_kses_post().
-								}
-								?>
-							</div>
-						<?php endforeach; ?>
-					</div> <!-- end row -->
-				<?php endif; ?>
+				<?php
+				// Info blocks are page content from 1.2.0. This renders any rows a
+				// site still holds in the old theme_mod, until the migration in
+				// inc/philosophy-migrate.php moves them into the page itself.
+				philosophy_legacy_info_blocks( 'philosophy_contact_infoblock', 'contact_info', 'col-six tab-full' );
+				?>
 
 				<?php if ( $philosophy_form_head ) : ?>
 					<h2 class="form-title"><?php echo esc_html( $philosophy_form_head ); ?></h2>

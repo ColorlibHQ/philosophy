@@ -96,6 +96,30 @@ if ( ! function_exists( 'philosophy_register_block_patterns' ) ) {
 			)
 		);
 
+		// The layout the About and Contact info blocks used to produce from a
+		// Customizer repeater. It is a pattern now, so the same page can be built
+		// in the editor and then edited like anything else.
+		register_block_pattern(
+			'philosophy/info-blocks',
+			array(
+				'title'      => esc_html__( 'Info blocks', 'philosophy' ),
+				'categories' => array( 'philosophy', 'columns' ),
+				'blockTypes' => array( 'core/columns' ),
+				'content'    => '<!-- wp:columns {"className":"philosophy-info-blocks"} --><div class="wp-block-columns philosophy-info-blocks">'
+					. '<!-- wp:column --><div class="wp-block-column"><!-- wp:heading {"level":2} --><h2 class="wp-block-heading">'
+					. esc_html__( 'Who we are', 'philosophy' )
+					. '</h2><!-- /wp:heading --><!-- wp:paragraph --><p>'
+					. esc_html__( 'A paragraph about the people behind the site.', 'philosophy' )
+					. '</p><!-- /wp:paragraph --></div><!-- /wp:column -->'
+					. '<!-- wp:column --><div class="wp-block-column"><!-- wp:heading {"level":2} --><h2 class="wp-block-heading">'
+					. esc_html__( 'What we do', 'philosophy' )
+					. '</h2><!-- /wp:heading --><!-- wp:paragraph --><p>'
+					. esc_html__( 'A paragraph about the work.', 'philosophy' )
+					. '</p><!-- /wp:paragraph --></div><!-- /wp:column -->'
+					. '</div><!-- /wp:columns -->',
+			)
+		);
+
 		register_block_pattern(
 			'philosophy/two-column-note',
 			array(

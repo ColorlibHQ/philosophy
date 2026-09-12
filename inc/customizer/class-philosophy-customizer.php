@@ -30,36 +30,40 @@ if ( ! class_exists( 'Philosophy_Customizer' ) ) {
 		protected static $manager = null;
 
 		/**
-		 * Control types this theme implements itself, mapped to their class names.
+		 * Field types that need a core control class rather than a type string.
 		 *
-		 * The legacy "epsilon-" spellings are accepted as aliases so stored
-		 * configuration and third-party code keep resolving.
+		 * Everything else is a plain WP_Customize_Control type: checkbox, radio,
+		 * select, text, textarea, number, url, email.
 		 *
-		 * @var array
-		 */
-		protected static $custom_controls = array(
-			'philosophy-toggle'      => 'Philosophy_Control_Toggle',
-			'philosophy-text-editor' => 'Philosophy_Control_Text_Editor',
-			'philosophy-repeater'    => 'Philosophy_Control_Repeater',
-			'philosophy-layouts'     => 'Philosophy_Control_Layout',
-			'epsilon-toggle'         => 'Philosophy_Control_Toggle',
-			'epsilon-text-editor'    => 'Philosophy_Control_Text_Editor',
-			'epsilon-repeater'       => 'Philosophy_Control_Repeater',
-			'epsilon-layouts'        => 'Philosophy_Control_Layout',
-		);
-
-		/**
-		 * Control types handled by a core WP_Customize_Control subclass.
+		 * The "epsilon-" spellings are the ones Epsilon used, kept so a child
+		 * theme calling add_field() with them keeps resolving. Each maps to the
+		 * core control that replaced it.
 		 *
 		 * @var array
 		 */
 		protected static $core_controls = array(
-			'philosophy-color-picker' => 'WP_Customize_Color_Control',
-			'epsilon-color-picker'    => 'WP_Customize_Color_Control',
 			'color'                   => 'WP_Customize_Color_Control',
 			'image'                   => 'WP_Customize_Image_Control',
 			'upload'                  => 'WP_Customize_Upload_Control',
 			'media'                   => 'WP_Customize_Media_Control',
+			'epsilon-color-picker'    => 'WP_Customize_Color_Control',
+			'philosophy-color-picker' => 'WP_Customize_Color_Control',
+		);
+
+		/**
+		 * Field types that are now a plain core control type.
+		 *
+		 * @var array
+		 */
+		protected static $aliases = array(
+			'epsilon-toggle'         => 'checkbox',
+			'philosophy-toggle'      => 'checkbox',
+			'epsilon-text-editor'    => 'textarea',
+			'philosophy-text-editor' => 'textarea',
+			'epsilon-layouts'        => 'radio',
+			'philosophy-layouts'     => 'radio',
+			'epsilon-repeater'       => 'textarea',
+			'philosophy-repeater'    => 'textarea',
 		);
 
 		/**
@@ -133,6 +137,10 @@ if ( ! class_exists( 'Philosophy_Customizer' ) ) {
 
 			$type = isset( $args['type'] ) ? $args['type'] : 'text';
 
+			if ( isset( self::$aliases[ $type ] ) ) {
+				$type = self::$aliases[ $type ];
+			}
+
 			$setting_args = array(
 				'default'           => isset( $args['default'] ) ? $args['default'] : '',
 				'type'              => isset( $args['setting_type'] ) ? $args['setting_type'] : 'theme_mod',
@@ -166,22 +174,6 @@ if ( ! class_exists( 'Philosophy_Customizer' ) ) {
 			}
 
 			// Field definitions this theme owns (repeater rows, layout thumbnails…).
-			foreach ( array( 'fields', 'button_label', 'row_label', 'layouts', 'editor_settings' ) as $extra ) {
-				if ( isset( $args[ $extra ] ) ) {
-					$control_args[ $extra ] = $args[ $extra ];
-				}
-			}
-
-			if ( isset( self::$custom_controls[ $type ] ) ) {
-				$class = self::$custom_controls[ $type ];
-
-				if ( class_exists( $class ) ) {
-					$manager->add_control( new $class( $manager, $id, $control_args ) );
-
-					return;
-				}
-			}
-
 			if ( isset( self::$core_controls[ $type ] ) ) {
 				$class = self::$core_controls[ $type ];
 

@@ -5019,3 +5019,16 @@ textarea:focus-visible,
 .f0f-search input[type="search"] {
    width: 100%;
 }
+
+/* ## info blocks
+ *
+ *    The layout the About and Contact info blocks used to get from the theme.
+ *    It is a columns block now, so the rule has to reach it by class.
+ * ----------------------------------------------- */
+.philosophy-info-blocks {
+   margin-top: 4.8rem;
+}
+
+.philosophy-info-blocks h2 {
+   margin-top: 0;
+}

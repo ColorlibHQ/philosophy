@@ -113,6 +113,34 @@ Security and privacy
 * The post view counter no longer writes to the database on previews, feeds and
   robot requests.
 
+Settings
+
+* The About and Contact info blocks are page content now, edited in the block
+  editor like the rest of the page. They were a Customizer repeater: a heading
+  and a body of rich text, repeated, stored in a theme_mod and printed under the
+  page. That is page content wearing a costume. Existing rows are moved into
+  their page automatically the next time an administrator loads the admin, as
+  real heading and paragraph blocks, and the Info blocks pattern builds the same
+  layout for a new page. The old setting is left in the database rather than
+  deleted, and the templates keep rendering it until the move has happened.
+* Every remaining Customizer control is a core WordPress control type: the
+  toggles are checkboxes, the blog layout is a radio, the rich-text fields are
+  textareas, the colours are core colour pickers. The theme ships no control
+  classes of its own.
+
+Updates
+
+* Philosophy checks for its own updates through the Update URI header that
+  WordPress 6.1 added for themes distributed outside the theme directory, the
+  same way Academia and Unapp do. Updates appear in Dashboard > Updates and
+  Appearance > Themes with no cron, no bespoke updater and no nagging notice.
+* The same request is the only install count Colorlib gets. It sends the theme
+  version, the WordPress and PHP versions, the locale, whether the install is
+  multisite, and a site identifier that is a one-way hash of the home URL salted
+  with the install's own key. No site name, no URL and no personal data. The
+  About Philosophy screen says so, and the philosophy_check_for_updates filter
+  switches it off.
+
 Removed
 
 * Removed the Epsilon framework, the Epsilon theme dashboard and the onboarding
@@ -182,6 +210,18 @@ Compatibility
 
 = 1.0 =
 * Initial release.
+
+== Notes for maintainers ==
+
+Theme Check reports one REQUIRED item: the `Update URI` header. That rule is for
+themes *in* the WordPress.org directory, which must not carry it. Philosophy is
+distributed from colorlib.com, which is the case the header exists for. If the
+theme is ever submitted to the directory, drop the header and
+`inc/philosophy-updates.php` together.
+
+The update endpoint `https://updates.colorlib.com/theme/philosophy.json` has to
+be published for update checks to report anything. Until it is, the check fails
+closed: no update is offered and no error is shown.
 
 == Copyright ==
 

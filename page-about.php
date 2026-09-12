@@ -13,7 +13,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 get_header();
 
 $philosophy_top_title = philosophy_opt( 'philosophy_about_top_title' );
-$philosophy_blocks    = philosophy_decode_repeater( philosophy_opt( 'philosophy_about_infoblock' ) );
 ?>
 	<!-- s-content
 	================================================== -->
@@ -41,24 +40,12 @@ $philosophy_blocks    = philosophy_decode_repeater( philosophy_opt( 'philosophy_
 				endwhile;
 				?>
 
-				<?php if ( $philosophy_blocks ) : ?>
-					<div class="row block-1-2 block-tab-full">
-						<?php foreach ( $philosophy_blocks as $philosophy_block ) : ?>
-							<?php $philosophy_block = (array) $philosophy_block; ?>
-							<div class="col-block">
-								<?php if ( ! empty( $philosophy_block['info_title'] ) ) : ?>
-									<h2 class="quarter-top-margin"><?php echo esc_html( $philosophy_block['info_title'] ); ?></h2>
-								<?php endif; ?>
-
-								<?php
-								if ( ! empty( $philosophy_block['info_desc'] ) ) {
-									echo philosophy_get_textareahtml_output( $philosophy_block['info_desc'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- run through wp_kses_post().
-								}
-								?>
-							</div>
-						<?php endforeach; ?>
-					</div>
-				<?php endif; ?>
+				<?php
+				// Info blocks are page content from 1.2.0. This renders any rows a
+				// site still holds in the old theme_mod, until the migration in
+				// inc/philosophy-migrate.php moves them into the page itself.
+				philosophy_legacy_info_blocks( 'philosophy_about_infoblock', 'info_desc', 'col-block' );
+				?>
 
 				<?php
 				if ( comments_open() || get_comments_number() ) {

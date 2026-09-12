@@ -12,48 +12,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 require_once PHILOSOPHY_DIR_PATH_INC . 'customizer/class-philosophy-customizer.php';
 
-if ( ! function_exists( 'philosophy_load_customizer_controls' ) ) {
-	/**
-	 * Loads the theme's Customizer control classes.
-	 *
-	 * They extend WP_Customize_Control, which core only defines once the
-	 * Customizer is being built, so they cannot be required from functions.php.
-	 */
-	function philosophy_load_customizer_controls() {
-		if ( ! class_exists( 'WP_Customize_Control' ) ) {
-			return;
-		}
-
-		require_once PHILOSOPHY_DIR_PATH_INC . 'customizer/controls/class-philosophy-control-toggle.php';
-		require_once PHILOSOPHY_DIR_PATH_INC . 'customizer/controls/class-philosophy-control-text-editor.php';
-		require_once PHILOSOPHY_DIR_PATH_INC . 'customizer/controls/class-philosophy-control-repeater.php';
-		require_once PHILOSOPHY_DIR_PATH_INC . 'customizer/controls/class-philosophy-control-layout.php';
-	}
-}
-
-if ( ! function_exists( 'philosophy_enqueue_customizer_control_assets' ) ) {
-	/**
-	 * Enqueues the shared styling and behaviour for the theme's own controls.
-	 *
-	 * Called from each control's enqueue() method; WordPress deduplicates by handle.
-	 */
-	function philosophy_enqueue_customizer_control_assets() {
-		wp_enqueue_style(
-			'philosophy-customizer-controls',
-			PHILOSOPHY_DIR_URI . 'inc/customizer/assets/css/customizer-controls.css',
-			array( 'customize-controls' ),
-			PHILOSOPHY_VERSION
-		);
-
-		wp_enqueue_script(
-			'philosophy-customizer-controls',
-			PHILOSOPHY_DIR_URI . 'inc/customizer/assets/js/customizer-controls.js',
-			array( 'customize-controls' ),
-			PHILOSOPHY_VERSION,
-			true
-		);
-	}
-}
 
 if ( ! class_exists( 'philosophy_theme_customizer' ) ) {
 
@@ -79,8 +37,6 @@ if ( ! class_exists( 'philosophy_theme_customizer' ) ) {
 		 * @param WP_Customize_Manager $wp_customize Customizer manager.
 		 */
 		public function philosophy_theme_customizer_options( $wp_customize ) {
-			philosophy_load_customizer_controls();
-
 			Philosophy_Customizer::set_manager( $wp_customize );
 
 			require PHILOSOPHY_DIR_PATH_INC . 'customizer/fields/sections.php';

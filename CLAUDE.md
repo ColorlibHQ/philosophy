@@ -17,13 +17,13 @@ inc/
   philosophy-commoncss.php    the inline colour CSS
   philosophy-blocks.php       block styles and patterns
   philosophy-deprecated.php   Epsilon shims
+  philosophy-migrate.php      one-time data migrations
+  philosophy-updates.php      update check over core's Update URI hook
   wp_bootstrap_navwalker.php  the primary and social nav walkers
   hooks/                      the do_action points the templates hang off
   customizer/
     class-philosophy-customizer.php   add_field()/add_multiple()
-    controls/                          toggle, text editor, repeater, layout
     fields/                            the field and section definitions
-    assets/                            control CSS and JS
     js/                                pane script and preview script
   admin/class-philosophy-welcome.php   the About Philosophy screen
 templates/                    template parts
@@ -50,6 +50,16 @@ be an array of arrays, an array of objects, or JSON;
 `philosophy_decode_repeater()` reads all three. Do not "clean up" a stored value
 without a migration.
 
+**The Customizer uses core control types only.** No theme-owned control
+classes: toggles are checkboxes, the layout is a radio, rich text is a textarea,
+colours are `WP_Customize_Color_Control`. Content that belongs in a page —
+the About and Contact info blocks — lives in the page, not in a setting. If a
+new option feels like it needs a repeater, it is probably content.
+
+**`philosophy_blog_layout` overrides the default sanitizer on purpose.** It is a
+radio, but a radio's choices check would throw away the Epsilon array an
+upgrading site still holds. It keeps `philosophy_sanitize_layout`.
+
 **Every setting has a sanitize callback**, chosen by
 `Philosophy_Customizer::default_sanitizer()` unless the field overrides it.
 Colours accept short hex and `rgba()` because Epsilon wrote both.
@@ -70,6 +80,21 @@ reaches a visitor. `SCRIPT_DEBUG` serves the readable sources.
 **Asset handles are prefixed.** The theme used to claim `base`, `main`, `vendor`
 and `font-awesome`; a plugin registering any of those first replaced the theme's
 own file.
+
+## Updates and the install count
+
+`inc/philosophy-updates.php` is the same module Academia and Unapp carry. It
+declares `Update URI` in style.css so core calls
+`update_themes_updates.colorlib.com` during its own check. What it sends is
+listed in the file and stated on the About screen; the site identifier is an
+HMAC of the home URL and cannot be reversed.
+
+Theme Check flags `Update URI` as REQUIRED-remove. That rule is for themes in
+the WordPress.org directory. Philosophy is not one. If it is ever submitted
+there, remove the header and this module together.
+
+`https://updates.colorlib.com/theme/philosophy.json` does not exist yet. Publish
+it with each release or the check reports nothing.
 
 ## Build
 

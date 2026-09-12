@@ -17,7 +17,7 @@
 Philosophy_Customizer::add_field(
     'philosophy_preloader_toggle',
     array(
-        'type'        => 'philosophy-toggle',
+        'type'        => 'checkbox',
         'label'       => esc_html__( 'Preloader On/Off', 'philosophy' ),
         'description' => esc_html__( 'Toggle to display preloader.', 'philosophy' ),
         'section'     => 'philosophy_general_section',
@@ -28,7 +28,7 @@ Philosophy_Customizer::add_field(
 Philosophy_Customizer::add_field(
     'philosophy_preloader_bg_color',
     array(
-        'type'        => 'philosophy-color-picker',
+        'type'        => 'color',
         'label'       => esc_html__( 'Preloader Background Color', 'philosophy' ),
         'description' => esc_html__( 'Select the preloader background color.', 'philosophy' ),
         'sanitize_callback' => 'philosophy_sanitize_color',
@@ -40,7 +40,7 @@ Philosophy_Customizer::add_field(
 Philosophy_Customizer::add_field(
     'philosophy_preloader_color',
     array(
-        'type'        => 'philosophy-color-picker',
+        'type'        => 'color',
         'label'       => esc_html__( 'Preloader Color', 'philosophy' ),
         'description' => esc_html__( 'Select the preloader color.', 'philosophy' ),
         'sanitize_callback' => 'philosophy_sanitize_color',
@@ -52,7 +52,7 @@ Philosophy_Customizer::add_field(
 Philosophy_Customizer::add_field(
     'philosophy_backtotop_btn',
     array(
-        'type'        => 'philosophy-toggle',
+        'type'        => 'checkbox',
         'label'       => esc_html__( 'Back to top', 'philosophy' ),
         'description' => esc_html__( 'Toggle the back to top button show.', 'philosophy' ),
         'section'     => 'philosophy_general_section',
@@ -63,7 +63,7 @@ Philosophy_Customizer::add_field(
 Philosophy_Customizer::add_field(
     'philosophy_backtotop_btn_bg_color',
     array(
-        'type'        => 'philosophy-color-picker',
+        'type'        => 'color',
         'label'       => esc_html__( 'Back to top button background color.', 'philosophy' ),
         'description' => esc_html__( 'Select the back to top button background color.', 'philosophy' ),
         'sanitize_callback' => 'philosophy_sanitize_color',
@@ -76,7 +76,7 @@ Philosophy_Customizer::add_field(
 Philosophy_Customizer::add_field(
     'philosophy_backtotop_btn_hover_bg_color',
     array(
-        'type'        => 'philosophy-color-picker',
+        'type'        => 'color',
         'label'       => esc_html__( 'Back to top button hover background color.', 'philosophy' ),
         'description' => esc_html__( 'Select the back to top button hover background color.', 'philosophy' ),
         'sanitize_callback' => 'philosophy_sanitize_color',
@@ -107,7 +107,7 @@ Philosophy_Customizer::add_field(
 Philosophy_Customizer::add_field(
     'philosophy_hsearchform_toggle',
     array(
-        'type'        => 'philosophy-toggle',
+        'type'        => 'checkbox',
         'label'       => esc_html__( 'Show header search form', 'philosophy' ),
         'description' => esc_html__( 'Toggle to show header search form.', 'philosophy' ),
         'section'     => 'philosophy_header_section',
@@ -118,7 +118,7 @@ Philosophy_Customizer::add_field(
 Philosophy_Customizer::add_field(
     'philosophy_headersocial_toggle',
     array(
-        'type'        => 'philosophy-toggle',
+        'type'        => 'checkbox',
         'label'       => esc_html__( 'Show header social icon', 'philosophy' ),
         'description' => esc_html__( 'Toggle to show header social icon.', 'philosophy' ),
         'section'     => 'philosophy_header_section',
@@ -129,7 +129,7 @@ Philosophy_Customizer::add_field(
 Philosophy_Customizer::add_field(
     'philosophy_header_bg_color',
     array(
-        'type'        => 'philosophy-color-picker',
+        'type'        => 'color',
         'label'       => esc_html__( 'Header Background Color', 'philosophy' ),
         'description' => esc_html__( 'Select the header background color.', 'philosophy' ),
         'sanitize_callback' => 'sanitize_text_field',
@@ -141,7 +141,7 @@ Philosophy_Customizer::add_field(
 Philosophy_Customizer::add_field(
     'philosophy_header_top_color',
     array(
-        'type'        => 'philosophy-color-picker',
+        'type'        => 'color',
         'label'       => esc_html__( 'Header Top Color', 'philosophy' ),
         'description' => esc_html__( 'Select the header top color.', 'philosophy' ),
         'sanitize_callback' => 'sanitize_text_field',
@@ -153,7 +153,7 @@ Philosophy_Customizer::add_field(
 Philosophy_Customizer::add_field(
     'philosophy_header_menu_color',
     array(
-        'type'        => 'philosophy-color-picker',
+        'type'        => 'color',
         'label'       => esc_html__( 'Header menu color', 'philosophy' ),
         'description' => esc_html__( 'Select the header nav menu color.', 'philosophy' ),
         'sanitize_callback' => 'sanitize_text_field',
@@ -166,7 +166,7 @@ Philosophy_Customizer::add_field(
 Philosophy_Customizer::add_field(
     'philosophy_header_menu_hover_color',
     array(
-        'type'        => 'philosophy-color-picker',
+        'type'        => 'color',
         'label'       => esc_html__( 'Header menu hover color', 'philosophy' ),
         'description' => esc_html__( 'Select the header nav menu hover color.', 'philosophy' ),
         'sanitize_callback' => 'sanitize_text_field',
@@ -178,7 +178,7 @@ Philosophy_Customizer::add_field(
 Philosophy_Customizer::add_field(
     'philosophy_header_menu_dropbg_color',
     array(
-        'type'        => 'philosophy-color-picker',
+        'type'        => 'color',
         'label'       => esc_html__( 'Header menu dropdown background color', 'philosophy' ),
         'description' => esc_html__( 'Select the header menu dropdown background color.', 'philosophy' ),
         'sanitize_callback' => 'sanitize_text_field',
@@ -190,7 +190,7 @@ Philosophy_Customizer::add_field(
 Philosophy_Customizer::add_field(
     'philosophy_header_drop_menu_color',
     array(
-        'type'        => 'philosophy-color-picker',
+        'type'        => 'color',
         'label'       => esc_html__( 'Dropdown menu color', 'philosophy' ),
         'description' => esc_html__( 'Select the header dropdown menu color.', 'philosophy' ),
         'sanitize_callback' => 'sanitize_text_field',
@@ -202,7 +202,7 @@ Philosophy_Customizer::add_field(
 Philosophy_Customizer::add_field(
     'philosophy_header_drop_menu_hover_color',
     array(
-        'type'        => 'philosophy-color-picker',
+        'type'        => 'color',
         'label'       => esc_html__( 'Dropdown menu hover color', 'philosophy' ),
         'description' => esc_html__( 'Select the header dropdown menu hover color.', 'philosophy' ),
         'sanitize_callback' => 'sanitize_text_field',
@@ -219,7 +219,7 @@ Philosophy_Customizer::add_field(
 Philosophy_Customizer::add_field(
     'philosophy_hfblog_toggle',
     array(
-        'type'        => 'philosophy-toggle',
+        'type'        => 'checkbox',
         'label'       => esc_html__( 'Display features blog section', 'philosophy' ),
         'description' => esc_html__( 'Toggle to display front page feature blog section.', 'philosophy' ),
         'section'     => 'philosophy_blog_section',
@@ -260,23 +260,18 @@ Philosophy_Customizer::add_field(
 Philosophy_Customizer::add_field(
     'philosophy_blog_layout',
     array(
-        'type'     => 'philosophy-layouts',
+        'type'     => 'radio',
         'label'    => esc_html__( 'Blog Layout', 'philosophy' ),
         'section'  => 'philosophy_blog_section',
+        // Not the default sanitizer for a radio: sites upgrading from 1.1.x
+        // hold Epsilon's column-descriptor array here, and a choices check
+        // would throw it away.
+        'sanitize_callback' => 'philosophy_sanitize_layout',
         'description' => esc_html__( 'Select the option to set blog page layout.', 'philosophy' ),
-        'layouts'  => array(
-            '1' => array(
-                'label' => esc_html__( 'Full width', 'philosophy' ),
-                'image' => PHILOSOPHY_DIR_URI . 'inc/customizer/assets/img/layout-full.svg',
-            ),
-            '2' => array(
-                'label' => esc_html__( 'Right sidebar', 'philosophy' ),
-                'image' => PHILOSOPHY_DIR_URI . 'inc/customizer/assets/img/layout-right-sidebar.svg',
-            ),
-            '3' => array(
-                'label' => esc_html__( 'Left sidebar', 'philosophy' ),
-                'image' => PHILOSOPHY_DIR_URI . 'inc/customizer/assets/img/layout-left-sidebar.svg',
-            ),
+        'choices'  => array(
+            '1' => esc_html__( 'Full width', 'philosophy' ),
+            '2' => esc_html__( 'Right sidebar', 'philosophy' ),
+            '3' => esc_html__( 'Left sidebar', 'philosophy' ),
         ),
         'default'  => '1',
     )
@@ -285,7 +280,7 @@ Philosophy_Customizer::add_field(
 Philosophy_Customizer::add_field(
     'philosophy_archive_header_content',
     array(
-        'type'        => 'philosophy-text-editor',
+        'type'        => 'textarea',
         'label'       => esc_html__( 'Archive page header content', 'philosophy' ),
         'description' => esc_html__( 'Optional text shown under the title on category, tag and date archives.', 'philosophy' ),
         'section'     => 'philosophy_blog_section',
@@ -296,7 +291,7 @@ Philosophy_Customizer::add_field(
 Philosophy_Customizer::add_field(
     'philosophy_search_header_content',
     array(
-        'type'        => 'philosophy-text-editor',
+        'type'        => 'textarea',
         'label'       => esc_html__( 'Search page header content', 'philosophy' ),
         'description' => esc_html__( 'Optional text shown under the title on the search results page.', 'philosophy' ),
         'section'     => 'philosophy_blog_section',
@@ -316,32 +311,6 @@ Philosophy_Customizer::add_field(
         'section'           => 'philosophy_about_section',
         'sanitize_callback' => 'sanitize_text_field',
         'default'           => esc_html__( 'Learn More About Us.', 'philosophy' )
-    )
-);
-// About info block content field
-Philosophy_Customizer::add_field(
-    'philosophy_about_infoblock',
-    array(
-        'type'         => 'philosophy-repeater',
-        'section'      => 'philosophy_about_section',
-        'label'        => esc_html__( 'About info block content', 'philosophy' ),
-        'button_label' => esc_html__( 'Add new block', 'philosophy' ),
-        'row_label'    => array(
-            'type'  => 'field',
-            'field' => 'info_title',
-            ),
-        'fields'       => array(
-            'info_title'       => array(
-                'label'             => esc_html__( 'Title', 'philosophy' ),
-                'type'              => 'text',
-                'default'           => esc_html__( 'Who We Are.', 'philosophy' ),
-            ),
-            'info_desc'        => array(
-                'label'             => esc_html__( 'Descriptions', 'philosophy' ),
-                'type'              => 'philosophy-text-editor',
-                'default'           => '',
-            ),
-        ),
     )
 );
 
@@ -405,32 +374,6 @@ Philosophy_Customizer::add_field(
     )
 );
 
-//  Contact info block field
-Philosophy_Customizer::add_field(
-    'philosophy_contact_infoblock',
-    array(
-        'type'         => 'philosophy-repeater',
-        'section'      => 'philosophy_contact_section',
-        'label'        => esc_html__( 'Contact info block content', 'philosophy' ),
-        'button_label' => esc_html__( 'Add new block', 'philosophy' ),
-        'row_label'    => array(
-            'type'  => 'field',
-            'field' => 'info_title',
-            ),
-        'fields'       => array(
-            'info_title'       => array(
-                'label'             => esc_html__( 'Title', 'philosophy' ),
-                'type'              => 'text',
-                'default'           => esc_html__( 'Where to Find Us', 'philosophy' ),
-            ),
-            'contact_info'        => array(
-                'label'             => esc_html__( 'Information', 'philosophy' ),
-                'type'              => 'philosophy-text-editor',
-                'default'           => '',
-            ),
-        ),
-    )
-);
 // contact form title field
 Philosophy_Customizer::add_field(
     'philosophy_contact_formtitle',
@@ -461,7 +404,7 @@ Philosophy_Customizer::add_field(
 Philosophy_Customizer::add_field(
     'philosophy_contact_custom_formshortcode',
     array(
-        'type'        => 'philosophy-text-editor',
+        'type'        => 'textarea',
         'label'       => esc_html__( 'Set custom contact form shortcode', 'philosophy' ),
         'section'     => 'philosophy_contact_section',
         'default'     => '',
@@ -498,7 +441,7 @@ Philosophy_Customizer::add_field(
 Philosophy_Customizer::add_field(
     'philosophy_fof_textone_color',
     array(
-        'type'        => 'philosophy-color-picker',
+        'type'        => 'color',
         'label'       => esc_html__( '404 Text #1 Color', 'philosophy' ),
         'sanitize_callback' => 'sanitize_text_field',
         'section'     => 'philosophy_fof_section',
@@ -509,7 +452,7 @@ Philosophy_Customizer::add_field(
 Philosophy_Customizer::add_field(
     'philosophy_fof_texttwo_color',
     array(
-        'type'        => 'philosophy-color-picker',
+        'type'        => 'color',
         'label'       => esc_html__( '404 Text #2 Color', 'philosophy' ),
         'sanitize_callback' => 'sanitize_text_field',
         'section'     => 'philosophy_fof_section',
@@ -520,7 +463,7 @@ Philosophy_Customizer::add_field(
 Philosophy_Customizer::add_field(
     'philosophy_fof_bg_color',
     array(
-        'type'        => 'philosophy-color-picker',
+        'type'        => 'color',
         'label'       => esc_html__( '404 Page Background Color', 'philosophy' ),
         'sanitize_callback' => 'sanitize_text_field',
         'section'     => 'philosophy_fof_section',
@@ -536,7 +479,7 @@ Philosophy_Customizer::add_field(
 Philosophy_Customizer::add_field(
     'philosophy_footer_widget_toggle',
     array(
-        'type'        => 'philosophy-toggle',
+        'type'        => 'checkbox',
         'label'       => esc_html__( 'Footer widget show/hide', 'philosophy' ),
         'description' => esc_html__( 'Toggle to display footer widgets.', 'philosophy' ),
         'section'     => 'philosophy_footer_section',
@@ -547,7 +490,7 @@ Philosophy_Customizer::add_field(
 Philosophy_Customizer::add_field(
     'philosophy_footer_copyright_text',
     array(
-        'type'        => 'philosophy-text-editor',
+        'type'        => 'textarea',
         'label'       => esc_html__( 'Footer copyright text', 'philosophy' ),
         'section'     => 'philosophy_footer_section',
         'default'     => philosophy_default_copyright(),
@@ -557,7 +500,7 @@ Philosophy_Customizer::add_field(
 Philosophy_Customizer::add_field(
     'philosophy_footer_widget_bdcolor',
     array(
-        'type'        => 'philosophy-color-picker',
+        'type'        => 'color',
         'label'       => esc_html__( 'Footer Background Color', 'philosophy' ),
         'sanitize_callback' => 'sanitize_text_field',
         'section'     => 'philosophy_footer_section',
@@ -568,7 +511,7 @@ Philosophy_Customizer::add_field(
 Philosophy_Customizer::add_field(
     'philosophy_footer_widget_textcolor',
     array(
-        'type'        => 'philosophy-color-picker',
+        'type'        => 'color',
         'label'       => esc_html__( 'Footer Text Color', 'philosophy' ),
         'sanitize_callback' => 'sanitize_text_field',
         'section'     => 'philosophy_footer_section',
@@ -579,7 +522,7 @@ Philosophy_Customizer::add_field(
 Philosophy_Customizer::add_field(
     'philosophy_footer_widget_titlecolor',
     array(
-        'type'        => 'philosophy-color-picker',
+        'type'        => 'color',
         'label'       => esc_html__( 'Footer Widget Title Color', 'philosophy' ),
         'sanitize_callback' => 'sanitize_text_field',
         'section'     => 'philosophy_footer_section',
@@ -590,7 +533,7 @@ Philosophy_Customizer::add_field(
 Philosophy_Customizer::add_field(
     'philosophy_footer_widget_anchorcolor',
     array(
-        'type'        => 'philosophy-color-picker',
+        'type'        => 'color',
         'label'       => esc_html__( 'Footer Anchor Color', 'philosophy' ),
         'sanitize_callback' => 'sanitize_text_field',
         'section'     => 'philosophy_footer_section',
@@ -601,7 +544,7 @@ Philosophy_Customizer::add_field(
 Philosophy_Customizer::add_field(
     'philosophy_footer_widget_anchorhovcolor',
     array(
-        'type'        => 'philosophy-color-picker',
+        'type'        => 'color',
         'label'       => esc_html__( 'Footer Anchor Hover Color', 'philosophy' ),
         'sanitize_callback' => 'sanitize_text_field',
         'section'     => 'philosophy_footer_section',

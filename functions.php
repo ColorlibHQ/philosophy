@@ -91,6 +91,7 @@ require_once PHILOSOPHY_DIR_PATH_INC . 'philosophy-newsletter-widget.php';
 require_once PHILOSOPHY_DIR_PATH_INC . 'wp_bootstrap_navwalker.php';
 require_once PHILOSOPHY_DIR_PATH_INC . 'philosophy-commoncss.php';
 require_once PHILOSOPHY_DIR_PATH_INC . 'philosophy-blocks.php';
+require_once PHILOSOPHY_DIR_PATH_INC . 'philosophy-migrate.php';
 require_once PHILOSOPHY_DIR_PATH_INC . 'support-functions.php';
 require_once PHILOSOPHY_DIR_PATH_INC . 'wp-html-helper.php';
 require_once PHILOSOPHY_DIR_PATH_INC . 'wp_bootstrap_pagination.php';
