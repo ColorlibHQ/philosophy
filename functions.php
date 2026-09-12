@@ -105,6 +105,10 @@ if ( is_admin() ) {
 	require_once PHILOSOPHY_DIR_PATH_INC . 'admin/class-philosophy-welcome.php';
 }
 
+// The update check runs wherever WordPress runs its own; the filter core calls
+// is registered on load, not behind is_admin().
+require_once PHILOSOPHY_DIR_PATH_INC . 'philosophy-updates.php';
+
 /**
  * Instantiate the theme.
  */
