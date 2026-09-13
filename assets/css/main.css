@@ -2518,6 +2518,12 @@ body.search-is-visible {
    line-height: 1.5;
 }
 
+/* A site with avatars turned off in Settings -> Discussion has nothing to put
+ * in the 6rem the meta line reserves for one. */
+.featured .entry__info--no-avatar .entry__meta {
+   margin-left: 0;
+}
+
 .featured .entry__meta li {
    display: inline-block;
    padding-left: 0;
@@ -2550,8 +2556,9 @@ body.search-is-visible {
    height: 564px;
 }
 
+/* Was #01aef0, which is 2.53:1 against the white label and fails AA. */
 .featured__column--big .entry__category a {
-   background-color: #01aef0;
+   background-color: #017aa9;
 }
 
 .featured__column--small {
@@ -2579,8 +2586,9 @@ body.search-is-visible {
    margin-bottom: 1.5rem;
 }
 
+/* Was #679a23, 3.37:1 against the white label. */
 .featured__column--small .entry__category a {
-   background-color: #679a23;
+   background-color: #547d1d;
 }
 
 .featured__column--small .entry__profile-pic {
