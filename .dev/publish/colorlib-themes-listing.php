@@ -11,7 +11,7 @@
 defined( 'ABSPATH' ) || exit;
 
 $page_id  = 5091;
-$card_img = 'https://colorlib.com/wp/wp-content/uploads/sites/2/philosophy-free-theme-screenshot.jpg';
+$card_img = 'https://colorlib.com/wp/wp-content/uploads/sites/2/philosophy-free-wordpress-theme.jpg';
 $page_url = 'https://colorlib.com/wp/themes/philosophy/';
 
 $content = get_post_field( 'post_content', $page_id );
@@ -22,7 +22,32 @@ if ( '' === $content ) {
 }
 
 if ( false !== stripos( $content, 'theme-philosophy' ) ) {
-	echo "already listed — nothing to do\n";
+	// Already listed. The only thing that changes on a re-run is the card
+	// image, so swap that and leave the rest alone.
+	if ( false !== strpos( $content, $card_img ) ) {
+		echo "already listed, card image current — nothing to do\n";
+		return;
+	}
+
+	$updated = preg_replace(
+		'~(<li class="clt-theme" id="theme-philosophy">.*?<img src=")[^"]+~s',
+		'$1' . $card_img,
+		$content,
+		1
+	);
+
+	if ( null === $updated || $updated === $content ) {
+		echo "ERROR: listed, but the card image could not be replaced\n";
+		return;
+	}
+
+	wp_update_post( array( 'ID' => $page_id, 'post_content' => $updated ) );
+
+	if ( function_exists( 'visual_composer' ) ) {
+		visual_composer()->buildShortcodesCss( $page_id, 'custom' );
+	}
+
+	echo "card image updated to $card_img\n";
 	return;
 }
 

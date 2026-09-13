@@ -12,7 +12,8 @@ ssh hetzner 'cd /var/www/colorlib.com/public \
 | Script | Does |
 | --- | --- |
 | `colorlib-product-page.php` | Rebuilds the Philosophy product page (169039). Idempotent; leaves it a **draft**. |
-| `colorlib-themes-listing.php` | Adds Philosophy to the `/wp/themes/` listing (5091). Bails if already listed. |
+| `colorlib-themes-listing.php` | Adds Philosophy to the `/wp/themes/` listing (5091). If already listed, refreshes the card image and leaves the rest alone. |
+| `frame.mjs` | Wraps a screenshot in the browser frame the page uses: `node frame.mjs in.png out.jpg 88`. |
 
 ## Use `wp eval "require …"`, not `wp eval-file`
 
@@ -82,5 +83,30 @@ node release.mjs --product theme/philosophy --version 1.2.0 \
   --tested 7.1 --requires 6.0 --requires-php 7.4
 ```
 
-`colorlibhub.com/philosophy/` exists but still runs a placeholder demo site, so
-the Live demo button works while showing the wrong thing.
+## The demo site
+
+`colorlibhub.com/philosophy/` (blog 14) is the real demo now: 16 posts across
+five categories, About and Contact, both editions installed, **Philosophy
+Blocks active**. Every screenshot on the page and the listing card comes from
+it, framed by `frame.mjs` and imported as 381470-381476. The first set
+(381458-381466) was captured before the demo existed, showed the *Academia*
+demo content, and has been deleted.
+
+Switching editions for a capture is just `wp theme activate philosophy` /
+`philosophy-blocks`; style variations are applied by writing the variation JSON
+into the `wp_global_styles` post.
+
+**Two traps on that site specifically:**
+
+- **`wp_global_styles` needs its `wp_theme` term.** Without it every write
+  creates a *new* orphan post and `get_user_global_styles_post_id()` keeps
+  resolving to the old one, so all three variations render identically. The
+  captures were byte-identical twice before this was spotted. Post 125 carries
+  the term `philosophy-blocks`.
+- **On a subdirectory multisite the asset URL is not what you think.** The
+  stylesheet is at `/philosophy/wp-content/themes/…`, not
+  `/wp-content/themes/…`, and Cloudflare caches them as different objects with
+  `immutable`. Purging the second one leaves the browser on the old CSS while
+  `curl` of the first reports the change landed.
+- **Uploads on colorlibhub are owned by `www-data`**, the opposite of
+  colorlib.com, so attaching media has to run as `www-data`.

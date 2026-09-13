@@ -18,14 +18,15 @@ defined( 'ABSPATH' ) || exit;
 
 $page_id = 169039;
 
-// Media uploaded 2026-09-13.
-$img_blocks_home  = 381458;
-// 381459 showed the featured header rather than the grid the section is about.
-$img_classic_home = 381466;
-$img_single       = 381460;
-$img_ink          = 381461;
-$img_paper        = 381462;
-$img_sans         = 381463;
+// Media captured from the colorlibhub.com/philosophy demo, 2026-09-13. The
+// first set (381458-381466) was shot before that demo existed and showed the
+// Academia demo content instead; it has been deleted.
+$img_blocks_home  = 381471;
+$img_classic_grid = 381474;
+$img_single       = 381472;
+$img_ink          = 381473;
+$img_paper        = 381475;
+$img_sans         = 381476;
 
 $dl_classic = 'https://updates.colorlib.com/download/theme/philosophy.zip';
 $dl_blocks  = 'https://updates.colorlib.com/download/theme/philosophy-blocks.zip';
@@ -67,7 +68,7 @@ $content = <<<HTML
 
 [vc_row css=".vc_custom_philosophy010{padding-top:44px !important;padding-bottom:20px !important;background-color:#f7f7f5 !important;}"][vc_column width="1/1"][vcex_heading text="Two editions, one design" tag="h2" font_size="34px" text_align="center" bottom_margin="14px" font_weight="700"][vc_column_text css=".vc_custom_philosophy011{text-align:center !important;max-width:760px !important;margin-left:auto !important;margin-right:auto !important;}"]They are separate themes, installed side by side, so moving across is a switch and moving back is another. Neither can see the other's settings, which is exactly what makes the decision reversible.[/vc_column_text][/vc_column][/vc_row][vc_row css=".vc_custom_philosophy012{padding-bottom:44px !important;background-color:#f7f7f5 !important;}"][vc_column width="1/2"][vcex_icon_box style="one" heading_type="h3" heading="Philosophy — the classic theme" icon="fa fa-sliders" icon_color="#0054a5" heading_size="19px"]Colours, the header, the footer, the featured area and the 404 page are set in the Customizer, where they have always been. Forty-one options, eight widget areas, and About and Contact page templates. WordPress 6.0 and PHP 7.4 or newer.[/vcex_icon_box][/vc_column][vc_column width="1/2"][vcex_icon_box style="one" heading_type="h3" heading="Philosophy Blocks — the block theme" icon="fa fa-th-large" icon_color="#0054a5" heading_size="19px"]Fourteen templates, the header, the footer and every section are blocks, edited in Appearance → Editor. The design system lives in theme.json, so colour and type are one click. WordPress 6.6 and PHP 7.4 or newer.[/vcex_icon_box][/vc_column][/vc_row]
 
-[vc_row css=".vc_custom_philosophy020{padding-top:44px !important;padding-bottom:24px !important;}"][vc_column width="1/1"][vcex_heading text="A masonry grid that survives a blocked script" tag="h2" font_size="34px" text_align="center" bottom_margin="14px" font_weight="700"][vc_column_text css=".vc_custom_philosophy021{text-align:center !important;max-width:760px !important;margin-left:auto !important;margin-right:auto !important;}"]Posts are laid out in columns of uneven height, so a short post does not leave a gap under a tall one. The grid is rendered by the server first and rebalanced by about three kilobytes of JavaScript; with scripts blocked it falls back to an ordinary grid rather than to nothing. No jQuery, in either edition.[/vc_column_text][/vc_column][/vc_row][vc_row css=".vc_custom_philosophy022{padding-bottom:56px !important;}"][vc_column width="1/1"][vcex_image image_id="{$img_classic_home}" align="center" border_radius="12px" bottom_margin="0px" img_shadow="two"][/vc_column][/vc_row]
+[vc_row css=".vc_custom_philosophy020{padding-top:44px !important;padding-bottom:24px !important;}"][vc_column width="1/1"][vcex_heading text="A masonry grid that survives a blocked script" tag="h2" font_size="34px" text_align="center" bottom_margin="14px" font_weight="700"][vc_column_text css=".vc_custom_philosophy021{text-align:center !important;max-width:760px !important;margin-left:auto !important;margin-right:auto !important;}"]Posts are laid out in columns of uneven height, so a short post does not leave a gap under a tall one. The grid is rendered by the server first and rebalanced by about three kilobytes of JavaScript; with scripts blocked it falls back to an ordinary grid rather than to nothing. No jQuery, in either edition.[/vc_column_text][/vc_column][/vc_row][vc_row css=".vc_custom_philosophy022{padding-bottom:56px !important;}"][vc_column width="1/1"][vcex_image image_id="{$img_classic_grid}" align="center" border_radius="12px" bottom_margin="0px" img_shadow="two"][/vc_column][/vc_row]
 
 [vc_row css=".vc_custom_philosophy030{padding-top:44px !important;padding-bottom:10px !important;background-color:#f7f7f5 !important;}"][vc_column width="1/1"][vcex_heading text="Three looks, one click" tag="h2" font_size="34px" text_align="center" bottom_margin="14px" font_weight="700"][vc_column_text css=".vc_custom_philosophy031{text-align:center !important;max-width:760px !important;margin-left:auto !important;margin-right:auto !important;}"]The block edition ships three style variations. Each one re-tunes the whole palette rather than inverting it, and every text colour in every variation meets WCAG AA — measured, not assumed.[/vc_column_text][/vc_column][/vc_row][vc_row equal_height="yes" content_placement="top" css=".vc_custom_philosophy032{padding-top:0px !important;padding-bottom:24px !important;background-color:#f7f7f5 !important;}"]{$variation_teasers}[/vc_row]
 
@@ -168,7 +169,7 @@ foreach ( array( $dl_classic, $dl_blocks, $demo ) as $target ) {
 }
 
 echo 'images resolve: ';
-foreach ( array( $img_blocks_home, $img_classic_home, $img_single, $img_ink, $img_paper, $img_sans ) as $id ) {
+foreach ( array( $img_blocks_home, $img_classic_grid, $img_single, $img_ink, $img_paper, $img_sans ) as $id ) {
 	echo ( wp_get_attachment_url( $id ) ? 'y' : 'N' );
 }
 echo "\n";
