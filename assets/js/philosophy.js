@@ -320,6 +320,63 @@
 		} );
 	};
 
+
+	/**
+	 * Reserve the right amount of room for the masthead.
+	 *
+	 * The header is positioned absolutely over the featured area, and the
+	 * stylesheet reserves a fixed 222px for it. That number was measured against
+	 * one particular masthead: give the site a tagline, or a menu long enough to
+	 * wrap, and the header grows past it and the featured panels paint over the
+	 * navigation. Measuring it here keeps the two in step whatever the header
+	 * ends up containing.
+	 *
+	 * The CSS value stays as the fallback, so a page whose script does not run
+	 * is laid out exactly as before.
+	 * ------------------------------------------------------------------- */
+	var initPageHeader = function () {
+		var pageheader = document.querySelector( '.s-pageheader--home' );
+		var header = document.querySelector( '.header' );
+
+		if ( ! pageheader || ! header ) {
+			return;
+		}
+
+		var apply = onFrame( function () {
+			// Only while the header is actually lifted out of the flow; the
+			// mobile layout puts it back and needs no reservation.
+			if ( 'absolute' !== window.getComputedStyle( header ).position ) {
+				pageheader.style.paddingTop = '';
+				return;
+			}
+
+			var rect = header.getBoundingClientRect();
+			var top = rect.top + window.pageYOffset;
+			var needed = Math.ceil( top + rect.height );
+
+			// Never reserve less than the stylesheet already does.
+			pageheader.style.paddingTop = '';
+
+			var css = parseFloat( window.getComputedStyle( pageheader ).paddingTop ) || 0;
+
+			if ( needed > css ) {
+				pageheader.style.paddingTop = needed + 'px';
+			}
+		} );
+
+		apply();
+		window.addEventListener( 'resize', apply );
+		window.addEventListener( 'load', apply );
+
+		if ( document.fonts && document.fonts.ready ) {
+			document.fonts.ready.then( apply );
+		}
+
+		if ( window.ResizeObserver ) {
+			new window.ResizeObserver( apply ).observe( header );
+		}
+	};
+
 	/**
 	 * Masonry layout for the blog grid.
 	 *
@@ -655,6 +712,7 @@
 	 * ------------------------------------------------------------------- */
 	var init = function () {
 		initPreloader();
+		initPageHeader();
 		initSearch();
 		initMobileMenu();
 		initMasonry();
