@@ -5032,3 +5032,23 @@ textarea:focus-visible,
 .philosophy-info-blocks h2 {
    margin-top: 0;
 }
+
+/* ## site title
+ *
+ *    The title is a link, so it inherits the accent colour unless told
+ *    otherwise — roughly 1.9:1 against the dark masthead. The Customizer's
+ *    header text colour drives it; this is the fallback for a site with no
+ *    inline CSS yet.
+ * ----------------------------------------------- */
+.header__logo a,
+.header__logo h1 a,
+.header__logo h2 a {
+   color: #ffffff;
+}
+
+.header__logo a:hover,
+.header__logo a:focus {
+   color: #ffffff;
+   text-decoration: underline;
+   text-underline-offset: 0.15em;
+}

@@ -58,6 +58,10 @@ if ( ! function_exists( 'philosophy_common_custom_css' ) ) {
 			'.header__nav li ul li a'                                      => array( 'color' => $colors['drop'] ),
 			'.header__nav li ul li a:hover, .header__nav li ul li a:focus'  => array( 'color' => $colors['drop_hover'] ),
 			'.header__search-trigger, .header__search-trigger::before, .header__social a' => array( 'color' => $colors['header_top'] ),
+			// The site title is a link, so without this it takes the accent
+			// colour and renders at about 1.9:1 on the dark masthead.
+			'.header__logo a, .header__logo h1 a, .header__logo h2 a'      => array( 'color' => $colors['header_top'] ),
+			'.header__logo span'                                           => array( 'color' => $colors['menu_hover'] ),
 			'#preloader'                                                   => array( 'background-color' => $colors['preloader_bg'] ),
 			'.line-scale > div'                                            => array( 'background-color' => $colors['preloader'] ),
 			'.go-top a, .go-top a:visited'                                 => array( 'background-color' => $colors['backtotop_bg'] ),

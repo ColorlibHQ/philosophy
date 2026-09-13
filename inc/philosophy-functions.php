@@ -462,3 +462,43 @@ if ( ! function_exists( 'philosophy_sidebar_opt' ) ) {
 		return in_array( $layout, array( '1', '2', '3' ), true ) ? $layout : '1';
 	}
 }
+
+if ( ! function_exists( 'philosophy_featured_query_args' ) ) {
+	/**
+	 * Query arguments for the featured area at the top of the blog.
+	 *
+	 * The category is only applied when it actually has published posts. The
+	 * setting defaults to "uncategorized", so on any site that files its posts
+	 * anywhere else — which is most of them — the featured area used to render
+	 * as an empty black band the height of three panels, with no indication of
+	 * why. Falling back to the most recent posts means the area always shows
+	 * something, and a site that has chosen a category still gets it.
+	 *
+	 * @param string $term   Category slug from the Customizer.
+	 * @param int    $number How many posts to return.
+	 * @param int    $offset How many to skip.
+	 *
+	 * @return array
+	 */
+	function philosophy_featured_query_args( $term, $number, $offset ) {
+		$args = array(
+			'post_type'           => 'post',
+			'posts_per_page'      => (int) $number,
+			'offset'              => (int) $offset,
+			'ignore_sticky_posts' => true,
+			'no_found_rows'       => true,
+		);
+
+		$term = is_string( $term ) ? trim( $term ) : '';
+
+		if ( '' !== $term && 'na' !== $term ) {
+			$category = get_category_by_slug( $term );
+
+			if ( $category && $category->count > 0 ) {
+				$args['cat'] = $category->term_id;
+			}
+		}
+
+		return apply_filters( 'philosophy_featured_query_args', $args, $term );
+	}
+}

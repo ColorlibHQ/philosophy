@@ -22,19 +22,7 @@ if( !defined( 'ABSPATH' ) ){
                 $term = philosophy_opt( 'philosophy_featured_cat' );
                 
                 //
-                $args = array(
-                    'post_type'      => 'post',
-                    'posts_per_page' => 1,
-                    'ignore_sticky_posts' => true,
-                    'tax_query' => array(
-                        array(
-                            'taxonomy' => 'category',
-                            'field' => 'slug',
-                            'terms' => esc_html( ( $term ) ? $term : 'uncategorized'  ),
-                        )
-                    )
-                );
-                $loop = new WP_Query( $args );
+                $loop = new WP_Query( philosophy_featured_query_args( $term, 1, 0 ) );
 
                 if( $loop->have_posts() ):
                     while( $loop->have_posts() ) : $loop->the_post(); 
@@ -78,20 +66,7 @@ if( !defined( 'ABSPATH' ) ){
 
             <div class="featured__column featured__column--small">
                 <?php 
-                $args = array(
-                    'post_type'      => 'post',
-                    'posts_per_page' => 2,
-                    'offset'         => 1,
-                    'ignore_sticky_posts' => true,
-                    'tax_query' => array(
-                        array(
-                            'taxonomy'  => 'category',
-                            'field'     => 'slug',
-                            'terms'     => esc_html( ( $term ) ? $term : 'uncategorized' ),
-                        )
-                    )
-                );
-                $loop = new WP_Query( $args );
+                $loop = new WP_Query( philosophy_featured_query_args( $term, 2, 1 ) );
 
                 if( $loop->have_posts() ):
                     while( $loop->have_posts() ) : $loop->the_post(); 
