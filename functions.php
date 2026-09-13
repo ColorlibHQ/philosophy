@@ -24,7 +24,7 @@ if ( ! defined( 'PHILOSOPHY_VERSION' ) ) {
  * Bundled Font Awesome version, used as the icon stylesheet's cache buster.
  */
 if ( ! defined( 'PHILOSOPHY_FONTAWESOME_VERSION' ) ) {
-	define( 'PHILOSOPHY_FONTAWESOME_VERSION', '6.7.2' );
+	define( 'PHILOSOPHY_FONTAWESOME_VERSION', '7.3.1' );
 }
 
 /**
