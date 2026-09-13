@@ -5052,3 +5052,30 @@ textarea:focus-visible,
    text-decoration: underline;
    text-underline-offset: 0.15em;
 }
+
+/* ## featured panel text
+ *
+ *    Everything in a featured panel sits on a photograph, so it has to be
+ *    white. The titles and the author link are links, which means they take the
+ *    accent colour unless told otherwise — #0054a5 over a sunlit dune.
+ * ----------------------------------------------- */
+.featured .entry__content h1,
+.featured .entry__content h2,
+.featured .entry__content h1 a,
+.featured .entry__content h2 a,
+.featured .entry__meta,
+.featured .entry__meta a,
+.featured .entry__info a {
+   color: #ffffff;
+}
+
+.featured .entry__content h1 a:hover,
+.featured .entry__content h2 a:hover,
+.featured .entry__content h1 a:focus,
+.featured .entry__content h2 a:focus,
+.featured .entry__meta a:hover,
+.featured .entry__meta a:focus {
+   color: #ffffff;
+   text-decoration: underline;
+   text-underline-offset: 0.12em;
+}
