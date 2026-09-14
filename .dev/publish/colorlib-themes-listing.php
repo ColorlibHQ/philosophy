@@ -11,10 +11,21 @@
 defined( 'ABSPATH' ) || exit;
 
 $page_id  = 5091;
-$card_img = 'https://colorlib.com/wp/wp-content/uploads/sites/2/philosophy-free-wordpress-theme.jpg';
+// Derive the card image from its attachment, never from a literal filename:
+// uploads/sites/2 already held a 2022 file called
+// philosophy-free-wordpress-blog-theme.jpg, so the new upload became -1.jpg and
+// a hardcoded URL quietly pointed the card at a four-year-old screenshot.
+$card_att = 381479;
+$card_img = wp_get_attachment_url( $card_att );
+$card_dim = wp_get_attachment_image_src( $card_att, 'full' );
 $page_url = 'https://colorlib.com/wp/themes/philosophy/';
 
 $content = get_post_field( 'post_content', $page_id );
+
+if ( ! $card_img || ! $card_dim ) {
+	echo "ERROR: attachment $card_att has no file\n";
+	return;
+}
 
 if ( '' === $content ) {
 	echo "ERROR: page $page_id has no content\n";
@@ -64,7 +75,8 @@ $card = '<li class="clt-theme" id="theme-philosophy">'
 	. '<span class="clt-theme__shot">'
 	. '<img src="' . esc_url( $card_img ) . '"'
 	. ' alt="Philosophy free WordPress blog theme homepage with its featured panels and masonry grid"'
-	. ' width="1200" height="815" loading="lazy" decoding="async" />'
+	. ' width="' . (int) $card_dim[1] . '" height="' . (int) $card_dim[2] . '"'
+	. ' loading="lazy" decoding="async" />'
 	. '</span>'
 	. '<span class="clt-theme__body">'
 	. '<span class="clt-theme__kind">Classic theme and block theme</span>'

@@ -18,15 +18,16 @@ defined( 'ABSPATH' ) || exit;
 
 $page_id = 169039;
 
-// Media captured from the colorlibhub.com/philosophy demo, 2026-09-13. The
-// first set (381458-381466) was shot before that demo existed and showed the
-// Academia demo content instead; it has been deleted.
-$img_blocks_home  = 381471;
-$img_classic_grid = 381474;
-$img_single       = 381472;
-$img_ink          = 381473;
-$img_paper        = 381475;
-$img_sans         = 381476;
+// Media captured from the colorlibhub.com/philosophy demo, 2026-09-14, after
+// both editions were put back on Metropolis. The first set (381458-381466) was
+// shot before that demo existed and showed the Academia demo content; the
+// second (381470-381476) predates the typography work. Both are deleted.
+$img_blocks_home  = 381481;
+$img_classic_grid = 381480;
+$img_single       = 381484;
+$img_ink          = 381482;
+$img_paper        = 381483;
+$img_sans         = 381485;
 
 $dl_classic = 'https://updates.colorlib.com/download/theme/philosophy.zip';
 $dl_blocks  = 'https://updates.colorlib.com/download/theme/philosophy-blocks.zip';
@@ -46,7 +47,7 @@ $btn_css = 'display:inline-block !important;vertical-align:middle !important;mar
 $variations = array(
 	$img_ink   => array( 'Ink', 'The whole site on the dark ground the masthead already uses. Every colour re-tuned so nothing is dark on dark.' ),
 	$img_paper => array( 'Paper', 'Warmer stock, a quieter brown accent and softer rules. For a site that is mostly long-form writing.' ),
-	$img_sans  => array( 'Sans', 'Montserrat everywhere, headings included, for a blog that wants no serif at all.' ),
+	$img_sans  => array( 'Sans', 'Metropolis everywhere, headings included, for a blog that wants no serif at all.' ),
 );
 
 $variation_teasers = '';
@@ -72,7 +73,7 @@ $content = <<<HTML
 
 [vc_row css=".vc_custom_philosophy030{padding-top:44px !important;padding-bottom:10px !important;background-color:#f7f7f5 !important;}"][vc_column width="1/1"][vcex_heading text="Three looks, one click" tag="h2" font_size="34px" text_align="center" bottom_margin="14px" font_weight="700"][vc_column_text css=".vc_custom_philosophy031{text-align:center !important;max-width:760px !important;margin-left:auto !important;margin-right:auto !important;}"]The block edition ships three style variations. Each one re-tunes the whole palette rather than inverting it, and every text colour in every variation meets WCAG AA — measured, not assumed.[/vc_column_text][/vc_column][/vc_row][vc_row equal_height="yes" content_placement="top" css=".vc_custom_philosophy032{padding-top:0px !important;padding-bottom:24px !important;background-color:#f7f7f5 !important;}"]{$variation_teasers}[/vc_row]
 
-[vc_row css=".vc_custom_philosophy040{padding-top:44px !important;padding-bottom:24px !important;}"][vc_column width="1/1"][vcex_heading text="Built for reading" tag="h2" font_size="34px" text_align="center" bottom_margin="14px" font_weight="700"][vc_column_text css=".vc_custom_philosophy041{text-align:center !important;max-width:760px !important;margin-left:auto !important;margin-right:auto !important;}"]Libre Baskerville for the words and Montserrat for everything around them, both served from your own server. A single measured column, a real author block, tags, previous and next, and threaded comments with labelled fields.[/vc_column_text][/vc_column][/vc_row][vc_row css=".vc_custom_philosophy042{padding-bottom:56px !important;}"][vc_column width="1/1"][vcex_image image_id="{$img_single}" align="center" border_radius="12px" bottom_margin="0px" img_shadow="two"][/vc_column][/vc_row]
+[vc_row css=".vc_custom_philosophy040{padding-top:44px !important;padding-bottom:24px !important;}"][vc_column width="1/1"][vcex_heading text="Built for reading" tag="h2" font_size="34px" text_align="center" bottom_margin="14px" font_weight="700"][vc_column_text css=".vc_custom_philosophy041{text-align:center !important;max-width:760px !important;margin-left:auto !important;margin-right:auto !important;}"]Libre Baskerville for the headings and Metropolis for the reading, both served from your own server. A single measured column, a real author block, tags, previous and next, and threaded comments with labelled fields.[/vc_column_text][/vc_column][/vc_row][vc_row css=".vc_custom_philosophy042{padding-bottom:56px !important;}"][vc_column width="1/1"][vcex_image image_id="{$img_single}" align="center" border_radius="12px" bottom_margin="0px" img_shadow="two"][/vc_column][/vc_row]
 
 [vc_row css=".vc_custom_philosophy050{padding-top:44px !important;padding-bottom:20px !important;background-color:#f7f7f5 !important;}"][vc_column width="1/1"][vcex_heading text="What else is in it" tag="h2" font_size="34px" text_align="center" bottom_margin="24px" font_weight="700"][/vc_column][/vc_row][vc_row css=".vc_custom_philosophy051{padding-bottom:20px !important;background-color:#f7f7f5 !important;}"][vc_column width="1/3"][vcex_icon_box style="one" heading_type="h3" heading="Nothing phones home" icon="fa fa-bolt" icon_color="#0054a5" heading_size="18px"]Both typefaces and the icon set are served from your own server. No Google Fonts, no CDN, no third-party request on any page — so the theme works behind a strict content security policy.[/vcex_icon_box][/vc_column][vc_column width="1/3"][vcex_icon_box style="one" heading_type="h3" heading="Social icons that work themselves out" icon="fa fa-share-alt" icon_color="#0054a5" heading_size="18px"]Add a link to your profile and the right icon appears, worked out from the address. X, Bluesky, Threads, Mastodon, TikTok and the rest — no CSS classes to look up.[/vcex_icon_box][/vc_column][vc_column width="1/3"][vcex_icon_box style="one" heading_type="h3" heading="Keyboard and screen reader" icon="fa fa-universal-access" icon_color="#0054a5" heading_size="18px"]A skip link, real buttons rather than links to nowhere, a focus outline you can see, one h1 per page, and a mobile menu that traps focus and closes on Escape.[/vcex_icon_box][/vc_column][/vc_row][vc_row css=".vc_custom_philosophy052{padding-bottom:44px !important;background-color:#f7f7f5 !important;}"][vc_column width="1/3"][vcex_icon_box style="one" heading_type="h3" heading="Post formats" icon="fa fa-play-circle-o" icon_color="#0054a5" heading_size="18px"]Video and audio posts show their media in the grid without a featured image, using the player WordPress already ships rather than a second copy of it.[/vcex_icon_box][/vc_column][vc_column width="1/3"][vcex_icon_box style="one" heading_type="h3" heading="Block editor ready" icon="fa fa-th" icon_color="#0054a5" heading_size="18px"]Wide and full alignments, an editor stylesheet so the editor matches the page, four block styles and a set of patterns — in the classic edition too, not only the block one.[/vcex_icon_box][/vc_column][vc_column width="1/3"][vcex_icon_box style="one" heading_type="h3" heading="Translation ready" icon="fa fa-globe" icon_color="#0054a5" heading_size="18px"]Every string is translatable and a current .pot file ships with each edition. Right-to-left languages inherit WordPress's own handling.[/vcex_icon_box][/vc_column][/vc_row]
 
