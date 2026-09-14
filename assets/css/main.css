@@ -1791,9 +1791,13 @@ button::-moz-focus-inner, input::-moz-focus-inner {
    transition: all 0.3s ease-in-out;
 }
 
+/* Cap both dimensions rather than fixing them: a logo that is not the 5.5:1
+   of the original wordmark was being stretched to fit. */
 .header__logo img {
-   width: 265px;
-   height: 48px;
+   max-width: 265px;
+   max-height: 48px;
+   width: auto;
+   height: auto;
 }
 .header__logo h2 {
    margin-top: 0px;
@@ -2027,8 +2031,8 @@ body.search-is-visible {
 
 @media only screen and (max-width:900px) {
    .header__logo img {
-      width: 250px;
-      height: 45px;
+      max-width: 250px;
+      max-height: 45px;
    }
 
 }
