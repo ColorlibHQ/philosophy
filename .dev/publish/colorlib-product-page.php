@@ -19,15 +19,14 @@ defined( 'ABSPATH' ) || exit;
 $page_id = 169039;
 
 // Media captured from the colorlibhub.com/philosophy demo, 2026-09-14, after
-// both editions were put back on Metropolis. The first set (381458-381466) was
-// shot before that demo existed and showed the Academia demo content; the
-// second (381470-381476) predates the typography work. Both are deleted.
-$img_blocks_home  = 381481;
-$img_classic_grid = 381480;
-$img_single       = 381484;
-$img_ink          = 381482;
-$img_paper        = 381483;
-$img_sans         = 381485;
+// the typography, the footer and the hero were brought back to the design.
+// Earlier sets (381458-381466, 381470-381476, 381479-381485) are deleted.
+$img_blocks_home  = 381492;
+$img_classic_grid = 381491;
+$img_single       = 381495;
+$img_ink          = 381493;
+$img_paper        = 381494;
+$img_sans         = 381496;
 
 $dl_classic = 'https://updates.colorlib.com/download/theme/philosophy.zip';
 $dl_blocks  = 'https://updates.colorlib.com/download/theme/philosophy-blocks.zip';

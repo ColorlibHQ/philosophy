@@ -15,7 +15,7 @@ $page_id  = 5091;
 // uploads/sites/2 already held a 2022 file called
 // philosophy-free-wordpress-blog-theme.jpg, so the new upload became -1.jpg and
 // a hardcoded URL quietly pointed the card at a four-year-old screenshot.
-$card_att = 381479;
+$card_att = 381490;
 $card_img = wp_get_attachment_url( $card_att );
 $card_dim = wp_get_attachment_image_src( $card_att, 'full' );
 $page_url = 'https://colorlib.com/wp/themes/philosophy/';
