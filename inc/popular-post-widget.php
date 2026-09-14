@@ -47,32 +47,36 @@ if ( ! class_exists( 'philosophy_popular_post_widget' ) ) {
 				$number = 3;
 			}
 
+			/*
+			 * A bare `meta_key` restricts the query to posts that already carry
+			 * the view counter, so a site where three posts had ever been read
+			 * showed three posts and no more, however many the widget asked
+			 * for. The OR clause keeps the unread ones in, after the read ones.
+			 */
 			$query = new WP_Query(
 				array(
 					'posts_per_page'      => $number,
 					'post_status'         => 'publish',
 					'ignore_sticky_posts' => true,
 					'no_found_rows'       => true,
-					'meta_key'            => 'philosophy_post_views_count', // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key
+					'meta_query'          => array( // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_query
+						'relation' => 'OR',
+						'viewed'   => array(
+							'key'     => 'philosophy_post_views_count',
+							'compare' => 'EXISTS',
+							'type'    => 'NUMERIC',
+						),
+						'unviewed' => array(
+							'key'     => 'philosophy_post_views_count',
+							'compare' => 'NOT EXISTS',
+						),
+					),
 					'orderby'             => array(
-						'meta_value_num' => 'DESC',
-						'date'           => 'DESC',
+						'viewed' => 'DESC',
+						'date'   => 'DESC',
 					),
 				)
 			);
-
-			// A site that has not gathered any views yet would otherwise show an
-			// empty widget: fall back to the newest posts.
-			if ( ! $query->have_posts() ) {
-				$query = new WP_Query(
-					array(
-						'posts_per_page'      => $number,
-						'post_status'         => 'publish',
-						'ignore_sticky_posts' => true,
-						'no_found_rows'       => true,
-					)
-				);
-			}
 
 			if ( ! $query->have_posts() ) {
 				return;

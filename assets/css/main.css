@@ -3149,6 +3149,25 @@ html.cl-loaded .featured {
    width: 6.9rem;
 }
 
+/* The template sets these in the sans at 1.6rem; without this they inherit the
+ * 2.4rem serif from .s-extra h3 and the list reads like six section headings. */
+.s-extra .popular__title {
+   font-family: 'Metropolis', 'Montserrat', sans-serif;
+   font-size: 1.6rem;
+   font-weight: 800;
+   line-height: 1.313;
+   margin: 0 0 .6rem;
+}
+
+.s-extra .popular__title a {
+   color: #000000;
+}
+
+.s-extra .popular__title a:hover,
+.s-extra .popular__title a:focus {
+   color: #0054a5;
+}
+
 .s-extra .popular__meta {
    font-size: 1.3rem;
    line-height: 1.615;
@@ -3318,7 +3337,8 @@ footer a {
 footer h4 {
    font-family: 'Metropolis', 'Montserrat', sans-serif;
    font-size: 1.4rem;
-   font-weight: 600;
+   /* Metropolis Bold, as in the HTML template. */
+   font-weight: 700;
    line-height: 1.286;
    text-transform: uppercase;
    letter-spacing: .25rem;
