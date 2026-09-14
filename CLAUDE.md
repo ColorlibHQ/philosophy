@@ -68,6 +68,16 @@ Colours accept short hex and `rgba()` because Epsilon wrote both.
 new setting to that map at the same time you add its field, or it will read as
 empty on every site that has not saved it.
 
+**The typefaces are Metropolis and Libre Baskerville, and both have a trap.**
+Metropolis is what the HTML template and Philosophy 1.1.x were set in; 1.2.0
+briefly substituted Montserrat and the whole theme read differently. Montserrat
+is still bundled, latin-ext only, purely as the fallback for the letters
+Metropolis lacks (Latvian Ļ ļ, Romanian Ș ș Ț ț) — do not remove it from the
+font stack. And **do not fetch Libre Baskerville from the Google Fonts CSS
+API**: it answers weight 400 and weight 700 with the same file, so the theme
+ends up declaring a bold it does not have and every heading is synthesised.
+`tools/build-fonts.mjs` takes both families from Fontsource for that reason.
+
 **The icon stylesheet and the icon fonts are built together.** The solid and
 regular faces are subset to exactly the codepoints `all.css` references. After
 running `tools/build-fontawesome.mjs`, run `tools/verify-icons.py`; it fails if
