@@ -33,6 +33,8 @@ if ( 'header' === $philosophy_context ) :
 			name="s"
 			autocomplete="off">
 		<input type="submit" class="search-submit" value="<?php esc_attr_e( 'Search', 'philosophy' ); ?>">
+
+		<p class="header__search-hint"><?php esc_html_e( 'Press Enter to begin your search.', 'philosophy' ); ?></p>
 	</form>
 	<?php
 	return;

@@ -1913,8 +1913,7 @@ button::-moz-focus-inner, input::-moz-focus-inner {
    color: #FFFFFF;
 }
 
-.header__search-form::after {
-   content: "Press Enter to begin your search.";
+.header__search-hint {
    display: block;
    letter-spacing: 0.6px;
    font-size: 1.6rem;
@@ -1925,7 +1924,7 @@ button::-moz-focus-inner, input::-moz-focus-inner {
 
 .header__search-form input[type="search"] {
    background-color: transparent;
-   color: #000000;
+   color: #FFFFFF;
    height: auto;
    width: 100%;
    font-family: 'Metropolis', 'Montserrat', sans-serif;
