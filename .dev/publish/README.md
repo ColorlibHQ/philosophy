@@ -14,6 +14,7 @@ ssh hetzner 'cd /var/www/colorlib.com/public \
 | `colorlib-product-page.php` | Rebuilds the Philosophy product page (169039). Idempotent; leaves it a **draft**. |
 | `colorlib-themes-listing.php` | Adds Philosophy to the `/wp/themes/` listing (5091). If already listed, refreshes the card image and leaves the rest alone. |
 | `frame.mjs` | Wraps a screenshot in the browser frame the page uses: `node frame.mjs in.png out.jpg 88`. |
+| `colorlib-wp-theme-downloads.php` | The mu-plugin that puts the page's download buttons behind the email gate. Copy to `wp-content/mu-plugins/` on colorlib.com. |
 
 ## Use `wp eval "require …"`, not `wp eval-file`
 
@@ -82,6 +83,30 @@ node release.mjs --product theme/philosophy --version 1.2.0 \
   --url https://colorlib.com/wp/themes/philosophy/ \
   --tested 7.1 --requires 6.0 --requires-php 7.4
 ```
+
+## The downloads are email-gated
+
+Both buttons go through the same popup the free HTML templates and the Shopify
+themes use: email, consent, **Sendy double opt-in**, download link on
+confirmation. Sendy list **11 "Colorlib - Free WordPress Themes"** (encrypted id
+`0Z3t3Y23763KZcahvahoCgQw`), autoresponder `immediately` on confirmation,
+mailing `https://updates.colorlib.com/download/theme/[download_name].zip`.
+
+- The list registry and the popup live in the **colorlib-shop plugin**; this
+  repo only carries `colorlib-wp-theme-downloads.php`, which says that page
+  169039 opts in and what the popup says.
+- **A page here offers two themes**, so the plugin now takes `download_name`
+  from whichever link was clicked, but only when that link points inside the
+  list's own `zip_base` — a link anywhere else leaves the page default alone and
+  can never be turned into a mailed 404.
+- **The update path stays open on purpose.** Installed sites update through
+  `Update URI` -> `updates.colorlib.com/theme/{slug}.json`, whose package points
+  straight at `downloads.colorlib.com`. Gating that would break automatic
+  updates for every site already running the theme.
+- The buttons stay ordinary links in the markup, so with JavaScript off the zip
+  still downloads rather than the page offering a button that does nothing.
+
+Adding another theme page is one line in `colorlib_wp_theme_downloads_map()`.
 
 ## The demo site
 
