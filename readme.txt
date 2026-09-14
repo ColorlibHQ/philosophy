@@ -239,6 +239,12 @@ Font Awesome Free 7.3.1
 * https://fontawesome.com/license/free
 * Bundled in assets/css/fontawesome/, trimmed by tools/build-fontawesome.mjs
 
+Metropolis
+* Copyright Chris Simpson
+* The Unlicense (public domain)
+* https://github.com/dw5/Metropolis
+* Bundled in assets/fonts/
+
 Libre Baskerville
 * Copyright Impallari Type
 * SIL Open Font License, 1.1
@@ -249,7 +255,8 @@ Montserrat
 * Copyright The Montserrat Project Authors
 * SIL Open Font License, 1.1
 * https://fonts.google.com/specimen/Montserrat
-* Bundled in assets/fonts/
+* Bundled in assets/fonts/, latin-ext only, as the fallback for the few letters
+  Metropolis does not draw
 
 MediaElement.js control sprite (img/mejs/)
 * Copyright 2010-2024 John Dyer
