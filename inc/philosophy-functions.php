@@ -37,8 +37,10 @@ if ( ! function_exists( 'philosophy_defaults' ) ) {
 				'philosophy_headersocial_toggle'          => true,
 				'philosophy_header_bg_color'              => '#151515',
 				'philosophy_header_top_color'             => '#ffffff',
-				'philosophy_header_menu_color'            => '#ffffff',
-				'philosophy_header_menu_hover_color'      => '#b5b3b3',
+				// The design dims the menu and brightens the section you are in;
+				// these were the other way round, so every item read as current.
+				'philosophy_header_menu_color'            => '#b5b3b3',
+				'philosophy_header_menu_hover_color'      => '#ffffff',
 				'philosophy_header_menu_dropbg_color'     => '#050505',
 				'philosophy_header_drop_menu_color'       => '#b5b3b3',
 				'philosophy_header_drop_menu_hover_color' => '#ffffff',

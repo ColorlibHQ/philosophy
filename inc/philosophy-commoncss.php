@@ -54,6 +54,7 @@ if ( ! function_exists( 'philosophy_common_custom_css' ) ) {
 			'.header__nav li.has-children > a::after'                      => array( 'border-color' => $colors['menu'] ),
 			'.header__nav li a'                                            => array( 'color' => $colors['menu'] ),
 			'.header__nav li:hover > a, .header__nav li:focus-within > a'  => array( 'color' => $colors['menu_hover'] ),
+			'.header__nav li.current-menu-item > a, .header__nav li.current_page_item > a, .header__nav li.current-menu-ancestor > a, .header__nav li.current-menu-parent > a' => array( 'color' => $colors['menu_hover'] ),
 			'.header__nav li ul'                                           => array( 'background' => $colors['drop_bg'] ),
 			'.header__nav li ul li a'                                      => array( 'color' => $colors['drop'] ),
 			'.header__nav li ul li a:hover, .header__nav li ul li a:focus'  => array( 'color' => $colors['drop_hover'] ),
