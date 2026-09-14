@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 if ( ! defined( 'PHILOSOPHY_VERSION' ) ) {
 	$philosophy_theme = wp_get_theme( get_template() );
-	define( 'PHILOSOPHY_VERSION', $philosophy_theme->get( 'Version' ) ? $philosophy_theme->get( 'Version' ) : '1.2.3' );
+	define( 'PHILOSOPHY_VERSION', $philosophy_theme->get( 'Version' ) ? $philosophy_theme->get( 'Version' ) : '1.3.0' );
 	unset( $philosophy_theme );
 }
 
