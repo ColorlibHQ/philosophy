@@ -19,14 +19,14 @@ defined( 'ABSPATH' ) || exit;
 $page_id = 169039;
 
 // Media captured from the colorlibhub.com/philosophy demo, 2026-09-14, after
-// the typography, the footer and the hero were brought back to the design.
-// Earlier sets (381458-381466, 381470-381476, 381479-381485) are deleted.
-$img_blocks_home  = 381492;
-$img_classic_grid = 381491;
-$img_single       = 381495;
-$img_ink          = 381493;
-$img_paper        = 381494;
-$img_sans         = 381496;
+// the design was brought back in line with the HTML template. Earlier sets
+// (381458-381466, 381470-381476, 381479-381485, 381490-381496) are deleted.
+$img_blocks_home  = 381501;
+$img_classic_grid = 381500;
+$img_single       = 381502;
+$img_ink          = 381503;
+$img_paper        = 381504;
+$img_sans         = 381505;
 
 $dl_classic = 'https://updates.colorlib.com/download/theme/philosophy.zip';
 $dl_blocks  = 'https://updates.colorlib.com/download/theme/philosophy-blocks.zip';
