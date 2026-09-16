@@ -69,6 +69,57 @@ exists. All of your settings were kept.
 
 == Changelog ==
 
+= 1.3.0 =
+
+1.2.1 to 1.2.3 were version numbers used while iterating on the design; 1.3.0
+is the release that follows 1.2.0.
+
+Fixed
+
+* Fixed the featured area rendering as an empty black band on any site whose
+  posts are not in "Uncategorized", which is every fresh install. It falls back
+  to the most recent posts.
+* Fixed the featured area covering the navigation when the header is taller
+  than 222px, for example with a tagline and a longer menu.
+* Fixed the site title taking the accent colour on the dark masthead (about
+  1.9:1). It follows the header text colour.
+* Fixed featured panel titles and author names rendering in accent blue over
+  their photographs. They are white, as designed.
+* Fixed the featured category badges failing AA contrast (2.53:1 and 3.37:1).
+  They measure 4.8:1 now.
+* Fixed the featured meta line leaving a gap for an avatar when avatars are
+  turned off.
+* Fixed the Popular Posts widget showing only posts that had already been
+  read, whatever number it was set to.
+* Fixed the header logo being stretched to 265x48 whatever its proportions.
+* Fixed text typed into the header search being near-black on the dark overlay
+  (about 1.05:1). "Press Enter to begin your search." is now translatable.
+* Fixed the 404 page's search button running the full width of the page.
+
+Changed
+
+* The About and Contact info blocks are page content now. They move out of the
+  Customizer into their pages, as blocks, the next time an administrator loads
+  the admin. The old setting is kept, so rolling back loses nothing.
+* Every Customizer control is a core control type. The theme no longer ships
+  control classes, a control stylesheet or a control script.
+* Metropolis is the typeface again, as in the original design and 1.1.x (1.2.0
+  had switched to Montserrat). Libre Baskerville Bold is a real bold rather than
+  one synthesised by the browser.
+* Menu items are dimmed at rest and white on hover, and the current item is
+  highlighted.
+* The icon fonts are subset to the glyphs the stylesheet uses: solid 117 KB to
+  17 KB, regular 19 KB to 11 KB. Brands still ship whole.
+* The header's social bar is capped in width, so a long list no longer runs
+  across the site title.
+* Update checks through WordPress' Update URI mechanism: releases from
+  colorlib.com appear under Dashboard > Updates. The check sends the theme,
+  WordPress and PHP versions, the locale, whether the site is multisite and an
+  anonymous site identifier. The philosophy_check_for_updates filter turns it
+  off.
+* Corrected the bundled Font Awesome version string, so its stylesheet URL
+  changes when the icons do.
+
 = 1.2.0 =
 
 The Epsilon release. Philosophy 1.1.2 could not be installed from a fresh
