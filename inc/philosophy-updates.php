@@ -104,7 +104,7 @@ function philosophy_fetch_update() {
 		add_query_arg( philosophy_update_payload(), PHILOSOPHY_UPDATE_ENDPOINT ),
 		array(
 			'timeout'    => 8,
-			'user-agent' => 'Philosophy/' . PHILOSOPHY_VERSION . '; ' . home_url( '/' ),
+			'user-agent' => philosophy_update_user_agent(),
 		)
 	);
 
@@ -200,3 +200,32 @@ function philosophy_updates_notice() {
 	<?php
 }
 add_action( 'admin_footer', 'philosophy_updates_notice' );
+
+/**
+ * The User-Agent for every request this site sends to the update server: the
+ * theme and WordPress versions, never the site address. WordPress's default
+ * User-Agent appends home_url(), which would undo the one-way hash the check
+ * sends in its place. The updates Worker recognises update traffic by the
+ * "WordPress/" token, so that stays.
+ *
+ * @return string
+ */
+function philosophy_update_user_agent() {
+	return 'Philosophy/' . PHILOSOPHY_VERSION . '; WordPress/' . get_bloginfo( 'version' );
+}
+
+/**
+ * Core downloads the update package itself, with its default User-Agent (which
+ * names the site). Requests to the update host get the anonymous one instead.
+ *
+ * @param array  $args Request arguments.
+ * @param string $url  Request URL.
+ * @return array
+ */
+function philosophy_update_request_args( $args, $url ) {
+	if ( 'updates.colorlib.com' === wp_parse_url( $url, PHP_URL_HOST ) ) {
+		$args['user-agent'] = philosophy_update_user_agent();
+	}
+	return $args;
+}
+add_filter( 'http_request_args', 'philosophy_update_request_args', 10, 2 );

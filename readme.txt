@@ -69,6 +69,10 @@ exists. All of your settings were kept.
 
 == Changelog ==
 
+
+= 1.3.1 =
+* Update requests no longer name the site. WordPress's default User-Agent carries the site address; the update check and core's package download to updates.colorlib.com now send only the theme and WordPress versions, so the one-way site identifier is the only thing that tells installs apart.
+
 = 1.3.0 =
 
 1.2.1 to 1.2.3 were version numbers used while iterating on the design; 1.3.0
